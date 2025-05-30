@@ -1,12 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Simple Page</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your Name | Portfolio</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #0f2027;  /* dark gradient */
+    background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+    color: #eee;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: #00c6ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  /* Header / Hero */
+  header {
+    text-align: center;
+    padding: 100px 20px 60px;
+  }
+  header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+  header p {
+    font-size: 1.5rem;
+    color: #00c6ff;
+    font-weight: 600;
+  }
+  header button {
+    margin-top: 25px;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border: none;
+    background: #00c6ff;
+    color: #0f2027;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  header button:hover {
+    background: #008abf;
+  }
+
+  /* Sections */
+  section {
+    margin: 70px 0;
+  }
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #00c6ff;
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+
+  /* About */
+  #about p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #ccc;
+  }
+
+  /* Skills */
+  .skill {
+    margin-bottom: 20px;
+  }
+  .skill-name {
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .skill-bar {
+    background: #223344;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .skill-progress {
+    height: 18px;
+    background: #00c6ff;
+    width: 0;
+    border-radius: 30px;
+    transition: width 1.5s ease;
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+  }
+  .project-card {
+    background: #1c2a38;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,198,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,198,255,0.6);
+  }
+  .project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .project-desc {
+    font-size: 1rem;
+    color: #bbb;
+  }
+
+  /* Contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+  }
+  label {
+    margin: 12px 0 6px;
+    font-weight: 600;
+  }
+  input, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00c6ff;
+  }
+  button.submit-btn {
+    margin-top: 18px;
+    background: #00c6ff;
+    border: none;
+    color: #0f2027;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button.submit-btn:hover {
+    background: #008abf;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* Animate skill bars on scroll */
+  .visible .skill-progress {
+    width: var(--skill-level);
+  }
+</style>
 </head>
 <body>
-    <h1>Welcome to My Simple Page</h1>
-    <p>This is a basic HTML file.</p>
-    <a href="https://example.com">Visit Example.com</a>
+
+<header>
+  <h1>Your Name</h1>
+  <p>Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+</header>
+
+<div class="container">
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a passionate developer with experience building clean, scalable, and efficient web applications. I love solving problems and continuously learning new technologies to grow professionally and deliver high-quality work.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">HTML & CSS</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="--skill-level:90%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="--skill-level:85%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">React</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="--skill-level:80%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Node.js</div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="--skill-level:75%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" tabindex="0">
+        <div class="project-title">Awesome Portfolio</div>
+        <div class="project-desc">A sleek portfolio website built with HTML, CSS, and JavaScript showcasing my projects and skills.</div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-title">Task Manager App</div>
+        <div class="project-desc">A web app to manage daily tasks with React and Node.js, featuring user authentication and persistence.</div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-title">Weather Dashboard</div>
+        <div class="project-desc">Real-time weather app consuming OpenWeatherMap API, built using vanilla JavaScript and CSS animations.</div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <div class="project-title">Chat Application</div>
+        <div class="project-desc">Real-time chat application built with Socket.IO, allowing users to join rooms and exchange messages.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form" onsubmit="handleSubmit(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your Name" required />
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+      
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+      
+      <button type="submit" class="submit-btn">Send</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Your Name. All rights reserved.
+</footer>
+
+<script>
+  // Animate skill bars when visible on scroll
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+
+  function animateSkills() {
+    const skillsSection = document.getElementById('skills');
+    if (isElementInViewport(skillsSection)) {
+      skillsSection.classList.add('visible');
+      window.removeEventListener('scroll', animateSkills);
+    }
+  }
+
+  window.addEventListener('scroll', animateSkills);
+  window.addEventListener('load', animateSkills);
+
+  // Simple contact form handler (just alerts user)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    alert(`Thank you, ${name}! Your message has been sent.`);
+    e.target.reset();
+  }
+</script>
+
 </body>
 </html>
