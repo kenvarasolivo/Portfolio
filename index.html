@@ -15,10 +15,9 @@
   --cyan:     #00e5c8;
   --cyan2:    #00b4d8;
   --purple:   #7b5ef8;
-  --text-d:   #e8e6ff;           /* on dark */
+  --text-d:   #e8e6ff;
   --muted-d:  rgba(232,230,255,0.55);
   --border-d: rgba(255,255,255,0.09);
-  /* LIGHT section palette */
   --light-bg:   #f2f1ee;
   --light-bg2:  #e9e8e4;
   --light-bg3:  #ffffff;
@@ -103,7 +102,7 @@ nav.scrolled {
 }
 .nav-cta:hover { background: var(--cyan) !important; color: var(--bg) !important; }
 
-/* ═══ HERO — DARK ═══ */
+/* ═══ HERO ═══ */
 #hero {
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: flex-end; padding: 80px 2.5rem 5rem; overflow: hidden;
@@ -151,7 +150,7 @@ nav.scrolled {
 .scroll-indicator span { font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-d); }
 .scroll-line { width:1px; height:60px; background:linear-gradient(to bottom,var(--cyan),transparent); animation:scrollPulse 2s ease-in-out infinite; }
 
-/* ═══ MARQUEE — DARK ═══ */
+/* ═══ MARQUEE ═══ */
 .marquee-wrap {
   border-top: 1px solid var(--border-d); border-bottom: 1px solid var(--border-d);
   overflow: hidden; padding: 1.2rem 0; background: var(--bg);
@@ -164,22 +163,14 @@ nav.scrolled {
 }
 .marquee-item::after { content:'✦'; color:var(--cyan); font-size:.6rem; }
 
-/* ═══════════════════════════════════
-   LIGHT SECTIONS — shared styles
-═══════════════════════════════════ */
-.section-light {
-  background: var(--light-bg);
-  color: var(--text-l);
-}
+/* ═══ LIGHT SECTIONS ═══ */
+.section-light { background: var(--light-bg); color: var(--text-l); }
 .section-light .label { color: #0a7a6a; }
 .section-light .label::after { background: rgba(0,0,0,.2); }
-.section-light .sr, .section-light .sr-left, .section-light .sr-scale { color: var(--text-l); }
 
-/* ═══ ABOUT — LIGHT ═══ */
+/* ═══ ABOUT ═══ */
 #about {
-  background: var(--light-bg3);
-  color: var(--text-l);
-  padding: 8rem 2.5rem;
+  background: var(--light-bg3); color: var(--text-l); padding: 8rem 2.5rem;
 }
 #about .about-headline {
   font-family: 'Bebas Neue', sans-serif;
@@ -199,11 +190,11 @@ nav.scrolled {
 .stat-num { font-family:'Bebas Neue',sans-serif; font-size:4rem; line-height:1; color:#007a6a; display:block; }
 .stat-label { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-l); margin-top:.5rem; }
 
-/* ═══ PROJECTS — LIGHT (slightly warmer) ═══ */
+/* ═══ PROJECTS ═══ */
 #projects {
-  background: var(--light-bg);
-  color: var(--text-l);
-  padding: 8rem 2.5rem;
+  background: var(--light-bg); color: var(--text-l);
+  /* FIX: no bottom padding — the scroll-showcase-wrapper provides its own spacing */
+  padding: 8rem 2.5rem 0;
 }
 #projects .label { color: #0a7a6a; }
 #projects .label::after { background:rgba(0,0,0,.15); }
@@ -241,13 +232,21 @@ nav.scrolled {
 }
 .project-item:hover .proj-arrow { border-color:#007a6a; color:#007a6a; transform:rotate(45deg); }
 
-/* ═══ VISUAL PERSONAL PROJECTS ═══ */
+/* ═══════════════════════════════════════════
+   PERSONAL PROJECTS — SCROLL SHOWCASE
+═══════════════════════════════════════════ */
+
 .personal-projects-head {
   margin-top: 8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  /* FIX: explicit top margin, no bottom because wrapper follows */
+  margin-top: 8rem;
 }
 .personal-projects-title {
   font-family: 'Bebas Neue', sans-serif;
@@ -255,93 +254,256 @@ nav.scrolled {
   color: var(--text-l);
   line-height: 1;
 }
-
-.showcase-grid {
-  display: flex; 
-  flex-wrap: nowrap; 
-  gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow-x: auto; 
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory; 
-  padding-bottom: 1.5rem; 
-  
-  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+.personal-projects-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted-l);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding-bottom: .2rem;
+  opacity: .7;
 }
-
-/* Custom Sleek Scrollbar */
-.showcase-grid::-webkit-scrollbar { height: 6px; }
-.showcase-grid::-webkit-scrollbar-track { background: transparent; }
-.showcase-grid::-webkit-scrollbar-thumb {
-  background: rgba(0, 168, 150, 0.4); 
-  border-radius: 10px;
-  transition: background 0.3s;
+.hint-arrow { display: inline-flex; gap: 3px; }
+.hint-arrow span {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-top: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  animation: hintPulse 1.6s ease-in-out infinite;
 }
-.showcase-grid::-webkit-scrollbar-thumb:hover { background: rgba(0, 168, 150, 0.8); }
+.hint-arrow span:nth-child(2) { animation-delay: .15s; opacity: .6; }
+.hint-arrow span:nth-child(3) { animation-delay: .30s; opacity: .3; }
+@keyframes hintPulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
 
-.showcase-card {
+/* SCROLL SHOWCASE WRAPPER */
+.scroll-showcase-wrapper {
   position: relative;
-  display: block;
-  /* Make it much bigger */
-  flex: 0 0 420px; 
-  width: 420px; 
-  /* Taller aspect ratio to match the reference */
-  aspect-ratio: 4 / 5; 
-  /* Sharper edges (6px is a standard modern radius) */
-  border-radius: 6px; 
+  /* Height set by JS */
+  margin-top: 3rem;
+  /* FIX: no extra margin/padding that adds whitespace */
+}
+
+.scroll-showcase-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
+  background: var(--bg);
+  border-top: 1px solid rgba(0,229,200,.1);
+  border-bottom: 1px solid rgba(0,229,200,.1);
+}
+
+.scroll-showcase-sticky::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 20% 50%, rgba(0,229,200,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 50%, rgba(123,94,248,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.showcase-progress-bar {
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+  width: 0%;
+  transition: width .08s linear;
+  z-index: 10;
+}
+
+.showcase-counter {
+  position: absolute;
+  top: 2rem; right: 2.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  color: rgba(0,229,200,.5);
+  z-index: 10;
+}
+.showcase-counter .cur { color: var(--cyan); }
+
+.showcase-label {
+  position: absolute;
+  top: 2rem; left: 2.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(232,230,255,.2);
+  z-index: 10;
+}
+
+/* Track: JS drives translateX, no CSS transition (would fight scroll) */
+.showcase-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  /* padding-left so first card starts centred; no padding-right needed */
+  padding: 0 0 0 calc(50vw - 190px);
+  will-change: transform;
+  /* No width constraint — let it be as wide as all cards */
+  width: max-content;
+}
+
+/* ── INDIVIDUAL SHOWCASE CARD ── */
+.sc-card {
+  flex: 0 0 380px;
+  height: 500px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  /* CRITICAL: NO transform on .sc-card. The track's JS-driven translateX
+     moves everything. Any transform here compounds with it and breaks pan. */
+  opacity: 0;
+  transition: opacity .6s ease, box-shadow .4s ease;
+  background: var(--bg2);
+  border: 1px solid var(--border-d);
   text-decoration: none;
-  background: var(--border-l);
-  transform: translateY(0);
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-  scroll-snap-align: start; 
+  display: block;
 }
 
-.showcase-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+.sc-card.is-visible {
+  opacity: 1;
 }
 
-.showcase-img {
+.sc-card.is-visible:hover {
+  box-shadow:
+    0 0 0 1px rgba(0,229,200,.35),
+    0 24px 60px rgba(0,0,0,.8),
+    0 0 40px rgba(0,229,200,.08);
+}
+
+.sc-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .7s var(--ease);
+  display: block;
+  transition: transform .7s var(--ease), filter .5s ease;
+  filter: brightness(.9) saturate(.9);
 }
-.showcase-card:hover .showcase-img {
-  transform: scale(1.05);
-}
-.showcase-overlay {
-  position: absolute;
-  inset: 0;
-  /* Dark gradient that fades to transparent halfway up */
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 35%, transparent 60%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
-  pointer-events: none; /* Allows the hover to trigger on the card itself */
-}
-.showcase-title {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-.showcase-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.sc-card.is-visible:hover .sc-img {
+  transform: scale(1.06);
+  filter: brightness(1) saturate(1);
 }
 
-/* ═══ SKILLS — DARK ═══ */
+.sc-fallback {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.sc-fallback-icon { font-size: 4rem; opacity: .3; }
+
+.sc-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top,
+      rgba(5,8,15,.96) 0%,
+      rgba(5,8,15,.55) 35%,
+      rgba(5,8,15,.12) 60%,
+      transparent 100%);
+  pointer-events: none;
+}
+
+.sc-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity .4s ease;
+  z-index: 5;
+}
+.sc-card.is-visible:hover::after { opacity: 1; }
+
+.sc-num {
+  position: absolute; top: 1.25rem; left: 1.25rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4.5rem; line-height: 1;
+  color: rgba(255,255,255,.07);
+  -webkit-text-stroke: 1px rgba(0,229,200,.15);
+  z-index: 3;
+  transition: color .3s, -webkit-text-stroke .3s;
+  pointer-events: none;
+}
+.sc-card.is-visible:hover .sc-num {
+  color: rgba(0,229,200,.08);
+  -webkit-text-stroke: 1px rgba(0,229,200,.3);
+}
+
+.sc-tag {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(0,229,200,.7);
+  background: rgba(0,229,200,.08);
+  border: 1px solid rgba(0,229,200,.2);
+  padding: .3rem .7rem; border-radius: 2rem;
+  z-index: 3;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.sc-card.is-visible:hover .sc-tag {
+  background: rgba(0,229,200,.15);
+  color: var(--cyan);
+  border-color: rgba(0,229,200,.45);
+}
+
+.sc-body {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem; z-index: 3;
+}
+.sc-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem; font-weight: 600;
+  color: #f0eeff; margin-bottom: .4rem;
+  letter-spacing: -.02em; line-height: 1.25;
+  transition: color .3s;
+}
+.sc-card.is-visible:hover .sc-title { color: #fff; }
+
+.sc-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem; color: rgba(232,230,255,.45);
+  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem;
+}
+
+.sc-link {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cyan);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .35s ease, transform .35s var(--ease);
+}
+.sc-card.is-visible:hover .sc-link { opacity: 1; transform: translateY(0); }
+.sc-link svg { transition: transform .3s var(--ease); }
+.sc-card.is-visible:hover .sc-link svg { transform: translate(3px,-3px); }
+
+.showcase-start-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  z-index: 10; transition: opacity .5s;
+}
+.showcase-start-hint span {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(232,230,255,.25); white-space: nowrap;
+}
+.showcase-start-hint .scroll-line {
+  width:1px; height:40px;
+  background:linear-gradient(to bottom,rgba(0,229,200,.4),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+
+/* ═══ SKILLS ═══ */
 #skills { background: var(--bg2); color: var(--text-d); padding: 8rem 2.5rem; }
 #skills .label { color: var(--cyan); }
 .skills-headline { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,7rem); line-height:.95; color:#f0eeff; margin-bottom:4rem; }
@@ -355,7 +517,7 @@ nav.scrolled {
 .skill-bar-track { height:2px; background:var(--border-d); border-radius:2px; overflow:hidden; }
 .skill-bar-fill { height:100%; background:linear-gradient(90deg,var(--purple),var(--cyan)); border-radius:2px; width:0; transition:width 1.2s var(--ease); }
 
-/* ═══ EDUCATION — LIGHT ═══ */
+/* ═══ EDUCATION ═══ */
 #education { background: var(--light-bg); color: var(--text-l); padding: 8rem 2.5rem; }
 #education .label { color: #0a7a6a; }
 #education .label::after { background:rgba(0,0,0,.15); }
@@ -368,7 +530,7 @@ nav.scrolled {
 .tl-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.6rem,3vw,2.8rem); color:var(--text-l); letter-spacing:.03em; line-height:1; margin-bottom:1rem; }
 .tl-detail { font-size:.9rem; color:var(--muted-l); line-height:1.7; }
 
-/* ═══ LANGUAGES — WHITE ═══ */
+/* ═══ LANGUAGES ═══ */
 #languages { background: var(--light-bg3); color: var(--text-l); padding: 8rem 2.5rem; }
 #languages .label { color: #0a7a6a; }
 #languages .label::after { background:rgba(0,0,0,.15); }
@@ -379,7 +541,7 @@ nav.scrolled {
 .lang-name-big { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; letter-spacing:.05em; color:var(--text-l); line-height:1; margin-bottom:.4rem; }
 .lang-lvl { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:#007a6a; }
 
-/* ═══ ORGS — DARK ═══ */
+/* ═══ ORGS ═══ */
 #orgs { background: var(--bg); color: var(--text-d); padding: 8rem 2.5rem; }
 #orgs .label { color: var(--cyan); }
 .org-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-d); border:1px solid var(--border-d); border-radius:.75rem; overflow:hidden; max-width:1400px; margin:0 auto; }
@@ -390,7 +552,7 @@ nav.scrolled {
 .org-role { font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.08em; color:rgba(232,230,255,.45); margin-bottom:1.25rem; }
 .org-desc { font-size:.9rem; color:rgba(232,230,255,.6); line-height:1.7; font-weight:300; }
 
-/* ═══ CONTACT — DARK ═══ */
+/* ═══ CONTACT ═══ */
 #contact { background: var(--bg); text-align:center; padding:12rem 2.5rem 8rem; position:relative; overflow:hidden; }
 .contact-glow { position:absolute; width:600px; height:600px; left:50%; top:50%; transform:translate(-50%,-50%); background:radial-gradient(circle,rgba(0,229,200,.07) 0%,transparent 70%); pointer-events:none; }
 .contact-big { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,12vw,14rem); line-height:.9; letter-spacing:.01em; color:#f0eeff; margin:2rem 0 3rem; }
@@ -411,7 +573,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 .footer-copy { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; color:rgba(232,230,255,.2); }
 .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.12em; color:rgba(232,230,255,.12); }
 
-/* ═══ SHARED SECTION LAYOUT ═══ */
+/* ═══ SHARED ═══ */
 .section-inner { max-width:1400px; margin:0 auto; }
 .label {
   font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
@@ -427,11 +589,11 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 .sr.in, .sr-left.in, .sr-scale.in { opacity:1; transform:none; }
 
 /* ═══ KEYFRAMES ═══ */
-@keyframes slideUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-@keyframes revealLine{ from{clip-path:inset(0 0 100% 0)} to{clip-path:inset(0 0 0% 0)} }
-@keyframes fadeIn    { from{opacity:0} to{opacity:1} }
+@keyframes slideUp    { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes revealLine { from{clip-path:inset(0 0 100% 0)} to{clip-path:inset(0 0 0% 0)} }
+@keyframes fadeIn     { from{opacity:0} to{opacity:1} }
 @keyframes scrollPulse{ 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(.6);opacity:.4} }
-@keyframes marquee   { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes marquee    { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
@@ -444,6 +606,11 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   .tl-item{grid-template-columns:1fr;}
   .lang-row,.org-grid{grid-template-columns:1fr;}
   #cursor,#cursor-ring{display:none;} body{cursor:auto;}
+  .scroll-showcase-wrapper { height: auto !important; margin-bottom: 0; }
+  .scroll-showcase-sticky { position: static; height: auto; background: var(--bg); overflow: hidden; padding: 2rem 0; }
+  .showcase-track { overflow-x: auto; padding: 1.5rem 1.5rem; gap: 1.25rem; transform: none !important; transition: none; -webkit-overflow-scrolling: touch; }
+  .sc-card { flex: 0 0 280px; height: 360px; opacity: 1 !important; transform: none !important; transition: box-shadow .3s; }
+  .showcase-progress-bar,.showcase-counter,.showcase-label,.showcase-start-hint { display: none; }
 }
 </style>
 </head>
@@ -468,7 +635,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 
 <main>
 
-<!-- ── HERO DARK ── -->
+<!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-overline">Computer Science · Aachen, Germany</div>
   <h1 class="hero-headline">
@@ -489,7 +656,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── MARQUEE DARK ── -->
+<!-- ── MARQUEE ── -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item">Vue.js</div><div class="marquee-item">Python</div>
@@ -505,7 +672,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </div>
 
-<!-- ── ABOUT LIGHT ── -->
+<!-- ── ABOUT ── -->
 <section id="about">
   <div class="section-inner">
     <div class="label sr" data-num="01">About me</div>
@@ -528,7 +695,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── PROJECTS LIGHT ── -->
+<!-- ── PROJECTS ── -->
 <section id="projects">
   <div class="section-inner">
     <div class="label sr" data-num="02">Projects</div>
@@ -583,55 +750,125 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
         <div class="proj-arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
       </div>
     </div>
-    <div class="personal-projects-head sr">
-      <h3 class="personal-projects-title">PERSONAL PROJECTS & EXPLORATIONS</h3>
-    </div>
 
-    <div class="showcase-grid sr-scale">
-      <a href="https://la-ferrari-phi.vercel.app/" target="_blank" class="showcase-card">
-        <img src="project_laferrari.png" alt="Personal Project 1" class="showcase-img">
-        <div class="showcase-overlay">
-          <h4 class="showcase-title">LaFerrari</h4>
-          <p class="showcase-sub">3D, JavaScript</p>
+    <!-- ══ PERSONAL PROJECTS HEADER ══ -->
+    <div class="personal-projects-head sr" style="margin-top:8rem">
+      <h3 class="personal-projects-title">PERSONAL EXPLORATIONS</h3>
+      <div class="personal-projects-hint">
+        Scroll to explore
+        <div class="hint-arrow">
+          <span></span><span></span><span></span>
         </div>
-      </a>
-
-      <a href="https://cinescope-mocha.vercel.app/" target="_blank" class="showcase-card">
-        <img src="project_cinescope.png" alt="Personal Project 2" class="showcase-img">
-        <div class="showcase-overlay">
-          <h4 class="showcase-title">Cinescope</h4>
-          <p class="showcase-sub">API</p>
-        </div>
-      </a>
-
-      <a href="https://destination-intelligence.vercel.app/" target="_blank" class="showcase-card">
-        <img src="project_destination_intelligence.png" alt="Personal Project 3" class="showcase-img">
-        <div class="showcase-overlay">
-          <h4 class="showcase-title">Destination Intelligence</h4>
-          <p class="showcase-sub">Data</p>
-        </div>
-      </a>
-
-      <a href="https://kenvarasolivo.github.io/Sensory-Clock/" target="_blank" class="showcase-card">
-        <img src="project_sensory_clock.png" alt="Personal Project 4" class="showcase-img">
-        <div class="showcase-overlay">
-          <h4 class="showcase-title">Sensory Clock</h4>
-          <p class="showcase-sub">HTML</p>
-        </div>
-      </a>
-      <a href="https://wealth-calculator-three.vercel.app/" target="_blank" class="showcase-card">
-        <img src="project_bloom_calculator.png" alt="Personal Project 1" class="showcase-img">
-        <div class="showcase-overlay">
-          <h4 class="showcase-title">Bloom Calculator</h4>
-          <p class="showcase-sub">Finance</p>
-        </div>
-      </a>
-
+      </div>
     </div>
   </div>
+
+  <!-- ══ SCROLL SHOWCASE (full width, outside section-inner) ══ -->
+  <div class="scroll-showcase-wrapper" id="showcaseWrapper">
+    <div class="scroll-showcase-sticky" id="showcaseSticky">
+
+      <div class="showcase-progress-bar" id="showcaseProgress"></div>
+      <div class="showcase-label">Personal Projects</div>
+      <div class="showcase-counter">
+        <span class="cur" id="showcaseCur">0</span>
+        &nbsp;/&nbsp;
+        <span id="showcaseTotal">5</span>
+      </div>
+
+      <div class="showcase-start-hint" id="showcaseHint">
+        <span>Scroll to reveal</span>
+        <div class="scroll-line"></div>
+      </div>
+
+      <div class="showcase-track" id="showcaseTrack">
+
+        <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="sc-card">
+          <img src="project_laferrari.png" alt="LaFerrari" class="sc-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none;background:linear-gradient(135deg,#1a0800,#8b1a00)">
+            <span class="sc-fallback-icon">🏎️</span>
+          </div>
+          <div class="sc-overlay"></div>
+          <div class="sc-num">01</div>
+          <div class="sc-tag">3D · JS</div>
+          <div class="sc-body">
+            <div class="sc-title">LaFerrari</div>
+            <div class="sc-sub">Three.js · WebGL · 3D Showcase</div>
+            <div class="sc-link">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          </div>
+        </a>
+
+        <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="sc-card">
+          <img src="project_cinescope.png" alt="CineScope" class="sc-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none;background:linear-gradient(135deg,#080810,#1a0014)">
+            <span class="sc-fallback-icon">🎬</span>
+          </div>
+          <div class="sc-overlay"></div>
+          <div class="sc-num">02</div>
+          <div class="sc-tag">API · Analytics</div>
+          <div class="sc-body">
+            <div class="sc-title">CineScope</div>
+            <div class="sc-sub">TMDB API · Data Viz · Dashboard</div>
+            <div class="sc-link">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          </div>
+        </a>
+
+        <a href="https://destination-intelligence.vercel.app/" target="_blank" rel="noopener" class="sc-card">
+          <img src="project_destination_intelligence.png" alt="Destination Intelligence" class="sc-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none;background:linear-gradient(135deg,#001a0d,#003320)">
+            <span class="sc-fallback-icon">🌍</span>
+          </div>
+          <div class="sc-overlay"></div>
+          <div class="sc-num">03</div>
+          <div class="sc-tag">Data · Maps</div>
+          <div class="sc-body">
+            <div class="sc-title">Destination Intelligence</div>
+            <div class="sc-sub">Geospatial Data · Analytics</div>
+            <div class="sc-link">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          </div>
+        </a>
+
+        <a href="https://kenvarasolivo.github.io/Sensory-Clock/" target="_blank" rel="noopener" class="sc-card">
+          <img src="project_sensory_clock.png" alt="Sensory Clock" class="sc-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none;background:linear-gradient(135deg,#000814,#001233)">
+            <span class="sc-fallback-icon">🕐</span>
+          </div>
+          <div class="sc-overlay"></div>
+          <div class="sc-num">04</div>
+          <div class="sc-tag">Creative · HTML</div>
+          <div class="sc-body">
+            <div class="sc-title">Sensory Clock</div>
+            <div class="sc-sub">Canvas · CSS Animation · UI</div>
+            <div class="sc-link">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          </div>
+        </a>
+
+        <a href="https://wealth-calculator-three.vercel.app/" target="_blank" rel="noopener" class="sc-card">
+          <img src="project_bloom_calculator.png" alt="Bloom Calculator" class="sc-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none;background:linear-gradient(135deg,#000a1a,#001a3a)">
+            <span class="sc-fallback-icon">💰</span>
+          </div>
+          <div class="sc-overlay"></div>
+          <div class="sc-num">05</div>
+          <div class="sc-tag">Finance · UX</div>
+          <div class="sc-body">
+            <div class="sc-title">Bloom Calculator</div>
+            <div class="sc-sub">Compound Interest · Finance Tool</div>
+            <div class="sc-link">View project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          </div>
+        </a>
+
+      </div><!-- /showcase-track -->
+    </div><!-- /scroll-showcase-sticky -->
+  </div><!-- /scroll-showcase-wrapper -->
+
 </section>
 
-<!-- ── SKILLS DARK ── -->
+<!-- ── SKILLS ── -->
 <section id="skills">
   <div class="section-inner">
     <div class="label sr" data-num="03">Skills</div>
@@ -661,7 +898,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── EDUCATION LIGHT ── -->
+<!-- ── EDUCATION ── -->
 <section id="education">
   <div class="section-inner">
     <div class="label sr" data-num="04">Education</div>
@@ -687,7 +924,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── LANGUAGES WHITE ── -->
+<!-- ── LANGUAGES ── -->
 <section id="languages">
   <div class="section-inner">
     <div class="label sr" data-num="05">Languages</div>
@@ -699,7 +936,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── ORGS DARK ── -->
+<!-- ── ORGS ── -->
 <section id="orgs">
   <div class="section-inner">
     <div class="label sr" data-num="06">Involvement</div>
@@ -720,7 +957,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   </div>
 </section>
 
-<!-- ── CONTACT DARK ── -->
+<!-- ── CONTACT ── -->
 <section id="contact">
   <div class="contact-glow"></div>
   <div class="label sr" data-num="07" style="justify-content:center">Contact</div>
@@ -750,39 +987,120 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 </footer>
 
 <script>
-/* ── HORIZONTAL SCROLL WHEEL FOR PROJECTS ── */
-(function(){
-  const grid = document.querySelector('.showcase-grid');
-  if (!grid) return;
+/* ════════════════════════════════════════════════════════
+   SCROLL SHOWCASE — v4 (bulletproof)
+════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
 
-  grid.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaX) === 0) {
-      
-      e.preventDefault(); 
-      
-      grid.scrollBy({
-        left: e.deltaY * 2, 
-        behavior: 'smooth'  
-      });
+  var wrapper  = document.getElementById('showcaseWrapper');
+  var track    = document.getElementById('showcaseTrack');
+  var progress = document.getElementById('showcaseProgress');
+  var curEl    = document.getElementById('showcaseCur');
+  var totalEl  = document.getElementById('showcaseTotal');
+  var hint     = document.getElementById('showcaseHint');
+
+  if (!wrapper || !track) return;
+
+  var cards = Array.from(track.querySelectorAll('.sc-card'));
+  var N = cards.length;
+  if (!N) return;
+  totalEl.textContent = N;
+
+  var CARD_W = 380;
+  var GAP    = 32;   /* 2rem at 16px base */
+  var UNIT   = CARD_W + GAP;
+
+  /* wrapperTop: measured lazily on first scroll so layout is 100% settled.
+     We capture scrollY + BCR.top which equals the document-absolute top.   */
+  var wrapperTop = null;
+
+  function measureWrapperTop() {
+    wrapperTop = window.pageYOffset + wrapper.getBoundingClientRect().top;
+  }
+
+  function setHeight() {
+    /* N+1 viewports tall so sticky plays for exactly N * innerHeight px     */
+    wrapper.style.height = (N + 1) * window.innerHeight + 'px';
+  }
+
+  function update() {
+    /* Measure lazily — layout is guaranteed stable by first scroll event    */
+    if (wrapperTop === null) measureWrapperTop();
+
+    var VH        = window.innerHeight;
+    var VW        = window.innerWidth;
+    var maxScroll = N * VH;
+    var raw       = window.pageYOffset - wrapperTop;
+    var s         = raw < 0 ? 0 : raw > maxScroll ? maxScroll : raw;
+    var p         = s / maxScroll;
+
+    /* ── progress bar ── */
+    progress.style.width = (p * 100) + '%';
+
+    /* ── pan track ── */
+    var pan = p * (N - 1) * UNIT;
+    track.style.transform = 'translateX(' + (-pan) + 'px)';
+
+    /* ── show/hide cards ──
+       leftPad must match CSS: padding-left = calc(50vw - 190px)            */
+    var leftPad = VW / 2 - 190;
+    for (var i = 0; i < N; i++) {
+      var cardLeft  = leftPad + (i * UNIT) - pan;
+      var cardRight = cardLeft + CARD_W;
+      /* visible = any part of the card overlaps the viewport                */
+      if (cardRight > 0 && cardLeft < VW) {
+        cards[i].classList.add('is-visible');
+      } else {
+        cards[i].classList.remove('is-visible');
+      }
     }
-  }, { passive: false });
+
+    /* ── counter ── */
+    curEl.textContent = Math.min(N, Math.round(p * (N - 1)) + 1);
+
+    /* ── hint ── */
+    hint.style.opacity      = s > 40 ? '0' : '1';
+    hint.style.pointerEvents = s > 40 ? 'none' : '';
+  }
+
+  /* Re-measure on resize: layout shifts so wrapperTop must be re-captured   */
+  function onResize() {
+    wrapperTop = null;   /* force re-measure on next update() call           */
+    setHeight();
+    update();
+  }
+
+  setHeight();
+  /* Don't measureWrapperTop() here — page may not be fully painted yet.
+     It will be measured automatically on the first scroll event.            */
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
+
+  /* After full load (web fonts etc. may have shifted layout), re-measure    */
+  window.addEventListener('load', function () {
+    wrapperTop = null;
+    setHeight();
+    update();
+  });
+
 })();
 
-/* ── CANVAS SHADER BLOBS ── */
+
+/* ════════════════════════════════════════════════════════
+   CANVAS SHADER BLOBS
+════════════════════════════════════════════════════════ */
 (function(){
   const canvas = document.getElementById('shader-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, t = 0;
   let mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
-
   function resize(){
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
-    canvas.style.width = W+'px'; canvas.style.height = H+'px';
   }
   window.addEventListener('resize', resize); resize();
   document.addEventListener('mousemove', e => { tmx = e.clientX/W; tmy = e.clientY/H; });
-
   const blobs = [
     {xf:.35,yf:.45,size:.55,r:0,  g:229,b:200,phase:0,  speed:.30},
     {xf:.65,yf:.35,size:.45,r:0,  g:100,b:220,phase:2.1,speed:.22},
@@ -790,7 +1108,6 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
     {xf:.72,yf:.60,size:.40,r:0,  g:180,b:255,phase:1.0,speed:.25},
     {xf:.50,yf:.20,size:.30,r:100,g:80, b:255,phase:3.3,speed:.20},
   ];
-
   function draw(){
     mx += (tmx-mx)*.04; my += (tmy-my)*.04;
     ctx.clearRect(0,0,W,H);
@@ -814,62 +1131,102 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   draw();
 })();
 
-/* ── CURSOR ── */
+
+/* ════════════════════════════════════════════════════════
+   CUSTOM CURSOR
+════════════════════════════════════════════════════════ */
 (function(){
-  const dot=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
+  const dot=document.getElementById('cursor');
+  const ring=document.getElementById('cursor-ring');
   let rx=0,ry=0,dx=0,dy=0;
   document.addEventListener('mousemove',e=>{dx=e.clientX;dy=e.clientY;});
-  (function loop(){ dot.style.left=dx+'px'; dot.style.top=dy+'px'; rx+=(dx-rx)*.15; ry+=(dy-ry)*.15; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+  (function loop(){
+    dot.style.left=dx+'px'; dot.style.top=dy+'px';
+    rx+=(dx-rx)*.15; ry+=(dy-ry)*.15;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,.project-item,.sc-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      dot.style.width='16px'; dot.style.height='16px';
+      ring.style.width='56px'; ring.style.height='56px';
+      ring.style.borderColor='rgba(0,229,200,.6)';
+    });
+    el.addEventListener('mouseleave',()=>{
+      dot.style.width='10px'; dot.style.height='10px';
+      ring.style.width='36px'; ring.style.height='36px';
+      ring.style.borderColor='rgba(0,229,200,.35)';
+    });
+  });
 })();
 
-/* ── NAV SCROLL ── */
+
+/* ════════════════════════════════════════════════════════
+   NAV SCROLL STATE
+════════════════════════════════════════════════════════ */
 window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>60);
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
 },{passive:true});
 
-/* ── SCROLL REVEAL ── */
+
+/* ════════════════════════════════════════════════════════
+   SCROLL REVEAL (IntersectionObserver)
+════════════════════════════════════════════════════════ */
 (function(){
-  const io=new IntersectionObserver(entries=>{
+  const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(!e.isIntersecting) return;
       e.target.classList.add('in');
-      e.target.querySelectorAll('.skill-bar-fill').forEach(f=>setTimeout(()=>f.style.width=f.dataset.w,200));
       io.unobserve(e.target);
     });
   },{threshold:.12});
   document.querySelectorAll('.sr,.sr-left,.sr-scale').forEach(el=>io.observe(el));
 
-  const io2=new IntersectionObserver(entries=>{
+  const io2 = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(!e.isIntersecting) return;
-      setTimeout(()=>e.target.style.width=e.target.dataset.w,300);
+      setTimeout(()=>e.target.style.width=e.target.dataset.w, 300);
       io2.unobserve(e.target);
     });
   },{threshold:.3});
   document.querySelectorAll('.skill-bar-fill').forEach(f=>io2.observe(f));
 })();
 
-/* ── COUNTERS ── */
+
+/* ════════════════════════════════════════════════════════
+   COUNTER ANIMATION
+════════════════════════════════════════════════════════ */
 (function(){
-  const io=new IntersectionObserver(entries=>{
+  const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(!e.isIntersecting) return;
-      const el=e.target, target=parseInt(el.dataset.target);
-      let cur=0; const steps=75, inc=target/steps;
-      const t=setInterval(()=>{ cur+=inc; if(cur>=target){el.textContent=target+'+';clearInterval(t);}else el.textContent=Math.floor(cur); },16);
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      let cur = 0;
+      const inc = target / 75;
+      const t = setInterval(()=>{
+        cur += inc;
+        if(cur >= target){ el.textContent = target+'+'; clearInterval(t); }
+        else el.textContent = Math.floor(cur);
+      },16);
       io.unobserve(el);
     });
   },{threshold:.5});
   document.querySelectorAll('.stat-num[data-target]').forEach(c=>io.observe(c));
 })();
 
-/* ── HERO PARALLAX ── */
+
+/* ════════════════════════════════════════════════════════
+   HERO PARALLAX
+════════════════════════════════════════════════════════ */
 (function(){
-  const h=document.querySelector('.hero-headline'), o=document.querySelector('.hero-overline');
+  const h = document.querySelector('.hero-headline');
+  const o = document.querySelector('.hero-overline');
   window.addEventListener('scroll',()=>{
-    const p=Math.min(window.scrollY/window.innerHeight,1);
-    h.style.transform=`translateY(${p*80}px)`; h.style.opacity=1-p*1.4;
-    o.style.opacity=1-p*2;
+    const p = Math.min(window.scrollY/window.innerHeight, 1);
+    h.style.transform = `translateY(${p*80}px)`;
+    h.style.opacity   = 1 - p*1.4;
+    o.style.opacity   = 1 - p*2;
   },{passive:true});
 })();
 </script>
