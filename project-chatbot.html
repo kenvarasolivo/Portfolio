@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Educational Chatbot — KSL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:       #05080f;
+  --bg2:      #080d1a;
+  --accent:   #00e5c8;
+  --accent2:  #00b4d8;
+  --purple:   #7b5ef8;
+  --text-d:   #e8e6ff;
+  --muted-d:  rgba(232,230,255,0.52);
+  --border-d: rgba(255,255,255,0.09);
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background: var(--bg); color: var(--text-d);
+  font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.6;
+  overflow-x: hidden; cursor: none;
+}
+
+/* Moved animation to children to prevent the body from trapping position: fixed elements */
+nav, main, footer {
+  opacity: 0;
+  animation: pageIn .7s var(--ease) .05s forwards;
+}
+
+@keyframes pageIn { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+a { color: inherit; text-decoration: none; }
+
+/* PAGE TRANSITION OVERLAY */
+#page-transition {
+  position: fixed; inset: 0; z-index: 99999; pointer-events: none;
+  background: var(--bg); opacity: 0;
+  transition: opacity .45s cubic-bezier(.76,0,.24,1);
+}
+#page-transition.active { opacity: 1; pointer-events: all; }
+
+/* CURSOR */
+#cursor { position:fixed; width:10px; height:10px; background:var(--accent); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:screen; transition:width .3s var(--ease),height .3s var(--ease); }
+#cursor-ring { position:fixed; width:36px; height:36px; border:1px solid rgba(0,229,200,.35); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .4s var(--ease),height .4s var(--ease),border-color .3s; }
+
+/* GRAIN */
+#grain { position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.45; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E"); background-size:256px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+  background: rgba(5,8,15,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-d);
+}
+.nav-back {
+  background: transparent; /* Added to override default button styling */
+  border: none;            /* Added to override default button styling */
+  padding: 0;              /* Added to override default button styling */
+  font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted-d);
+  display: flex; align-items: center; gap: .6rem;
+  transition: color .2s; cursor: pointer;
+}
+.nav-back:hover { color: var(--accent); }
+.nav-back svg { transition: transform .3s var(--ease); }
+.nav-back:hover svg { transform: translateX(-4px); }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.12em; color:#f0eeff; }
+.nav-logo span { color:var(--accent); }
+.nav-proj-num { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.14em; color:var(--muted-d); }
+
+main { position: relative; z-index: 2; }
+
+/* ═══ HERO ═══ */
+.hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.hero-visual {
+  position: absolute; inset: 0;
+  background: var(--bg2);
+  overflow: hidden;
+}
+/* Placeholder visual — chat UI aesthetic */
+.hero-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,229,200,.13) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(123,94,248,.12) 0%, transparent 60%),
+    linear-gradient(160deg, #080d1a 0%, #05080f 100%);
+}
+.hero-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.chat-mockup {
+  width: min(680px, 88vw); height: min(480px, 70vh);
+  background: rgba(255,255,255,.03); border: 1px solid var(--border-d);
+  border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(0,229,200,.08);
+}
+.chat-topbar {
+  padding: 1rem 1.25rem; background: rgba(255,255,255,.04);
+  border-bottom: 1px solid var(--border-d);
+  display: flex; align-items: center; gap: .75rem;
+}
+.chat-dots { display:flex; gap:.4rem; }
+.chat-dot { width:10px; height:10px; border-radius:50%; }
+.chat-dot:nth-child(1){background:#ff5f57;}
+.chat-dot:nth-child(2){background:#febc2e;}
+.chat-dot:nth-child(3){background:#28c840;}
+.chat-topbar-title { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.1em; color:var(--muted-d); margin-left:.5rem; }
+.chat-lang-pill { margin-left:auto; font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.08em; padding:.25rem .65rem; border-radius:2rem; border:1px solid rgba(0,229,200,.3); color:var(--accent); }
+.chat-body { flex:1; padding: 1.25rem; display:flex; flex-direction:column; gap:1rem; overflow:hidden; }
+.chat-msg { display:flex; gap:.75rem; align-items:flex-start; }
+.chat-msg.bot { }
+.chat-msg.user { flex-direction:row-reverse; }
+.chat-avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.6rem; }
+.chat-avatar.bot-av { background:linear-gradient(135deg,var(--accent),var(--purple)); color:#fff; }
+.chat-avatar.user-av { background:rgba(255,255,255,.08); color:var(--muted-d); }
+.chat-bubble { max-width:72%; padding:.7rem 1rem; border-radius:12px; font-size:.8rem; line-height:1.5; font-family:'Manrope',sans-serif; }
+.chat-msg.bot .chat-bubble { background:rgba(0,229,200,.08); border:1px solid rgba(0,229,200,.15); color:var(--text-d); border-radius:4px 12px 12px 12px; }
+.chat-msg.user .chat-bubble { background:rgba(123,94,248,.18); border:1px solid rgba(123,94,248,.25); color:var(--text-d); border-radius:12px 4px 12px 12px; }
+.thinking-bar { display:flex; gap:.4rem; align-items:center; padding:.5rem 0; }
+.thinking-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.4; animation:thinkanim 1.2s ease-in-out infinite; }
+.thinking-dot:nth-child(2){animation-delay:.2s;}
+.thinking-dot:nth-child(3){animation-delay:.4s;}
+@keyframes thinkanim { 0%,100%{opacity:.2;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,8,15,1) 0%, rgba(5,8,15,.5) 40%, transparent 70%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 0 2.5rem 4rem; max-width: 1400px; margin: 0 auto; width: 100%;
+}
+.hero-meta {
+  font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem;
+}
+.hero-meta::before { content:'01'; opacity:.5; }
+.hero-meta::after { content:''; width:2.5rem; height:1px; background:var(--accent); opacity:.5; }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  line-height: .9; letter-spacing: -.01em; color: #f0eeff;
+  margin-bottom: 1.75rem;
+}
+.hero-techs { display:flex; flex-wrap:wrap; gap:.45rem; }
+.hero-tech {
+  font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.08em;
+  padding:.3rem .85rem; border-radius:2rem;
+  border:1px solid rgba(0,229,200,.25);
+  color:var(--accent); background:rgba(0,229,200,.06);
+}
+
+/* ═══ CONTENT SECTIONS ═══ */
+.content-section {
+  max-width: 1000px; margin: 0 auto; padding: 6rem 2.5rem;
+  border-bottom: 1px solid var(--border-d);
+}
+.content-section:last-of-type { border-bottom: none; }
+.content-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 6rem; line-height: 1;
+  color: rgba(0,229,200,.06); letter-spacing: -.02em;
+  margin-bottom: -2rem; user-select: none;
+}
+.content-label {
+  font-family: 'DM Mono', monospace; font-size: .66rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+}
+.content-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #f0eeff; line-height: 1; margin-bottom: 1.5rem; letter-spacing: .02em;
+}
+.content-text {
+  font-size: 1.05rem; color: var(--muted-d); line-height: 1.85;
+  font-weight: 300; max-width: 65ch; margin-bottom: 3rem;
+}
+.content-text strong { color: var(--text-d); font-weight: 600; }
+
+/* ═══ PLACEHOLDER IMAGE BLOCKS ═══ */
+.img-block {
+  width: 100%; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border-d);
+  position: relative;
+}
+.img-block-inner {
+  width: 100%; aspect-ratio: 16/9;
+  position: relative; overflow: hidden;
+}
+
+/* Placeholder 1: Architecture diagram */
+.ph-arch {
+  background: var(--bg2);
+  display: flex; align-items: center; justify-content: center;
+}
+.ph-arch::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,229,200,.07) 0%, transparent 70%);
+}
+.arch-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem; align-items: center;
+  width: min(520px, 80%); position: relative; z-index: 1;
+}
+.arch-box {
+  background: rgba(255,255,255,.04); border: 1px solid var(--border-d);
+  border-radius: 8px; padding: 1.1rem .8rem; text-align: center;
+}
+.arch-box.accent { border-color: rgba(0,229,200,.35); background: rgba(0,229,200,.06); }
+.arch-label { font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.1em; color:var(--muted-d); display:block; margin-bottom:.3rem; text-transform:uppercase; }
+.arch-name { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:.05em; color:#f0eeff; }
+.arch-box.accent .arch-name { color:var(--accent); }
+.arch-arrow { font-size:1.5rem; color:rgba(0,229,200,.4); text-align:center; line-height:1; display:flex; flex-direction:column; gap:.3rem; align-items:center; }
+.arch-arrow span { font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.06em; color:var(--muted-d); }
+.arch-endpoints { display:flex; flex-direction:column; gap:.5rem; }
+.arch-ep { background:rgba(255,255,255,.03); border:1px solid var(--border-d); border-radius:6px; padding:.5rem .75rem; font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.06em; color:var(--muted-d); }
+.arch-ep.active { border-color:rgba(0,229,200,.25); color:var(--accent); }
+
+/* Placeholder 2: i18n language UI */
+.ph-i18n {
+  background: var(--bg2);
+  display: flex; align-items: center; justify-content: center;
+  gap: 2rem; flex-wrap: wrap; padding: 2rem;
+}
+.ph-i18n::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(123,94,248,.08) 0%, transparent 70%);
+}
+.lang-card {
+  background: rgba(255,255,255,.04); border: 1px solid var(--border-d);
+  border-radius: 12px; padding: 1.5rem 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: .75rem;
+  min-width: 130px; position: relative; z-index:1;
+  transition: all .3s;
+}
+.lang-card.active { border-color: rgba(0,229,200,.4); background: rgba(0,229,200,.06); }
+.lang-card-flag { font-size: 2rem; }
+.lang-card-code { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:.08em; color:#f0eeff; }
+.lang-card.active .lang-card-code { color: var(--accent); }
+.lang-card-badge { font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .55rem; border-radius:2rem; background:rgba(0,229,200,.15); color:var(--accent); }
+
+/* Placeholder 3: Thinking process UI */
+.ph-think {
+  background: var(--bg2);
+  display: flex; align-items: center; justify-content: center; padding: 2rem;
+}
+.ph-think::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 70% 40%, rgba(0,180,216,.08) 0%, transparent 65%);
+}
+.think-ui { width: min(540px, 90%); position: relative; z-index:1; display:flex; flex-direction:column; gap: 1rem; }
+.think-step {
+  background: rgba(255,255,255,.03); border: 1px solid var(--border-d);
+  border-radius: 10px; padding: 1rem 1.25rem;
+  display: flex; align-items: flex-start; gap: .85rem;
+}
+.think-step.done { border-color: rgba(0,229,200,.2); }
+.think-step.active { border-color: rgba(0,229,200,.4); background: rgba(0,229,200,.04); }
+.think-icon { width:24px; height:24px; border-radius:50%; flex-shrink:0; margin-top:.1rem; display:flex; align-items:center; justify-content:center; font-size:.7rem; }
+.think-icon.done { background:rgba(0,229,200,.2); color:var(--accent); }
+.think-icon.active { background:rgba(0,229,200,.12); color:var(--accent); animation:pulse 1.5s ease-in-out infinite; }
+.think-icon.wait { background:rgba(255,255,255,.06); color:var(--muted-d); }
+@keyframes pulse { 0%,100%{opacity:.7} 50%{opacity:1} }
+.think-body { flex:1; }
+.think-step-label { font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-d); margin-bottom:.2rem; }
+.think-step.done .think-step-label { color:var(--accent); }
+.think-step-text { font-size:.82rem; color:var(--muted-d); line-height:1.5; }
+.think-step.active .think-step-text { color:var(--text-d); }
+
+/* ═══ BACK CTA ═══ */
+.back-cta {
+  text-align: center; padding: 6rem 2.5rem;
+  border-top: 1px solid var(--border-d);
+}
+.back-cta-label { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-d); margin-bottom:2rem; display:flex; align-items:center; justify-content:center; gap:.75rem; }
+.back-cta-label::before, .back-cta-label::after { content:''; width:2rem; height:1px; background:currentColor; opacity:.4; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: .75rem;
+  font-family:'DM Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  padding: 1rem 2.25rem; border-radius:.25rem;
+  background: transparent; color: #f0eeff;
+  border: 1px solid rgba(255,255,255,.15);
+  cursor: pointer; transition: all .3s var(--ease);
+}
+.back-btn:hover { border-color:var(--accent); color:var(--accent); }
+.cta-row { display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+/* FOOTER */
+footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2rem 2.5rem; display:flex; justify-content:space-between; align-items:center; }
+.footer-copy { font-family:'DM Mono',monospace; font-size:.63rem; letter-spacing:.1em; color:rgba(232,230,255,.18); }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.12em; color:rgba(232,230,255,.1); }
+
+/* SCROLL REVEAL */
+.sr { opacity:0; transform:translateY(36px); transition:opacity .9s var(--ease),transform .9s var(--ease); }
+.sr.in { opacity:1; transform:none; }
+
+@media(max-width:768px){
+  nav { padding:1.25rem 1.5rem; }
+  .hero-content { padding: 0 1.5rem 3.5rem; }
+  .hero-title { font-size: clamp(2.5rem, 12vw, 5rem); }
+  .content-section { padding: 4rem 1.5rem; }
+  #cursor, #cursor-ring { display:none; } body{cursor:auto;}
+  .arch-diagram { grid-template-columns:1fr; gap:1rem; }
+  .arch-arrow { transform:rotate(90deg); }
+  .cta-row { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<div id="page-transition"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+
+<nav>
+  <button class="nav-back" id="backBtn">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+    Back to Portfolio
+  </button>
+  <div class="nav-logo">KSL<span>.</span></div>
+  <span class="nav-proj-num">Project 01 / 03</span>
+</nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-visual">
+    <div class="hero-placeholder">
+      <div class="chat-mockup">
+        <div class="chat-topbar">
+          <div class="chat-dots">
+            <div class="chat-dot"></div>
+            <div class="chat-dot"></div>
+            <div class="chat-dot"></div>
+          </div>
+          <span class="chat-topbar-title">EduBot — AI Learning Assistant</span>
+          <span class="chat-lang-pill">🇩🇪 DE</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg bot">
+            <div class="chat-avatar bot-av">AI</div>
+            <div class="chat-bubble">Hallo! Ich bin EduBot. Wie kann ich dir heute beim Lernen helfen?</div>
+          </div>
+          <div class="chat-msg user">
+            <div class="chat-avatar user-av">U</div>
+            <div class="chat-bubble">Can you explain recursion with an example?</div>
+          </div>
+          <div class="chat-msg bot">
+            <div class="chat-avatar bot-av">AI</div>
+            <div class="chat-bubble">
+              <div class="thinking-bar">
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+                <div class="thinking-dot"></div>
+              </div>
+              <span style="font-size:.78rem;color:rgba(232,230,255,.45);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.05em;">Reasoning through examples...</span>
+            </div>
+          </div>
+          <div class="chat-msg bot">
+            <div class="chat-avatar bot-av">AI</div>
+            <div class="chat-bubble">Recursion is when a function calls itself. Think of Russian nesting dolls — each doll opens to reveal a smaller one, until the last one...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-meta">Educational Chatbot</div>
+    <h1 class="hero-title">CHAT.<br>LEARN.<br>UNDERSTAND.</h1>
+    <div class="hero-techs">
+      <span class="hero-tech">Vue.js</span>
+      <span class="hero-tech">Docker</span>
+      <span class="hero-tech">REST API</span>
+      <span class="hero-tech">i18n</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 1 ── -->
+<section class="content-section">
+  <div class="content-num sr">01</div>
+  <div class="content-label sr">Architecture</div>
+  <h2 class="content-heading sr">MODULAR<br>RESTFUL ARCHITECTURE</h2>
+  <p class="content-text sr">
+    The existing codebase was a monolith — tightly coupled components that made every change risky. I <strong>refactored the entire backend into a modular RESTful architecture</strong>, separating concerns into independent service layers. Each endpoint became self-contained, testable, and easy to extend. The result: a codebase where adding a new lesson type or response mode no longer touched six different files.
+  </p>
+  <div class="img-block sr">
+    <div class="img-block-inner ph-arch">
+      <div class="arch-diagram">
+        <div class="arch-box">
+          <span class="arch-label">Frontend</span>
+          <span class="arch-name">Vue.js Client</span>
+        </div>
+        <div class="arch-arrow">
+          ↔
+          <span>REST / JSON</span>
+        </div>
+        <div>
+          <div class="arch-endpoints">
+            <div class="arch-ep active">/api/chat/message</div>
+            <div class="arch-ep active">/api/lesson/topics</div>
+            <div class="arch-ep">/api/user/progress</div>
+            <div class="arch-ep">/api/i18n/strings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2 ── -->
+<section class="content-section">
+  <div class="content-num sr">02</div>
+  <div class="content-label sr">Internationalization</div>
+  <h2 class="content-heading sr">DYNAMIC i18n<br>LANGUAGE SWITCHER</h2>
+  <p class="content-text sr">
+    Students learn best in their native language. I built a <strong>dynamic internationalization system</strong> that lets users switch interface language and content locale on the fly — no page reload, no jarring transitions. The i18n engine loads translation packs from the REST API and hot-swaps all UI strings, making the chatbot instantly accessible to learners across Germany, Indonesia, and the English-speaking world.
+  </p>
+  <div class="img-block sr">
+    <div class="img-block-inner ph-i18n">
+      <div class="lang-card active">
+        <div class="lang-card-flag">🇩🇪</div>
+        <div class="lang-card-code">DE</div>
+        <div class="lang-card-badge">Active</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-card-flag">🇬🇧</div>
+        <div class="lang-card-code">EN</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-card-flag">🇮🇩</div>
+        <div class="lang-card-code">ID</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-card-flag">🇫🇷</div>
+        <div class="lang-card-code">FR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3 ── -->
+<section class="content-section">
+  <div class="content-num sr">03</div>
+  <div class="content-label sr">UI / UX Design</div>
+  <h2 class="content-heading sr">AI THINKING<br>PROCESS VISUALIZER</h2>
+  <p class="content-text sr">
+    One of the most confusing parts of AI chatbots is the black-box response — the user sends a message and waits with no feedback. I <strong>redesigned the interface to expose the AI's process status in real time</strong>
+  </p>
+  <div class="img-block sr">
+    <div class="img-block-inner ph-think">
+      <div class="think-ui">
+        <div class="think-step done">
+          <div class="think-icon done">✓</div>
+          <div class="think-body">
+            <div class="think-step-label">Step 1 — Context Retrieval</div>
+            <div class="think-step-text">Searched 3 lesson modules for relevant content on "recursion".</div>
+          </div>
+        </div>
+        <div class="think-step done">
+          <div class="think-icon done">✓</div>
+          <div class="think-body">
+            <div class="think-step-label">Step 2 — Knowledge Synthesis</div>
+            <div class="think-step-text">Cross-referenced CS fundamentals with user's current lesson level.</div>
+          </div>
+        </div>
+        <div class="think-step active">
+          <div class="think-icon active">⟳</div>
+          <div class="think-body">
+            <div class="think-step-label">Step 3 — Response Generation</div>
+            <div class="think-step-text">Formulating beginner-friendly explanation with code example...</div>
+          </div>
+        </div>
+        <div class="think-step">
+          <div class="think-icon wait">○</div>
+          <div class="think-body">
+            <div class="think-step-label">Step 4 — Language Adaptation</div>
+            <div class="think-step-text">Awaiting content to apply i18n formatting.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="back-cta">
+  <div class="back-cta-label">Navigation</div>
+  <div class="cta-row">
+    <button class="back-btn" id="backBtn2">← Back to Portfolio</button>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <span class="footer-copy">© 2026 Kenvara Solivo Lwie · Aachen, Germany</span>
+  <span class="footer-logo">KSL</span>
+</footer>
+
+<script>
+// Cursor
+(function(){
+  const dot=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
+  let rx=0,ry=0,dx=0,dy=0;
+  document.addEventListener('mousemove',e=>{dx=e.clientX;dy=e.clientY;});
+  (function loop(){
+    dot.style.left=dx+'px';dot.style.top=dy+'px';
+    rx+=(dx-rx)*.15;ry+=(dy-ry)*.15;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.style.width='16px';dot.style.height='16px';ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(0,229,200,.6)';});
+    el.addEventListener('mouseleave',()=>{dot.style.width='10px';dot.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(0,229,200,.35)';});
+  });
+})();
+
+// Scroll reveal
+(function(){
+  const io=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(!e.isIntersecting)return; e.target.classList.add('in'); io.unobserve(e.target); }); },{threshold:.1});
+  document.querySelectorAll('.sr').forEach(el=>io.observe(el));
+})();
+
+// Transitions
+const overlay = document.getElementById('page-transition');
+function navigateTo(url){
+  overlay.classList.add('active');
+  setTimeout(()=>{ window.location.href = url; }, 450);
+}
+document.getElementById('backBtn').addEventListener('click', ()=>navigateTo('index.html#projects'));
+document.getElementById('backBtn2').addEventListener('click', ()=>navigateTo('index.html#projects'));
+</script>
+</body>
+</html>
