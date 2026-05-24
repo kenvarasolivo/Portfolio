@@ -27,7 +27,6 @@ body {
   overflow-x: hidden; cursor: none;
 }
 
-/* Moved animation to children to prevent the body from trapping position: fixed elements */
 nav, main, footer {
   opacity: 0;
   animation: pageIn .7s var(--ease) .05s forwards;
@@ -60,9 +59,9 @@ nav {
   border-bottom: 1px solid var(--border-d);
 }
 .nav-back {
-  background: transparent; /* Added to override default button styling */
-  border: none;            /* Added to override default button styling */
-  padding: 0;              /* Added to override default button styling */
+  background: transparent;
+  border: none;
+  padding: 0;
   font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .12em;
   text-transform: uppercase; color: var(--muted-d);
   display: flex; align-items: center; gap: .6rem;
@@ -87,7 +86,6 @@ main { position: relative; z-index: 2; }
   background: var(--bg2);
   overflow: hidden;
 }
-/* Placeholder visual — chat UI aesthetic */
 .hero-visual::before {
   content: '';
   position: absolute; inset: 0;
@@ -100,40 +98,60 @@ main { position: relative; z-index: 2; }
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.chat-mockup {
-  width: min(680px, 88vw); height: min(480px, 70vh);
+
+/* ── Module tree mockup for hero ── */
+.module-mockup {
+  width: min(660px, 88vw);
   background: rgba(255,255,255,.03); border: 1px solid var(--border-d);
   border-radius: 16px; overflow: hidden;
   display: flex; flex-direction: column;
   box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(0,229,200,.08);
 }
-.chat-topbar {
-  padding: 1rem 1.25rem; background: rgba(255,255,255,.04);
+.mock-topbar {
+  padding: .85rem 1.25rem; background: rgba(255,255,255,.04);
   border-bottom: 1px solid var(--border-d);
   display: flex; align-items: center; gap: .75rem;
 }
-.chat-dots { display:flex; gap:.4rem; }
-.chat-dot { width:10px; height:10px; border-radius:50%; }
-.chat-dot:nth-child(1){background:#ff5f57;}
-.chat-dot:nth-child(2){background:#febc2e;}
-.chat-dot:nth-child(3){background:#28c840;}
-.chat-topbar-title { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.1em; color:var(--muted-d); margin-left:.5rem; }
-.chat-lang-pill { margin-left:auto; font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.08em; padding:.25rem .65rem; border-radius:2rem; border:1px solid rgba(0,229,200,.3); color:var(--accent); }
-.chat-body { flex:1; padding: 1.25rem; display:flex; flex-direction:column; gap:1rem; overflow:hidden; }
-.chat-msg { display:flex; gap:.75rem; align-items:flex-start; }
-.chat-msg.bot { }
-.chat-msg.user { flex-direction:row-reverse; }
-.chat-avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.6rem; }
-.chat-avatar.bot-av { background:linear-gradient(135deg,var(--accent),var(--purple)); color:#fff; }
-.chat-avatar.user-av { background:rgba(255,255,255,.08); color:var(--muted-d); }
-.chat-bubble { max-width:72%; padding:.7rem 1rem; border-radius:12px; font-size:.8rem; line-height:1.5; font-family:'Manrope',sans-serif; }
-.chat-msg.bot .chat-bubble { background:rgba(0,229,200,.08); border:1px solid rgba(0,229,200,.15); color:var(--text-d); border-radius:4px 12px 12px 12px; }
-.chat-msg.user .chat-bubble { background:rgba(123,94,248,.18); border:1px solid rgba(123,94,248,.25); color:var(--text-d); border-radius:12px 4px 12px 12px; }
-.thinking-bar { display:flex; gap:.4rem; align-items:center; padding:.5rem 0; }
-.thinking-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.4; animation:thinkanim 1.2s ease-in-out infinite; }
-.thinking-dot:nth-child(2){animation-delay:.2s;}
-.thinking-dot:nth-child(3){animation-delay:.4s;}
-@keyframes thinkanim { 0%,100%{opacity:.2;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+.mock-dots { display:flex; gap:.4rem; }
+.mock-dot { width:10px; height:10px; border-radius:50%; }
+.mock-dot:nth-child(1){background:#ff5f57;}
+.mock-dot:nth-child(2){background:#febc2e;}
+.mock-dot:nth-child(3){background:#28c840;}
+.mock-topbar-title { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; color:var(--muted-d); margin-left:.5rem; }
+.mock-topbar-pill { margin-left:auto; font-family:'DM Mono',monospace; font-size:.58rem; letter-spacing:.08em; padding:.2rem .6rem; border-radius:2rem; border:1px solid rgba(0,229,200,.3); color:var(--accent); }
+.mock-body { display:flex; }
+
+/* Sidebar file tree */
+.mock-sidebar {
+  width: 190px; flex-shrink:0;
+  border-right: 1px solid var(--border-d);
+  padding: 1rem .75rem;
+  display: flex; flex-direction: column; gap: .1rem;
+}
+.tree-dir {
+  font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.08em;
+  color: var(--muted-d); padding: .2rem .4rem; display:flex; align-items:center; gap:.4rem;
+}
+.tree-dir.root { color:var(--accent); margin-bottom:.25rem; }
+.tree-file {
+  font-family:'DM Mono',monospace; font-size:.58rem; letter-spacing:.06em;
+  color: rgba(232,230,255,.35); padding: .18rem .4rem .18rem 1.5rem;
+  border-radius:3px; display:flex; align-items:center; gap:.4rem;
+  transition: background .2s;
+}
+.tree-file.active { color:var(--text-d); background:rgba(0,229,200,.08); }
+.tree-file .dot { width:5px; height:5px; border-radius:50%; background:rgba(0,229,200,.3); flex-shrink:0; }
+.tree-file.active .dot { background:var(--accent); }
+
+/* Editor pane */
+.mock-editor { flex:1; padding: 1rem 1.25rem; display:flex; flex-direction:column; gap:.6rem; overflow:hidden; }
+.code-line { font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.04em; line-height:1.7; display:flex; gap:.75rem; }
+.code-line .ln { color:rgba(232,230,255,.18); width:1.2rem; flex-shrink:0; text-align:right; }
+.kw  { color:#7b5ef8; }
+.fn  { color:var(--accent); }
+.str { color:#f9c74f; }
+.cm  { color:rgba(232,230,255,.3); font-style:italic; }
+.hl-line { background:rgba(0,229,200,.05); border-left:2px solid var(--accent); margin-left:-.25rem; padding-left:.25rem; border-radius:0 3px 3px 0; }
 
 .hero-overlay {
   position: absolute; inset: 0;
@@ -201,89 +219,140 @@ main { position: relative; z-index: 2; }
   position: relative; overflow: hidden;
 }
 
-/* Placeholder 1: Architecture diagram */
-.ph-arch {
+/* ── Section 1: Module grid ── */
+.ph-modules {
   background: var(--bg2);
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; padding: 2.5rem;
 }
-.ph-arch::before {
+.ph-modules::before {
   content: '';
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,229,200,.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,229,200,.07) 0%, transparent 70%);
 }
-.arch-diagram {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 1.5rem; align-items: center;
-  width: min(520px, 80%); position: relative; z-index: 1;
+.module-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  width: min(600px, 90%); position: relative; z-index: 1;
 }
-.arch-box {
+.module-card {
   background: rgba(255,255,255,.04); border: 1px solid var(--border-d);
-  border-radius: 8px; padding: 1.1rem .8rem; text-align: center;
+  border-radius: 10px; padding: 1.25rem 1rem;
+  display: flex; flex-direction: column; gap: .5rem;
+  transition: all .3s;
 }
-.arch-box.accent { border-color: rgba(0,229,200,.35); background: rgba(0,229,200,.06); }
-.arch-label { font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.1em; color:var(--muted-d); display:block; margin-bottom:.3rem; text-transform:uppercase; }
-.arch-name { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:.05em; color:#f0eeff; }
-.arch-box.accent .arch-name { color:var(--accent); }
-.arch-arrow { font-size:1.5rem; color:rgba(0,229,200,.4); text-align:center; line-height:1; display:flex; flex-direction:column; gap:.3rem; align-items:center; }
-.arch-arrow span { font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.06em; color:var(--muted-d); }
-.arch-endpoints { display:flex; flex-direction:column; gap:.5rem; }
-.arch-ep { background:rgba(255,255,255,.03); border:1px solid var(--border-d); border-radius:6px; padding:.5rem .75rem; font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.06em; color:var(--muted-d); }
-.arch-ep.active { border-color:rgba(0,229,200,.25); color:var(--accent); }
+.module-card.accent { border-color: rgba(0,229,200,.35); background: rgba(0,229,200,.05); }
+.module-card.purple { border-color: rgba(123,94,248,.35); background: rgba(123,94,248,.05); }
+.module-icon { font-size: 1.25rem; }
+.module-name {
+  font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.06em; color:#f0eeff;
+}
+.module-card.accent .module-name { color:var(--accent); }
+.module-card.purple .module-name { color:#a78bfa; }
+.module-tag {
+  font-family:'DM Mono',monospace; font-size:.52rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted-d);
+}
+.module-files {
+  margin-top:.5rem; display:flex; flex-direction:column; gap:.2rem;
+}
+.module-file {
+  font-family:'DM Mono',monospace; font-size:.52rem; letter-spacing:.04em;
+  color:rgba(232,230,255,.28); padding:.15rem 0;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.module-card.accent .module-file { color:rgba(0,229,200,.5); }
+.module-arrow {
+  grid-column: 1 / -1; display:flex; align-items:center; justify-content:center;
+  gap:.75rem; padding:.25rem 0;
+}
+.module-arrow-line {
+  flex:1; height:1px; background:rgba(0,229,200,.15);
+}
+.module-arrow-label {
+  font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.1em;
+  text-transform:uppercase; color:rgba(0,229,200,.4);
+}
 
-/* Placeholder 2: i18n language UI */
-.ph-i18n {
+/* ── Section 2: Separation of Concerns ── */
+.ph-sep {
   background: var(--bg2);
-  display: flex; align-items: center; justify-content: center;
-  gap: 2rem; flex-wrap: wrap; padding: 2rem;
+  display: flex; align-items: center; justify-content: center; padding: 2rem;
 }
-.ph-i18n::before {
+.ph-sep::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(123,94,248,.08) 0%, transparent 70%);
 }
-.lang-card {
-  background: rgba(255,255,255,.04); border: 1px solid var(--border-d);
-  border-radius: 12px; padding: 1.5rem 2rem;
-  display: flex; flex-direction: column; align-items: center; gap: .75rem;
-  min-width: 130px; position: relative; z-index:1;
-  transition: all .3s;
+.sep-diagram {
+  display: flex; align-items: stretch; gap: 1.5rem;
+  width: min(580px, 90%); position: relative; z-index:1;
 }
-.lang-card.active { border-color: rgba(0,229,200,.4); background: rgba(0,229,200,.06); }
-.lang-card-flag { font-size: 2rem; }
-.lang-card-code { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:.08em; color:#f0eeff; }
-.lang-card.active .lang-card-code { color: var(--accent); }
-.lang-card-badge { font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .55rem; border-radius:2rem; background:rgba(0,229,200,.15); color:var(--accent); }
+.sep-column {
+  flex:1; display:flex; flex-direction:column; gap:.75rem;
+}
+.sep-header {
+  font-family:'DM Mono',monospace; font-size:.58rem; letter-spacing:.12em;
+  text-transform:uppercase; padding:.4rem .85rem;
+  border-radius:4px; text-align:center;
+}
+.sep-header.web { background:rgba(123,94,248,.15); color:#a78bfa; border:1px solid rgba(123,94,248,.3); }
+.sep-header.api { background:rgba(0,229,200,.08); color:var(--accent); border:1px solid rgba(0,229,200,.25); }
+.sep-item {
+  background: rgba(255,255,255,.04); border: 1px solid var(--border-d);
+  border-radius: 8px; padding: .75rem 1rem;
+}
+.sep-item-label { font-family:'DM Mono',monospace; font-size:.58rem; letter-spacing:.08em; color:var(--muted-d); margin-bottom:.25rem; }
+.sep-item-val { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.04em; color:var(--text-d); }
+.sep-item.api-item { border-color:rgba(0,229,200,.18); }
+.sep-item.api-item .sep-item-val { color:var(--accent); }
+.sep-divider {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.4rem; padding:.5rem 0;
+}
+.sep-div-line { flex:1; width:1px; background:rgba(255,255,255,.08); }
+.sep-div-badge {
+  font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.1em;
+  padding:.3rem .5rem; border-radius:4px;
+  background:rgba(0,180,216,.1); color:var(--accent2); border:1px solid rgba(0,180,216,.2);
+  writing-mode: vertical-rl; text-transform:uppercase;
+}
 
-/* Placeholder 3: Thinking process UI */
-.ph-think {
+/* ── Section 3: Streaming / Thinking skeleton ── */
+.ph-stream {
   background: var(--bg2);
   display: flex; align-items: center; justify-content: center; padding: 2rem;
 }
-.ph-think::before {
+.ph-stream::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(ellipse 50% 60% at 70% 40%, rgba(0,180,216,.08) 0%, transparent 65%);
 }
-.think-ui { width: min(540px, 90%); position: relative; z-index:1; display:flex; flex-direction:column; gap: 1rem; }
-.think-step {
-  background: rgba(255,255,255,.03); border: 1px solid var(--border-d);
-  border-radius: 10px; padding: 1rem 1.25rem;
-  display: flex; align-items: flex-start; gap: .85rem;
+.stream-ui { width: min(520px, 90%); position: relative; z-index:1; display:flex; flex-direction:column; gap: .85rem; }
+.stream-msg { display:flex; gap:.75rem; align-items:flex-start; }
+.stream-av { width:30px; height:30px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.58rem; }
+.stream-av.bot { background:linear-gradient(135deg,var(--accent),var(--purple)); color:#fff; }
+.stream-av.user { background:rgba(255,255,255,.08); color:var(--muted-d); }
+.stream-bubble { flex:1; padding:.75rem 1rem; border-radius:10px; font-size:.8rem; line-height:1.5; }
+.stream-bubble.bot { background:rgba(0,229,200,.07); border:1px solid rgba(0,229,200,.15); border-radius:4px 10px 10px 10px; color:var(--text-d); }
+.stream-bubble.user { background:rgba(123,94,248,.15); border:1px solid rgba(123,94,248,.22); border-radius:10px 4px 10px 10px; color:var(--text-d); }
+
+/* skeleton lines */
+.skeleton-wrap { display:flex; flex-direction:column; gap:.5rem; }
+.skel-label { font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(0,229,200,.55); margin-bottom:.35rem; display:flex; align-items:center; gap:.5rem; }
+.skel-label::after { content:''; flex:1; height:1px; background:rgba(0,229,200,.12); }
+.skel-line { height:9px; border-radius:4px; background:linear-gradient(90deg, rgba(0,229,200,.12) 0%, rgba(0,229,200,.06) 50%, rgba(0,229,200,.12) 100%); background-size:200% 100%; animation:shimmer 1.5s ease-in-out infinite; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.skel-line.w-full { width:100%; }
+.skel-line.w-3q  { width:75%; }
+.skel-line.w-half{ width:50%; }
+
+.stream-status {
+  display:flex; align-items:center; gap:.5rem;
+  font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.08em;
+  color:var(--accent); padding:.4rem .75rem;
+  background:rgba(0,229,200,.06); border:1px solid rgba(0,229,200,.18); border-radius:6px;
 }
-.think-step.done { border-color: rgba(0,229,200,.2); }
-.think-step.active { border-color: rgba(0,229,200,.4); background: rgba(0,229,200,.04); }
-.think-icon { width:24px; height:24px; border-radius:50%; flex-shrink:0; margin-top:.1rem; display:flex; align-items:center; justify-content:center; font-size:.7rem; }
-.think-icon.done { background:rgba(0,229,200,.2); color:var(--accent); }
-.think-icon.active { background:rgba(0,229,200,.12); color:var(--accent); animation:pulse 1.5s ease-in-out infinite; }
-.think-icon.wait { background:rgba(255,255,255,.06); color:var(--muted-d); }
-@keyframes pulse { 0%,100%{opacity:.7} 50%{opacity:1} }
-.think-body { flex:1; }
-.think-step-label { font-family:'DM Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-d); margin-bottom:.2rem; }
-.think-step.done .think-step-label { color:var(--accent); }
-.think-step-text { font-size:.82rem; color:var(--muted-d); line-height:1.5; }
-.think-step.active .think-step-text { color:var(--text-d); }
+.pulse-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pdot 1s ease-in-out infinite; }
+@keyframes pdot { 0%,100%{opacity:.3;transform:scale(.8)} 50%{opacity:1;transform:scale(1)} }
 
 /* ═══ BACK CTA ═══ */
 .back-cta {
@@ -318,9 +387,13 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   .hero-title { font-size: clamp(2.5rem, 12vw, 5rem); }
   .content-section { padding: 4rem 1.5rem; }
   #cursor, #cursor-ring { display:none; } body{cursor:auto;}
-  .arch-diagram { grid-template-columns:1fr; gap:1rem; }
-  .arch-arrow { transform:rotate(90deg); }
+  .module-grid { grid-template-columns: repeat(2,1fr); }
+  .sep-diagram { flex-direction:column; }
+  .sep-divider { flex-direction:row; }
+  .sep-div-badge { writing-mode:horizontal-tb; }
+  .sep-div-line { width:100%; height:1px; flex:none; flex:1; }
   .cta-row { flex-direction:column; }
+  .mock-sidebar { display:none; }
 }
 </style>
 </head>
@@ -346,39 +419,42 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <section class="hero">
   <div class="hero-visual">
     <div class="hero-placeholder">
-      <div class="chat-mockup">
-        <div class="chat-topbar">
-          <div class="chat-dots">
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
+      <div class="module-mockup">
+        <div class="mock-topbar">
+          <div class="mock-dots">
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
           </div>
-          <span class="chat-topbar-title">EduBot — AI Learning Assistant</span>
-          <span class="chat-lang-pill">🇩🇪 DE</span>
+          <span class="mock-topbar-title">src / features / Conversations / useChat.js</span>
+          <span class="mock-topbar-pill">Vue 3</span>
         </div>
-        <div class="chat-body">
-          <div class="chat-msg bot">
-            <div class="chat-avatar bot-av">AI</div>
-            <div class="chat-bubble">Hallo! Ich bin EduBot. Wie kann ich dir heute beim Lernen helfen?</div>
+        <div class="mock-body">
+          <div class="mock-sidebar">
+            <div class="tree-dir root">📁 src/features</div>
+            <div class="tree-dir">📁 Auth</div>
+            <div class="tree-file"><span class="dot"></span>useAuth.js</div>
+            <div class="tree-file"><span class="dot"></span>LoginView.vue</div>
+            <div class="tree-dir">📁 Conversations</div>
+            <div class="tree-file active"><span class="dot"></span>useChat.js</div>
+            <div class="tree-file"><span class="dot"></span>ChatView.vue</div>
+            <div class="tree-dir">📁 Prompt</div>
+            <div class="tree-file"><span class="dot"></span>usePrompt.js</div>
+            <div class="tree-file"><span class="dot"></span>PromptBar.vue</div>
+            <div class="tree-dir">📁 Documents</div>
+            <div class="tree-file"><span class="dot"></span>useDocs.js</div>
           </div>
-          <div class="chat-msg user">
-            <div class="chat-avatar user-av">U</div>
-            <div class="chat-bubble">Can you explain recursion with an example?</div>
-          </div>
-          <div class="chat-msg bot">
-            <div class="chat-avatar bot-av">AI</div>
-            <div class="chat-bubble">
-              <div class="thinking-bar">
-                <div class="thinking-dot"></div>
-                <div class="thinking-dot"></div>
-                <div class="thinking-dot"></div>
-              </div>
-              <span style="font-size:.78rem;color:rgba(232,230,255,.45);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.05em;">Reasoning through examples...</span>
-            </div>
-          </div>
-          <div class="chat-msg bot">
-            <div class="chat-avatar bot-av">AI</div>
-            <div class="chat-bubble">Recursion is when a function calls itself. Think of Russian nesting dolls — each doll opens to reveal a smaller one, until the last one...</div>
+          <div class="mock-editor">
+            <div class="code-line"><span class="ln">1</span><span class="kw">import</span> { ref, computed } <span class="kw">from</span> <span class="str">'vue'</span></div>
+            <div class="code-line"><span class="ln">2</span><span class="kw">import</span> { useApiClient } <span class="kw">from</span> <span class="str">'@/composables'</span></div>
+            <div class="code-line"><span class="ln">3</span></div>
+            <div class="code-line hl-line"><span class="ln">4</span><span class="kw">export function</span> <span class="fn">useChat</span>() {</div>
+            <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="kw">const</span> messages = <span class="fn">ref</span>([])</div>
+            <div class="code-line"><span class="ln">6</span>&nbsp;&nbsp;<span class="kw">const</span> streaming = <span class="fn">ref</span>(<span class="kw">false</span>)</div>
+            <div class="code-line"><span class="ln">7</span>&nbsp;&nbsp;<span class="cm">// API logic isolated from view</span></div>
+            <div class="code-line hl-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="kw">const</span> { <span class="fn">post</span> } = <span class="fn">useApiClient</span>()</div>
+            <div class="code-line"><span class="ln">9</span>&nbsp;&nbsp;<span class="kw">return</span> { messages, streaming, <span class="fn">sendMessage</span> }</div>
+            <div class="code-line"><span class="ln">10</span>}</div>
           </div>
         </div>
       </div>
@@ -386,13 +462,13 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-meta">Educational Chatbot</div>
-    <h1 class="hero-title">CHAT.<br>LEARN.<br>UNDERSTAND.</h1>
+    <div class="hero-meta">Educational Chatbot — Refactoring</div>
+    <h1 class="hero-title">MODULE.<br>COMPOSE.<br>STREAM.</h1>
     <div class="hero-techs">
       <span class="hero-tech">Vue.js</span>
+      <span class="hero-tech">Javascript</span>
       <span class="hero-tech">Docker</span>
-      <span class="hero-tech">REST API</span>
-      <span class="hero-tech">i18n</span>
+      <span class="hero-tech">Tailwind CSS</span>
     </div>
   </div>
 </section>
@@ -400,29 +476,54 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 1 ── -->
 <section class="content-section">
   <div class="content-num sr">01</div>
-  <div class="content-label sr">Architecture</div>
-  <h2 class="content-heading sr">MODULAR<br>RESTFUL ARCHITECTURE</h2>
+  <div class="content-label sr">Modularisierung & Clean Code</div>
+  <h2 class="content-heading sr">FEATURE-BASED<br>MODULE ARCHITECTURE</h2>
   <p class="content-text sr">
-    The existing codebase was a monolith — tightly coupled components that made every change risky. I <strong>refactored the entire backend into a modular RESTful architecture</strong>, separating concerns into independent service layers. Each endpoint became self-contained, testable, and easy to extend. The result: a codebase where adding a new lesson type or response mode no longer touched six different files.
+    The existing frontend was a monolith — components entangled with business logic, API calls scattered across views. I <strong>refactored the entire codebase into encapsulated, feature-based modules</strong>: <strong>Auth</strong>, <strong>Conversations</strong>, <strong>Prompt</strong>, and <strong>Documents</strong>. Business and API logic was extracted into reusable <strong>Vue 3 Composables</strong>, stripping the views down to pure presentation — each module self-contained, independently testable, and trivial to extend.
   </p>
   <div class="img-block sr">
-    <div class="img-block-inner ph-arch">
-      <div class="arch-diagram">
-        <div class="arch-box">
-          <span class="arch-label">Frontend</span>
-          <span class="arch-name">Vue.js Client</span>
-        </div>
-        <div class="arch-arrow">
-          ↔
-          <span>REST / JSON</span>
-        </div>
-        <div>
-          <div class="arch-endpoints">
-            <div class="arch-ep active">/api/chat/message</div>
-            <div class="arch-ep active">/api/lesson/topics</div>
-            <div class="arch-ep">/api/user/progress</div>
-            <div class="arch-ep">/api/i18n/strings</div>
+    <div class="img-block-inner ph-modules">
+      <div class="module-grid">
+        <div class="module-card accent">
+          <div class="module-icon">🔐</div>
+          <div class="module-name">Auth</div>
+          <div class="module-tag">Composable</div>
+          <div class="module-files">
+            <div class="module-file">useAuth.js</div>
+            <div class="module-file">LoginView.vue</div>
           </div>
+        </div>
+        <div class="module-card purple">
+          <div class="module-icon">💬</div>
+          <div class="module-name">Conversations</div>
+          <div class="module-tag">Composable</div>
+          <div class="module-files">
+            <div class="module-file">useChat.js</div>
+            <div class="module-file">ChatView.vue</div>
+          </div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">✏️</div>
+          <div class="module-name">Prompt</div>
+          <div class="module-tag">Composable</div>
+          <div class="module-files">
+            <div class="module-file">usePrompt.js</div>
+            <div class="module-file">PromptBar.vue</div>
+          </div>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">📄</div>
+          <div class="module-name">Documents</div>
+          <div class="module-tag">Composable</div>
+          <div class="module-files">
+            <div class="module-file">useDocs.js</div>
+            <div class="module-file">DocView.vue</div>
+          </div>
+        </div>
+        <div class="module-arrow">
+          <div class="module-arrow-line"></div>
+          <span class="module-arrow-label">Each module exposes a single Composable — views stay pure</span>
+          <div class="module-arrow-line"></div>
         </div>
       </div>
     </div>
@@ -432,29 +533,57 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 2 ── -->
 <section class="content-section">
   <div class="content-num sr">02</div>
-  <div class="content-label sr">Internationalization</div>
-  <h2 class="content-heading sr">DYNAMIC i18n<br>LANGUAGE SWITCHER</h2>
+  <div class="content-label sr">REST-Ausrichtung & Separation of Concerns</div>
+  <h2 class="content-heading sr">CLEAN SPLIT:<br>WEB vs. API LAYER</h2>
   <p class="content-text sr">
-    Students learn best in their native language. I built a <strong>dynamic internationalization system</strong> that lets users switch interface language and content locale on the fly — no page reload, no jarring transitions. The i18n engine loads translation packs from the REST API and hot-swaps all UI strings, making the chatbot instantly accessible to learners across Germany, Indonesia, and the English-speaking world.
+    I enforced a <strong>strict separation between view delivery and data logic</strong>. Route files were split clearly: <strong>web.php</strong> handles only Inertia.js page rendering, while <strong>api.php</strong> owns all resource-based endpoints and AI interactions. Controllers became lean — no fat models, no logic leakage. The frontend connects exclusively through <strong>resource-based REST endpoints</strong>, making the data layer independently replaceable.
   </p>
   <div class="img-block sr">
-    <div class="img-block-inner ph-i18n">
-      <div class="lang-card active">
-        <div class="lang-card-flag">🇩🇪</div>
-        <div class="lang-card-code">DE</div>
-        <div class="lang-card-badge">Active</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-card-flag">🇬🇧</div>
-        <div class="lang-card-code">EN</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-card-flag">🇮🇩</div>
-        <div class="lang-card-code">ID</div>
-      </div>
-      <div class="lang-card">
-        <div class="lang-card-flag">🇫🇷</div>
-        <div class="lang-card-code">FR</div>
+    <div class="img-block-inner ph-sep">
+      <div class="sep-diagram">
+        <div class="sep-column">
+          <div class="sep-header web">web.php — View Layer</div>
+          <div class="sep-item">
+            <div class="sep-item-label">Framework</div>
+            <div class="sep-item-val">Inertia.js</div>
+          </div>
+          <div class="sep-item">
+            <div class="sep-item-label">Responsibility</div>
+            <div class="sep-item-val">Page rendering only</div>
+          </div>
+          <div class="sep-item">
+            <div class="sep-item-label">Example route</div>
+            <div class="sep-item-val">GET /chat → ChatView</div>
+          </div>
+          <div class="sep-item">
+            <div class="sep-item-label">Controller logic</div>
+            <div class="sep-item-val">return Inertia::render()</div>
+          </div>
+        </div>
+        <div class="sep-divider">
+          <div class="sep-div-line"></div>
+          <div class="sep-div-badge">Inertia.js</div>
+          <div class="sep-div-line"></div>
+        </div>
+        <div class="sep-column">
+          <div class="sep-header api">api.php — Data & AI Layer</div>
+          <div class="sep-item api-item">
+            <div class="sep-item-label">Transport</div>
+            <div class="sep-item-val">REST / JSON</div>
+          </div>
+          <div class="sep-item api-item">
+            <div class="sep-item-label">Responsibility</div>
+            <div class="sep-item-val">Resources + AI logic</div>
+          </div>
+          <div class="sep-item api-item">
+            <div class="sep-item-label">Example routes</div>
+            <div class="sep-item-val">POST /api/messages</div>
+          </div>
+          <div class="sep-item api-item">
+            <div class="sep-item-label">Controllers</div>
+            <div class="sep-item-val">Lean — no fat logic</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -463,40 +592,38 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 3 ── -->
 <section class="content-section">
   <div class="content-num sr">03</div>
-  <div class="content-label sr">UI / UX Design</div>
-  <h2 class="content-heading sr">AI THINKING<br>PROCESS VISUALIZER</h2>
+  <div class="content-label sr">UI/UX & Streaming-Feedback</div>
+  <h2 class="content-heading sr">AI STREAMING<br>THINKING SKELETON</h2>
   <p class="content-text sr">
-    One of the most confusing parts of AI chatbots is the black-box response — the user sends a message and waits with no feedback. I <strong>redesigned the interface to expose the AI's process status in real time</strong>
+    AI responses feel instant or broken — there's no middle ground. I <strong>redesigned the chat interface to communicate state at every step of the streaming process</strong>. While the model generates, users see <strong>Thinking Skeletons</strong> — animated placeholder lines that pulse in real time — paired with dynamic micro-status indicators that reflect the actual pipeline stage. The result: perceived latency drops to near zero, and users never feel like the app has stalled.
   </p>
   <div class="img-block sr">
-    <div class="img-block-inner ph-think">
-      <div class="think-ui">
-        <div class="think-step done">
-          <div class="think-icon done">✓</div>
-          <div class="think-body">
-            <div class="think-step-label">Step 1 — Context Retrieval</div>
-            <div class="think-step-text">Searched 3 lesson modules for relevant content on "recursion".</div>
+    <div class="img-block-inner ph-stream">
+      <div class="stream-ui">
+        <div class="stream-msg">
+          <div class="stream-av user">U</div>
+          <div class="stream-bubble user">Erkläre mir den Unterschied zwischen ref() und reactive() in Vue 3.</div>
+        </div>
+        <div class="stream-msg">
+          <div class="stream-av bot">AI</div>
+          <div class="stream-bubble bot">
+            <div class="skeleton-wrap">
+              <div class="skel-label">Generating response</div>
+              <div class="skel-line w-full"></div>
+              <div class="skel-line w-3q"></div>
+              <div class="skel-line w-full"></div>
+              <div class="skel-line w-half"></div>
+            </div>
           </div>
         </div>
-        <div class="think-step done">
-          <div class="think-icon done">✓</div>
-          <div class="think-body">
-            <div class="think-step-label">Step 2 — Knowledge Synthesis</div>
-            <div class="think-step-text">Cross-referenced CS fundamentals with user's current lesson level.</div>
-          </div>
+        <div class="stream-status">
+          <div class="pulse-dot"></div>
+          Streaming · Token 142 · avg 38 tok/s
         </div>
-        <div class="think-step active">
-          <div class="think-icon active">⟳</div>
-          <div class="think-body">
-            <div class="think-step-label">Step 3 — Response Generation</div>
-            <div class="think-step-text">Formulating beginner-friendly explanation with code example...</div>
-          </div>
-        </div>
-        <div class="think-step">
-          <div class="think-icon wait">○</div>
-          <div class="think-body">
-            <div class="think-step-label">Step 4 — Language Adaptation</div>
-            <div class="think-step-text">Awaiting content to apply i18n formatting.</div>
+        <div class="stream-msg">
+          <div class="stream-av bot">AI</div>
+          <div class="stream-bubble bot" style="font-size:.78rem;">
+            <strong style="color:var(--accent);">ref()</strong> wraps a single value and exposes it via <code style="background:rgba(0,229,200,.1);padding:.1rem .3rem;border-radius:3px;font-size:.72rem;">.value</code>. <strong style="color:#a78bfa;">reactive()</strong> wraps an entire object and makes every property reactive — no <code style="background:rgba(0,229,200,.1);padding:.1rem .3rem;border-radius:3px;font-size:.72rem;">.value</code> needed, but it loses reactivity if destructured...
           </div>
         </div>
       </div>
@@ -520,7 +647,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 </footer>
 
 <script>
-// Cursor
+// ── Cursor
 (function(){
   const dot=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
   let rx=0,ry=0,dx=0,dy=0;
@@ -537,18 +664,24 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
   });
 })();
 
-// Scroll reveal
+// ── Scroll reveal
 (function(){
   const io=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(!e.isIntersecting)return; e.target.classList.add('in'); io.unobserve(e.target); }); },{threshold:.1});
   document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 })();
 
-// Transitions
+// ── Page transitions
 const overlay = document.getElementById('page-transition');
+
+window.addEventListener('pageshow', function(event) {
+  overlay.classList.remove('active');
+});
+
 function navigateTo(url){
   overlay.classList.add('active');
   setTimeout(()=>{ window.location.href = url; }, 450);
 }
+
 document.getElementById('backBtn').addEventListener('click', ()=>navigateTo('index.html#projects'));
 document.getElementById('backBtn2').addEventListener('click', ()=>navigateTo('index.html#projects'));
 </script>

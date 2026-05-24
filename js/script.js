@@ -173,3 +173,9 @@ window.addEventListener('scroll',()=>{
     o.style.opacity   = 1 - p*2;
   },{passive:true});
 })();
+
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    document.getElementById('page-transition').classList.remove('active');
+  }
+});
