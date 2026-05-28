@@ -175,7 +175,8 @@ nav.scrolled {
   inset: 0;
   background:
     linear-gradient(to right, var(--bg) 0%, var(--bg) 9%, rgba(5,8,15,0.88) 22%, rgba(5,8,15,0.5) 42%, rgba(5,8,15,0.1) 68%, transparent 88%),
-    linear-gradient(to top, var(--bg) 0%, rgba(5,8,15,0.6) 10%, transparent 28%);
+    linear-gradient(to top, var(--bg) 0%, rgba(5,8,15,0.6) 10%, transparent 28%),
+    linear-gradient(to bottom, rgba(5,8,15,0.75) 0%, rgba(5,8,15,0.3) 12%, transparent 25%);
   pointer-events: none;
   z-index: 2;
 }
@@ -184,7 +185,7 @@ nav.scrolled {
   height: 100%;
   border-radius: 0;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 72%;
   border: none;
   box-shadow: none;
   display: block;
