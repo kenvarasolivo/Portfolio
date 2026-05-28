@@ -163,7 +163,7 @@ nav.scrolled {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 55%;
+  width: 50%;
   opacity: 0;
   animation: fadeIn .9s var(--ease) .95s forwards;
   overflow: hidden;
