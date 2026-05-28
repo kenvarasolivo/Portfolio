@@ -105,6 +105,7 @@ nav.scrolled {
 #hero {
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: center; padding: 100px 2.5rem 5rem; overflow: hidden;
+  position: relative;
 }
 .hero-overline {
   font-family: 'DM Mono', monospace; font-size: .72rem;
@@ -153,6 +154,28 @@ nav.scrolled {
 .btn-glow:hover { box-shadow: 0 0 60px rgba(0,229,200,.5); transform: translateY(-2px); }
 .btn-ghost { background: transparent; color: #f0eeff; border: 1px solid rgba(255,255,255,.15); }
 .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+.hero-photo-wrap {
+  position: absolute;
+  top: clamp(90px, 13vh, 145px);
+  right: 2.5rem;
+  opacity: 0;
+  animation: fadeIn .9s var(--ease) .95s forwards;
+}
+.hero-photo {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid rgba(0,229,200,.45);
+  box-shadow: 0 0 0 7px rgba(0,229,200,.07), 0 10px 36px rgba(0,0,0,.45);
+  display: block;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.hero-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 9px rgba(0,229,200,.12), 0 0 36px rgba(0,229,200,.22), 0 14px 44px rgba(0,0,0,.5);
+}
 .scroll-indicator {
   position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: .5rem;
@@ -399,7 +422,6 @@ nav.scrolled {
 .skills-headline em { font-style:normal; color:var(--cyan); }
 .skills-wrapper { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 3.5rem; }
 
-.skill-group { }
 .skill-group-title {
   font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.18em;
   text-transform:uppercase; color:var(--cyan); margin-bottom:1.5rem;
@@ -561,6 +583,7 @@ footer {
 @media(max-width:900px){
   :root { --section-pad: 5rem; }
   nav{padding:1.25rem 1.5rem;} .nav-links{display:none;}
+  .hero-photo-wrap { display: none; }
   #hero{padding: 80px 1.5rem 4rem;}
   .hero-headline {font-size: clamp(3.5rem, 18vw, 6rem);}
   .hero-bottom{flex-direction:column;align-items:flex-start;gap:2rem;}
