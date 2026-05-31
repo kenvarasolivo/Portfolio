@@ -222,7 +222,7 @@ main { position: relative; z-index: 2; }
 .comp-row { display: flex; gap: 1rem; }
 .comp-row .comp-node { flex: 1; text-align: center; }
 
-/* Placeholder 2: Async Axios */
+/* Placeholder 2: Client / Server Flow */
 .ph-async {
   background: var(--bg2); display: flex; align-items: center; justify-content: center;
 }
@@ -360,7 +360,7 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
           
           <div class="live-toast">
             <div class="toast-dot"></div>
-            <div class="toast-text">New Bid Placed: € 48.00</div>
+            <div class="toast-text">New Offer Posted: € 48.00</div>
           </div>
         </div>
       </div>
@@ -371,10 +371,10 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
     <div class="hero-meta">Online Marketplace</div>
     <h1 class="hero-title">REAL-TIME.<br>MODULAR.<br>MARKETPLACE.</h1>
     <div class="hero-techs">
-      <span class="hero-tech">JavaScript</span>
-      <span class="hero-tech">Vue.js</span>
-      <span class="hero-tech">WebSockets</span>
-      <span class="hero-tech">Axios</span>
+      <span class="hero-tech">Laravel</span>
+      <span class="hero-tech">React</span>
+      <span class="hero-tech">Laravel Reverb</span>
+      <span class="hero-tech">PostgreSQL</span>
     </div>
   </div>
 </section>
@@ -382,22 +382,22 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 1 ── -->
 <section class="content-section">
   <div class="content-num sr">01</div>
-  <div class="content-label sr">Development</div>
-  <h2 class="content-heading sr">FROM CONCEPT<br>TO PRODUCTION</h2>
+  <div class="content-label sr">Architecture</div>
+  <h2 class="content-heading sr">FULL-STACK<br>ISLANDS ARCHITECTURE</h2>
   <p class="content-text sr">
-    Developed a fully modular Single Page Application (SPA) utilizing <strong>Vue.js</strong>. I managed dependencies via npm and ensured a clean, scalable component hierarchy. The architecture allowed the platform to grow from a simple concept to a production-ready application, maintaining high performance and code readability.
+    An online marketplace for auto parts and tech products, built on <strong>Laravel</strong> with the <strong>Eloquent ORM</strong> for relational data. Rather than a full SPA, interactive <strong>React components</strong> are mounted as "Islands" inside server-rendered <strong>Blade templates</strong> — keeping pages fast and SEO-friendly while reserving client-side reactivity for exactly where it's needed.
   </p>
   <div class="img-block sr">
     <div class="img-block-inner ph-components">
       <div class="comp-tree">
-        <div class="comp-node parent">App.vue (Root)</div>
+        <div class="comp-node parent">Blade Template (SSR)</div>
         <div class="comp-row">
-          <div class="comp-node">ProductList.vue</div>
-          <div class="comp-node">CartMenu.vue</div>
+          <div class="comp-node">HeroSlider.jsx</div>
+          <div class="comp-node">CartProvider.jsx</div>
         </div>
         <div class="comp-row">
-          <div class="comp-node">ProductCard.vue</div>
-          <div class="comp-node">CartItem.vue</div>
+          <div class="comp-node">ProductCard.jsx</div>
+          <div class="comp-node">CartItem.jsx</div>
         </div>
       </div>
     </div>
@@ -407,24 +407,24 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 2 ── -->
 <section class="content-section">
   <div class="content-num sr">02</div>
-  <div class="content-label sr">Data Handling</div>
-  <h2 class="content-heading sr">SEAMLESS ASYNC<br>INTEGRATION</h2>
+  <div class="content-label sr">Frontend</div>
+  <h2 class="content-heading sr">INTERACTIVE<br>REACT FRONTEND</h2>
   <p class="content-text sr">
-    Integrated multiple external web services via RESTful APIs. I utilized <strong>Axios and AJAX</strong> for robust, asynchronous data fetching. This ensured that the UI remained completely responsive, even during heavy filtering operations or when uploading large product image files to the backend.
+    Built reusable React components driving shared state through the <strong>Context API</strong> — no prop drilling, no duplicated logic. Reactive elements like the <strong>Hero slider</strong> and a <strong>dynamic shopping cart</strong> update instantly, while a custom <strong>useEchoChannel</strong> hook abstracts away live-update wiring into a single, declarative interface.
   </p>
   <div class="img-block sr">
     <div class="img-block-inner ph-async">
       <div class="api-flow">
         <div class="flow-box">
           <span>Client</span>
-          <small>Vue.js</small>
+          <small>React</small>
         </div>
         <div class="flow-line">
           <div class="flow-packet"></div>
         </div>
         <div class="flow-box" style="border-color: rgba(123,94,248,.4); background: rgba(123,94,248,.05);">
           <span style="color: var(--purple);">Server</span>
-          <small>REST API</small>
+          <small>Laravel API</small>
         </div>
       </div>
     </div>
@@ -434,10 +434,10 @@ footer { background:var(--bg); border-top:1px solid var(--border-d); padding:2re
 <!-- ── SECTION 3 ── -->
 <section class="content-section">
   <div class="content-num sr">03</div>
-  <div class="content-label sr">Interactivity</div>
+  <div class="content-label sr">Real-Time</div>
   <h2 class="content-heading sr">REAL-TIME<br>LIVE NOTIFICATIONS</h2>
   <p class="content-text sr">
-    To create a true marketplace feel, I replaced traditional polling with robust <strong>WebSocket connections</strong> for instant updates. Users receive live, on-screen notifications for competitive bids, new messages, and order status changes without ever needing to refresh the page.
+    Event broadcasting powered by <strong>Laravel Reverb</strong> over a persistent <strong>WebSocket</strong> connection, consumed on the client via <strong>Laravel Echo</strong>. <strong>Public channels</strong> push global events like maintenance notices and new offers, while <strong>user-specific channels</strong> deliver targeted sale notifications — all without a single page refresh.
   </p>
   <div class="img-block sr">
     <div class="img-block-inner ph-socket">
