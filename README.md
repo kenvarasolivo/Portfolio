@@ -1,138 +1,63 @@
-# Portfolio — Kenvara Solivo Lwie
+<h1 align="center">Hi, I'm Kenvara 👋</h1>
 
-A personal portfolio website showcasing full-stack web development, AI integration, and data science projects. Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build step.
+<p align="center">
+  <b>CS Student @ FH Aachen, Germany</b> · Full-stack web · AI integration · Data science
+</p>
 
-**Live site:** [kenvarasolivo.github.io](https://github.com/kenvarasolivo) <!-- replace with your actual URL -->
-
----
-
-## Features
-
-- **Animated hero** with staggered clip-path reveals and scroll-driven parallax
-- **Canvas shader blobs** — five oscillating radial gradients with mouse-tracking parallax
-- **Custom cursor** with a lagged ring and blend-mode overlay
-- **Scroll-reveal system** via `IntersectionObserver` (translate + fade on viewport entry)
-- **Stat counters** that animate from zero on scroll
-- **Horizontal showcase carousel** with smooth scroll navigation
-- **Page transition overlay** for cross-page navigation
-- **Responsive layout** — single breakpoint at 900 px, touch-friendly carousel
+<p align="center">
+  <a href="https://github.com/kenvarasolivo"><img src="https://img.shields.io/badge/Portfolio-00e5c8?style=for-the-badge&logo=github&logoColor=05080f" alt="Portfolio"/></a>
+  <a href="https://linkedin.com/in/kenvara-solivo-lwie-89a835234"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="mailto:kenvara.solivo@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+</p>
 
 ---
 
-## Project Structure
+### 🚀 About Me
 
-```
-Portfolio/
-├── index.html                  # Main landing page
-├── project-chatbot.html        # Educational Chatbot detail page
-├── project-abalo.html          # Abalo Marketplace detail page
-├── project-dataset.html        # Exam Score Dataset Analysis detail page
-├── css/
-│   └── style.css               # Full design system (custom properties, dark/light)
-├── js/
-│   └── script.js               # All interactivity (cursor, blobs, carousel, counters)
-└── images/                     # Project thumbnail images
-```
+- 🎓 Computer Science student at **FH Aachen** (after Studienkolleg Kaiserslautern)
+- 💻 I build clean, framework-free front-ends and modular full-stack apps
+- 🤖 Interested in **AI integration**, LLM-powered tools, and data science
+- 🌍 Active in **AIESEC** & **PPI Aachen**
+- 🗣️ German (C1) · English (Business) · Indonesian (Native)
+- 💬 Ask me about Vue.js, vanilla JS, or data analysis with Python
 
 ---
 
-## Tech Stack
+### 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Markup | HTML5 (semantic) |
-| Styling | CSS3 — Grid, Flexbox, Custom Properties, Animations |
-| Scripting | Vanilla JavaScript — Canvas API, IntersectionObserver |
-| Fonts | Bebas Neue · DM Mono · Manrope (Google Fonts) |
-| Tooling | Git |
-
-No npm. No bundler. No runtime dependencies.
-
----
-
-## Getting Started
-
-Clone the repo and open `index.html` in any modern browser — that's it.
-
-```bash
-git clone https://github.com/kenvarasolivo/portfolio.git
-cd portfolio
-open index.html          # macOS
-start index.html         # Windows
-xdg-open index.html      # Linux
-```
-
-For a local dev server with live reload you can use any static server:
-
-```bash
-# Python
-python -m http.server 8080
-
-# Node (npx, no install required)
-npx serve .
-```
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
-## Sections
+### 📌 Featured Projects
 
-| Section | Description |
-|---|---|
-| **Hero** | Full-viewport headline with CTA buttons and scroll indicator |
-| **Marquee** | Infinitely scrolling tech-stack ticker |
-| **About** | Bio and animated stat counters |
-| **Projects** | Three featured academic/professional projects |
-| **Showcase** | Six personal side projects in a horizontal carousel |
-| **Skills** | Logo grids: languages, frameworks, tools, AI assistants |
-| **Education** | Academic timeline (FH Aachen, Studienkolleg Kaiserslautern) |
-| **Languages** | German (C1), English (Business), Indonesian (Native) |
-| **Involvement** | AIESEC & PPI Aachen |
-| **Contact** | Email, LinkedIn, GitHub; open-to-work status |
-
----
-
-## Featured Projects
-
-### Educational Chatbot
-Refactored to a modular RESTful architecture with a dynamic i18n language-switcher and redesigned UI for AI reasoning visualization.  
-**Stack:** Vue.js · JavaScript · Docker · Tailwind CSS
-
-### Abalo — Online Marketplace
-Modular Vue.js storefront with async Axios/AJAX communication and real-time WebSocket integration.  
-**Stack:** JavaScript · Vue.js · WebSockets · Axios
-
-### Exam Score Dataset Analysis
-Exploratory data analysis with correlation visualizations and ML benchmarking (Linear Regression vs. Random Forest).  
-**Stack:** Python · Pandas · Scikit-learn · Matplotlib
-
----
-
-## Design Tokens
-
-The palette is defined as CSS custom properties on `:root`.
-
-| Token | Value | Usage |
+| Project | Description | Stack |
 |---|---|---|
-| `--cyan` | `#00e5c8` | Primary accent, glows, borders |
-| `--purple` | `#7b5ef8` | Secondary accent |
-| `--bg` | `#05080f` | Dark section background |
-| `--light-bg` | `#f2f1ee` | Light section background |
+| **Educational Chatbot** | Feature-based Vue 3 refactor with REST endpoints and streaming "thinking" indicators to cut perceived AI latency | Vue.js · Docker · Tailwind |
+| **Abalo — Marketplace** | Full-stack auto-parts marketplace with React "islands" in Blade and real-time WebSocket broadcasting via Laravel Reverb | Laravel · React · Reverb · PostgreSQL |
+| **Gym Machine Guide** | Modular Flutter app (Clean Architecture) with Supabase backend, role-based permissions, and an interactive muscle map | Flutter · Dart · Supabase |
 
 ---
 
-## Browser Support
+### 📊 GitHub Stats
 
-Targets evergreen browsers. The Canvas blob background and `IntersectionObserver` require a modern engine; no polyfills are included.
-
----
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=kenvarasolivo&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kenvarasolivo&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+</p>
 
 ---
 
-## Contact
-
-**Kenvara Solivo Lwie** · CS Student @ FH Aachen, Germany  
-[kenvara.solivo@gmail.com](mailto:kenvara.solivo@gmail.com) · [LinkedIn](https://linkedin.com/in/kenvara-solivo-lwie-89a835234) · [GitHub](https://github.com/kenvarasolivo)
+<p align="center"><i>Open to internships and collaboration — let's build something.</i></p>
