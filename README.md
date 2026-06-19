@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Kenvara 👋</h1>
 
 <p align="center">
-  <b>CS Student @ FH Aachen, Germany</b> · Full-stack web · AI integration · Data science
+  <b>CS Student @ FH Aachen, Germany</b> · AI-powered full-stack · Structured AI outputs · Streaming UX
 </p>
 
 <p align="center">
@@ -15,27 +15,33 @@
 ### 🚀 About Me
 
 - 🎓 Computer Science student at **FH Aachen** (after Studienkolleg Kaiserslautern)
-- 💻 I build clean, framework-free front-ends and modular full-stack apps
-- 🤖 Interested in **AI integration**, LLM-powered tools, and data science
+- 🤖 I build **AI-powered full-stack systems** — structured JSON-schema outputs, token streaming, and RAG
+- 💻 Clean, modular architectures with **Next.js, React, FastAPI & Python**
+- 🧪 Big on engineering rigor: typed AI interfaces, Pytest + LLM eval harnesses, CI/CD
 - 🌍 Active in **AIESEC** & **PPI Aachen**
 - 🗣️ German (C1) · English (Business) · Indonesian (Native)
-- 💬 Ask me about Vue.js, vanilla JS, or data analysis with Python
+- 🎯 Seeking a mandatory internship (Pflichtpraktikum) as an **AI Software Engineer**
 
 ---
 
 ### 🛠️ Tech Stack
 
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Gemini API](https://img.shields.io/badge/Gemini%20API-8E75B2?style=flat&logo=googlegemini&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat&logo=pytest&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
@@ -45,10 +51,10 @@
 
 | Project | Description | Stack |
 |---|---|---|
-| **Educational Chatbot** | Feature-based Vue 3 refactor with REST endpoints and streaming "thinking" indicators to cut perceived AI latency | Vue.js · Docker · Tailwind |
-| **Abalo — Marketplace** | Full-stack auto-parts marketplace with React "islands" in Blade and real-time WebSocket broadcasting via Laravel Reverb | Laravel · React · Reverb · PostgreSQL |
-| **Gym Machine Guide** | Modular Flutter app (Clean Architecture) with Supabase backend, role-based permissions, and an interactive muscle map | Flutter · Dart · Supabase |
+| **[FLUEN](https://fluen-languages.vercel.app/)** | Minimalist AI language platform uniting spaced repetition (FSRS), an immersive content hub with interactive subtitles, and a live AI coach — word-to-flashcard flow via structured JSON-schema outputs and token streaming | Next.js · TypeScript · Supabase · Gemini API · FSRS |
+| **[ALIGN](https://align-engine.vercel.app/)** | AI application optimizer — decoupled FastAPI + React app with type-safe structured AI outputs (Pydantic), a Pytest suite (94 tests, 96% coverage) with an LLM eval harness, and a citation-backed RAG pipeline over pgvector | Python · FastAPI · RAG · pgvector · Pytest · Gemini API |
+| **FH Aachen Chatbot** | Feature-based Vue 3 refactor (reusable composables) with resource-based REST endpoints and non-blocking token streaming to cut perceived AI latency | Vue.js · Laravel · OpenAI API · Docker |
 
 ---
 
-<p align="center"><i>Open to internships and collaboration — let's build something.</i></p>
+<p align="center"><i>Open to an AI Software Engineer internship (Pflichtpraktikum) and collaboration — let's build something.</i></p>
