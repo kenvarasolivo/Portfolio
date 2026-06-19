@@ -150,16 +150,17 @@
         <div>
           <div class="proj-title">ALIGN — AI APPLICATION OPTIMIZER <span class="proj-live">Live</span></div>
           <div class="proj-desc"><ul>
-            <li>Decoupled async full-stack app with a strict split between a Python/FastAPI backend and a React + Vite frontend for automated semantic analysis of resumes &amp; job postings</li>
-            <li>Official google-genai SDK with gemini-2.5-flash, enforcing type-safe structured JSON outputs via Pydantic to extract skill gaps, matches, and tailored cover letters</li>
-            <li>Supabase with JWT auth, Row-Level Security &amp; daily quotas — persistent resume vault, history, and a viewport-locked 50/50 split-screen live editor (human-in-the-loop)</li>
+            <li>Decoupled async full-stack app — Python/FastAPI backend &amp; React + Vite frontend — enforcing type-safe, structured JSON outputs (skill gaps, matches, cover letters) via the google-genai SDK (gemini-2.5-flash) with Pydantic schemas</li>
+            <li>Hardened the AI interface with a Pytest suite (94 tests, 96% coverage) — regression tests for structured LLM outputs plus an eval harness over 14 labeled cases (100% schema validity, 100% skill-gap detection), automated via GitHub Actions CI</li>
+            <li>Cut hallucinations in skill advice with a RAG pipeline citing sources — embeddings (gemini-embedding-001) retrieved via HNSW cosine-KNN in pgvector/PostgreSQL (retrieve → augment → generate)</li>
           </ul></div>
           <div class="proj-techs">
             <span class="proj-tech">Python</span>
             <span class="proj-tech">FastAPI</span>
-            <span class="proj-tech">Pydantic</span>
+            <span class="proj-tech">RAG</span>
+            <span class="proj-tech">pgvector</span>
+            <span class="proj-tech">Pytest</span>
             <span class="proj-tech">Gemini API</span>
-            <span class="proj-tech">React</span>
           </div>
         </div>
         <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="proj-arrow">
@@ -553,7 +554,7 @@
   <div class="contact-glow"></div>
   <div class="contact-eyebrow sr">Available for opportunities</div>
   <h2 class="contact-big sr">OPEN TO<br><em>WORK.</em></h2>
-  <p class="contact-sub sr">Currently seeking a mandatory internship (Pflichtpraktikum) in software engineering — helping build scalable, AI-powered systems. Let's discuss how I can contribute to your team.</p>
+  <p class="contact-sub sr">Currently seeking a mandatory internship (Pflichtpraktikum) as an AI Software Engineer — helping build scalable, AI-powered systems. Let's discuss how I can contribute to your team.</p>
   <div class="contact-links sr">
     <a href="mailto:kenvara.solivo@gmail.com" class="contact-link contact-link-primary">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
