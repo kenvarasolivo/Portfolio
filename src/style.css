@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────────────────────────────
+   BASE
+   ─────────────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchored sections so the sticky nav doesn't cover headings */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-slate-900;
+  }
+
+  /* Visible focus ring for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white rounded;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   COMPONENTS
+   ─────────────────────────────────────────────────────────────────────── */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-28 lg:py-36;
+  }
+
+  /* Small section eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-slate-500;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-accent/70;
+  }
+
+  /* Inline highlighted phrase ("marker" text) */
+  .mark {
+    @apply text-accent-dark;
+  }
+  .mark-box {
+    @apply rounded bg-accent/10 px-1.5 py-0.5 text-accent-dark;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium
+           transition-all duration-200 focus-visible:ring-2;
+  }
+  /* Solid dark button — for the white page (nav CTA, contact band) */
+  .btn-primary {
+    @apply bg-slate-900 text-white hover:bg-accent hover:text-white;
+  }
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent-dark hover:shadow-glow-sm;
+  }
+  /* Outlined button on the white page */
+  .btn-ghost {
+    @apply border border-slate-300 text-slate-700 hover:border-accent hover:text-accent;
+  }
+  /* White pill button — sits on the dark hero */
+  .btn-light {
+    @apply bg-white text-slate-900 hover:bg-accent hover:text-white hover:shadow-glow-sm;
+  }
+  /* Outlined light button — sits on the dark hero */
+  .btn-ghost-light {
+    @apply border border-white/25 text-white hover:border-white/60 hover:bg-white/10;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply rounded-xl border border-slate-200 bg-card shadow-card transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:border-accent/40 hover:shadow-glow hover:-translate-y-0.5;
+  }
+
+  /* small line/duotone icon chip */
+  .icon-chip {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg
+           border border-accent/20 bg-accent/10 text-accent;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-slate-50
+           px-3 py-1 text-xs text-slate-500;
+  }
+
+  /* ── Nav links: white over the hero, dark once scrolled onto the page ── */
+  .nav-link {
+    @apply text-sm text-white/75 transition-colors hover:text-white;
+  }
+  .nav-logo {
+    @apply text-[15px] font-semibold tracking-tight text-white transition-colors;
+  }
+
+  /* Sticky nav: transparent over hero, solid white once scrolled */
+  .site-nav {
+    @apply border-b border-transparent bg-transparent transition-all duration-300;
+  }
+  .site-nav.is-scrolled {
+    @apply border-slate-200 bg-white/85 backdrop-blur-md;
+  }
+  .site-nav.is-scrolled .nav-link {
+    @apply text-slate-600 hover:text-slate-900;
+  }
+  .site-nav.is-scrolled .nav-logo {
+    @apply text-slate-900;
+  }
+  .nav-burger {
+    @apply border-white/30 text-white;
+  }
+  .site-nav.is-scrolled .nav-burger {
+    @apply border-slate-300 text-slate-700;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   UTILITIES
+   ─────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Scroll-reveal: hidden until JS adds .is-visible */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* faint dotted grid texture for light preview panels */
+  .bg-grid {
+    background-image: radial-gradient(
+      rgba(15, 23, 42, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
