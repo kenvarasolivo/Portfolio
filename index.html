@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
-    <!-- TODO: drop a favicon.svg into /public/images, or remove the line above -->
 
     <title>Kenvara Solivo Lwie — Full-Stack & AI Software Engineer</title>
     <meta
@@ -290,14 +288,9 @@
             <!-- FH Aachen Chatbot (team project — internal, no public demo) -->
             <article class="reveal card card-hover grid gap-0 overflow-hidden lg:grid-cols-2">
               <div class="relative block bg-card-2">
-                <div class="bg-grid relative aspect-[16/10] overflow-hidden">
-                  <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-                    <span class="icon-chip" aria-hidden="true">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </span>
-                    <span class="text-sm font-semibold text-slate-700">FH Aachen Chatbot</span>
-                    <span class="text-xs text-muted">Interdisciplinary project · 10-person agile team</span>
-                  </div>
+                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                  <img src="/images/project_chatbot.png" alt="FH Aachen Chatbot — AI chat interface preview"
+                    class="h-full w-full object-cover object-top opacity-90" loading="lazy" />
                 </div>
               </div>
               <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
@@ -329,9 +322,10 @@
             <span class="whitespace-nowrap text-xs text-muted">Built for fun &amp; learning</span>
           </div>
 
-          <div class="grid gap-6 md:grid-cols-3">
+          <!-- Horizontal scroll: cards scroll right once they exceed the row -->
+          <div class="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-6 px-6 pb-4 [scrollbar-width:thin] sm:mx-0 sm:px-0 sm:scroll-px-0">
             <!-- CineScope -->
-            <article class="reveal card card-hover flex flex-col overflow-hidden">
+            <article class="reveal card card-hover flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
               <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
                 <div class="bg-grid aspect-[16/10] overflow-hidden">
                   <img src="/images/project_cinescope.png" alt="CineScope movie analytics dashboard preview"
@@ -352,7 +346,7 @@
             </article>
 
             <!-- LaFerrari -->
-            <article class="reveal card card-hover flex flex-col overflow-hidden">
+            <article class="reveal card card-hover flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
               <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
                 <div class="bg-grid aspect-[16/10] overflow-hidden">
                   <img src="/images/project_laferrari.png" alt="LaFerrari interactive 3D WebGL experience preview"
@@ -373,7 +367,7 @@
             </article>
 
             <!-- Kanagawa Wave -->
-            <article class="reveal card card-hover flex flex-col overflow-hidden">
+            <article class="reveal card card-hover flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
               <a href="https://kanagawa-wave.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
                 <div class="bg-grid aspect-[16/10] overflow-hidden">
                   <img src="/images/project_kanagawa.jpg" alt="Kanagawa Wave scrollytelling experience preview"
@@ -389,6 +383,27 @@
                 </p>
                 <div class="mt-auto flex flex-wrap gap-2 pt-2">
                   <span class="pill">GSAP</span><span class="pill">ScrollTrigger</span><span class="pill">Video</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Destination Intelligence -->
+            <article class="reveal card card-hover flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
+              <a href="https://destination-intelligence.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
+                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                  <img src="/images/project_destination_intelligence.png" alt="Destination Intelligence dashboard preview"
+                    class="h-full w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                </div>
+              </a>
+              <div class="flex flex-1 flex-col gap-3 p-6">
+                <span class="pill w-fit">Personal exploration</span>
+                <h4 class="text-lg font-bold tracking-tight">Destination Intelligence</h4>
+                <p class="text-sm leading-relaxed text-muted">
+                  Geospatial analytics platform combining interactive maps with advanced data
+                  visualization to explore global travel patterns and destination insights.
+                </p>
+                <div class="mt-auto flex flex-wrap gap-2 pt-2">
+                  <span class="pill">Geospatial</span><span class="pill">Maps API</span><span class="pill">Analytics</span>
                 </div>
               </div>
             </article>
