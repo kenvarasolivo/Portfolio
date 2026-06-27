@@ -109,6 +109,15 @@
     @apply text-[15px] font-semibold tracking-tight text-white transition-colors;
   }
 
+  /* Footer links: arrow-prefixed, light over the dark gradient footer */
+  .footer-link {
+    @apply inline-flex items-center gap-2 text-white/75 transition-colors hover:text-white;
+  }
+  .footer-link::before {
+    content: '→';
+    @apply text-white/40;
+  }
+
   /* Sticky nav: transparent over hero, solid white once scrolled */
   .site-nav {
     @apply border-b border-transparent bg-transparent transition-all duration-300;
