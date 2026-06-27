@@ -151,6 +151,31 @@
     text-wrap: balance;
   }
 
+  /* Hero headline: soft, glowing, slightly out-of-focus letters that look like
+     they're emerging from the blue fog (Sui-style). The ::before is a heavily
+     blurred copy that supplies the surrounding halo. */
+  .hero-headline {
+    position: relative;
+    color: #eef4ff;
+    text-shadow:
+      0 0 14px rgba(191, 219, 254, 0.25),
+      0 0 36px rgba(96, 165, 250, 0.18);
+  }
+  .hero-headline::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: #cfe0ff;
+    filter: blur(10px);
+    opacity: 0.3;
+    animation: hero-fog 7s ease-in-out infinite;
+  }
+  @keyframes hero-fog {
+    0%, 100% { opacity: 0.22; }
+    50% { opacity: 0.38; }
+  }
+
   /* faint dotted grid texture for light preview panels */
   .bg-grid {
     background-image: radial-gradient(
@@ -171,7 +196,11 @@
     transform: none !important;
     transition: none !important;
   }
-  .animate-marquee {
+  .animate-marquee,
+  .animate-breathe {
+    animation: none !important;
+  }
+  .hero-headline::before {
     animation: none !important;
   }
 }

@@ -90,54 +90,40 @@
            2 · HERO
            ═════════════════════════════════════════════════════════════════ -->
       <section id="hero" class="relative isolate overflow-hidden bg-ink-950">
-        <!-- Dark → blue → white vertical wash: black at the top, an intense
-             electric-blue core behind the name, dissolving into the white page -->
+        <!-- Sui-style backdrop. One smooth vertical wash carries black → deep
+             blue → light blue → white across the full width (so there's no hard
+             black/white seam anywhere), and a soft additive bloom lifts the
+             centre into a glassy glow. -->
         <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <!-- Mobile: cheap static gradient that mimics the dark→blue→white wash
-               without GPU-heavy blur (large blur radii are very slow on phones) -->
-          <div class="absolute inset-0 md:hidden bg-[linear-gradient(to_bottom,#05070D_0%,#1D4ED8_30%,#3B82F6_45%,#60A5FA_55%,#ffffff_90%)]"></div>
-
-          <!-- Desktop: layered blurred blobs (only rendered on md+ where the GPU can handle them) -->
-          <!-- wide ambient blue rising through the centre -->
-          <div class="hidden md:block absolute left-1/2 top-[16%] h-[1100px] w-[1700px] -translate-x-1/2 rounded-full bg-accent/75 blur-[200px]"></div>
-          <!-- saturated electric-blue core behind the headline -->
-          <div class="hidden md:block absolute left-1/2 top-[28%] h-[720px] w-[1240px] -translate-x-1/2 rounded-full bg-accent-light/90 blur-[150px]"></div>
-          <!-- bright blue-white hotspot -->
-          <div class="hidden md:block absolute left-1/2 top-[38%] h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-[#60A5FA]/85 blur-[110px]"></div>
-          <!-- white-hot band where the name dissolves -->
-          <div class="hidden md:block absolute left-1/2 top-[50%] h-[300px] w-[820px] -translate-x-1/2 rounded-full bg-white/80 blur-[100px]"></div>
-          <!-- dissolve the lower half into the pure-white page -->
-          <div class="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-b from-transparent via-white/75 to-white"></div>
+          <!-- continuous vertical wash -->
+          <div class="absolute inset-0 bg-[linear-gradient(to_bottom,#05070d_0%,#0a1733_16%,#15306e_32%,#1e4ed8_50%,#3b82f6_64%,#7fb0ff_78%,#cfe0ff_90%,#ffffff_100%)]"></div>
+          <!-- soft central bloom (transparent edges, so it only adds light) —
+               swells, rises + brightens so the blue feels alive -->
+          <div class="animate-breathe origin-[50%_60%] absolute inset-0 bg-[radial-gradient(62%_44%_at_50%_62%,rgba(160,200,255,0.72)_0%,rgba(150,194,255,0)_64%)]"></div>
         </div>
 
         <div class="container-x relative flex min-h-screen flex-col items-center justify-center pt-24 text-center">
-          <p class="reveal eyebrow mb-7 text-white/65">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
+          <p class="reveal eyebrow mb-8 text-white/55" style="transition-delay: 0ms">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
 
-          <!-- Hero headline: just the name — fades out at the baseline so it
-               bleeds down into the white wash below -->
+          <!-- Hero headline: the name, rendered as soft glowing fog (Sui-style).
+               data-text feeds the blurred halo copy in ::before. -->
           <h1
-            class="reveal text-balance text-5xl font-extrabold leading-[0.95] tracking-tightest sm:text-7xl lg:text-[6.5rem]"
+            class="reveal hero-headline text-balance text-5xl font-bold leading-[0.95] tracking-tightest sm:text-7xl lg:text-[6.5rem]"
+            data-text="Kenvara Solivo Lwie"
+            style="transition-delay: 90ms"
           >
-            <span class="bg-gradient-to-b from-white via-white to-white/0 bg-clip-text text-transparent">
-              Kenvara Solivo Lwie
-            </span>
+            Kenvara Solivo Lwie
           </h1>
 
-          <p class="reveal mx-auto mt-7 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p class="reveal mx-auto mt-24 max-w-sm text-base leading-relaxed text-blue-100/80 sm:mt-28 sm:text-lg" style="transition-delay: 240ms">
             Building scalable, AI-native systems with
-            <span class="font-semibold text-slate-900">Next.js</span>, <span class="font-semibold text-slate-900">FastAPI</span> &amp;
-            <span class="font-semibold text-slate-900">Python</span>.
+            <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp;
+            <span class="font-semibold text-white">Python</span>.
           </p>
 
-          <div class="reveal mt-9 flex flex-col items-center gap-3 sm:flex-row">
+          <div class="reveal mt-8 flex flex-col items-center gap-3 sm:flex-row" style="transition-delay: 360ms">
             <a href="#work" class="btn btn-primary">View my work</a>
-            <a href="#contact" class="btn btn-ghost">Let's talk →</a>
-          </div>
-
-          <!-- scroll hint -->
-          <div class="reveal mt-20 hidden flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400 sm:flex">
-            <span>Scroll</span>
-            <span class="h-10 w-px animate-pulse bg-gradient-to-b from-slate-400 to-transparent"></span>
+            <a href="#contact" class="btn btn-light">Let's talk</a>
           </div>
         </div>
       </section>
