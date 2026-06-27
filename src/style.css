@@ -166,6 +166,10 @@
   .hero-headline {
     position: relative;
     color: #eef4ff;
+    /* Fluid size: grows with the viewport so the full name always fits on a
+       single line. The /10 roughly matches the name's width in ems, and the
+       2.5rem accounts for the container's horizontal padding (px-5). */
+    font-size: clamp(1.75rem, calc((100vw - 2.5rem) / 10), 8rem);
     text-shadow:
       0 0 14px rgba(191, 219, 254, 0.25),
       0 0 36px rgba(96, 165, 250, 0.18);
