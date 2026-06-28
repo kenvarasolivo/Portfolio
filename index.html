@@ -30,6 +30,7 @@
     <a
       href="#hero"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+      data-i18n="skip"
       >Skip to content</a
     >
 
@@ -45,14 +46,21 @@
 
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          <li><a href="#work" class="nav-link">Work</a></li>
-          <li><a href="#about" class="nav-link">Approach</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#about-me" class="nav-link">About me</a></li>
+          <li><a href="#work" class="nav-link" data-i18n="nav.work">Work</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
         </ul>
 
-        <!-- CTA (desktop) -->
-        <a href="#contact" class="btn btn-accent hidden h-10 px-5 py-0 md:inline-flex">Get in touch</a>
+        <!-- Right cluster (desktop): language switch + CTA -->
+        <div class="hidden items-center gap-3 md:flex">
+          <!-- Language switch -->
+          <div class="lang-switch" role="group" aria-label="Language" data-lang-switch>
+            <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
+            <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
+          </div>
+          <a href="#contact" class="btn btn-accent h-10 px-5 py-0 inline-flex" data-i18n="nav.cta">Get in touch</a>
+        </div>
 
         <!-- Hamburger (mobile) -->
         <button
@@ -76,11 +84,18 @@
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Work</a></li>
-          <li><a href="#about" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Approach</a></li>
-          <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Skills</a></li>
-          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900">About me</a></li>
-          <li class="pt-2"><a href="#contact" class="btn btn-accent w-full">Get in touch</a></li>
+          <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Work</a></li>
+          <li><a href="#about" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
+          <li class="flex items-center justify-between gap-3 px-3 pt-3">
+            <!-- Language switch (mobile, dark variant) -->
+            <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
+              <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
+              <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
+            </div>
+            <a href="#contact" class="btn btn-accent flex-1" data-i18n="nav.cta">Get in touch</a>
+          </li>
         </ul>
       </div>
     </header>
@@ -103,7 +118,7 @@
         </div>
 
         <div class="container-x relative flex min-h-screen flex-col items-center justify-center py-24 text-center">
-          <p class="reveal eyebrow mb-8 text-white/55" style="transition-delay: 0ms">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
+          <p class="reveal eyebrow mb-8 text-white/55" style="transition-delay: 0ms" data-i18n="hero.eyebrow">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
 
           <!-- Hero headline: the name, rendered as soft glowing fog (Sui-style).
                data-text feeds the blurred halo copy in ::before. -->
@@ -115,15 +130,15 @@
             Kenvara Solivo Lwie
           </h1>
 
-          <p class="reveal mx-auto mt-10 max-w-sm text-base leading-relaxed text-blue-100/80 sm:mt-12 sm:text-lg" style="transition-delay: 240ms">
+          <p class="reveal mx-auto mt-10 max-w-sm text-base leading-relaxed text-blue-100/80 sm:mt-12 sm:text-lg" style="transition-delay: 240ms" data-i18n="hero.tagline">
             Building scalable, AI-native systems with
             <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp;
             <span class="font-semibold text-white">Python</span>.
           </p>
 
           <div class="reveal mt-8 flex flex-col items-center gap-3 sm:flex-row" style="transition-delay: 360ms">
-            <a href="#work" class="btn btn-primary">View my work</a>
-            <a href="#contact" class="btn btn-light">Let's talk</a>
+            <a href="#work" class="btn btn-primary" data-i18n="hero.cta1">View my work</a>
+            <a href="#contact" class="btn btn-light" data-i18n="hero.cta2">Let's talk</a>
           </div>
         </div>
       </section>
@@ -132,7 +147,7 @@
            3 · LOGO / TECH STRIP
            ═════════════════════════════════════════════════════════════════ -->
       <section class="border-y border-slate-200 py-12" aria-label="Tools and technologies">
-        <p class="container-x mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
+        <p class="container-x mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted" data-i18n="tech.label">
           Tools &amp; technologies I work with
         </p>
         <!-- marquee: track is duplicated so the loop is seamless -->
@@ -157,14 +172,14 @@
       <section id="about" class="section">
         <div class="container-x grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           <div class="reveal">
-            <p class="eyebrow mb-6">01 — Approach</p>
-            <p class="text-balance text-2xl font-semibold leading-snug sm:text-3xl lg:text-4xl">
+            <p class="eyebrow mb-6" data-i18n="approach.eyebrow">01 — Approach</p>
+            <p class="text-balance text-2xl font-semibold leading-snug sm:text-3xl lg:text-4xl" data-i18n="approach.statement">
               I build software where <span class="mark-box">AI is a first-class feature</span>, not an
               afterthought — pairing <span class="mark">clean architecture</span> with
               <span class="mark">structured outputs</span> and
               <span class="mark">streaming UX</span> that feels instant.
             </p>
-            <p class="mt-6 max-w-xl leading-relaxed text-muted">
+            <p class="mt-6 max-w-xl leading-relaxed text-muted" data-i18n="approach.body">
               My approach: ship typed AI interfaces, RAG pipelines, and tested LLM eval harnesses,
               with the same rigor on the backend logic as on the pixels. The result is software that
               stays fast, predictable, and easy to extend.
@@ -178,28 +193,28 @@
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l6-6-6-6M12 19h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium">Full-stack web engineering</span>
+              <span class="flex-1 font-medium" data-i18n="approach.cap1">Full-stack web engineering</span>
               <span class="pill">Next.js · FastAPI</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a4 4 0 014 4c1.5 0 3 1.5 3 3.5S17.5 13 16 13M12 2a4 4 0 00-4 4c-1.5 0-3 1.5-3 3.5S6.5 13 8 13m4-11v20" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium">AI integration &amp; LLM tooling</span>
+              <span class="flex-1 font-medium" data-i18n="approach.cap2">AI integration &amp; LLM tooling</span>
               <span class="pill">RAG · Structured</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
               </span>
-              <span class="flex-1 font-medium">Clean, typed architecture</span>
+              <span class="flex-1 font-medium" data-i18n="approach.cap3">Clean, typed architecture</span>
               <span class="pill">TypeScript · Pydantic</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium">Testing &amp; CI/CD rigor</span>
+              <span class="flex-1 font-medium" data-i18n="approach.cap4">Testing &amp; CI/CD rigor</span>
               <span class="pill">Pytest · Actions</span>
             </li>
           </ul>
@@ -213,10 +228,10 @@
         <div class="container-x">
           <div class="reveal mb-14 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p class="eyebrow mb-4">02 — Selected work</p>
-              <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Things I've built</h2>
+              <p class="eyebrow mb-4" data-i18n="work.eyebrow">02 — Selected work</p>
+              <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="work.title">Things I've built</h2>
             </div>
-            <p class="max-w-xs text-sm text-muted">
+            <p class="max-w-xs text-sm text-muted" data-i18n="work.subtitle">
               A few projects that show how I think about product, AI, and architecture.
             </p>
           </div>
@@ -235,10 +250,10 @@
               <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">SaaS · AI</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Live</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
                 </div>
-                <h3 class="text-2xl font-bold tracking-tight">Fluen — AI Language Platform</h3>
-                <p class="text-sm leading-relaxed text-muted">
+                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.fluen.title">Fluen — AI Language Platform</h3>
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.fluen.body">
                   Distraction-free SaaS uniting a spaced-repetition system (FSRS), an immersive
                   comprehensible-input hub, and a live AI coach — with structured JSON-schema outputs
                   and token streaming for real-time chat.
@@ -261,10 +276,10 @@
               <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Backend · RAG</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Live</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
                 </div>
-                <h3 class="text-2xl font-bold tracking-tight">Align — AI Application Optimizer</h3>
-                <p class="text-sm leading-relaxed text-muted">
+                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.align.title">Align — AI Application Optimizer</h3>
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.align.body">
                   Decoupled async FastAPI + React app enforcing type-safe LLM outputs via Pydantic,
                   hardened with a 94-test Pytest suite (96% coverage) and a RAG pipeline citing sources
                   through pgvector cosine-KNN.
@@ -287,10 +302,10 @@
               <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Team · Frontend</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-muted"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>University project</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs text-muted"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span><span data-i18n="badge.university">University project</span></span>
                 </div>
-                <h3 class="text-2xl font-bold tracking-tight">FH Aachen Chatbot — Frontend Refactor</h3>
-                <p class="text-sm leading-relaxed text-muted">
+                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.chatbot.title">FH Aachen Chatbot — Frontend Refactor</h3>
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.chatbot.body">
                   Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four
                   encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend
                   behind resource-based REST endpoints, and cut perceived latency with non-blocking token
@@ -306,11 +321,11 @@
 
           <!-- ── PERSONAL EXPLORATIONS (not in CV — built for fun & learning) ── -->
           <div class="reveal mt-20 mb-10 flex items-center gap-4">
-            <h3 class="whitespace-nowrap text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            <h3 class="whitespace-nowrap text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" data-i18n="work.explorations">
               Personal explorations
             </h3>
             <span class="h-px flex-1 bg-slate-200"></span>
-            <span class="whitespace-nowrap text-xs text-muted">Built for fun &amp; learning</span>
+            <span class="whitespace-nowrap text-xs text-muted" data-i18n="work.explorationsNote">Built for fun &amp; learning</span>
           </div>
 
           <!-- Horizontal scroll: cards scroll right once they exceed the row -->
@@ -324,9 +339,9 @@
                 </div>
               </a>
               <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit">Personal exploration</span>
+                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
                 <h4 class="text-lg font-bold tracking-tight">CineScope</h4>
-                <p class="text-sm leading-relaxed text-muted">
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.cinescope.body">
                   Movie analytics dashboard powered by the TMDB API — data visualizations, trending
                   analysis, and personalized recommendations.
                 </p>
@@ -345,9 +360,9 @@
                 </div>
               </a>
               <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit">Personal exploration</span>
+                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
                 <h4 class="text-lg font-bold tracking-tight">LaFerrari</h4>
-                <p class="text-sm leading-relaxed text-muted">
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.laferrari.body">
                   Interactive 3D WebGL experience showcasing a LaFerrari model with dynamic lighting,
                   orbit controls, and smooth camera animations.
                 </p>
@@ -366,9 +381,9 @@
                 </div>
               </a>
               <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit">Personal exploration</span>
+                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
                 <h4 class="text-lg font-bold tracking-tight">Kanagawa Wave</h4>
-                <p class="text-sm leading-relaxed text-muted">
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.kanagawa.body">
                   Immersive scrollytelling on Hokusai's iconic artwork — scroll-linked video scrubbing,
                   custom cursors, and dynamic typography.
                 </p>
@@ -387,9 +402,9 @@
                 </div>
               </a>
               <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit">Personal exploration</span>
+                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
                 <h4 class="text-lg font-bold tracking-tight">Destination Intelligence</h4>
-                <p class="text-sm leading-relaxed text-muted">
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.destination.body">
                   Geospatial analytics platform combining interactive maps with advanced data
                   visualization to explore global travel patterns and destination insights.
                 </p>
@@ -409,22 +424,22 @@
         <div class="container-x grid gap-6 md:grid-cols-2">
           <!-- Why work with me -->
           <div class="reveal card p-8 lg:p-10">
-            <p class="eyebrow mb-6">Why work with me</p>
+            <p class="eyebrow mb-6" data-i18n="why.title">Why work with me</p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted"><span class="text-slate-900">Product-minded engineer</span> — I think about users, not just tickets.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Comfortable across the <span class="text-slate-900">whole stack</span>, frontend to database.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Real, shipped <span class="text-slate-900">AI integrations</span> — not demos.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Multilingual &amp; international — fluent in DE, EN, ID.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.1"><span class="text-slate-900">Product-minded engineer</span> — I think about users, not just tickets.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.2">Comfortable across the <span class="text-slate-900">whole stack</span>, frontend to database.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.3">Real, shipped <span class="text-slate-900">AI integrations</span> — not demos.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.4">Multilingual &amp; international — fluent in DE, EN, ID.</span></li>
             </ul>
           </div>
           <!-- What you get -->
           <div class="reveal card p-8 lg:p-10">
-            <p class="eyebrow mb-6">What you get</p>
+            <p class="eyebrow mb-6" data-i18n="get.title">What you get</p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted"><span class="text-slate-900">Clean, typed code</span> that the next person can read.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted">Clear communication and <span class="text-slate-900">reliable delivery</span>.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.1"><span class="text-slate-900">Clean, typed code</span> that the next person can read.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.2">Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.3">Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.4">Clear communication and <span class="text-slate-900">reliable delivery</span>.</span></li>
             </ul>
           </div>
         </div>
@@ -436,8 +451,8 @@
       <section id="skills" class="section">
         <div class="container-x">
           <div class="reveal mb-12">
-            <p class="eyebrow mb-4">03 — Stack</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Skills &amp; tooling</h2>
+            <p class="eyebrow mb-4" data-i18n="skills.eyebrow">03 — Stack</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="skills.title">Skills &amp; tooling</h2>
           </div>
 
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -446,12 +461,12 @@
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3" stroke-linecap="round"/></svg>
               </div>
-              <h3 class="mb-4 text-lg font-semibold">Frontend</h3>
+              <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.frontend.title">Frontend</h3>
               <ul class="space-y-2 text-sm text-muted">
                 <li>React &amp; Next.js (App Router)</li>
                 <li>TypeScript · Vue.js</li>
                 <li>Tailwind CSS · Vite</li>
-                <li>Responsive, accessible UI</li>
+                <li data-i18n="skills.frontend.4">Responsive, accessible UI</li>
               </ul>
             </div>
             <!-- Backend -->
@@ -459,11 +474,11 @@
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
               </div>
-              <h3 class="mb-4 text-lg font-semibold">Backend &amp; AI</h3>
+              <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.backend.title">Backend &amp; AI</h3>
               <ul class="space-y-2 text-sm text-muted">
                 <li>Python · FastAPI · Laravel</li>
                 <li>PostgreSQL · Supabase · pgvector</li>
-                <li>RAG · structured LLM outputs</li>
+                <li data-i18n="skills.backend.3">RAG · structured LLM outputs</li>
                 <li>Gemini &amp; OpenAI APIs</li>
               </ul>
             </div>
@@ -472,11 +487,11 @@
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l-1.5-1.5a4 4 0 00-5.5 5.5L3 15v6h6l4-4a4 4 0 005.5-5.5L17 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <h3 class="mb-4 text-lg font-semibold">Tooling &amp; Ops</h3>
+              <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.tooling.title">Tooling &amp; Ops</h3>
               <ul class="space-y-2 text-sm text-muted">
                 <li>Git &amp; GitHub · GitHub Actions</li>
                 <li>Docker · Pytest</li>
-                <li>Vercel · CI/CD pipelines</li>
+                <li data-i18n="skills.tooling.3">Vercel · CI/CD pipelines</li>
                 <li>Figma · Notion</li>
               </ul>
             </div>
@@ -502,21 +517,21 @@
 
           <!-- Bio -->
           <div class="reveal">
-            <p class="eyebrow mb-4">04 — About me</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl">Hi, I'm Kenvara</h2>
-            <p class="mt-6 max-w-xl leading-relaxed text-muted">
+            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">04 — About me</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
+            <p class="mt-6 max-w-xl leading-relaxed text-muted" data-i18n="aboutMe.p1">
               I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in
               Aachen, Germany. I build full-stack, AI-native software — from typed interfaces and RAG
               pipelines to tested LLM eval harnesses — and I care just as much about the backend logic
               as the pixels.
             </p>
-            <p class="mt-4 max-w-xl leading-relaxed text-muted">
+            <p class="mt-4 max-w-xl leading-relaxed text-muted" data-i18n="aboutMe.p2">
               When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and
               learning how to make software feel fast and effortless. I'm currently looking for a
               mandatory internship (Pflichtpraktikum) as an AI software engineer.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#contact" class="btn btn-accent">Get in touch</a>
+              <a href="#contact" class="btn btn-accent" data-i18n="nav.cta">Get in touch</a>
               <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
             </div>
           </div>
@@ -536,14 +551,13 @@
         </div>
 
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
-          <p class="reveal eyebrow mb-6 justify-center text-white/70">Available for opportunities</p>
-          <h2 class="reveal text-balance text-4xl font-bold tracking-tight sm:text-6xl">
+          <p class="reveal eyebrow mb-6 justify-center text-white/70" data-i18n="contact.eyebrow">Available for opportunities</p>
+          <h2 class="reveal text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="contact.title">
             Let's <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">build</span> something together
           </h2>
-          <p class="reveal mx-auto mt-5 max-w-lg text-blue-100/80">
+          <p class="reveal mx-auto mt-5 max-w-lg text-blue-100/80" data-i18n="contact.body">
             Currently seeking a mandatory internship (Pflichtpraktikum) as an AI software engineer.
             Drop me a line — I reply fast.
-            <!-- TODO: update availability copy -->
           </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
             <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-light">
@@ -571,12 +585,12 @@
       <!-- Top row: arrow links + copyright -->
       <div class="container-x flex flex-col gap-6 pt-20 pb-10 sm:flex-row sm:items-center sm:justify-between">
         <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" aria-label="Footer">
-          <a href="#about-me" class="footer-link">About</a>
-          <a href="#contact" class="footer-link">Contact</a>
-          <a href="#work" class="footer-link">Work</a>
-          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#about-me" class="footer-link" data-i18n="footer.about">About</a>
+          <a href="#contact" class="footer-link" data-i18n="footer.contact">Contact</a>
+          <a href="#work" class="footer-link" data-i18n="nav.work">Work</a>
+          <a href="#skills" class="footer-link" data-i18n="nav.skills">Skills</a>
         </nav>
-        <p class="text-xs text-white/55">
+        <p class="text-xs text-white/55" data-i18n="footer.rights">
           © <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.
         </p>
       </div>

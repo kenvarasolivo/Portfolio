@@ -1,4 +1,5 @@
 import './style.css';
+import { translations } from './i18n.js';
 
 /* ───────────────────────────────────────────────────────────────────────
    1. Sticky nav: transparent over hero, solid once scrolled
@@ -58,7 +59,58 @@ if ('IntersectionObserver' in window && revealEls.length) {
 }
 
 /* ───────────────────────────────────────────────────────────────────────
-   4. Footer year
+   4. Language switch (EN / DE) with localStorage persistence
    ─────────────────────────────────────────────────────────────────────── */
-const yearEl = document.querySelector('[data-year]');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+const SUPPORTED = ['en', 'de'];
+const STORAGE_KEY = 'lang';
+
+// Stamp the current year into the footer copyright (re-run after each
+// translation, since applying footer.rights replaces the [data-year] span).
+const setYear = () => {
+  const yearEl = document.querySelector('[data-year]');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+};
+
+const applyLanguage = (lang) => {
+  if (!SUPPORTED.includes(lang)) lang = 'en';
+
+  // Swap every translatable element's content.
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const entry = translations[el.dataset.i18n];
+    if (entry && entry[lang] != null) el.innerHTML = entry[lang];
+  });
+
+  setYear();
+
+  // Reflect the choice on <html lang> and the toggle buttons.
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang-switch] .lang-opt').forEach((btn) => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+
+  try {
+    localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    /* localStorage may be unavailable (private mode) — ignore */
+  }
+};
+
+// Initial language: saved preference → browser language → English.
+const getInitialLang = () => {
+  let saved;
+  try {
+    saved = localStorage.getItem(STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+  if (SUPPORTED.includes(saved)) return saved;
+  return navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en';
+};
+
+document.querySelectorAll('[data-lang-switch] .lang-opt').forEach((btn) =>
+  btn.addEventListener('click', () => applyLanguage(btn.dataset.lang))
+);
+
+applyLanguage(getInitialLang());

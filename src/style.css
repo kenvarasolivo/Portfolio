@@ -137,6 +137,38 @@
   .site-nav.is-scrolled .nav-burger {
     @apply border-slate-300 text-slate-700;
   }
+
+  /* ── Language switch: segmented EN / DE pill ── */
+  .lang-switch {
+    @apply inline-flex items-center gap-0.5 rounded-full border border-white/25 p-0.5;
+  }
+  .lang-opt {
+    @apply rounded-full px-2.5 py-1 text-xs font-semibold text-white/70 transition-colors
+           hover:text-white;
+  }
+  .lang-opt.is-active {
+    @apply bg-white text-slate-900;
+  }
+  /* Solid-white nav (scrolled): darken the switch so it stays readable */
+  .site-nav.is-scrolled .lang-switch {
+    @apply border-slate-300;
+  }
+  .site-nav.is-scrolled .lang-opt {
+    @apply text-slate-500 hover:text-slate-900;
+  }
+  .site-nav.is-scrolled .lang-opt.is-active {
+    @apply bg-accent text-white;
+  }
+  /* Dark variant — used inside the light mobile menu panel */
+  .lang-switch--dark {
+    @apply border-slate-300;
+  }
+  .lang-switch--dark .lang-opt {
+    @apply text-slate-500 hover:text-slate-900;
+  }
+  .lang-switch--dark .lang-opt.is-active {
+    @apply bg-accent text-white;
+  }
 }
 
 /* ───────────────────────────────────────────────────────────────────────
