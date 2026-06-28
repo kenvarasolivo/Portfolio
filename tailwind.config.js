@@ -40,8 +40,8 @@ export default {
         xl: '0.875rem',
       },
       boxShadow: {
-        // Resting card shadow on the white page
-        card: '0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.10)',
+        // Resting card shadow on the white page — layered for a raised, 3D feel
+        card: 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 1px rgba(15, 23, 42, 0.04), 0 4px 8px -2px rgba(15, 23, 42, 0.08), 0 12px 24px -8px rgba(15, 23, 42, 0.12), 0 28px 48px -20px rgba(15, 23, 42, 0.16)',
         // Soft blue glow for hovered cards
         glow: '0 0 0 1px rgba(37, 99, 235, 0.25), 0 16px 48px -16px rgba(37, 99, 235, 0.35)',
         'glow-sm': '0 0 24px -6px rgba(37, 99, 235, 0.4)',
