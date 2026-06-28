@@ -68,15 +68,9 @@ export default {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
-        // Blue breathes up + down: swells and sinks downward, then retreats
-        breathe: {
-          '0%, 100%': { transform: 'translateY(-14%) scale(0.8)', opacity: '0.35' },
-          '50%': { transform: 'translateY(16%) scale(1.45)', opacity: '1' },
-        },
       },
       animation: {
         marquee: 'marquee 32s linear infinite',
-        breathe: 'breathe 7s ease-in-out infinite',
       },
       backgroundImage: {
         'hero-glow':

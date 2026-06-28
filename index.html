@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Browser tab "K" logo -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <title>Kenvara Solivo Lwie — Full-Stack & AI Software Engineer</title>
     <meta
       name="description"
@@ -110,11 +113,11 @@
              black/white seam anywhere), and a soft additive bloom lifts the
              centre into a glassy glow. -->
         <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <!-- continuous vertical wash -->
-          <div class="absolute inset-0 bg-[linear-gradient(to_bottom,#05070d_0%,#0a1733_16%,#15306e_32%,#1e4ed8_50%,#3b82f6_64%,#7fb0ff_78%,#cfe0ff_90%,#ffffff_100%)]"></div>
-          <!-- soft central bloom (transparent edges, so it only adds light) —
-               swells, rises + brightens so the blue feels alive -->
-          <div class="animate-breathe origin-[50%_60%] absolute inset-0 bg-[radial-gradient(62%_44%_at_50%_62%,rgba(160,200,255,0.72)_0%,rgba(150,194,255,0)_64%)]"></div>
+          <!-- The blue wash waves up and down. A wide radial anchored at the
+               top-centre makes the dark dome at the top curve down the sides
+               (an inverted-U / ∩) instead of flat horizontal bands — so black
+               melts into blue and blue into white with no seam. -->
+          <div class="wave-wash bg-[radial-gradient(125%_100%_at_50%_0%,#05070d_0%,#05070d_24%,#0a1733_34%,#15306e_44%,#1e4ed8_54%,#3b82f6_62%,#7fb0ff_70%,#cfe0ff_76%,#ffffff_80%,#ffffff_100%)]"></div>
         </div>
 
         <div class="container-x relative flex min-h-screen flex-col items-center justify-center py-24 text-center">
@@ -550,8 +553,10 @@
              deepens into the same navy that opens the footer, so there's no hard
              white-to-colour seam. -->
         <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <div class="absolute inset-0 bg-[linear-gradient(to_bottom,#ffffff_0%,#cfe0ff_6%,#7fb0ff_14%,#3b82f6_26%,#1e4ed8_42%,#15306e_64%,#05070d_100%)]"></div>
-          <div class="absolute inset-x-0 top-1/4 h-1/2 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(180,212,255,0.45)_0%,rgba(150,194,255,0)_70%)]"></div>
+          <!-- Static U-wash anchored at the bottom-centre: dark pools low and
+               curves up into a thin white cap at the top (white kept small so the
+               eyebrow text stays readable on blue). Mirror of the footer below. -->
+          <div class="absolute inset-0 bg-[radial-gradient(125%_100%_at_50%_100%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
         </div>
 
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
@@ -582,8 +587,10 @@
       <!-- Gradient backdrop: deep navy fading up into electric blue, with a
            soft bloom rising behind the wordmark so the bottom edge glows. -->
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <div class="absolute inset-0 bg-[linear-gradient(to_bottom,#05070d_0%,#0a1733_24%,#15306e_50%,#1e4ed8_76%,#3b82f6_100%)]"></div>
-        <div class="absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(75%_85%_at_50%_115%,rgba(180,212,255,0.7)_0%,rgba(150,194,255,0)_70%)]"></div>
+        <!-- Static U-wash, exact mirror of the contact band: dark dome at the top
+             curves down the sides into a white base at the bottom, so the white
+             'Kenvara' wordmark fades into it (deliberate ghost fade-out). -->
+        <div class="absolute inset-0 bg-[radial-gradient(125%_120%_at_50%_0%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
       </div>
 
       <!-- Top row: arrow links + copyright -->

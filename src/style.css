@@ -238,6 +238,26 @@
     50% { opacity: 0.38; }
   }
 
+  /* Living gradient wash: the blue colour bands physically slide up and down so
+     the whole background reads as a slow wave. The element is taller than its
+     frame and the gradient keeps SOLID anchors at the top and bottom — so the
+     dark top edge and the light bottom edge never move (the page seams stay
+     locked) while everything in between breathes. Pure transform = GPU-smooth. */
+  .wave-wash {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 125%;
+    will-change: transform;
+    animation: wave-wash 8s ease-in-out infinite alternate;
+  }
+  /* -(travel / (100 + travel) * 100)% */
+  @keyframes wave-wash {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-13.79%); }
+  }
+
   /* faint dotted grid texture for light preview panels */
   .bg-grid {
     background-image: radial-gradient(
@@ -259,7 +279,7 @@
     transition: none !important;
   }
   .animate-marquee,
-  .animate-breathe {
+  .wave-wash {
     animation: none !important;
   }
   .hero-headline::before {
