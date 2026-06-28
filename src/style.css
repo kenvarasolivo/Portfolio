@@ -60,7 +60,8 @@
   /* ── Buttons ── */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium
-           transition-all duration-200 focus-visible:ring-2;
+           transition-all duration-200 focus-visible:ring-2
+           active:scale-95;
   }
   /* Solid dark button — for the white page (nav CTA, contact band) */
   .btn-primary {
@@ -84,10 +85,26 @@
 
   /* ── Cards ── */
   .card {
-    @apply rounded-xl border border-slate-200 bg-card shadow-card transition-all duration-300;
+    /* Snappy 120ms transition so the hover lift feels quick and responsive. */
+    @apply rounded-xl border border-slate-200 bg-card shadow-card-rest
+           transition-all duration-[120ms] ease-out;
   }
+
+  /* Static / informational cards (NOT clickable) — keeps the layered 3D depth
+     and gives a small neutral lift on hover, but NO blue accent ring/tint and
+     no pointer cursor, so it reads as "content", not "press me".
+     `!` overrides `.reveal.is-visible`'s translateY(0). */
   .card-hover {
-    @apply hover:border-accent/40 hover:shadow-glow hover:-translate-y-0.5;
+    @apply hover:border-slate-300 hover:shadow-card-lift hover:!-translate-y-1;
+  }
+
+  /* Interactive cards (links out — projects & explorations) — clearly pressable:
+     a quick upward lift + accent ring/glow + pointer cursor invite a click.
+     `!` forces the lift to win over `.reveal.is-visible`, which also sets a
+     transform (translateY(0)) and would otherwise cancel the hover translate on
+     cards that carry `.reveal` directly. */
+  .card-interactive {
+    @apply cursor-pointer hover:border-accent/60 hover:shadow-card-glow hover:!-translate-y-3;
   }
 
   /* small line/duotone icon chip */
@@ -103,7 +120,7 @@
 
   /* ── Nav links: white over the hero, dark once scrolled onto the page ── */
   .nav-link {
-    @apply text-sm text-white/75 transition-colors hover:text-white;
+    @apply inline-block text-sm text-white/75 transition-all duration-200 hover:text-white active:scale-90;
   }
   .nav-logo {
     @apply text-[15px] font-semibold tracking-tight text-white transition-colors;
@@ -111,7 +128,7 @@
 
   /* Footer links: arrow-prefixed, light over the dark gradient footer */
   .footer-link {
-    @apply inline-flex items-center gap-2 text-white/75 transition-colors hover:text-white;
+    @apply inline-flex items-center gap-2 text-white/75 transition-all duration-200 hover:text-white active:scale-90;
   }
   .footer-link::before {
     content: '→';
@@ -143,8 +160,8 @@
     @apply inline-flex items-center gap-0.5 rounded-full border border-white/25 p-0.5;
   }
   .lang-opt {
-    @apply rounded-full px-2.5 py-1 text-xs font-semibold text-white/70 transition-colors
-           hover:text-white;
+    @apply rounded-full px-2.5 py-1 text-xs font-semibold text-white/70 transition-all
+           hover:text-white active:scale-90;
   }
   .lang-opt.is-active {
     @apply bg-white text-slate-900;
