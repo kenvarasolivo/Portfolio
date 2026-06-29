@@ -25,8 +25,8 @@ export const translations = {
     de: 'Full-Stack- &amp; KI-Softwareentwickler · Aachen, DE',
   },
   'hero.tagline': {
-    en: 'Building scalable, AI-native systems with <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp; <span class="font-semibold text-white">Python</span>.',
-    de: 'Ich entwickle skalierbare, KI-native Systeme mit <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp; <span class="font-semibold text-white">Python</span>.',
+    en: 'I build full-stack web apps with AI features, using <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp; <span class="font-semibold text-white">Python</span>.',
+    de: 'Ich entwickle Full-Stack-Webanwendungen mit KI-Funktionen, mit <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp; <span class="font-semibold text-white">Python</span>.',
   },
   'hero.cta1': { en: 'View my work', de: 'Meine Projekte' },
   'hero.cta2': { en: "Let's talk",   de: 'Sprechen wir' },
@@ -40,8 +40,8 @@ export const translations = {
   // ── Approach ──
   'approach.eyebrow': { en: '01 — Approach', de: '01 — Ansatz' },
   'approach.statement': {
-    en: 'I build software where <span class="mark-box">AI is a first-class feature</span>, not an afterthought — pairing <span class="mark">clean architecture</span> with <span class="mark">structured outputs</span> and <span class="mark">streaming UX</span> that feels instant.',
-    de: 'Ich entwickle Software, in der <span class="mark-box">KI ein vollwertiges Feature</span> ist und kein nachträglicher Einfall — mit <span class="mark">sauberer Architektur</span>, <span class="mark">strukturierten Outputs</span> und einer <span class="mark">Streaming-UX</span>, die sich sofort anfühlt.',
+    en: 'I build web apps where <span class="mark-box">AI features are part of the design</span>, not bolted on later — pairing <span class="mark">clean architecture</span> with <span class="mark">structured outputs</span> and <span class="mark">responsive streaming</span>.',
+    de: 'Ich entwickle Webanwendungen, in denen <span class="mark-box">KI-Funktionen Teil des Designs</span> sind und nicht nachträglich angefügt — mit <span class="mark">sauberer Architektur</span>, <span class="mark">strukturierten Outputs</span> und <span class="mark">responsivem Streaming</span>.',
   },
   'approach.body': {
     en: 'My approach: ship typed AI interfaces, RAG pipelines, and tested LLM eval harnesses, with the same rigor on the backend logic as on the pixels. The result is software that stays fast, predictable, and easy to extend.',
@@ -108,8 +108,8 @@ export const translations = {
     de: 'Sicher über den <span class="text-slate-900">gesamten Stack</span> hinweg, vom Frontend bis zur Datenbank.',
   },
   'why.3': {
-    en: 'Real, shipped <span class="text-slate-900">AI integrations</span> — not demos.',
-    de: 'Echte, ausgelieferte <span class="text-slate-900">KI-Integrationen</span> — keine Demos.',
+    en: '<span class="text-slate-900">AI features</span> in real projects I\'ve shipped and deployed.',
+    de: '<span class="text-slate-900">KI-Funktionen</span> in echten Projekten, die ich ausgeliefert und deployt habe.',
   },
   'why.4': {
     en: 'Multilingual &amp; international — fluent in DE, EN, ID.',
@@ -149,8 +149,8 @@ export const translations = {
   'aboutMe.eyebrow': { en: '04 — About me',   de: '04 — Über mich' },
   'aboutMe.title':   { en: "Hi, I'm Kenvara", de: 'Hallo, ich bin Kenvara' },
   'aboutMe.p1': {
-    en: "I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in Aachen, Germany. I build full-stack, AI-native software — from typed interfaces and RAG pipelines to tested LLM eval harnesses — and I care just as much about the backend logic as the pixels.",
-    de: 'Ich bin Informatikstudent an der FH Aachen, ursprünglich aus Indonesien und heute in Aachen ansässig. Ich entwickle Full-Stack-, KI-native Software — von typsicheren Schnittstellen und RAG-Pipelines bis zu getesteten LLM-Eval-Harnesses — und mir liegt die Backend-Logik genauso am Herzen wie die Pixel.',
+    en: "I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in Aachen, Germany. I build full-stack web software with AI features — from typed interfaces and RAG pipelines to tested LLM eval harnesses — and I care just as much about the backend logic as the pixels.",
+    de: 'Ich bin Informatikstudent an der FH Aachen, ursprünglich aus Indonesien und heute in Aachen ansässig. Ich entwickle Full-Stack-Websoftware mit KI-Funktionen — von typsicheren Schnittstellen und RAG-Pipelines bis zu getesteten LLM-Eval-Harnesses — und mir liegt die Backend-Logik genauso am Herzen wie die Pixel.',
   },
   'aboutMe.p2': {
     en: "When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and learning how to make software feel fast and effortless. I'm currently looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
@@ -164,8 +164,8 @@ export const translations = {
     de: 'Lass uns gemeinsam etwas <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">bauen</span>',
   },
   'contact.body': {
-    en: 'Currently seeking a mandatory internship (Pflichtpraktikum) as an AI software engineer. Drop me a line — I reply fast.',
-    de: 'Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler. Schreib mir — ich antworte schnell.',
+    en: "Currently seeking a mandatory internship (Pflichtpraktikum) as an AI software engineer. Drop me a line — I'd be glad to hear from you.",
+    de: 'Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler. Schreib mir gerne.',
   },
 
   // ── Footer ──

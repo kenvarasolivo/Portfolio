@@ -3,7 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts}'],
   theme: {
     extend: {
-      // ── CUSTOMIZE: brand colors live here ──────────────────────────────
+      // ── Brand colors ───────────────────────────────────────────────────
       colors: {
         // Deep navy/near-black — used ONLY for the dark hero backdrop
         ink: {
@@ -26,7 +26,6 @@ export default {
         muted: '#64748B', // slate-500
       },
       fontFamily: {
-        // ── CUSTOMIZE: swap the display/sans stack here ──────────────────
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },

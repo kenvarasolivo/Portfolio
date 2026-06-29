@@ -1,9 +1,8 @@
 # Kenvara Solivo Lwie — Portfolio
 
 ![Portfolio screenshot](docs/screenshot.png)
-<!-- [![Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://your-live-website.com) -->
 
-The personal portfolio of Kenvara Solivo Lwie — a CS student and full-stack & AI software engineer. A fast, single-page site built to showcase selected work, skills, and a way to get in touch, aimed at recruiters and collaborators looking for an AI-native engineer.
+The personal portfolio of Kenvara Solivo Lwie — a CS student and full-stack & AI software engineer. A fast, single-page site built to showcase selected work, skills, and a way to get in touch.
 
 ---
 

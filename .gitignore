@@ -12,3 +12,4 @@ yarn-error.log*
 # editor / OS
 .DS_Store
 *.local
+CLAUDE.md
