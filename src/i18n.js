@@ -81,8 +81,8 @@ export const translations = {
   'work.explorations':     { en: 'Personal explorations',   de: 'Persönliche Projekte' },
   'work.explorationsNote': { en: 'Built for fun &amp; learning', de: 'Aus Spaß &amp; zum Lernen' },
   'work.cinescope.body': {
-    en: 'Movie analytics dashboard powered by the TMDB API — data visualizations, trending analysis, and personalized recommendations.',
-    de: 'Film-Analytics-Dashboard auf Basis der TMDB-API — Datenvisualisierungen, Trend-Analysen und personalisierte Empfehlungen.',
+    en: 'Movie analytics dashboard powered by the TMDB API — data visualizations, trending analysis, and film discovery.',
+    de: 'Film-Analytics-Dashboard auf Basis der TMDB-API — Datenvisualisierungen, Trend-Analysen und Filmentdeckung.',
   },
   'work.laferrari.body': {
     en: 'Interactive 3D WebGL experience showcasing a LaFerrari model with dynamic lighting, orbit controls, and smooth camera animations.',
@@ -93,8 +93,8 @@ export const translations = {
     de: 'Immersives Scrollytelling zu Hokusais ikonischem Kunstwerk — scrollgekoppeltes Video-Scrubbing, individuelle Cursor und dynamische Typografie.',
   },
   'work.destination.body': {
-    en: 'Geospatial analytics platform combining interactive maps with advanced data visualization to explore global travel patterns and destination insights.',
-    de: 'Geodaten-Analyseplattform, die interaktive Karten mit fortgeschrittener Datenvisualisierung verbindet, um globale Reisemuster und Destinations-Insights zu erkunden.',
+    en: 'A travel recommendation engine that ranks 23 curated destinations in real time — tune sliders and travel personas to instantly match destinations to your style.',
+    de: 'Eine Reise-Empfehlungs-Engine, die 23 kuratierte Reiseziele in Echtzeit bewertet — über Schieberegler und Reise-Personas werden passende Ziele sofort auf deinen Stil abgestimmt.',
   },
 
   // ── Why work with me ──
