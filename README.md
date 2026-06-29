@@ -19,7 +19,7 @@ The personal portfolio of Kenvara Solivo Lwie — a CS student and full-stack & 
 
 *   **Frontend:** Vanilla JavaScript (ES modules), Tailwind CSS, HTML
 *   **Build / Tooling:** Vite, PostCSS, Autoprefixer, `sharp` (image optimization)
-*   **Deployment:** Vercel
+*   **Deployment:** GitHub Pages (automated via GitHub Actions)
 
 ---
 
@@ -78,8 +78,19 @@ npm -v
 ├── public/                 # Static assets copied verbatim (images, favicon)
 ├── tailwind.config.js
 ├── postcss.config.js
-└── vite.config.js
+├── vite.config.js
+└── .github/workflows/deploy.yml  # CI/CD: build & deploy to GitHub Pages
 ```
+
+---
+
+## 🚀 Deployment
+
+Deployment is fully automated via GitHub Actions. Every push to `main` triggers
+the [`deploy.yml`](.github/workflows/deploy.yml) workflow, which builds the site
+with Vite and publishes the `dist/` output to **GitHub Pages** — no manual steps
+required. The workflow can also be run on demand from the Actions tab
+(`workflow_dispatch`).
 
 ---
 
