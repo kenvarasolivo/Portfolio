@@ -336,6 +336,28 @@
                cropped; -mx-6 stays within the container gutter so the page
                never gains a horizontal scrollbar. -->
           <div class="-mx-6 -mb-10 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-10 px-10 pt-5 pb-16 [scrollbar-width:thin]">
+            <!-- DataCo Supply Chain Analytics -->
+            <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
+              <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
+                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                  <img src="images/project_dataco.png" alt="DataCo supply-chain analytics dashboard preview"
+                    class="h-full w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                </div>
+              </a>
+              <div class="flex flex-1 flex-col gap-3 p-6">
+                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
+                <h4 class="text-lg font-bold tracking-tight">DataCo Supply Chain Analytics</h4>
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.dataco.body">
+                  Power BI–style analytics dashboard on 180K supply-chain order lines — a Python/pandas pipeline
+                  aggregates a 96 MB CSV into compact JSON, and a React + Recharts report cross-filters sales,
+                  delivery, and fraud insights.
+                </p>
+                <div class="mt-auto flex flex-wrap gap-2 pt-2">
+                  <span class="pill">Python</span><span class="pill">pandas</span><span class="pill">Recharts</span>
+                </div>
+              </div>
+            </article>
+
             <!-- CineScope -->
             <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
               <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
@@ -348,11 +370,12 @@
                 <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
                 <h4 class="text-lg font-bold tracking-tight">CineScope</h4>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.cinescope.body">
-                  Movie analytics dashboard powered by the TMDB API — data visualizations, trending
-                  analysis, and film discovery.
+                  Entertainment trend analytics for movies and games — live TMDB and RAWG data, normalized
+                  for cross-comparison and visualized with Chart.js (scatter, distributions, leaderboards).
+                  API keys stay server-side behind serverless proxies.
                 </p>
                 <div class="mt-auto flex flex-wrap gap-2 pt-2">
-                  <span class="pill">REST API</span><span class="pill">Data Viz</span><span class="pill">TMDB</span>
+                  <span class="pill">Chart.js</span><span class="pill">TMDB</span><span class="pill">RAWG</span>
                 </div>
               </div>
             </article>
