@@ -81,12 +81,12 @@ export const translations = {
   'work.explorations':     { en: 'Personal explorations',   de: 'Persönliche Projekte' },
   'work.explorationsNote': { en: 'Built for fun &amp; learning', de: 'Aus Spaß &amp; zum Lernen' },
   'work.dataco.body': {
-    en: 'Power BI–style analytics dashboard on 180K supply-chain order lines — a Python/pandas pipeline aggregates a 96 MB CSV into compact JSON, and a React + Recharts report cross-filters sales, delivery, and fraud insights.',
-    de: 'Analytics-Dashboard im Power-BI-Stil über 180K Lieferketten-Bestellzeilen — eine Python/pandas-Pipeline aggregiert eine 96 MB große CSV zu kompaktem JSON, und ein React-+-Recharts-Report filtert Umsatz-, Liefer- und Betrugs-Insights über Slicer.',
+    en: 'Power BI–style supply-chain dashboard — a pandas pipeline rolls 180K order lines into a cross-filterable React report.',
+    de: 'Lieferketten-Dashboard im Power-BI-Stil — eine pandas-Pipeline verdichtet 180K Bestellzeilen zu einem filterbaren React-Report.',
   },
   'work.cinescope.body': {
-    en: 'Entertainment trend analytics for movies and games — live TMDB and RAWG data, normalized for cross-comparison and visualized with Chart.js (scatter, distributions, leaderboards). API keys stay server-side behind serverless proxies.',
-    de: 'Entertainment-Trend-Analytics für Filme und Spiele — Live-Daten von TMDB und RAWG, für den Vergleich normalisiert und mit Chart.js visualisiert (Scatter, Verteilungen, Ranglisten). API-Schlüssel bleiben serverseitig hinter Serverless-Proxys.',
+    en: 'Movies-and-games trend analytics from live TMDB and RAWG data, visualized with Chart.js.',
+    de: 'Trend-Analytics für Filme und Spiele aus Live-Daten von TMDB und RAWG, visualisiert mit Chart.js.',
   },
   'work.laferrari.body': {
     en: 'Interactive 3D WebGL experience showcasing a LaFerrari model with dynamic lighting, orbit controls, and smooth camera animations.',
