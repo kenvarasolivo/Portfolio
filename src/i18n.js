@@ -63,6 +63,11 @@ export const translations = {
   'badge.university': { en: 'University project',  de: 'Universitätsprojekt' },
   'badge.exploration':{ en: 'Personal exploration', de: 'Persönliches Projekt' },
 
+  'work.stackpilot.title': { en: 'StackPilot — Agentic Documentation Tutor', de: 'StackPilot — Agentischer Doku-Tutor' },
+  'work.stackpilot.body': {
+    en: 'Agentic RAG platform that turns real documentation into cited, interactive tutorials — a multi-agent pipeline plans targeted searches, grades each retrieved chunk, writes only from verified context, and audits every citation against its source.',
+    de: 'Agentische RAG-Plattform, die echte Dokumentation in zitierte, interaktive Tutorials verwandelt — eine Multi-Agenten-Pipeline plant gezielte Suchen, bewertet jeden abgerufenen Chunk, schreibt nur aus verifiziertem Kontext und prüft jede Quellenangabe gegen ihre Quelle.',
+  },
   'work.fluen.title': { en: 'Fluen — AI Language Platform', de: 'Fluen — KI-Sprachplattform' },
   'work.fluen.body': {
     en: 'Distraction-free SaaS uniting a spaced-repetition system (FSRS), an immersive comprehensible-input hub, and a live AI coach — with structured JSON-schema outputs and token streaming for real-time chat.',
@@ -78,11 +83,13 @@ export const translations = {
     en: 'Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend behind resource-based REST endpoints, and cut perceived latency with non-blocking token streaming, thinking skeletons, and a "thinking / answering" status.',
     de: 'Eine monolithische <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> in vier gekapselte Feature-Module und wiederverwendbare Vue-3-Composables aufgeteilt, Frontend und Backend hinter ressourcenbasierten REST-Endpunkten entkoppelt und die gefühlte Latenz durch nicht-blockierendes Token-Streaming, „Thinking"-Skeletons und einen „Thinking / Answering"-Status reduziert.',
   },
-  'work.explorations':     { en: 'Personal explorations',   de: 'Persönliche Projekte' },
+  'work.other':     { en: 'Other projects',    de: 'Weitere Projekte' },
+  'work.otherNote': { en: 'Team &amp; data work', de: 'Team- &amp; Datenarbeit' },
+  'work.explorations':     { en: 'Personal exploration &amp; learning', de: 'Persönliche Projekte &amp; Lernen' },
   'work.explorationsNote': { en: 'Built for fun &amp; learning', de: 'Aus Spaß &amp; zum Lernen' },
   'work.dataco.body': {
-    en: 'Power BI–style supply-chain dashboard — a pandas pipeline rolls 180K order lines into a cross-filterable React report.',
-    de: 'Lieferketten-Dashboard im Power-BI-Stil — eine pandas-Pipeline verdichtet 180K Bestellzeilen zu einem filterbaren React-Report.',
+    en: 'Power BI–style supply-chain dashboard on 180K order lines (2015–2018). A pandas pipeline pre-aggregates a 96 MB raw CSV into compact JSON fact tables, so the browser cross-filters and re-aggregates instantly across five pages — sales &amp; profitability, delivery, customers, and fraud risk — each chart paired with a plain-language business takeaway.',
+    de: 'Lieferketten-Dashboard im Power-BI-Stil auf Basis von 180K Bestellzeilen (2015–2018). Eine pandas-Pipeline verdichtet eine 96 MB große Roh-CSV zu kompakten JSON-Fakttabellen, sodass der Browser über fünf Seiten hinweg sofort filtert und neu aggregiert — Umsatz &amp; Profitabilität, Lieferung, Kunden und Betrugsrisiko — jedes Diagramm mit einer klaren geschäftlichen Kernaussage.',
   },
   'work.cinescope.body': {
     en: 'Movies-and-games trend analytics from live TMDB and RAWG data, visualized with Chart.js.',

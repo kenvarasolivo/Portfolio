@@ -15,6 +15,7 @@ const MAX_WIDTH = {
 
 // Only these are actually referenced on the page.
 const TARGETS = [
+  'project_stackpilot.png',
   'project_fluen.png',
   'project_align.png',
   'project_chatbot.png',
