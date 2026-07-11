@@ -239,17 +239,43 @@
           </div>
 
           <div class="space-y-8 lg:space-y-16">
-            <!-- ── FEATURED PROJECTS (from CV). Alternate `order` for the stagger ── -->
+            <!-- ── FEATURED PROJECTS. Alternate `order` for the stagger ── -->
 
-            <!-- Fluen -->
+            <!-- StackPilot -->
             <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
+              <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
+                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                  <img src="images/project_stackpilot.png" alt="StackPilot — agentic documentation tutor preview"
+                    class="h-full w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                </div>
+              </a>
+              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
+                <div class="flex items-center gap-3">
+                  <span class="pill border-accent/40 text-accent">Agentic · RAG</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.stackpilot.title">StackPilot — Agentic Documentation Tutor</h3>
+                <p class="text-sm leading-relaxed text-muted" data-i18n="work.stackpilot.body">
+                  Agentic RAG platform that turns real documentation into cited, interactive tutorials —
+                  a multi-agent pipeline plans targeted searches, grades each retrieved chunk, writes only
+                  from verified context, and audits every citation against its source.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="pill">Next.js</span><span class="pill">FastAPI</span>
+                  <span class="pill">Gemini API</span><span class="pill">pgvector</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Fluen (reversed) -->
+            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
+              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="group relative order-1 block bg-card-2 lg:order-2">
                 <div class="bg-grid aspect-[16/10] overflow-hidden">
                   <img src="images/project_fluen.png" alt="Fluen — AI language learning platform preview"
                     class="h-full w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                 </div>
               </a>
-              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
+              <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">SaaS · AI</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
@@ -267,15 +293,15 @@
               </div>
             </article>
 
-            <!-- Align (reversed) -->
+            <!-- Align -->
             <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="group relative order-1 block bg-card-2 lg:order-2">
+              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
                 <div class="bg-grid aspect-[16/10] overflow-hidden">
                   <img src="images/project_align.png" alt="Align — AI application optimizer preview"
                     class="h-full w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                 </div>
               </a>
-              <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
+              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Backend · RAG</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
