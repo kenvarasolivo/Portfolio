@@ -244,7 +244,7 @@
             <!-- StackPilot -->
             <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
                   <img src="images/project_stackpilot.png" alt="StackPilot — agentic documentation tutor preview"
                     class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                 </div>
@@ -253,12 +253,15 @@
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Agentic · RAG</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
+                  <span class="text-xs text-muted">· 2026</span>
                 </div>
                 <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.stackpilot.title">StackPilot — Agentic Documentation Tutor</h3>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.stackpilot.body">
-                  Agentic RAG platform that turns real documentation into cited, interactive tutorials —
-                  a multi-agent pipeline plans targeted searches, grades each retrieved chunk, writes only
-                  from verified context, and audits every citation against its source.
+                  Decoupled FastAPI + Next.js app whose five-stage agent pipeline — planning → retrieval
+                  → grading → writing → verification — turns a learning goal into targeted searches and
+                  re-retrieves on coverage gaps. LLM relevance grading of pgvector chunks and automatic
+                  citation verification against the source keep hallucinations out; agent progress
+                  streams live over NDJSON.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <span class="pill">Next.js</span><span class="pill">FastAPI</span>
@@ -270,7 +273,7 @@
             <!-- Fluen (reversed) -->
             <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
               <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="group relative order-1 block bg-card-2 lg:order-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
                   <img src="images/project_fluen.png" alt="Fluen — AI language learning platform preview"
                     class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                 </div>
@@ -279,12 +282,15 @@
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">SaaS · AI</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
+                  <span class="text-xs text-muted">· 2026</span>
                 </div>
                 <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.fluen.title">Fluen — AI Language Platform</h3>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.fluen.body">
-                  Distraction-free SaaS uniting a spaced-repetition system (FSRS), an immersive
-                  comprehensible-input hub, and a live AI coach — with structured JSON-schema outputs
-                  and token streaming for real-time chat.
+                  Type-safe Next.js/TypeScript learning app pairing FSRS flashcards, generated reading
+                  texts with clickable words, and an AI chat coach. A 13-table Supabase model gives each
+                  language its own environment, secured by row-level security rather than app-code
+                  checks; Gemini JSON-schema outputs return flashcards and grammar corrections as
+                  validated objects while the chat streams tokens.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <span class="pill">Next.js</span><span class="pill">TypeScript</span>
@@ -296,7 +302,7 @@
             <!-- Align -->
             <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
               <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
+                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
                   <img src="images/project_align.png" alt="Align — AI application optimizer preview"
                     class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                 </div>
@@ -305,6 +311,7 @@
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Backend · RAG</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
+                  <span class="text-xs text-muted">· 2026</span>
                 </div>
                 <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.align.title">Align — AI Application Optimizer</h3>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.align.body">
@@ -340,11 +347,15 @@
                 </div>
               </div>
               <div class="flex flex-1 flex-col gap-3 p-6 lg:p-7">
-                <div class="flex items-center gap-3">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                   <span class="pill border-accent/40 text-accent">Team · Frontend</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-muted"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span><span data-i18n="badge.university">University project</span></span>
+                  <span class="whitespace-nowrap text-xs text-muted" data-i18n="work.chatbot.date">Oct 2025 – Feb 2026</span>
                 </div>
                 <h3 class="text-xl font-bold tracking-tight" data-i18n="work.chatbot.title">FH Aachen Chatbot — Frontend Refactor</h3>
+                <p class="-mt-1 text-xs italic text-muted" data-i18n="work.chatbot.meta">
+                  Interdisciplinary project · 10-person team · agile sprints on GitLab with weekly meetings.
+                </p>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.chatbot.body">
                   Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four
                   encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend
@@ -370,6 +381,7 @@
                 <div class="flex items-center gap-3">
                   <span class="pill border-accent/40 text-accent">Data · Analytics</span>
                   <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
+                  <span class="text-xs text-muted">· 2026</span>
                 </div>
                 <h3 class="text-xl font-bold tracking-tight">DataCo Supply Chain Analytics</h3>
                 <p class="text-sm leading-relaxed text-muted" data-i18n="work.dataco.body">
@@ -591,9 +603,9 @@
             <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
             <p class="mt-6 max-w-xl leading-relaxed text-muted" data-i18n="aboutMe.p1">
               I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in
-              Aachen, Germany. I build full-stack web software with AI features — from typed interfaces and RAG
-              pipelines to tested LLM eval harnesses — and I care just as much about the backend logic
-              as the pixels.
+              Aachen, Germany. My focus is applied AI and full-stack engineering — FastAPI/Python on the
+              backend, Next.js/TypeScript on the frontend — building LLM features end to end, from the
+              agentic RAG pipeline (pgvector, relevance grading, citation verification) to the streaming UI.
             </p>
             <p class="mt-4 max-w-xl leading-relaxed text-muted" data-i18n="aboutMe.p2">
               When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and

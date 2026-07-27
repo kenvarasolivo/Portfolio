@@ -65,13 +65,13 @@ export const translations = {
 
   'work.stackpilot.title': { en: 'StackPilot — Agentic Documentation Tutor', de: 'StackPilot — Agentischer Doku-Tutor' },
   'work.stackpilot.body': {
-    en: 'Agentic RAG platform that turns real documentation into cited, interactive tutorials — a multi-agent pipeline plans targeted searches, grades each retrieved chunk, writes only from verified context, and audits every citation against its source.',
-    de: 'Agentische RAG-Plattform, die echte Dokumentation in zitierte, interaktive Tutorials verwandelt — eine Multi-Agenten-Pipeline plant gezielte Suchen, bewertet jeden abgerufenen Chunk, schreibt nur aus verifiziertem Kontext und prüft jede Quellenangabe gegen ihre Quelle.',
+    en: 'Decoupled FastAPI + Next.js app whose five-stage agent pipeline — planning → retrieval → grading → writing → verification — turns a learning goal into targeted searches and re-retrieves on coverage gaps. LLM relevance grading of pgvector chunks and automatic citation verification against the source keep hallucinations out; agent progress streams live over NDJSON.',
+    de: 'Entkoppelte FastAPI-+-Next.js-Anwendung mit fünfstufiger Agenten-Pipeline — Planning → Retrieval → Grading → Writing → Verification —, die Lernziele in gezielte Suchanfragen zerlegt und bei Abdeckungslücken erneut retrievt. LLM-basiertes Relevanz-Grading der pgvector-Chunks und die automatische Verifikation jeder Zitatangabe gegen den Originaltext reduzieren Halluzinationen; der Agentenfortschritt streamt live über NDJSON.',
   },
   'work.fluen.title': { en: 'Fluen — AI Language Platform', de: 'Fluen — KI-Sprachplattform' },
   'work.fluen.body': {
-    en: 'Distraction-free SaaS uniting a spaced-repetition system (FSRS), an immersive comprehensible-input hub, and a live AI coach — with structured JSON-schema outputs and token streaming for real-time chat.',
-    de: 'Ablenkungsfreie SaaS, die ein Spaced-Repetition-System (FSRS), einen immersiven Comprehensible-Input-Hub und einen Live-KI-Coach vereint — mit strukturierten JSON-Schema-Outputs und Token-Streaming für Echtzeit-Chat.',
+    en: 'Type-safe Next.js/TypeScript learning app pairing FSRS flashcards, generated reading texts with clickable words, and an AI chat coach. A 13-table Supabase model gives each language its own environment, secured by row-level security rather than app-code checks; Gemini JSON-schema outputs return flashcards and grammar corrections as validated objects while the chat streams tokens.',
+    de: 'Typsichere Next.js/TypeScript-Lernanwendung mit Karteikarten (FSRS), generierten Lesetexten mit anklickbaren Wörtern und einem KI-Chat-Coach. Ein Supabase-Datenmodell mit 13 Tabellen macht jede Sprache zu einer eigenen Lernumgebung, abgesichert durch Row-Level Security statt Prüfungen im Anwendungscode; JSON-Schema-Outputs der Gemini API liefern Karteikarten und Grammatikkorrekturen als validierte Objekte, parallel zum Token-Streaming des Chats.',
   },
   'work.align.title': { en: 'Align — AI Application Optimizer', de: 'Align — KI-Bewerbungsoptimierer' },
   'work.align.body': {
@@ -79,6 +79,11 @@ export const translations = {
     de: 'Entkoppelte asynchrone FastAPI-+-React-App, die typsichere LLM-Outputs über Pydantic erzwingt — abgesichert durch eine Pytest-Suite mit 94 Tests (96 % Coverage) und eine RAG-Pipeline, die Quellen über pgvector-Cosine-KNN zitiert.',
   },
   'work.chatbot.title': { en: 'FH Aachen Chatbot — Frontend Refactor', de: 'FH Aachen Chatbot — Frontend-Refactoring' },
+  'work.chatbot.date': { en: 'Oct 2025 – Feb 2026', de: '10.2025 – 02.2026' },
+  'work.chatbot.meta': {
+    en: 'Interdisciplinary project · 10-person team · agile sprints on GitLab with weekly meetings.',
+    de: 'Interdisziplinäres Projekt · 10-köpfiges Team · agile Sprints auf GitLab mit wöchentlichen Meetings.',
+  },
   'work.chatbot.body': {
     en: 'Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend behind resource-based REST endpoints, and cut perceived latency with non-blocking token streaming, thinking skeletons, and a "thinking / answering" status.',
     de: 'Eine monolithische <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> in vier gekapselte Feature-Module und wiederverwendbare Vue-3-Composables aufgeteilt, Frontend und Backend hinter ressourcenbasierten REST-Endpunkten entkoppelt und die gefühlte Latenz durch nicht-blockierendes Token-Streaming, „Thinking"-Skeletons und einen „Thinking / Answering"-Status reduziert.',
@@ -160,8 +165,8 @@ export const translations = {
   'aboutMe.eyebrow': { en: '04 — About me',   de: '04 — Über mich' },
   'aboutMe.title':   { en: "Hi, I'm Kenvara", de: 'Hallo, ich bin Kenvara' },
   'aboutMe.p1': {
-    en: "I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in Aachen, Germany. I build full-stack web software with AI features — from typed interfaces and RAG pipelines to tested LLM eval harnesses — and I care just as much about the backend logic as the pixels.",
-    de: 'Ich bin Informatikstudent an der FH Aachen, ursprünglich aus Indonesien und heute in Aachen ansässig. Ich entwickle Full-Stack-Websoftware mit KI-Funktionen — von typsicheren Schnittstellen und RAG-Pipelines bis zu getesteten LLM-Eval-Harnesses — und mir liegt die Backend-Logik genauso am Herzen wie die Pixel.',
+    en: "I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in Aachen, Germany. My focus is applied AI and full-stack engineering — FastAPI/Python on the backend, Next.js/TypeScript on the frontend — building LLM features end to end, from the agentic RAG pipeline (pgvector, relevance grading, citation verification) to the streaming UI.",
+    de: 'Ich bin Informatikstudent an der FH Aachen, ursprünglich aus Indonesien und heute in Aachen ansässig. Mein Fokus liegt auf Applied AI und Full-Stack-Entwicklung — FastAPI/Python im Backend, Next.js/TypeScript im Frontend — mit LLM-Features von der agentischen RAG-Pipeline (pgvector, Relevanz-Grading, Zitat-Verifikation) bis zur Streaming-UI.',
   },
   'aboutMe.p2': {
     en: "When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and learning how to make software feel fast and effortless. I'm currently looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
