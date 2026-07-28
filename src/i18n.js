@@ -93,8 +93,22 @@ export const translations = {
     en: 'Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend behind resource-based REST endpoints, and cut perceived latency with non-blocking token streaming, thinking skeletons, and a "thinking / answering" status.',
     de: 'Eine monolithische <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> in vier gekapselte Feature-Module und wiederverwendbare Vue-3-Composables aufgeteilt, Frontend und Backend hinter ressourcenbasierten REST-Endpunkten entkoppelt und die gefühlte Latenz durch nicht-blockierendes Token-Streaming, „Thinking"-Skeletons und einen „Thinking / Answering"-Status reduziert.',
   },
-  'work.other':     { en: 'Other projects',    de: 'Weitere Projekte' },
-  'work.otherNote': { en: 'Team &amp; data work', de: 'Team- &amp; Datenarbeit' },
+  // Category headings for the main project groups
+  'work.cat.ai': {
+    en: 'Production Agentic AI &amp; Workflow Engines',
+    de: 'Produktionsreife agentische KI &amp; Workflow-Engines',
+  },
+  'work.cat.aiNote':   { en: 'Agent pipelines · RAG', de: 'Agenten-Pipelines · RAG' },
+  'work.cat.web': {
+    en: 'Modern Decoupled Full-Stack Web Applications',
+    de: 'Moderne entkoppelte Full-Stack-Webanwendungen',
+  },
+  'work.cat.webNote':  { en: 'Typed · Streaming UI', de: 'Typsicher · Streaming-UI' },
+  'work.cat.data': {
+    en: 'Data Engineering &amp; Interactive Analytics',
+    de: 'Data Engineering &amp; interaktive Analytics',
+  },
+  'work.cat.dataNote': { en: 'ETL · Dashboards', de: 'ETL · Dashboards' },
   'work.explorations':     { en: 'Personal exploration &amp; learning', de: 'Persönliche Projekte &amp; Lernen' },
   'work.explorationsNote': { en: 'Built for fun &amp; learning', de: 'Aus Spaß &amp; zum Lernen' },
   'work.dataco.body': {
