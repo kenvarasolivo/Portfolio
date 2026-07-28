@@ -1,19 +1,127 @@
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import './style.css';
 import { translations } from './i18n.js';
 
-/* ───────────────────────────────────────────────────────────────────────
-   1. Sticky nav: transparent over hero, solid once scrolled
-   ─────────────────────────────────────────────────────────────────────── */
-const nav = document.querySelector('[data-nav]');
-const onScroll = () => {
-  if (!nav) return;
-  nav.classList.toggle('is-scrolled', window.scrollY > 24);
-};
-onScroll();
-window.addEventListener('scroll', onScroll, { passive: true });
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ───────────────────────────────────────────────────────────────────────
-   2. Mobile hamburger menu
+   1. Smooth ("heavy") scrolling
+   Lenis damps the raw wheel/key input toward a target position instead of
+   jumping to it. The low lerp is what gives the page mass: input starts the
+   movement, momentum finishes it.
+   ─────────────────────────────────────────────────────────────────────── */
+const lenis = reduceMotion
+  ? null
+  : new Lenis({
+      lerp: 0.075, // lower = heavier glide (Lenis default is 0.1)
+      wheelMultiplier: 0.85, // slight resistance, so one flick travels less
+      touchMultiplier: 1.5,
+      // Let the explorations carousel and the mobile menu scroll themselves.
+      allowNestedScroll: true,
+    });
+
+if (lenis) {
+  const raf = (time) => {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  };
+  requestAnimationFrame(raf);
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   2. Scroll-linked chrome: nav state, progress rail, parallax
+   All of it runs off one scroll callback so there's a single read of layout
+   per frame rather than one per feature.
+   ─────────────────────────────────────────────────────────────────────── */
+const nav = document.querySelector('[data-nav]');
+const progressBar = document.querySelector('[data-scroll-progress]');
+const heroContent = document.querySelector('[data-hero]');
+
+// Elements that drift against the scroll. data-parallax holds the strength:
+// 0 = pinned to the page, 1 = pinned to the viewport.
+const parallaxItems = reduceMotion
+  ? []
+  : [...document.querySelectorAll('[data-parallax]')].map((el) => ({
+      el,
+      speed: parseFloat(el.dataset.parallax) || 0.06,
+      visible: false,
+    }));
+
+if (parallaxItems.length) {
+  const parallaxObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const item = parallaxItems.find((i) => i.el === entry.target);
+        if (item) item.visible = entry.isIntersecting;
+      });
+    },
+    // Generous margin so an element is already tracking before it's on screen.
+    { rootMargin: '25% 0px' }
+  );
+  parallaxItems.forEach((item) => parallaxObserver.observe(item.el));
+}
+
+// Layout reads are cached here and refreshed only when the page actually
+// changes size, so the scroll handler itself never touches layout.
+let scrollRange = 0;
+const measure = () => {
+  scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+
+  parallaxItems.forEach((item) => {
+    // Clear the drift first: a transformed rect would fold the previous frame's
+    // offset back into the measurement.
+    item.el.style.transform = '';
+    const rect = item.el.getBoundingClientRect();
+    item.center = rect.top + window.scrollY + rect.height / 2;
+  });
+};
+
+const onScroll = () => {
+  const y = window.scrollY;
+
+  nav?.classList.toggle('is-scrolled', y > 24);
+
+  if (progressBar) {
+    const progress = scrollRange > 0 ? Math.min(y / scrollRange, 1) : 0;
+    progressBar.style.transform = `scaleX(${progress})`;
+  }
+
+  // Hero drifts up slower than the page and dissolves — the page slides out
+  // from under it rather than the hero simply leaving.
+  if (heroContent && !reduceMotion) {
+    const travel = Math.min(y / window.innerHeight, 1);
+    heroContent.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
+    heroContent.style.opacity = String(Math.max(1 - travel * 1.35, 0));
+  }
+
+  parallaxItems.forEach((item) => {
+    if (!item.visible) return;
+    // Distance from viewport centre → the drift passes through zero exactly as
+    // the element crosses the middle of the screen.
+    const offset = item.center - y - window.innerHeight / 2;
+    item.el.style.transform = `translate3d(0, ${(-offset * item.speed).toFixed(2)}px, 0)`;
+  });
+};
+
+measure();
+onScroll();
+
+// Lazy images and the webfont both change page height after first paint, which
+// would leave the progress rail reading against a stale range. Watch the body,
+// not just the window.
+const remeasure = () => {
+  measure();
+  onScroll();
+};
+window.addEventListener('resize', remeasure);
+if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(document.body);
+
+if (lenis) lenis.on('scroll', onScroll);
+else window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ───────────────────────────────────────────────────────────────────────
+   3. Mobile hamburger menu
    ─────────────────────────────────────────────────────────────────────── */
 const menuBtn = document.querySelector('[data-menu-btn]');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
@@ -23,6 +131,9 @@ const setMenu = (open) => {
   mobileMenu.classList.toggle('hidden', !open);
   menuBtn.setAttribute('aria-expanded', String(open));
   document.body.classList.toggle('overflow-hidden', open);
+  // `overflow-hidden` alone won't stop Lenis — it drives scroll itself.
+  if (open) lenis?.stop();
+  else lenis?.start();
 };
 
 menuBtn?.addEventListener('click', () => {
@@ -36,21 +147,80 @@ mobileMenu?.querySelectorAll('a').forEach((link) =>
 );
 
 /* ───────────────────────────────────────────────────────────────────────
-   3. Scroll-reveal via IntersectionObserver
+   4. In-page links: a long, weighted glide instead of a jump
+   Delegated so it also covers the skip link and the footer nav. Lenis reads
+   the page's scroll-padding-top, so sections still clear the sticky nav.
+   ─────────────────────────────────────────────────────────────────────── */
+if (lenis) {
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest?.('a[href^="#"]');
+    const hash = link?.getAttribute('href');
+    if (!hash || hash === '#') return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    event.preventDefault();
+    lenis.scrollTo(target, {
+      duration: 1.6,
+      easing: (t) => 1 - Math.pow(1 - t, 4), // quart-out: arrives, then settles
+      // Native anchor navigation moves focus; preventDefault would otherwise
+      // strand keyboard users (including on the skip link) at the top of the
+      // document with the page scrolled elsewhere.
+      onComplete: () => {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      },
+    });
+    history.replaceState(null, '', hash);
+  });
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   5. Scroll-reveal via IntersectionObserver
+   Anything crossing 82% of the viewport height reveals. Elements that cross
+   together are treated as one batch and staggered in reading order, so grids
+   and card rows cascade instead of appearing all at once — that cascade is
+   most of what separates a considered reveal from a plain fade-in.
    ─────────────────────────────────────────────────────────────────────── */
 const revealEls = document.querySelectorAll('.reveal');
+const STAGGER_MS = 100;
+const MAX_STAGGER_STEPS = 4; // cap the tail so late items don't lag visibly
 
 if ('IntersectionObserver' in window && revealEls.length) {
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .sort(
+          (a, b) =>
+            a.boundingClientRect.top - b.boundingClientRect.top ||
+            a.boundingClientRect.left - b.boundingClientRect.left
+        )
+        .forEach((entry, index) => {
+          const el = entry.target;
+
+          // An inline --rv-delay means the markup choreographs this element
+          // (the hero sequence); leave those alone.
+          if (!el.style.getPropertyValue('--rv-delay')) {
+            const step = Math.min(index, MAX_STAGGER_STEPS);
+            el.style.setProperty('--rv-delay', `${step * STAGGER_MS}ms`);
+          }
+
+          el.classList.add('is-visible');
+          // Release the compositor layer once this element has landed. Guard on
+          // e.target: transitionend bubbles, and these cards contain children
+          // with their own transform transitions.
+          const settle = (e) => {
+            if (e.target !== el || e.propertyName !== 'transform') return;
+            el.classList.add('is-settled');
+            el.removeEventListener('transitionend', settle);
+          };
+          el.addEventListener('transitionend', settle);
+          observer.unobserve(el);
+        });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    { threshold: 0, rootMargin: '0px 0px -18% 0px' }
   );
   revealEls.forEach((el) => observer.observe(el));
 } else {
@@ -59,7 +229,7 @@ if ('IntersectionObserver' in window && revealEls.length) {
 }
 
 /* ───────────────────────────────────────────────────────────────────────
-   4. Language switch (EN / DE) with localStorage persistence
+   6. Language switch (EN / DE) with localStorage persistence
    ─────────────────────────────────────────────────────────────────────── */
 const SUPPORTED = ['en', 'de'];
 const STORAGE_KEY = 'lang';

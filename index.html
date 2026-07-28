@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,6 +79,9 @@
         </button>
       </nav>
 
+      <!-- Reading-progress rail, revealed once the nav goes solid -->
+      <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
       <!-- Mobile menu panel -->
       <div
         id="mobile-menu"
@@ -119,26 +122,30 @@
           <div class="wave-wash bg-[radial-gradient(125%_100%_at_50%_0%,#05070d_0%,#05070d_24%,#0a1733_34%,#15306e_44%,#1e4ed8_54%,#3b82f6_62%,#7fb0ff_70%,#cfe0ff_76%,#ffffff_80%,#ffffff_100%)]"></div>
         </div>
 
-        <div class="container-x relative flex min-h-screen flex-col items-center justify-center py-24 text-center">
-          <p class="reveal eyebrow mb-8 text-white/55" style="transition-delay: 0ms" data-i18n="hero.eyebrow">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
+        <!-- data-hero: the whole block drifts up slower than the page and fades
+             out as you leave, so the hero recedes rather than scrolling off. -->
+        <div class="container-x relative flex min-h-screen flex-col items-center justify-center py-24 text-center" data-hero>
+          <p class="reveal eyebrow mb-8 text-white/55" style="--rv-delay: 0ms" data-i18n="hero.eyebrow">Full-Stack &amp; AI Software Engineer · Aachen, DE</p>
 
           <!-- Hero headline: the name, rendered as soft glowing fog (Sui-style).
-               data-text feeds the blurred halo copy in ::before. -->
+               data-text feeds the blurred halo copy in ::before, and the `fog`
+               reveal racks it from a heavy defocus into sharp on entry. -->
           <h1
             class="reveal hero-headline whitespace-nowrap font-bold leading-[0.95] tracking-tightest"
             data-text="Kenvara Solivo Lwie"
-            style="transition-delay: 90ms"
+            data-reveal="fog"
+            style="--rv-delay: 150ms"
           >
             Kenvara Solivo Lwie
           </h1>
 
-          <p class="reveal mx-auto mt-10 max-w-sm text-base leading-relaxed text-blue-100/80 sm:mt-12 sm:text-lg" style="transition-delay: 240ms" data-i18n="hero.tagline">
+          <p class="reveal mx-auto mt-10 max-w-sm text-base leading-relaxed text-blue-100/80 sm:mt-12 sm:text-lg" style="--rv-delay: 620ms" data-i18n="hero.tagline">
             I build full-stack web apps with AI features, using
             <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp;
             <span class="font-semibold text-white">Python</span>.
           </p>
 
-          <div class="reveal mt-8 flex flex-col items-center gap-3 sm:flex-row" style="transition-delay: 360ms">
+          <div class="reveal mt-8 flex flex-col items-center gap-3 sm:flex-row" style="--rv-delay: 820ms">
             <a href="#work" class="btn btn-primary" data-i18n="hero.cta1">View my work</a>
             <a href="#contact" class="btn btn-light" data-i18n="hero.cta2">Let's talk</a>
           </div>
@@ -582,7 +589,7 @@
               </ul>
             </div>
             <!-- Backend -->
-            <div class="reveal card card-hover p-7" style="transition-delay:.08s">
+            <div class="reveal card card-hover p-7">
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
               </div>
@@ -595,7 +602,7 @@
               </ul>
             </div>
             <!-- Tooling -->
-            <div class="reveal card card-hover p-7" style="transition-delay:.16s">
+            <div class="reveal card card-hover p-7">
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l-1.5-1.5a4 4 0 00-5.5 5.5L3 15v6h6l4-4a4 4 0 005.5-5.5L17 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
@@ -618,7 +625,9 @@
         <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <!-- Portrait -->
           <div class="reveal">
-            <div class="relative mx-auto max-w-sm">
+            <!-- Drifts gently against the scroll so the portrait column and the
+                 bio column don't move as one flat plane. -->
+            <div class="relative mx-auto max-w-sm" data-parallax="0.05">
               <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
               <img src="images/Kenvara_Solivo_Lwie.png" alt="Portrait of Kenvara Solivo Lwie"
                    width="900" height="1200"

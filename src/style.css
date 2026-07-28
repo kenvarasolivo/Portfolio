@@ -6,8 +6,18 @@
    BASE
    ─────────────────────────────────────────────────────────────────────── */
 @layer base {
+  :root {
+    /* Motion language. `cinema` is an expo-out: it leaves fast and settles
+       very slowly, which is what makes a reveal read as weighted rather than
+       springy. Everything scroll-triggered shares it so the page feels like
+       one system. */
+    --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+    --reveal-dur: 1.25s;
+  }
+
   html {
-    scroll-behavior: smooth;
+    /* No `scroll-behavior: smooth` — Lenis owns scrolling and native smooth
+       fights it. Reduced-motion users fall back to instant jumps (below). */
     /* offset anchored sections so the sticky nav doesn't cover headings */
     scroll-padding-top: 6rem;
   }
@@ -148,6 +158,20 @@
   .site-nav.is-scrolled .nav-logo {
     @apply text-slate-900;
   }
+  /* Hairline scroll-progress rail, sitting on the nav's bottom border. Hidden
+     over the hero (nothing to report yet), fades in with the solid nav. */
+  .scroll-progress {
+    @apply pointer-events-none absolute inset-x-0 -bottom-px h-0.5 overflow-hidden
+           opacity-0 transition-opacity duration-500;
+  }
+  .site-nav.is-scrolled .scroll-progress {
+    @apply opacity-100;
+  }
+  .scroll-progress > span {
+    @apply block h-full origin-left bg-gradient-to-r from-accent-light to-accent-dark;
+    transform: scaleX(0);
+  }
+
   .nav-burger {
     @apply border-white/30 text-white;
   }
@@ -192,17 +216,59 @@
    UTILITIES
    ─────────────────────────────────────────────────────────────────────── */
 @layer utilities {
-  /* Scroll-reveal: hidden until JS adds .is-visible */
+  /* ── Scroll-reveal: hidden until JS adds .is-visible ──
+     `--rv-delay` is the element's place in its stagger batch. JS sets it when
+     a group enters together; a few elements (the hero sequence) set it inline
+     to choreograph a fixed order. Child reveals below build their delays on
+     top of it so a card and its media stay in step. */
   .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
-      transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    /* Longer travel than a typical fade-up — the distance is what registers
+       as weight. translate3d keeps it on the compositor. */
+    transform: translate3d(0, 56px, 0);
+    transition:
+      opacity var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
+      transform var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
+      filter var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms);
     will-change: opacity, transform;
   }
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+    filter: none;
+  }
+  /* Dropped by JS once the transition has finished, so 30+ elements aren't
+     holding compositor layers for the life of the page. */
+  .reveal.is-settled {
+    will-change: auto;
+  }
+
+  /* Rack-focus variant: resolves out of a heavy defocus instead of sliding.
+     Used for the hero name, where it doubles as the "emerging from the fog"
+     idea the headline's blurred ::before halo already sets up. */
+  .reveal[data-reveal='fog'] {
+    filter: blur(26px);
+    transform: translate3d(0, 20px, 0) scale(1.035);
+    transition-duration: 1.9s;
+  }
+  /* Both longhands must be restated here: the base `.reveal.is-visible` rule is
+     less specific than the `[data-reveal='fog']` selector and would lose. */
+  .reveal[data-reveal='fog'].is-visible {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: none;
+  }
+
+  /* Media curtain: every project thumbnail wipes open from the bottom edge as
+     its card rises, so the image arrives instead of simply being there. The
+     wipe trails the card by 180ms and outlasts it, which is what keeps the
+     two reading as one move rather than two. */
+  .reveal .bg-grid {
+    clip-path: inset(0 0 101% 0);
+    transition: clip-path 1.6s var(--ease-cinema);
+    transition-delay: calc(var(--rv-delay, 0ms) + 180ms);
+  }
+  .reveal.is-visible .bg-grid {
+    clip-path: inset(0 0 0 0);
   }
 
   .text-balance {
@@ -276,7 +342,18 @@
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     transition: none !important;
+  }
+  .reveal .bg-grid {
+    clip-path: none !important;
+    transition: none !important;
+  }
+  /* Scroll-linked transforms are written straight to style.transform by JS,
+     so they need an !important reset here. JS also skips them entirely. */
+  [data-hero],
+  [data-parallax] {
+    transform: none !important;
   }
   .animate-marquee,
   .wave-wash {
