@@ -47,13 +47,14 @@ export default {
         'card-rest': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 1px rgba(15, 23, 42, 0.05), 0 3px 6px -1px rgba(15, 23, 42, 0.10), 0 10px 18px -4px rgba(15, 23, 42, 0.14), 0 22px 36px -12px rgba(15, 23, 42, 0.18), 0 40px 64px -24px rgba(15, 23, 42, 0.20)',
         // Hover state — deeper lift with an accent-tinted ring for a stronger 3D pop
         'card-hover': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(37, 99, 235, 0.30), 0 6px 12px -2px rgba(15, 23, 42, 0.12), 0 18px 32px -8px rgba(15, 23, 42, 0.18), 0 36px 56px -16px rgba(37, 99, 235, 0.22), 0 56px 88px -28px rgba(15, 23, 42, 0.28)',
-        // Neutral lift — same layered 3D depth as `card-hover` but NO accent ring
-        // or blue tint. Used for static (non-clickable) panels so they still pop
-        // in 3D on hover without signalling "press me".
-        'card-lift': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 12px -2px rgba(15, 23, 42, 0.12), 0 18px 32px -8px rgba(15, 23, 42, 0.18), 0 36px 56px -16px rgba(15, 23, 42, 0.20), 0 56px 88px -28px rgba(15, 23, 42, 0.30)',
-        // Powerful blue glow — for hovered CLICKABLE cards. Thicker accent ring +
-        // large, wide-spread electric-blue halo so they clearly read as pressable.
-        'card-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1.5px rgba(37, 99, 235, 0.55), 0 8px 18px -4px rgba(15, 23, 42, 0.16), 0 24px 48px -8px rgba(37, 99, 235, 0.48), 0 44px 80px -12px rgba(37, 99, 235, 0.52), 0 70px 120px -28px rgba(37, 99, 235, 0.45)',
+        // Neutral lift — for static (non-clickable) panels. Deliberately just one
+        // step above `card-rest`: enough to register as a lift, not as a pop.
+        'card-lift': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 3px rgba(15, 23, 42, 0.06), 0 6px 12px -2px rgba(15, 23, 42, 0.10), 0 16px 28px -8px rgba(15, 23, 42, 0.14), 0 30px 48px -16px rgba(15, 23, 42, 0.18), 0 52px 78px -28px rgba(15, 23, 42, 0.22)',
+        // Hovered CLICKABLE cards. Same depth as `card-lift` plus a hairline
+        // accent ring and one faintly blue-tinted layer — enough to read as
+        // pressable. Restraint is the point: a wide electric halo reads as a
+        // template, a 1px ring reads as considered.
+        'card-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(37, 99, 235, 0.40), 0 2px 3px rgba(15, 23, 42, 0.06), 0 6px 12px -2px rgba(15, 23, 42, 0.10), 0 16px 28px -8px rgba(15, 23, 42, 0.14), 0 30px 48px -16px rgba(37, 99, 235, 0.16), 0 52px 78px -28px rgba(15, 23, 42, 0.22)',
         // Soft blue glow for hovered cards
         glow: '0 0 0 1px rgba(37, 99, 235, 0.25), 0 16px 48px -16px rgba(37, 99, 235, 0.35)',
         'glow-sm': '0 0 24px -6px rgba(37, 99, 235, 0.4)',

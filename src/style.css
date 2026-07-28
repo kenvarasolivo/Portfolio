@@ -95,9 +95,10 @@
 
   /* ── Cards ── */
   .card {
-    /* Snappy 120ms transition so the hover lift feels quick and responsive. */
+    /* 200ms: with the small hover lift below, 120ms read as twitchy — the
+       slightly longer settle makes the movement feel intentional. */
     @apply rounded-xl border border-slate-200 bg-card shadow-card-rest
-           transition-all duration-[120ms] ease-out;
+           transition-all duration-200 ease-out;
   }
 
   /* Static / informational cards (NOT clickable) — keeps the layered 3D depth
@@ -105,16 +106,16 @@
      no pointer cursor, so it reads as "content", not "press me".
      `!` overrides `.reveal.is-visible`'s translateY(0). */
   .card-hover {
-    @apply hover:border-slate-300 hover:shadow-card-lift hover:!-translate-y-1;
+    @apply hover:border-slate-300 hover:shadow-card-lift hover:!-translate-y-0.5;
   }
 
   /* Interactive cards (links out — projects & explorations) — clearly pressable:
-     a quick upward lift + accent ring/glow + pointer cursor invite a click.
+     a small upward lift + hairline accent ring + pointer cursor invite a click.
      `!` forces the lift to win over `.reveal.is-visible`, which also sets a
      transform (translateY(0)) and would otherwise cancel the hover translate on
      cards that carry `.reveal` directly. */
   .card-interactive {
-    @apply cursor-pointer hover:border-accent/60 hover:shadow-card-glow hover:!-translate-y-3;
+    @apply cursor-pointer hover:border-accent/40 hover:shadow-card-glow hover:!-translate-y-1;
   }
 
   /* small line/duotone icon chip */
@@ -219,8 +220,7 @@
   /* ── Scroll-reveal: hidden until JS adds .is-visible ──
      `--rv-delay` is the element's place in its stagger batch. JS sets it when
      a group enters together; a few elements (the hero sequence) set it inline
-     to choreograph a fixed order. Child reveals below build their delays on
-     top of it so a card and its media stay in step. */
+     to choreograph a fixed order. */
   .reveal {
     opacity: 0;
     /* Longer travel than a typical fade-up — the distance is what registers
@@ -258,17 +258,14 @@
     filter: none;
   }
 
-  /* Media curtain: every project thumbnail wipes open from the bottom edge as
-     its card rises, so the image arrives instead of simply being there. The
-     wipe trails the card by 180ms and outlasts it, which is what keeps the
-     two reading as one move rather than two. */
-  .reveal .bg-grid {
-    clip-path: inset(0 0 101% 0);
-    transition: clip-path 1.6s var(--ease-cinema);
-    transition-delay: calc(var(--rv-delay, 0ms) + 180ms);
+  /* Cards reveal as one object. They carry a slight scale on top of the rise,
+     so the whole card settles into place rather than sliding in flat — the
+     thumbnail and the copy always arrive together. */
+  .reveal.card {
+    transform: translate3d(0, 56px, 0) scale(0.97);
   }
-  .reveal.is-visible .bg-grid {
-    clip-path: inset(0 0 0 0);
+  .reveal.card.is-visible {
+    transform: translate3d(0, 0, 0) scale(1);
   }
 
   .text-balance {
@@ -343,10 +340,6 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
-    transition: none !important;
-  }
-  .reveal .bg-grid {
-    clip-path: none !important;
     transition: none !important;
   }
   /* Scroll-linked transforms are written straight to style.transform by JS,
