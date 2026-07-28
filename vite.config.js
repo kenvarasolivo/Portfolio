@@ -1,7 +1,26 @@
 import { defineConfig } from 'vite';
+import { readdir, unlink } from 'node:fs/promises';
+import path from 'node:path';
+
+// The .png screenshots in public/images are the editable source: you replace
+// one and `npm run build` re-encodes it to .webp (see scripts/optimize-images).
+// But public/ is copied verbatim, so the originals would ship alongside the
+// WebP — ~11 MB of dead weight nobody downloads. Drop them from the output.
+const stripSourcePngs = () => ({
+  name: 'strip-source-pngs',
+  apply: 'build',
+  async closeBundle() {
+    const dir = path.resolve('dist/images');
+    const files = await readdir(dir).catch(() => []);
+    const pngs = files.filter((f) => /\.(png|jpe?g)$/i.test(f));
+    await Promise.all(pngs.map((f) => unlink(path.join(dir, f))));
+    if (pngs.length) console.log(`  stripped ${pngs.length} source images from dist/images`);
+  },
+});
 
 // https://vite.dev/config/
 export default defineConfig({
+  plugins: [stripSourcePngs()],
   // Static site at repo root. `public/` is copied verbatim into the build,
   // so /images/* paths resolve in both dev and production.
   base: './',

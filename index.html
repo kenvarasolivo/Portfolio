@@ -182,16 +182,13 @@
         <div class="container-x grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           <div class="reveal">
             <p class="eyebrow mb-6" data-i18n="approach.eyebrow">01 — Approach</p>
-            <p class="text-balance text-2xl font-semibold leading-snug sm:text-3xl lg:text-4xl" data-i18n="approach.statement">
-              I build web apps where <span class="mark-box">AI features are part of the design</span>, not
-              bolted on later — pairing <span class="mark">clean architecture</span> with
-              <span class="mark">structured outputs</span> and
-              <span class="mark">responsive streaming</span>.
+            <p class="text-balance text-3xl font-semibold leading-snug sm:text-4xl lg:text-5xl" data-i18n="approach.statement">
+              I ship <span class="mark-box">working products fast</span> — and build them so they
+              still stand up when they <span class="mark">grow</span>.
             </p>
-            <p class="mt-6 max-w-xl leading-relaxed text-muted" data-i18n="approach.body">
-              My approach: ship typed AI interfaces, RAG pipelines, and tested LLM eval harnesses,
-              with the same rigor on the backend logic as on the pixels. The result is software that
-              stays fast, predictable, and easy to extend.
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted" data-i18n="approach.body">
+              Get something real in front of people early, then let it scale. Proper infrastructure
+              from the first commit, so growing means building on it — not starting over.
             </p>
           </div>
 
@@ -202,359 +199,308 @@
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l6-6-6-6M12 19h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium" data-i18n="approach.cap1">Full-stack web engineering</span>
-              <span class="pill">Next.js · FastAPI</span>
+              <span class="flex-1 text-lg font-medium" data-i18n="approach.cap1">Ship fast, product first</span>
+              <span class="pill">MVP → Live</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a4 4 0 014 4c1.5 0 3 1.5 3 3.5S17.5 13 16 13M12 2a4 4 0 00-4 4c-1.5 0-3 1.5-3 3.5S6.5 13 8 13m4-11v20" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium" data-i18n="approach.cap2">AI integration &amp; LLM tooling</span>
-              <span class="pill">RAG · Structured</span>
+              <span class="flex-1 text-lg font-medium" data-i18n="approach.cap2">Built to scale, not to redo</span>
+              <span class="pill">Docker · CI/CD</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
               </span>
-              <span class="flex-1 font-medium" data-i18n="approach.cap3">Clean, typed architecture</span>
-              <span class="pill">TypeScript · Pydantic</span>
+              <span class="flex-1 text-lg font-medium" data-i18n="approach.cap3">Whole stack, end to end</span>
+              <span class="pill">Next.js · FastAPI</span>
             </li>
             <li class="card card-hover flex items-center gap-4 p-4">
               <span class="icon-chip" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="flex-1 font-medium" data-i18n="approach.cap4">Testing &amp; CI/CD rigor</span>
-              <span class="pill">Pytest · Actions</span>
+              <span class="flex-1 text-lg font-medium" data-i18n="approach.cap4">AI where it actually helps</span>
+              <span class="pill">RAG · LLM</span>
             </li>
           </ul>
         </div>
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           5 · PROJECTS SHOWCASE (staggered / alternating)
+           5 · PROJECTS — runs on black, full-bleed, two per row
            ═════════════════════════════════════════════════════════════════ -->
-      <section id="work" class="section">
-        <div class="container-x">
-          <div class="reveal mb-14 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <p class="eyebrow mb-4" data-i18n="work.eyebrow">02 — Selected work</p>
-              <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="work.title">Things I've built</h2>
-            </div>
-            <p class="max-w-xs text-sm text-muted" data-i18n="work.subtitle">
-              A few projects that show how I think about product, AI, and architecture.
+      <section id="work" class="relative isolate overflow-hidden bg-black pt-[26vh] pb-[26vh] text-white">
+        <!-- White page → black. The wash is the same living gradient as the
+             hero: the colour bands physically slide, so the boundary breathes
+             instead of sitting there as a static seam. Solid anchors top and
+             bottom mean the white edge and the black edge never move, however
+             far the bands travel. -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[24vh] overflow-hidden" aria-hidden="true">
+          <div class="wave-wash bg-[linear-gradient(to_bottom,#ffffff_0%,#ffffff_16%,#f2f2f2_24%,#d4d4d4_33%,#9c9c9c_43%,#666666_54%,#3a3a3a_64%,#1a1a1a_72%,#000000_79%,#000000_100%)]"></div>
+        </div>
+        <!-- …and black → white again on the way out. -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[24vh] overflow-hidden" aria-hidden="true">
+          <div class="wave-wash bg-[linear-gradient(to_bottom,#000000_0%,#000000_16%,#1a1a1a_24%,#3a3a3a_34%,#666666_45%,#9c9c9c_56%,#d4d4d4_65%,#f2f2f2_72%,#ffffff_78%,#ffffff_100%)]"></div>
+        </div>
+
+        <div class="px-5 sm:px-10 lg:px-16 xl:px-24 2xl:px-32">
+          <!-- Section header, aligned to the card edge -->
+          <div class="reveal mb-12 max-w-3xl">
+            <p class="eyebrow mb-4 text-white/50" data-i18n="work.eyebrow">02 — Work</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="work.title">Things I've built</h2>
+            <p class="mt-5 text-lg text-white/60" data-i18n="work.subtitle">
+              Six projects, grouped by what they are.
             </p>
           </div>
 
-          <!-- Main projects are grouped into three disciplines, and within each
-               group they run strongest-first — a recruiter scanning the page
-               hits the most substantial project in a category immediately.
-               Image side alternates down the page for rhythm. -->
-
-          <!-- ── 1 · AGENTIC AI ── -->
-          <div class="reveal mb-10 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" data-i18n="work.cat.ai">
-              Production Agentic AI &amp; Workflow Engines
-            </h3>
-            <span class="hidden h-px flex-1 bg-slate-200 md:block"></span>
-            <span class="hidden whitespace-nowrap text-xs text-muted md:inline" data-i18n="work.cat.aiNote">Agent pipelines · RAG</span>
+          <!-- ── 1 · AI ── -->
+          <div class="reveal mb-5 flex items-center gap-4">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.ai">Agentic AI &amp; Workflows</h3>
+            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
           </div>
 
-          <div class="space-y-8 lg:space-y-16">
+          <div class="mb-16 grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
             <!-- StackPilot -->
-            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_stackpilot.png" alt="StackPilot — agentic documentation tutor preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
+              <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="block">
+                <div class="relative aspect-[16/11] overflow-hidden">
+                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                  <div class="project-scrim"></div>
+                  <h4 class="project-title">StackPilot</h4>
+                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                  <div class="min-w-0">
+                    <p class="project-blurb" data-i18n="work.stackpilot.body">
+                      Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
+                    </p>
+                    <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
+                  </div>
+                  <span class="arrow-btn" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                 </div>
               </a>
-              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
-                <div class="flex items-center gap-3">
-                  <span class="pill border-accent/40 text-accent">Agentic · RAG</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
-                  <span class="text-xs text-muted">· 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.stackpilot.title">StackPilot — Agentic Documentation Tutor</h3>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.stackpilot.body">
-                  Decoupled FastAPI + Next.js app whose five-stage agent pipeline — planning → retrieval
-                  → grading → writing → verification — turns a learning goal into targeted searches and
-                  re-retrieves on coverage gaps. LLM relevance grading of pgvector chunks and automatic
-                  citation verification against the source keep hallucinations out; agent progress
-                  streams live over NDJSON.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Next.js</span><span class="pill">FastAPI</span>
-                  <span class="pill">Gemini API</span><span class="pill">pgvector</span>
-                </div>
-              </div>
             </article>
 
-            <!-- Align (reversed) -->
-            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="group relative order-1 block bg-card-2 lg:order-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_align.png" alt="Align — AI application optimizer preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <!-- Align -->
+            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
+              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="block">
+                <div class="relative aspect-[16/11] overflow-hidden">
+                  <img src="images/project_align.webp" alt="Align — CV-to-job skill gap analysis and cover letter drafting preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                  <div class="project-scrim"></div>
+                  <h4 class="project-title">Align</h4>
+                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                  <div class="min-w-0">
+                    <p class="project-blurb" data-i18n="work.align.body">
+                      Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.
+                    </p>
+                    <p class="project-stack">FastAPI · React · pgvector</p>
+                  </div>
+                  <span class="arrow-btn" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                 </div>
               </a>
-              <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
-                <div class="flex items-center gap-3">
-                  <span class="pill border-accent/40 text-accent">Backend · RAG</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
-                  <span class="text-xs text-muted">· 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.align.title">Align — AI Application Optimizer</h3>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.align.body">
-                  Decoupled async FastAPI + React app enforcing type-safe LLM outputs via Pydantic,
-                  hardened with a 94-test Pytest suite (96% coverage) and a RAG pipeline citing sources
-                  through pgvector cosine-KNN.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Python</span><span class="pill">FastAPI</span>
-                  <span class="pill">pgvector</span><span class="pill">Pytest</span>
-                </div>
-              </div>
             </article>
           </div>
 
-          <!-- ── 2 · FULL-STACK ENGINEERING ── -->
-          <div class="reveal mt-20 mb-10 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" data-i18n="work.cat.web">
-              Modern Decoupled Full-Stack Web Applications
-            </h3>
-            <span class="hidden h-px flex-1 bg-slate-200 md:block"></span>
-            <span class="hidden whitespace-nowrap text-xs text-muted md:inline" data-i18n="work.cat.webNote">Typed · Streaming UI</span>
+          <!-- ── 2 · FULL-STACK PRODUCTS ── -->
+          <div class="reveal mb-5 flex items-center gap-4">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.web">Full-Stack Products</h3>
+            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
           </div>
 
-          <div class="space-y-8 lg:space-y-16">
+          <div class="mb-16 grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
             <!-- Fluen -->
-            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_fluen.png" alt="Fluen — AI language learning platform preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
+              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="block">
+                <div class="relative aspect-[16/11] overflow-hidden">
+                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                  <div class="project-scrim"></div>
+                  <h4 class="project-title">Fluen</h4>
+                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                  <div class="min-w-0">
+                    <p class="project-blurb" data-i18n="work.fluen.body">
+                      A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.
+                    </p>
+                    <p class="project-stack">Next.js · TypeScript · Supabase · Gemini</p>
+                  </div>
+                  <span class="arrow-btn" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                 </div>
               </a>
-              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
-                <div class="flex items-center gap-3">
-                  <span class="pill border-accent/40 text-accent">SaaS · AI</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
-                  <span class="text-xs text-muted">· 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.fluen.title">Fluen — AI Language Platform</h3>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.fluen.body">
-                  Type-safe Next.js/TypeScript learning app pairing FSRS flashcards, generated reading
-                  texts with clickable words, and an AI chat coach. A 13-table Supabase model gives each
-                  language its own environment, secured by row-level security rather than app-code
-                  checks; Gemini JSON-schema outputs return flashcards and grammar corrections as
-                  validated objects while the chat streams tokens.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Next.js</span><span class="pill">TypeScript</span>
-                  <span class="pill">Supabase</span><span class="pill">Gemini API</span>
-                </div>
-              </div>
             </article>
 
-            <!-- FH Aachen Chatbot (reversed) — team project, internal, so the card
-                 is static rather than a link: `card-hover`, no <a>, no image zoom. -->
-            <article class="reveal card card-hover grid gap-0 overflow-hidden lg:grid-cols-2">
-              <div class="relative order-1 block bg-card-2 lg:order-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_chatbot.png" alt="FH Aachen Chatbot — AI chat interface preview"
-                    class="h-full w-full object-cover object-top opacity-95" loading="lazy" />
-                </div>
+            <!-- FH Aachen Chatbot — internal university project, so the card is
+                 static: no link, no lift, no arrow. -->
+            <article class="reveal card-dark group overflow-hidden">
+              <div class="relative aspect-[16/11] overflow-hidden">
+                <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
+                  class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
+                <div class="project-scrim"></div>
+                <h4 class="project-title">FH Aachen Chatbot</h4>
+                <span class="pill-dark absolute bottom-5 left-5" data-i18n="badge.university">University project</span>
               </div>
-              <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
-                <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <span class="pill border-accent/40 text-accent">Team · Frontend</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-muted"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span><span data-i18n="badge.university">University project</span></span>
-                  <span class="whitespace-nowrap text-xs text-muted" data-i18n="work.chatbot.date">Oct 2025 – Feb 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.chatbot.title">FH Aachen Chatbot — Frontend Refactor</h3>
-                <p class="-mt-2 text-xs italic text-muted" data-i18n="work.chatbot.meta">
-                  Interdisciplinary project · 10-person team · agile sprints on GitLab with weekly meetings.
-                </p>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.chatbot.body">
-                  Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four
-                  encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend
-                  behind resource-based REST endpoints, and cut perceived latency with non-blocking token
-                  streaming, thinking skeletons, and a "thinking / answering" status.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Vue.js</span><span class="pill">Inertia.js</span>
-                  <span class="pill">Laravel</span><span class="pill">OpenAI API</span>
+              <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                <div class="min-w-0">
+                  <p class="project-blurb" data-i18n="work.chatbot.body">
+                    Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.
+                  </p>
+                  <p class="project-stack">Vue.js · Laravel · OpenAI</p>
                 </div>
               </div>
             </article>
           </div>
 
           <!-- ── 3 · DATA ── -->
-          <div class="reveal mt-20 mb-10 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" data-i18n="work.cat.data">
-              Data Engineering &amp; Interactive Analytics
-            </h3>
-            <span class="hidden h-px flex-1 bg-slate-200 md:block"></span>
-            <span class="hidden whitespace-nowrap text-xs text-muted md:inline" data-i18n="work.cat.dataNote">ETL · Dashboards</span>
+          <div class="reveal mb-5 flex items-center gap-4">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.data">Data Engineering &amp; Analytics</h3>
+            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
           </div>
 
-          <div class="space-y-8 lg:space-y-16">
+          <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
             <!-- Watchflow -->
-            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_watchflow.png" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
+              <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="block">
+                <div class="relative aspect-[16/11] overflow-hidden">
+                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                  <div class="project-scrim"></div>
+                  <h4 class="project-title">Watchflow</h4>
+                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                  <div class="min-w-0">
+                    <p class="project-blurb" data-i18n="work.watchflow.body">
+                      Tracks the stocks you follow and refreshes itself every trading day, on its own.
+                    </p>
+                    <p class="project-stack">Python · PostgreSQL · GitHub Actions · Next.js</p>
+                  </div>
+                  <span class="arrow-btn" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                 </div>
               </a>
-              <div class="flex flex-col justify-center gap-4 p-7 lg:p-10">
-                <div class="flex items-center gap-3">
-                  <span class="pill border-accent/40 text-accent">Data · ETL</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
-                  <span class="text-xs text-muted">· 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight" data-i18n="work.watchflow.title">Watchflow — Stock Watchlist on a Scheduled ETL Pipeline</h3>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.watchflow.body">
-                  Two-language architecture in which a Python ETL job, cron-scheduled on GitHub Actions,
-                  loads validated end-of-day prices into PostgreSQL and the Next.js app reads only from
-                  there — runs are incremental and idempotent. Cloud-only failures turned out to be TLS
-                  fingerprinting (JA3/JA4) rather than request rate, fixed with curl_cffi browser
-                  impersonation. Pydantic validates every row, a custom NYSE trading calendar separates
-                  holidays from real gaps, and every run stays visible in a public log; 107 tests in CI.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Python</span><span class="pill">ETL · GitHub Actions</span>
-                  <span class="pill">PostgreSQL</span><span class="pill">Next.js</span>
-                </div>
-              </div>
             </article>
 
-            <!-- DataCo (reversed) -->
-            <article class="reveal card card-interactive grid gap-0 overflow-hidden lg:grid-cols-2">
-              <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="group relative order-1 block bg-card-2 lg:order-2">
-                <div class="bg-grid aspect-[16/10] h-full overflow-hidden">
-                  <img src="images/project_dataco.png" alt="DataCo supply-chain analytics dashboard preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <!-- DataCo -->
+            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
+              <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="block">
+                <div class="relative aspect-[16/11] overflow-hidden">
+                  <img src="images/project_dataco.webp" alt="DataCo supply-chain analytics dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                  <div class="project-scrim"></div>
+                  <h4 class="project-title">DataCo</h4>
+                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                </div>
+                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
+                  <div class="min-w-0">
+                    <p class="project-blurb" data-i18n="work.dataco.body">
+                      180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.
+                    </p>
+                    <p class="project-stack">Python · pandas · React · Recharts</p>
+                  </div>
+                  <span class="arrow-btn" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                 </div>
               </a>
-              <div class="order-2 flex flex-col justify-center gap-4 p-7 lg:order-1 lg:p-10">
-                <div class="flex items-center gap-3">
-                  <span class="pill border-accent/40 text-accent">Data · Analytics</span>
-                  <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span><span data-i18n="badge.live">Live</span></span>
-                  <span class="text-xs text-muted">· 2026</span>
-                </div>
-                <h3 class="text-2xl font-bold tracking-tight">DataCo Supply Chain Analytics</h3>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.dataco.body">
-                  Power BI–style supply-chain dashboard on 180K order lines (2015–2018). A pandas pipeline
-                  pre-aggregates a 96 MB raw CSV into compact JSON fact tables, so the browser cross-filters
-                  and re-aggregates instantly across five pages — sales &amp; profitability, delivery, customers,
-                  and fraud risk — each chart paired with a plain-language business takeaway.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                  <span class="pill">Python</span><span class="pill">pandas</span>
-                  <span class="pill">React</span><span class="pill">Recharts</span>
-                </div>
-              </div>
             </article>
           </div>
 
-          <!-- ── PERSONAL EXPLORATION & LEARNING (built for fun & learning) ── -->
-          <div class="reveal mt-20 mb-10 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500" data-i18n="work.explorations">
-              Personal exploration &amp; learning
-            </h3>
-            <span class="hidden h-px flex-1 bg-slate-200 md:block"></span>
-            <span class="hidden whitespace-nowrap text-xs text-muted md:inline" data-i18n="work.explorationsNote">Built for fun &amp; learning</span>
+          <!-- ── PERSONAL EXPLORATION ── -->
+          <div class="reveal mt-20 mb-5 flex items-center gap-4">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.explorations">Built for fun</h3>
+            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
           </div>
 
-          <!-- Horizontal scroll: cards scroll right once they exceed the row -->
-          <!-- px-10 / pt-5 / pb-16 give the hover shadow room INSIDE the
-               overflow-x clip box so the first & last cards aren't cropped.
-               The negative margin must track the container's own gutter at
-               every breakpoint (px-5 sm:px-6) — a flat -mx-6 overhangs by 4px
-               a side on mobile, which is enough to scroll the whole page. -->
-          <div class="-mx-5 -mb-10 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-10 px-10 pt-5 pb-16 sm:-mx-6 [scrollbar-width:thin]">
-            <!-- CineScope -->
-            <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
-              <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
-                  <img src="images/project_cinescope.png" alt="CineScope movie analytics dashboard preview"
-                    class="h-full w-full object-cover opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
-                </div>
-              </a>
-              <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
-                <h4 class="text-lg font-bold tracking-tight">CineScope</h4>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.cinescope.body">
-                  Movies-and-games trend analytics from live TMDB and RAWG data, visualized with Chart.js.
-                </p>
-                <div class="mt-auto flex flex-wrap gap-2 pt-2">
-                  <span class="pill">Chart.js</span><span class="pill">TMDB</span><span class="pill">RAWG</span>
-                </div>
-              </div>
-            </article>
-
+          <!-- Horizontal scroller. The negative margin matches this wrapper's
+               own px-3/px-4 gutter so the row bleeds to the viewport edge
+               without ever making the page itself scroll sideways. -->
+          <!-- overflow-y-hidden is load-bearing, not cosmetic: with only
+               overflow-x-auto, CSS computes overflow-y to `auto`, and the thin
+               horizontal scrollbar then makes scrollHeight exceed clientHeight
+               by ~10px. Lenis's nested-scroll check sees a vertically
+               scrollable element and hands it the wheel, freezing the page for
+               a beat as you scroll out of this section. pt-2 keeps the 4px
+               hover lift from being clipped by the same hidden overflow. -->
+          <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4 lg:gap-6 [scrollbar-width:thin]">
             <!-- LaFerrari -->
-            <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
-              <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
-                  <img src="images/project_laferrari.png" alt="LaFerrari interactive 3D WebGL experience preview"
-                    class="h-full w-full object-cover opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[360px]">
+              <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="relative aspect-[16/10] overflow-hidden">
+                  <img src="images/project_laferrari.webp" alt="LaFerrari interactive 3D WebGL experience preview"
+                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  <h4 class="text-lg font-bold tracking-tight">LaFerrari</h4>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.laferrari.body">
+                    A LaFerrari you can spin around in 3D, lit and animated in the browser.
+                  </p>
+                  <p class="project-stack mt-auto">Three.js · WebGL</p>
                 </div>
               </a>
-              <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
-                <h4 class="text-lg font-bold tracking-tight">LaFerrari</h4>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.laferrari.body">
-                  Interactive 3D WebGL experience showcasing a LaFerrari model with dynamic lighting,
-                  orbit controls, and smooth camera animations.
-                </p>
-                <div class="mt-auto flex flex-wrap gap-2 pt-2">
-                  <span class="pill">Three.js</span><span class="pill">WebGL</span><span class="pill">Animation</span>
-                </div>
-              </div>
             </article>
 
             <!-- Kanagawa Wave -->
-            <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
-              <a href="https://kanagawa-wave.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
-                  <img src="images/project_kanagawa.png" alt="Kanagawa Wave scrollytelling experience preview"
-                    class="h-full w-full object-cover opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[360px]">
+              <a href="https://kanagawa-wave.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="relative aspect-[16/10] overflow-hidden">
+                  <img src="images/project_kanagawa.webp" alt="Kanagawa Wave scrollytelling experience preview"
+                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  <h4 class="text-lg font-bold tracking-tight">Kanagawa Wave</h4>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.kanagawa.body">
+                    Hokusai's wave told as a scroll — the video scrubs as you move down the page.
+                  </p>
+                  <p class="project-stack mt-auto">GSAP · ScrollTrigger</p>
                 </div>
               </a>
-              <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
-                <h4 class="text-lg font-bold tracking-tight">Kanagawa Wave</h4>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.kanagawa.body">
-                  Immersive scrollytelling on Hokusai's iconic artwork — scroll-linked video scrubbing,
-                  custom cursors, and dynamic typography.
-                </p>
-                <div class="mt-auto flex flex-wrap gap-2 pt-2">
-                  <span class="pill">GSAP</span><span class="pill">ScrollTrigger</span><span class="pill">Video</span>
+            </article>
+
+            <!-- CineScope -->
+            <article class="reveal card-dark card-dark-interactive group flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[360px]">
+              <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="relative aspect-[16/10] overflow-hidden">
+                  <img src="images/project_cinescope.webp" alt="CineScope movie analytics dashboard preview"
+                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
-              </div>
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  <h4 class="text-lg font-bold tracking-tight">CineScope</h4>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.cinescope.body">
+                    What's trending in film and games right now, pulled live and charted.
+                  </p>
+                  <p class="project-stack mt-auto">Chart.js · TMDB · RAWG</p>
+                </div>
+              </a>
             </article>
 
             <!-- Destination Intelligence -->
-            <article class="reveal card card-interactive flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[340px]">
-              <a href="https://destination-intelligence.vercel.app/" target="_blank" rel="noopener" class="group relative block bg-card-2">
-                <div class="bg-grid aspect-[16/10] overflow-hidden">
-                  <img src="images/project_destination_intelligence.png" alt="Destination Intelligence dashboard preview"
-                    class="h-full w-full object-cover object-top opacity-95 transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <article class="reveal card-dark card-dark-interactive group flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[360px]">
+              <a href="https://destination-intelligence.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="relative aspect-[16/10] overflow-hidden">
+                  <img src="images/project_destination_intelligence.webp" alt="Destination Intelligence dashboard preview"
+                    class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="flex flex-1 flex-col gap-2 p-5">
+                  <h4 class="text-lg font-bold tracking-tight">Destination Intelligence</h4>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.destination.body">
+                    Move a few sliders and it ranks 23 destinations against your travel style.
+                  </p>
+                  <p class="project-stack mt-auto">React · Vite</p>
                 </div>
               </a>
-              <div class="flex flex-1 flex-col gap-3 p-6">
-                <span class="pill w-fit" data-i18n="badge.exploration">Personal exploration</span>
-                <h4 class="text-lg font-bold tracking-tight">Destination Intelligence</h4>
-                <p class="text-sm leading-relaxed text-muted" data-i18n="work.destination.body">
-                  A travel recommendation engine that ranks 23 curated destinations in real time —
-                  tune sliders and travel personas to instantly match destinations to your style.
-                </p>
-                <div class="mt-auto flex flex-wrap gap-2 pt-2">
-                  <span class="pill">React</span><span class="pill">Live Scoring</span><span class="pill">Vite</span>
-                </div>
-              </div>
             </article>
           </div>
         </div>
@@ -569,20 +515,20 @@
           <div class="reveal card card-hover p-8 lg:p-10">
             <p class="eyebrow mb-6" data-i18n="why.title">Why work with me</p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.1"><span class="text-slate-900">Product-minded engineer</span> — I think about users, not just tickets.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.2">Comfortable across the <span class="text-slate-900">whole stack</span>, frontend to database.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.3"><span class="text-slate-900">AI features</span> in real projects I've shipped and deployed.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="why.4">Multilingual &amp; international — fluent in DE, EN, ID.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="why.1"><span class="text-slate-900">Product-minded engineer</span> — I think about users, not just tickets.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="why.2">Comfortable across the <span class="text-slate-900">whole stack</span>, frontend to database.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="why.3"><span class="text-slate-900">AI features</span> in real projects I've shipped and deployed.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="why.4">Multilingual &amp; international — fluent in DE, EN, ID.</span></li>
             </ul>
           </div>
           <!-- What you get -->
           <div class="reveal card card-hover p-8 lg:p-10">
             <p class="eyebrow mb-6" data-i18n="get.title">What you get</p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.1"><span class="text-slate-900">Clean, typed code</span> that the next person can read.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.2">Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.3">Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-sm text-muted" data-i18n="get.4">Clear communication and <span class="text-slate-900">reliable delivery</span>.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.1"><span class="text-slate-900">Clean, typed code</span> that the next person can read.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.2">Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.3">Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.4">Clear communication and <span class="text-slate-900">reliable delivery</span>.</span></li>
             </ul>
           </div>
         </div>
@@ -605,7 +551,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3" stroke-linecap="round"/></svg>
               </div>
               <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.frontend.title">Frontend</h3>
-              <ul class="space-y-2 text-sm text-muted">
+              <ul class="space-y-2 text-base text-muted">
                 <li>React &amp; Next.js (App Router)</li>
                 <li>TypeScript · Vue.js</li>
                 <li>Tailwind CSS · Vite</li>
@@ -618,7 +564,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
               </div>
               <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.backend.title">Backend &amp; AI</h3>
-              <ul class="space-y-2 text-sm text-muted">
+              <ul class="space-y-2 text-base text-muted">
                 <li>Python · FastAPI · Laravel</li>
                 <li>PostgreSQL · Supabase · pgvector</li>
                 <li data-i18n="skills.backend.3">RAG · structured LLM outputs</li>
@@ -631,7 +577,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l-1.5-1.5a4 4 0 00-5.5 5.5L3 15v6h6l4-4a4 4 0 005.5-5.5L17 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <h3 class="mb-4 text-lg font-semibold" data-i18n="skills.tooling.title">Tooling &amp; Ops</h3>
-              <ul class="space-y-2 text-sm text-muted">
+              <ul class="space-y-2 text-base text-muted">
                 <li>Git &amp; GitHub · GitHub Actions</li>
                 <li>Docker · Pytest</li>
                 <li data-i18n="skills.tooling.3">Vercel · CI/CD pipelines</li>
@@ -653,7 +599,7 @@
                  bio column don't move as one flat plane. -->
             <div class="relative mx-auto max-w-sm" data-parallax="0.05">
               <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
-              <img src="images/Kenvara_Solivo_Lwie.png" alt="Portrait of Kenvara Solivo Lwie"
+              <img src="images/Kenvara_Solivo_Lwie.webp" alt="Portrait of Kenvara Solivo Lwie"
                    width="900" height="1200"
                    class="relative w-full rounded-2xl border border-slate-200 object-cover shadow-lg"
                    loading="lazy" decoding="async" />

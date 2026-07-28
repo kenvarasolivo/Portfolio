@@ -35,8 +35,15 @@ if (lenis) {
    per frame rather than one per feature.
    ─────────────────────────────────────────────────────────────────────── */
 const nav = document.querySelector('[data-nav]');
+const navBar = nav?.querySelector('nav'); // the bar itself, not the mobile panel
 const progressBar = document.querySelector('[data-scroll-progress]');
 const heroContent = document.querySelector('[data-hero]');
+// The projects section runs on black, where the solid-white scrolled nav reads
+// as a mistake. Its bounds drive a third nav state.
+const darkSection = document.querySelector('#work');
+// How far into the section's transition wash the nav flips, as a fraction of
+// the viewport. The wash bands are 24vh, so 0.12 is their midpoint.
+const DARK_INSET = 0.09;
 
 // Elements that drift against the scroll. data-parallax holds the strength:
 // 0 = pinned to the page, 1 = pinned to the viewport.
@@ -65,8 +72,18 @@ if (parallaxItems.length) {
 // Layout reads are cached here and refreshed only when the page actually
 // changes size, so the scroll handler itself never touches layout.
 let scrollRange = 0;
+let darkTop = 0;
+let darkBottom = 0;
+let navHeight = 64;
 const measure = () => {
   scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+  if (navBar) navHeight = navBar.offsetHeight;
+
+  if (darkSection) {
+    const rect = darkSection.getBoundingClientRect();
+    darkTop = rect.top + window.scrollY;
+    darkBottom = darkTop + rect.height;
+  }
 
   parallaxItems.forEach((item) => {
     // Clear the drift first: a transformed rect would fold the previous frame's
@@ -81,6 +98,19 @@ const onScroll = () => {
   const y = window.scrollY;
 
   nav?.classList.toggle('is-scrolled', y > 24);
+
+  // Switch at the midpoint of the h-[24vh] transition bands rather than after
+  // they've fully cleared: the bar is bg-black/70, so it darkens whatever sits
+  // behind it, and white text stays above 8:1 contrast even over the pale end
+  // of the wash. Waiting for solid black just made the change feel late.
+  // Raise DARK_INSET toward 0.24 to switch later, lower it to switch earlier.
+  if (nav && darkSection) {
+    const fade = window.innerHeight * DARK_INSET;
+    nav.classList.toggle(
+      'is-dark',
+      y >= darkTop + fade && y <= darkBottom - fade - navHeight
+    );
+  }
 
   if (progressBar) {
     const progress = scrollRange > 0 ? Math.min(y / scrollRange, 1) : 0;

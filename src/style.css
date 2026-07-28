@@ -109,13 +109,41 @@
     @apply hover:border-slate-300 hover:shadow-card-lift hover:!-translate-y-0.5;
   }
 
-  /* Interactive cards (links out — projects & explorations) — clearly pressable:
-     a small upward lift + hairline accent ring + pointer cursor invite a click.
-     `!` forces the lift to win over `.reveal.is-visible`, which also sets a
-     transform (translateY(0)) and would otherwise cancel the hover translate on
-     cards that carry `.reveal` directly. */
-  .card-interactive {
-    @apply cursor-pointer hover:border-accent/40 hover:shadow-card-glow hover:!-translate-y-1;
+  /* ── Dark surfaces ──
+     The projects section runs on black, where the layered drop-shadows that
+     give the light cards their depth do nothing. Elevation there comes from a
+     lifted translucent fill and a brighter edge instead. */
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-200 ease-out;
+  }
+  .card-dark-interactive {
+    @apply cursor-pointer hover:border-white/25 hover:bg-white/[0.07] hover:!-translate-y-1;
+  }
+
+  /* Keeps the overlaid title legible whatever the screenshot underneath does */
+  .project-scrim {
+    @apply pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/75 via-black/35 to-transparent;
+  }
+  .project-title {
+    @apply absolute inset-x-0 top-0 px-6 pt-6 text-center text-2xl font-bold tracking-tight sm:text-3xl;
+  }
+  /* One line, set large — this is the only prose on the card */
+  .project-blurb {
+    @apply text-base leading-snug text-white/85 sm:text-lg;
+  }
+  .project-stack {
+    @apply mt-2.5 text-xs text-white/35;
+  }
+  .pill-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/50 px-3 py-1
+           text-xs text-white/75 backdrop-blur-sm;
+  }
+  .live-dot {
+    @apply h-1.5 w-1.5 rounded-full bg-emerald-400;
+  }
+  .arrow-btn {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-white/70
+           transition-all duration-200 group-hover:border-white group-hover:bg-white group-hover:text-slate-900;
   }
 
   /* small line/duotone icon chip */
@@ -211,6 +239,32 @@
   .lang-switch--dark .lang-opt.is-active {
     @apply bg-accent text-white;
   }
+
+  /* ── Nav over the black projects section ──
+     `is-dark` rides along with `is-scrolled`, and both selectors weigh the
+     same, so every rule here MUST stay below its `.is-scrolled` counterpart —
+     source order is the only thing making it win. */
+  .site-nav.is-dark {
+    @apply border-white/10 bg-black/70 backdrop-blur-md;
+  }
+  .site-nav.is-dark .nav-link {
+    @apply text-white/70 hover:text-white;
+  }
+  .site-nav.is-dark .nav-logo {
+    @apply text-white;
+  }
+  .site-nav.is-dark .nav-burger {
+    @apply border-white/30 text-white;
+  }
+  .site-nav.is-dark .lang-switch {
+    @apply border-white/25;
+  }
+  .site-nav.is-dark .lang-opt {
+    @apply text-white/70 hover:text-white;
+  }
+  .site-nav.is-dark .lang-opt.is-active {
+    @apply bg-white text-slate-900;
+  }
 }
 
 /* ───────────────────────────────────────────────────────────────────────
@@ -261,10 +315,12 @@
   /* Cards reveal as one object. They carry a slight scale on top of the rise,
      so the whole card settles into place rather than sliding in flat — the
      thumbnail and the copy always arrive together. */
-  .reveal.card {
+  .reveal.card,
+  .reveal.card-dark {
     transform: translate3d(0, 56px, 0) scale(0.97);
   }
-  .reveal.card.is-visible {
+  .reveal.card.is-visible,
+  .reveal.card-dark.is-visible {
     transform: translate3d(0, 0, 0) scale(1);
   }
 
@@ -321,14 +377,6 @@
     to   { transform: translateY(-13.79%); }
   }
 
-  /* faint dotted grid texture for light preview panels */
-  .bg-grid {
-    background-image: radial-gradient(
-      rgba(15, 23, 42, 0.06) 1px,
-      transparent 1px
-    );
-    background-size: 18px 18px;
-  }
 }
 
 /* Respect reduced-motion preferences */

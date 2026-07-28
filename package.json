@@ -5,7 +5,9 @@
   "description": "Personal portfolio — Kenvara Solivo Lwie. Vite + Tailwind CSS, vanilla JS.",
   "type": "module",
   "scripts": {
+    "predev": "npm run optimize-images",
     "dev": "vite",
+    "prebuild": "npm run optimize-images",
     "build": "vite build",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimize-images.mjs"

@@ -40,96 +40,74 @@ export const translations = {
   // ── Approach ──
   'approach.eyebrow': { en: '01 — Approach', de: '01 — Ansatz' },
   'approach.statement': {
-    en: 'I build web apps where <span class="mark-box">AI features are part of the design</span>, not bolted on later — pairing <span class="mark">clean architecture</span> with <span class="mark">structured outputs</span> and <span class="mark">responsive streaming</span>.',
-    de: 'Ich entwickle Webanwendungen, in denen <span class="mark-box">KI-Funktionen Teil des Designs</span> sind und nicht nachträglich angefügt — mit <span class="mark">sauberer Architektur</span>, <span class="mark">strukturierten Outputs</span> und <span class="mark">responsivem Streaming</span>.',
+    en: 'I ship <span class="mark-box">working products fast</span> — and build them so they still stand up when they <span class="mark">grow</span>.',
+    de: 'Ich liefere <span class="mark-box">funktionierende Produkte schnell</span> — und baue sie so, dass sie auch beim <span class="mark">Wachsen</span> tragen.',
   },
   'approach.body': {
-    en: 'My approach: ship typed AI interfaces, RAG pipelines, and tested LLM eval harnesses, with the same rigor on the backend logic as on the pixels. The result is software that stays fast, predictable, and easy to extend.',
-    de: 'Mein Ansatz: typsichere KI-Schnittstellen, RAG-Pipelines und getestete LLM-Eval-Harnesses ausliefern — mit derselben Sorgfalt für die Backend-Logik wie für die Pixel. Das Ergebnis ist Software, die schnell, vorhersehbar und leicht erweiterbar bleibt.',
+    en: 'Get something real in front of people early, then let it scale. Proper infrastructure from the first commit, so growing means building on it — not starting over.',
+    de: 'Früh etwas Echtes vor Nutzer bringen und es dann skalieren lassen. Ordentliche Infrastruktur ab dem ersten Commit — Wachsen heißt dann darauf aufbauen, nicht neu anfangen.',
   },
-  'approach.cap1': { en: 'Full-stack web engineering',     de: 'Full-Stack-Webentwicklung' },
-  'approach.cap2': { en: 'AI integration &amp; LLM tooling', de: 'KI-Integration &amp; LLM-Tooling' },
-  'approach.cap3': { en: 'Clean, typed architecture',      de: 'Saubere, typsichere Architektur' },
-  'approach.cap4': { en: 'Testing &amp; CI/CD rigor',        de: 'Testing &amp; CI/CD-Disziplin' },
+  'approach.cap1': { en: 'Ship fast, product first',    de: 'Schnell liefern, Produkt zuerst' },
+  'approach.cap2': { en: 'Built to scale, not to redo', de: 'Zum Wachsen gebaut, nicht zum Neubau' },
+  'approach.cap3': { en: 'Whole stack, end to end',     de: 'Ganzer Stack, Ende zu Ende' },
+  'approach.cap4': { en: 'AI where it actually helps',  de: 'KI, wo sie wirklich hilft' },
 
   // ── Work ──
-  'work.eyebrow':  { en: '02 — Selected work',  de: '02 — Ausgewählte Arbeiten' },
-  'work.title':    { en: "Things I've built",   de: 'Was ich gebaut habe' },
+  // Blurbs say what a project DOES, in one sentence. The technical detail
+  // lives on each project's own site — repeating it here just buried it.
+  'work.eyebrow':  { en: '02 — Work',          de: '02 — Projekte' },
+  'work.title':    { en: "Things I've built",  de: 'Was ich gebaut habe' },
   'work.subtitle': {
-    en: 'A few projects that show how I think about product, AI, and architecture.',
-    de: 'Einige Projekte, die zeigen, wie ich über Produkt, KI und Architektur denke.',
+    en: 'Six projects, grouped by what they are.',
+    de: 'Sechs Projekte, nach Art gruppiert.',
   },
-  'badge.live':       { en: 'Live',               de: 'Live' },
-  'badge.university': { en: 'University project',  de: 'Universitätsprojekt' },
-  'badge.exploration':{ en: 'Personal exploration', de: 'Persönliches Projekt' },
+  'badge.live':       { en: 'Live',              de: 'Live' },
+  'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
 
-  'work.stackpilot.title': { en: 'StackPilot — Agentic Documentation Tutor', de: 'StackPilot — Agentischer Doku-Tutor' },
+  'work.cat.ai':   { en: 'Agentic AI &amp; Workflows',       de: 'Agentische KI &amp; Workflows' },
+  'work.cat.web':  { en: 'Full-Stack Products',          de: 'Full-Stack-Produkte' },
+  'work.cat.data': { en: 'Data Engineering &amp; Analytics', de: 'Data Engineering &amp; Analytics' },
+  'work.explorations': { en: 'Built for fun', de: 'Aus Spaß gebaut' },
+
   'work.stackpilot.body': {
-    en: 'Decoupled FastAPI + Next.js app whose five-stage agent pipeline — planning → retrieval → grading → writing → verification — turns a learning goal into targeted searches and re-retrieves on coverage gaps. LLM relevance grading of pgvector chunks and automatic citation verification against the source keep hallucinations out; agent progress streams live over NDJSON.',
-    de: 'Entkoppelte FastAPI-+-Next.js-Anwendung mit fünfstufiger Agenten-Pipeline — Planning → Retrieval → Grading → Writing → Verification —, die Lernziele in gezielte Suchanfragen zerlegt und bei Abdeckungslücken erneut retrievt. LLM-basiertes Relevanz-Grading der pgvector-Chunks und die automatische Verifikation jeder Zitatangabe gegen den Originaltext reduzieren Halluzinationen; der Agentenfortschritt streamt live über NDJSON.',
+    en: 'Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.',
+    de: 'Macht aus beliebiger Dokumentation eine geführte Lektion — ein KI-Agent recherchiert, schreibt und prüft seine eigenen Quellen.',
   },
-  'work.watchflow.title': { en: 'Watchflow — Stock Watchlist on a Scheduled ETL Pipeline', de: 'Watchflow — Aktien-Watchlist auf geplanter ETL-Pipeline' },
-  'work.watchflow.body': {
-    en: 'Two-language architecture in which a Python ETL job, cron-scheduled on GitHub Actions, loads validated end-of-day prices into PostgreSQL and the Next.js app reads only from there — runs are incremental and idempotent. Cloud-only failures turned out to be TLS fingerprinting (JA3/JA4) rather than request rate, fixed with curl_cffi browser impersonation. Pydantic validates every row, a custom NYSE trading calendar separates holidays from real gaps, and every run stays visible in a public log; 107 tests in CI.',
-    de: 'Zweisprachige Architektur, in der eine Python-ETL-Strecke per GitHub-Actions-Cron validierte Kursdaten nach PostgreSQL lädt und die Next.js-App ausschließlich daraus liest — die Läufe sind inkrementell und idempotent. Blockaden, die nur in der Cloud auftraten, lagen am TLS-Fingerprinting (JA3/JA4) statt an der Request-Rate und wurden mit curl_cffi-Browser-Impersonation behoben. Pydantic validiert jede Zeile, ein eigener NYSE-Handelskalender trennt Feiertage von echten Lücken, und jeder Lauf bleibt in einem öffentlichen Run-Log sichtbar; 107 Tests in CI.',
-  },
-  'work.fluen.title': { en: 'Fluen — AI Language Platform', de: 'Fluen — KI-Sprachplattform' },
-  'work.fluen.body': {
-    en: 'Type-safe Next.js/TypeScript learning app pairing FSRS flashcards, generated reading texts with clickable words, and an AI chat coach. A 13-table Supabase model gives each language its own environment, secured by row-level security rather than app-code checks; Gemini JSON-schema outputs return flashcards and grammar corrections as validated objects while the chat streams tokens.',
-    de: 'Typsichere Next.js/TypeScript-Lernanwendung mit Karteikarten (FSRS), generierten Lesetexten mit anklickbaren Wörtern und einem KI-Chat-Coach. Ein Supabase-Datenmodell mit 13 Tabellen macht jede Sprache zu einer eigenen Lernumgebung, abgesichert durch Row-Level Security statt Prüfungen im Anwendungscode; JSON-Schema-Outputs der Gemini API liefern Karteikarten und Grammatikkorrekturen als validierte Objekte, parallel zum Token-Streaming des Chats.',
-  },
-  'work.align.title': { en: 'Align — AI Application Optimizer', de: 'Align — KI-Bewerbungsoptimierer' },
   'work.align.body': {
-    en: 'Decoupled async FastAPI + React app enforcing type-safe LLM outputs via Pydantic, hardened with a 94-test Pytest suite (96% coverage) and a RAG pipeline citing sources through pgvector cosine-KNN.',
-    de: 'Entkoppelte asynchrone FastAPI-+-React-App, die typsichere LLM-Outputs über Pydantic erzwingt — abgesichert durch eine Pytest-Suite mit 94 Tests (96 % Coverage) und eine RAG-Pipeline, die Quellen über pgvector-Cosine-KNN zitiert.',
+    en: 'Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.',
+    de: 'Gleicht Lebenslauf und Stellenanzeige ab, zeigt die echten Skill-Lücken und entwirft ein Anschreiben, das nur behauptet, was der Lebenslauf hergibt.',
   },
-  'work.chatbot.title': { en: 'FH Aachen Chatbot — Frontend Refactor', de: 'FH Aachen Chatbot — Frontend-Refactoring' },
-  'work.chatbot.date': { en: 'Oct 2025 – Feb 2026', de: '10.2025 – 02.2026' },
-  'work.chatbot.meta': {
-    en: 'Interdisciplinary project · 10-person team · agile sprints on GitLab with weekly meetings.',
-    de: 'Interdisziplinäres Projekt · 10-köpfiges Team · agile Sprints auf GitLab mit wöchentlichen Meetings.',
+  'work.fluen.body': {
+    en: 'A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.',
+    de: 'Eine Sprach-App, die deine Karteikarten und Lesetexte erstellt — plus ein Chat-Coach, der dich nebenbei korrigiert.',
   },
   'work.chatbot.body': {
-    en: 'Broke a monolithic <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> into four encapsulated feature modules and reusable Vue 3 composables, decoupled frontend and backend behind resource-based REST endpoints, and cut perceived latency with non-blocking token streaming, thinking skeletons, and a "thinking / answering" status.',
-    de: 'Eine monolithische <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.8em]">Chat.vue</code> in vier gekapselte Feature-Module und wiederverwendbare Vue-3-Composables aufgeteilt, Frontend und Backend hinter ressourcenbasierten REST-Endpunkten entkoppelt und die gefühlte Latenz durch nicht-blockierendes Token-Streaming, „Thinking"-Skeletons und einen „Thinking / Answering"-Status reduziert.',
+    en: "Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.",
+    de: 'Frontend eines Uni-Chatbots im 10-köpfigen Team neu gebaut — Antworten erscheinen jetzt beim Schreiben statt alle auf einmal.',
   },
-  // Category headings for the main project groups
-  'work.cat.ai': {
-    en: 'Production Agentic AI &amp; Workflow Engines',
-    de: 'Produktionsreife agentische KI &amp; Workflow-Engines',
+  'work.watchflow.body': {
+    en: 'Tracks the stocks you follow and refreshes itself every trading day, on its own.',
+    de: 'Verfolgt deine Aktien und aktualisiert sich an jedem Handelstag von selbst.',
   },
-  'work.cat.aiNote':   { en: 'Agent pipelines · RAG', de: 'Agenten-Pipelines · RAG' },
-  'work.cat.web': {
-    en: 'Modern Decoupled Full-Stack Web Applications',
-    de: 'Moderne entkoppelte Full-Stack-Webanwendungen',
-  },
-  'work.cat.webNote':  { en: 'Typed · Streaming UI', de: 'Typsicher · Streaming-UI' },
-  'work.cat.data': {
-    en: 'Data Engineering &amp; Interactive Analytics',
-    de: 'Data Engineering &amp; interaktive Analytics',
-  },
-  'work.cat.dataNote': { en: 'ETL · Dashboards', de: 'ETL · Dashboards' },
-  'work.explorations':     { en: 'Personal exploration &amp; learning', de: 'Persönliche Projekte &amp; Lernen' },
-  'work.explorationsNote': { en: 'Built for fun &amp; learning', de: 'Aus Spaß &amp; zum Lernen' },
   'work.dataco.body': {
-    en: 'Power BI–style supply-chain dashboard on 180K order lines (2015–2018). A pandas pipeline pre-aggregates a 96 MB raw CSV into compact JSON fact tables, so the browser cross-filters and re-aggregates instantly across five pages — sales &amp; profitability, delivery, customers, and fraud risk — each chart paired with a plain-language business takeaway.',
-    de: 'Lieferketten-Dashboard im Power-BI-Stil auf Basis von 180K Bestellzeilen (2015–2018). Eine pandas-Pipeline verdichtet eine 96 MB große Roh-CSV zu kompakten JSON-Fakttabellen, sodass der Browser über fünf Seiten hinweg sofort filtert und neu aggregiert — Umsatz &amp; Profitabilität, Lieferung, Kunden und Betrugsrisiko — jedes Diagramm mit einer klaren geschäftlichen Kernaussage.',
-  },
-  'work.cinescope.body': {
-    en: 'Movies-and-games trend analytics from live TMDB and RAWG data, visualized with Chart.js.',
-    de: 'Trend-Analytics für Filme und Spiele aus Live-Daten von TMDB und RAWG, visualisiert mit Chart.js.',
+    en: "180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.",
+    de: '180.000 Lieferketten-Bestellungen, beliebig filterbar — um zu sehen, was den Gewinn wirklich treibt.',
   },
   'work.laferrari.body': {
-    en: 'Interactive 3D WebGL experience showcasing a LaFerrari model with dynamic lighting, orbit controls, and smooth camera animations.',
-    de: 'Interaktives 3D-WebGL-Erlebnis mit einem LaFerrari-Modell — dynamische Beleuchtung, Orbit-Steuerung und sanfte Kamera-Animationen.',
+    en: 'A LaFerrari you can spin around in 3D, lit and animated in the browser.',
+    de: 'Ein LaFerrari, den du in 3D drehen kannst — beleuchtet und animiert im Browser.',
   },
   'work.kanagawa.body': {
-    en: "Immersive scrollytelling on Hokusai's iconic artwork — scroll-linked video scrubbing, custom cursors, and dynamic typography.",
-    de: 'Immersives Scrollytelling zu Hokusais ikonischem Kunstwerk — scrollgekoppeltes Video-Scrubbing, individuelle Cursor und dynamische Typografie.',
+    en: "Hokusai's wave told as a scroll — the video scrubs as you move down the page.",
+    de: 'Hokusais Welle als Scroll erzählt — das Video läuft mit, während du die Seite hinunterscrollst.',
+  },
+  'work.cinescope.body': {
+    en: "What's trending in film and games right now, pulled live and charted.",
+    de: 'Was gerade bei Filmen und Spielen im Trend liegt — live geladen und visualisiert.',
   },
   'work.destination.body': {
-    en: 'A travel recommendation engine that ranks 23 curated destinations in real time — tune sliders and travel personas to instantly match destinations to your style.',
-    de: 'Eine Reise-Empfehlungs-Engine, die 23 kuratierte Reiseziele in Echtzeit bewertet — über Schieberegler und Reise-Personas werden passende Ziele sofort auf deinen Stil abgestimmt.',
+    en: 'Move a few sliders and it ranks 23 destinations against your travel style.',
+    de: 'Ein paar Regler bewegen und es bewertet 23 Reiseziele nach deinem Reisestil.',
   },
 
   // ── Why work with me ──
@@ -184,12 +162,12 @@ export const translations = {
   'aboutMe.eyebrow': { en: '04 — About me',   de: '04 — Über mich' },
   'aboutMe.title':   { en: "Hi, I'm Kenvara", de: 'Hallo, ich bin Kenvara' },
   'aboutMe.p1': {
-    en: "I'm a Computer Science student at FH Aachen, originally from Indonesia and now based in Aachen, Germany. My focus is applied AI and full-stack engineering — FastAPI/Python on the backend, Next.js/TypeScript on the frontend — building LLM features end to end, from the agentic RAG pipeline (pgvector, relevance grading, citation verification) to the streaming UI.",
-    de: 'Ich bin Informatikstudent an der FH Aachen, ursprünglich aus Indonesien und heute in Aachen ansässig. Mein Fokus liegt auf Applied AI und Full-Stack-Entwicklung — FastAPI/Python im Backend, Next.js/TypeScript im Frontend — mit LLM-Features von der agentischen RAG-Pipeline (pgvector, Relevanz-Grading, Zitat-Verifikation) bis zur Streaming-UI.',
+    en: "I'm a Computer Science student at FH Aachen — from Indonesia, now based in Germany. I build AI features end to end: the pipeline underneath and the interface on top.",
+    de: 'Ich bin Informatikstudent an der FH Aachen — aus Indonesien, jetzt in Deutschland. Ich baue KI-Features von Anfang bis Ende: die Pipeline darunter und das Interface darüber.',
   },
   'aboutMe.p2': {
-    en: "When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and learning how to make software feel fast and effortless. I'm currently looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
-    de: 'Wenn ich nicht gerade etwas ausliefere, erkunde ich meist neue Tools, skizziere Nebenprojekte und lerne, wie sich Software schnell und mühelos anfühlen lässt. Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler.',
+    en: "Outside of that I'm usually pulling apart a new tool or starting something I probably won't finish. Right now I'm looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
+    de: 'Daneben zerlege ich meist ein neues Tool oder fange etwas an, das ich wahrscheinlich nicht beende. Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler.',
   },
 
   // ── Contact ──
