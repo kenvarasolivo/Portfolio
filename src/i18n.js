@@ -13,7 +13,7 @@ export const translations = {
   },
 
   // ── Nav ──
-  'nav.work':     { en: 'Work',        de: 'Projekte' },
+  'nav.work':     { en: 'Projects',    de: 'Projekte' },
   'nav.approach': { en: 'Approach',    de: 'Ansatz' },
   'nav.skills':   { en: 'Skills',      de: 'Kenntnisse' },
   'nav.aboutMe':  { en: 'About me',    de: 'Über mich' },
@@ -132,8 +132,8 @@ export const translations = {
   // ── What you get ──
   'get.title': { en: 'What you get', de: 'Was du bekommst' },
   'get.1': {
-    en: '<span class="text-slate-900">Clean, typed code</span> that the next person can read.',
-    de: '<span class="text-slate-900">Sauberer, typsicherer Code</span>, den auch der Nächste lesen kann.',
+    en: '<span class="text-slate-900">Fast iteration</span> — from idea to a working, deployed version.',
+    de: '<span class="text-slate-900">Schnelle Iteration</span> — von der Idee zur funktionierenden, deployten Version.',
   },
   'get.2': {
     en: 'Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.',
@@ -166,8 +166,8 @@ export const translations = {
     de: 'Ich bin Informatikstudent an der FH Aachen — aus Indonesien, jetzt in Deutschland. Ich baue KI-Features von Anfang bis Ende: die Pipeline darunter und das Interface darüber.',
   },
   'aboutMe.p2': {
-    en: "Outside of that I'm usually pulling apart a new tool or starting something I probably won't finish. Right now I'm looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
-    de: 'Daneben zerlege ich meist ein neues Tool oder fange etwas an, das ich wahrscheinlich nicht beende. Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler.',
+    en: "I'm genuinely excited about where technology is going — I pick up new tools quickly and settle into new environments and teams fast. Right now I'm looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
+    de: 'Die Entwicklung von Technologie begeistert mich — ich arbeite mich schnell in neue Tools ein und finde mich zügig in neuen Umfeldern und Teams zurecht. Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler.',
   },
 
   // ── Contact ──

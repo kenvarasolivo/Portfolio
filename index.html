@@ -48,8 +48,8 @@
 
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          <li><a href="#work" class="nav-link" data-i18n="nav.work">Work</a></li>
           <li><a href="#about" class="nav-link" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#work" class="nav-link" data-i18n="nav.work">Projects</a></li>
           <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
           <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
         </ul>
@@ -89,8 +89,8 @@
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Work</a></li>
           <li><a href="#about" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
           <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
@@ -428,13 +428,15 @@
                own px-3/px-4 gutter so the row bleeds to the viewport edge
                without ever making the page itself scroll sideways. -->
           <!-- overflow-y-hidden is load-bearing, not cosmetic: with only
-               overflow-x-auto, CSS computes overflow-y to `auto`, and the thin
+               overflow-x-auto, CSS computes overflow-y to `auto`, and a
                horizontal scrollbar then makes scrollHeight exceed clientHeight
                by ~10px. Lenis's nested-scroll check sees a vertically
                scrollable element and hands it the wheel, freezing the page for
                a beat as you scroll out of this section. pt-2 keeps the 4px
-               hover lift from being clipped by the same hidden overflow. -->
-          <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4 lg:gap-6 [scrollbar-width:thin]">
+               hover lift from being clipped by the same hidden overflow.
+               The scrollbar itself is hidden (Firefox / IE / WebKit) — the row
+               still scrolls by wheel, trackpad, drag and keyboard. -->
+          <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4 lg:gap-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <!-- LaFerrari -->
             <article class="reveal card-dark card-dark-interactive group flex w-[280px] shrink-0 snap-start flex-col overflow-hidden sm:w-[360px]">
               <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
@@ -525,7 +527,7 @@
           <div class="reveal card card-hover p-8 lg:p-10">
             <p class="eyebrow mb-6" data-i18n="get.title">What you get</p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.1"><span class="text-slate-900">Clean, typed code</span> that the next person can read.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.1"><span class="text-slate-900">Fast iteration</span> — from idea to a working, deployed version.</span></li>
               <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.2">Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.</span></li>
               <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.3">Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.</span></li>
               <li class="flex items-start gap-3"><span class="mt-0.5 text-accent">✓</span><span class="text-base text-muted" data-i18n="get.4">Clear communication and <span class="text-slate-900">reliable delivery</span>.</span></li>
@@ -617,8 +619,8 @@
               agentic RAG pipeline (pgvector, relevance grading, citation verification) to the streaming UI.
             </p>
             <p class="mt-4 max-w-xl leading-relaxed text-muted" data-i18n="aboutMe.p2">
-              When I'm not shipping, I'm usually exploring new tools, sketching out side projects, and
-              learning how to make software feel fast and effortless. I'm currently looking for a
+              I'm genuinely excited about where technology is going — I pick up new tools quickly and
+              settle into new environments and teams fast. Right now I'm looking for a
               mandatory internship (Pflichtpraktikum) as an AI software engineer.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
@@ -682,7 +684,7 @@
         <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" aria-label="Footer">
           <a href="#about-me" class="footer-link" data-i18n="footer.about">About</a>
           <a href="#contact" class="footer-link" data-i18n="footer.contact">Contact</a>
-          <a href="#work" class="footer-link" data-i18n="nav.work">Work</a>
+          <a href="#work" class="footer-link" data-i18n="nav.work">Projects</a>
           <a href="#skills" class="footer-link" data-i18n="nav.skills">Skills</a>
         </nav>
         <p class="text-xs text-white/55" data-i18n="footer.rights">
