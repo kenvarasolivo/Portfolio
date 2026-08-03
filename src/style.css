@@ -50,7 +50,7 @@
 
   /* Small section eyebrow label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-slate-500;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600;
   }
   .eyebrow::before {
     content: '';
@@ -117,7 +117,14 @@
     @apply rounded-[28px] border border-white/10 bg-white/[0.04] transition-all duration-200 ease-out;
   }
   .card-dark-interactive {
-    @apply cursor-pointer hover:border-white/25 hover:bg-white/[0.07] hover:!-translate-y-1;
+    @apply cursor-pointer hover:border-white/25 hover:bg-white/[0.07];
+  }
+  /* The lift uses the standalone `translate` property rather than a transform,
+     so it can run at its own snappy duration while `transform` stays owned by
+     .reveal's 1.25s entrance. Sharing one `transform` meant the hover had to
+     win with !important and then inherited whichever duration won the cascade. */
+  .card-dark-interactive:hover {
+    translate: 0 -4px;
   }
 
   /* ── Project cards ──
@@ -142,10 +149,10 @@
   }
   /* The one sentence saying what the project does */
   .project-blurb {
-    @apply mx-auto mt-3.5 max-w-md text-base leading-relaxed text-white/65 sm:text-lg;
+    @apply mx-auto mt-3.5 max-w-md text-base font-medium leading-relaxed text-white/85 sm:text-lg;
   }
   .project-stack {
-    @apply mt-2.5 text-xs text-white/35;
+    @apply mt-2.5 text-xs font-medium text-white/50;
   }
   /* Apple-style text affordance, replacing the arrow button the old footer row
      carried — the card no longer has a right-hand slot to hang it in. */
@@ -156,6 +163,94 @@
   /* Screenshot well: full-bleed to the card's sides and bottom. */
   .project-shot {
     @apply relative aspect-[16/9] overflow-hidden;
+  }
+
+  /* ── Bento pair ──
+     A flex row at md+ rather than a grid, because flex-grow is animatable and
+     `grid-column: span N` is not. The two cards split the row 7:5, and hovering
+     (or tabbing into) either one promotes it to the 7 while its partner drops
+     to the 5 — so the size difference reads as "what you're looking at" rather
+     than as a permanent ranking of the two projects.
+
+     flex-basis is 0 so the split is an exact 7:5 of the space left after the
+     gap; percentage bases would overflow the row by the gap width and get
+     silently shrunk back. */
+  .project-pair {
+    @apply grid gap-4 md:flex md:items-stretch lg:gap-6 xl:gap-8;
+  }
+  .project-pair > .project-card {
+    @apply md:min-w-0;
+    flex: 5 1 0%;
+  }
+  .project-pair > .project-card--feature {
+    flex-grow: 7;
+  }
+  /* The swap is a large layout movement, so it is opt-in on motion preference;
+     under `reduce` the pair just keeps its resting 7:5. It also needs :has() —
+     without that the resting layout stands too, which is the design anyway. */
+  @media (prefers-reduced-motion: no-preference) {
+    .project-pair:has(> .project-card:hover) > .project-card,
+    .project-pair:has(> .project-card:focus-within) > .project-card {
+      flex-grow: 5;
+    }
+    /* The :has() demote above scores 0,4,0, so the promote has to carry the
+       same :has() prefix to outrank it — a bare `> .project-card:hover` is
+       0,3,0 and loses, which silently leaves both cards at an even split. */
+    .project-pair:has(> .project-card:hover) > .project-card:hover,
+    .project-pair:has(> .project-card:focus-within) > .project-card:focus-within {
+      flex-grow: 7;
+    }
+  }
+
+  /* ── Built-for-fun filmstrip ──
+     The bento pair's idea with a different mechanic: four equal cards rather
+     than a two-card seesaw, so hovering one opens it and the other three each
+     give up a slice instead of one partner trading places with it. A plain
+     :hover does the whole thing — with every card at flex-grow 1, raising one
+     to 2.4 shrinks the rest by itself, so there is no :has() and no demote rule
+     to out-specify.
+
+     Only from xl up, where the four fit the row without scrolling. Below that
+     the strip stays the snap-scroller it already was: at lg the collapsed cards
+     fall to ~147px, too narrow for the blurb to fit the card.
+
+     Both heights are pinned here on purpose. On the 16:10 aspect ratio the
+     opening card also grew ~100px taller and heaved the whole row with it;
+     fixing the shot and the card means the width animates alone and the image
+     just re-crops. */
+  .fun-strip {
+    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4
+           lg:gap-6 xl:snap-none xl:overflow-visible;
+  }
+  .fun-card {
+    @apply w-[280px] shrink-0 snap-start sm:w-[360px] xl:h-[23rem] xl:w-auto xl:min-w-0 xl:flex-1;
+  }
+  .fun-shot {
+    @apply relative aspect-[16/10] overflow-hidden xl:aspect-auto xl:h-48;
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1280px) {
+    .fun-strip > .fun-card:hover,
+    .fun-strip > .fun-card:focus-within {
+      flex-grow: 2.4;
+    }
+  }
+
+  /* ── The one transition both resizing rows share ──
+     Must be a descendant selector, not `.fun-card` alone: `.reveal` also sets
+     `transition` and, at equal specificity, the later definition wins — which
+     silently dropped flex-grow from the property list and made the width snap.
+
+     opacity/transform/filter keep .reveal's own duration and easing so the
+     entrance is untouched; only flex-grow and the hover states are added. */
+  .project-pair > .project-card,
+  .fun-strip > .fun-card {
+    transition: flex-grow 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                translate 200ms ease-out,
+                border-color 200ms ease-out,
+                background-color 200ms ease-out,
+                opacity var(--reveal-dur) var(--ease-cinema),
+                transform var(--reveal-dur) var(--ease-cinema),
+                filter var(--reveal-dur) var(--ease-cinema);
   }
 
   /* ── The compact half of each bento pair ──
@@ -175,9 +270,6 @@
   }
   .project-card--compact .project-blurb {
     @apply md:mx-0 md:mt-3 md:text-base;
-  }
-  .project-card--compact .project-shot {
-    @apply md:aspect-[3/2];
   }
   @media (min-width: 768px) {
     .project-card--compact .project-head {

@@ -106,9 +106,14 @@ const onScroll = () => {
   // Raise DARK_INSET toward 0.24 to switch later, lower it to switch earlier.
   if (nav && darkSection) {
     const fade = window.innerHeight * DARK_INSET;
+    // The inset delays the switch to the middle of the wash band above the
+    // section. On the all-projects page there is no band — the page opens
+    // straight onto black — so entering has to take effect at 0, or the nav
+    // flashes its white scrolled state over a black page for ~60px.
+    const enter = darkTop < 1 ? 0 : fade;
     nav.classList.toggle(
       'is-dark',
-      y >= darkTop + fade && y <= darkBottom - fade - navHeight
+      y >= darkTop + enter && y <= darkBottom - fade - navHeight
     );
   }
 

@@ -29,7 +29,7 @@ export const translations = {
     de: 'Ich entwickle Full-Stack-Webanwendungen mit KI-Funktionen, mit <span class="font-semibold text-white">Next.js</span>, <span class="font-semibold text-white">FastAPI</span> &amp; <span class="font-semibold text-white">Python</span>.',
   },
   'hero.cta1': { en: 'View my work', de: 'Meine Projekte' },
-  'hero.cta2': { en: "Let's talk",   de: 'Sprechen wir' },
+  'hero.cta2': { en: 'Contact me',   de: 'Kontakt aufnehmen' },
 
   // ── Tech strip ──
   'tech.label': {
@@ -40,26 +40,36 @@ export const translations = {
   // ── Approach ──
   'approach.eyebrow': { en: '01 — Approach', de: '01 — Ansatz' },
   'approach.statement': {
-    en: 'I ship <span class="mark-box">working products fast</span> — and build them so they still stand up when they <span class="mark">grow</span>.',
-    de: 'Ich liefere <span class="mark-box">funktionierende Produkte schnell</span> — und baue sie so, dass sie auch beim <span class="mark">Wachsen</span> tragen.',
+    en: 'I get <span class="mark-box">something working</span> in front of people early, then make it <span class="mark">hold up</span>.',
+    de: 'Ich bringe früh <span class="mark-box">etwas Funktionierendes</span> vor Nutzer und mache es dann <span class="mark">haltbar</span>.',
   },
   'approach.body': {
-    en: 'Get something real in front of people early, then let it scale. Proper infrastructure from the first commit, so growing means building on it — not starting over.',
-    de: 'Früh etwas Echtes vor Nutzer bringen und es dann skalieren lassen. Ordentliche Infrastruktur ab dem ersten Commit — Wachsen heißt dann darauf aufbauen, nicht neu anfangen.',
+    en: 'Tests and deployment are set up from the first commit, so the early version is something to build on rather than something to throw away.',
+    de: 'Tests und Deployment stehen ab dem ersten Commit — die frühe Version ist damit eine Grundlage und kein Wegwerfstück.',
   },
-  'approach.cap1': { en: 'Ship fast, product first',    de: 'Schnell liefern, Produkt zuerst' },
-  'approach.cap2': { en: 'Built to scale, not to redo', de: 'Zum Wachsen gebaut, nicht zum Neubau' },
-  'approach.cap3': { en: 'Whole stack, end to end',     de: 'Ganzer Stack, Ende zu Ende' },
-  'approach.cap4': { en: 'AI where it actually helps',  de: 'KI, wo sie wirklich hilft' },
-
+  'approach.cap1': { en: 'A working version first',        de: 'Zuerst eine lauffähige Version' },
+  'approach.cap2': { en: "Built so it doesn't need redoing", de: 'So gebaut, dass nichts neu gemacht wird' },
+  'approach.cap3': { en: 'Frontend and backend',           de: 'Frontend und Backend' },
+  'approach.cap4': { en: 'AI only where it helps',         de: 'KI nur, wo sie hilft' },
   // ── Work ──
   // Blurbs say what a project DOES, in one sentence. The technical detail
   // lives on each project's own site — repeating it here just buried it.
   'work.eyebrow':  { en: '02 — Work',          de: '02 — Projekte' },
   'work.title':    { en: "Things I've built",  de: 'Was ich gebaut habe' },
+  // Home shows four featured projects; projects.html shows the full set.
   'work.subtitle': {
-    en: 'Eight projects, grouped by what they are.',
-    de: 'Acht Projekte, nach Art gruppiert.',
+    en: 'Four I’m proudest of. The rest are one click away.',
+    de: 'Vier, auf die ich am stolzesten bin. Der Rest ist einen Klick entfernt.',
+  },
+  'work.seeAll': { en: 'See all my projects', de: 'Alle Projekte ansehen' },
+
+  // ── All-projects page ──
+  'projects.back':    { en: 'Back to home',        de: 'Zurück zur Startseite' },
+  'projects.eyebrow': { en: 'All work',            de: 'Alle Projekte' },
+  'projects.title':   { en: 'Everything I’ve built', de: 'Alles, was ich gebaut habe' },
+  'projects.subtitle': {
+    en: 'Eight projects grouped by what they are, plus the ones built purely for fun.',
+    de: 'Acht Projekte, nach Art gruppiert — dazu die, die rein aus Spaß entstanden sind.',
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
@@ -120,42 +130,42 @@ export const translations = {
     de: 'Ein paar Regler bewegen und es bewertet 23 Reiseziele nach deinem Reisestil.',
   },
 
-  // ── Why work with me ──
-  'why.title': { en: 'Why work with me', de: 'Warum mit mir arbeiten' },
+  // ── What I've done ──
+  'why.title': { en: "What I've done", de: 'Was ich gemacht habe' },
   'why.1': {
-    en: '<span class="text-slate-900">Product-minded engineer</span> — I think about users, not just tickets.',
-    de: '<span class="text-slate-900">Produktorientierter Entwickler</span> — ich denke an die Nutzer, nicht nur an Tickets.',
+    en: 'Seven of the projects above are <span class="font-bold text-slate-900">live</span>. You can open any of them and click around before you decide anything.',
+    de: 'Sieben der Projekte oben sind <span class="font-bold text-slate-900">live</span>. Du kannst jedes davon öffnen und ausprobieren, bevor du dich entscheidest.',
   },
   'why.2': {
-    en: 'Comfortable across the <span class="text-slate-900">whole stack</span>, frontend to database.',
-    de: 'Sicher über den <span class="text-slate-900">gesamten Stack</span> hinweg, vom Frontend bis zur Datenbank.',
+    en: 'Watchflow updates itself <span class="font-bold text-slate-900">every trading day</span>. The staff at Fuji no Hana change their own offers without asking me.',
+    de: 'Watchflow aktualisiert sich an <span class="font-bold text-slate-900">jedem Handelstag</span> selbst. Das Team von Fuji no Hana ändert seine Angebote ohne mich.',
   },
   'why.3': {
-    en: '<span class="text-slate-900">AI features</span> in real projects I\'ve shipped and deployed.',
-    de: '<span class="text-slate-900">KI-Funktionen</span> in echten Projekten, die ich ausgeliefert und deployt habe.',
+    en: 'At AIESEC, finding leads took a whole afternoon. I scoped and built the tool that brings it down to <span class="font-bold text-slate-900">three minutes</span>.',
+    de: 'Bei AIESEC dauerte die Lead-Suche einen ganzen Nachmittag. Ich habe das Tool zugeschnitten und gebaut, das daraus <span class="font-bold text-slate-900">drei Minuten</span> macht.',
   },
   'why.4': {
-    en: 'Multilingual &amp; international — fluent in DE, EN, ID.',
-    de: 'Mehrsprachig &amp; international — fließend in DE, EN, ID.',
+    en: 'On the AI projects I wrote <span class="font-bold text-slate-900">both</span> the retrieval pipeline underneath and the streaming interface on top of it.',
+    de: 'Bei den KI-Projekten habe ich <span class="font-bold text-slate-900">beides</span> geschrieben: die Retrieval-Pipeline darunter und das Streaming-Interface darüber.',
   },
 
-  // ── What you get ──
-  'get.title': { en: 'What you get', de: 'Was du bekommst' },
+  // ── How I work ──
+  'get.title': { en: 'How I work', de: 'Wie ich arbeite' },
   'get.1': {
-    en: '<span class="text-slate-900">Fast iteration</span> — from idea to a working, deployed version.',
-    de: '<span class="text-slate-900">Schnelle Iteration</span> — von der Idee zur funktionierenden, deployten Version.',
+    en: 'You get something deployed in the <span class="font-bold text-slate-900">first days</span> — a version you can open and click, not a document describing one.',
+    de: 'Du bekommst in den <span class="font-bold text-slate-900">ersten Tagen</span> etwas Deploytes — eine Version zum Öffnen und Anklicken, kein Dokument darüber.',
   },
   'get.2': {
-    en: 'Tested interfaces with <span class="text-slate-900">CI/CD</span> from day one.',
-    de: 'Getestete Schnittstellen mit <span class="text-slate-900">CI/CD</span> ab dem ersten Tag.',
+    en: 'Tests and CI/CD from the start, so shipping a change is <span class="font-bold text-slate-900">one push</span> and not an event that needs planning.',
+    de: 'Tests und CI/CD von Anfang an: Eine Änderung auszuliefern ist <span class="font-bold text-slate-900">ein Push</span> und kein Termin, den man planen muss.',
   },
   'get.3': {
-    en: 'Fast, <span class="text-slate-900">responsive UX</span> with streaming where it counts.',
-    de: 'Schnelle, <span class="text-slate-900">responsive UX</span> mit Streaming, wo es zählt.',
+    en: 'Answers <span class="font-bold text-slate-900">stream in</span> instead of making you wait, and the layout works the same on a phone as on a wide screen.',
+    de: 'Antworten <span class="font-bold text-slate-900">laufen ein</span>, statt dich warten zu lassen, und das Layout sitzt am Handy wie am breiten Bildschirm.',
   },
   'get.4': {
-    en: 'Clear communication and <span class="text-slate-900">reliable delivery</span>.',
-    de: 'Klare Kommunikation und <span class="text-slate-900">verlässliche Lieferung</span>.',
+    en: 'I say where things stand <span class="font-bold text-slate-900">before you ask</span>, in English or German, and problems come up early rather than at the deadline.',
+    de: 'Ich sage, wo die Dinge stehen, <span class="font-bold text-slate-900">bevor du fragst</span>, auf Deutsch oder Englisch — und Probleme kommen früh zur Sprache, nicht erst zur Deadline.',
   },
 
   // ── Skills ──
@@ -172,23 +182,23 @@ export const translations = {
   'aboutMe.eyebrow': { en: '04 — About me',   de: '04 — Über mich' },
   'aboutMe.title':   { en: "Hi, I'm Kenvara", de: 'Hallo, ich bin Kenvara' },
   'aboutMe.p1': {
-    en: "I'm a Computer Science student at FH Aachen — from Indonesia, now based in Germany. I build AI features end to end: the pipeline underneath and the interface on top.",
-    de: 'Ich bin Informatikstudent an der FH Aachen — aus Indonesien, jetzt in Deutschland. Ich baue KI-Features von Anfang bis Ende: die Pipeline darunter und das Interface darüber.',
+    en: "I'm a Computer Science student at FH Aachen, from Indonesia and living in Germany. I work on AI features: the retrieval pipeline underneath and the interface on top.",
+    de: 'Ich bin Informatikstudent an der FH Aachen, komme aus Indonesien und lebe in Deutschland. Ich arbeite an KI-Features: die Retrieval-Pipeline darunter und das Interface darüber.',
   },
   'aboutMe.p2': {
-    en: "I'm genuinely excited about where technology is going — I pick up new tools quickly and settle into new environments and teams fast. Right now I'm looking for a mandatory internship (Pflichtpraktikum) as an AI software engineer.",
-    de: 'Die Entwicklung von Technologie begeistert mich — ich arbeite mich schnell in neue Tools ein und finde mich zügig in neuen Umfeldern und Teams zurecht. Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler.',
+    en: "I pick up new tools quickly and settle into a team fast. Right now I'm looking for a working student role or internship as an AI software engineer.",
+    de: 'Ich arbeite mich schnell in neue Tools ein und finde mich zügig in einem Team zurecht. Aktuell suche ich eine Werkstudentenstelle oder ein Praktikum als KI-Softwareentwickler.',
   },
 
   // ── Contact ──
-  'contact.eyebrow': { en: 'Available for opportunities', de: 'Offen für Möglichkeiten' },
+  'contact.eyebrow': { en: 'Contact', de: 'Kontakt' },
   'contact.title': {
-    en: "Let's <span class=\"bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent\">build</span> something together",
-    de: 'Lass uns gemeinsam etwas <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">bauen</span>',
+    en: "Get in <span class=\"bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent\">touch</span>",
+    de: 'Schreib <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">mir</span>',
   },
   'contact.body': {
-    en: "Currently seeking a mandatory internship (Pflichtpraktikum) as an AI software engineer. Drop me a line — I'd be glad to hear from you.",
-    de: 'Aktuell suche ich ein Pflichtpraktikum als KI-Softwareentwickler. Schreib mir gerne.',
+    en: "I'm looking for a working student role or internship as an AI software engineer. Email or LinkedIn, whichever is easier.",
+    de: 'Ich suche eine Werkstudentenstelle oder ein Praktikum als KI-Softwareentwickler. Per E-Mail oder LinkedIn, wie es dir lieber ist.',
   },
 
   // ── Footer ──

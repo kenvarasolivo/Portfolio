@@ -94,4 +94,4 @@ required. The workflow can also be run on demand from the Actions tab
 
 ---
 
-<p align="center"><i>Open to an AI Software Engineer internship (Pflichtpraktikum) and collaboration — let's build something.</i></p>
+<p align="center"><i>Open to an AI Software Engineer working student role or internship and collaboration — let's build something.</i></p>

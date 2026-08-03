@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import { readdir, unlink } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // The .png screenshots in public/images are the editable source: you replace
 // one and `npm run build` re-encodes it to .webp (see scripts/optimize-images).
@@ -32,5 +35,14 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     target: 'es2018',
+    // Two entry points: the home page and the full project index. Without
+    // listing projects.html here Vite only builds index.html and the second
+    // page ships unprocessed (raw /src/main.js reference and all).
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        projects: path.resolve(__dirname, 'projects.html'),
+      },
+    },
   },
 });

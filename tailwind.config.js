@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts}'],
+  // Every page must be listed: a class used only on an unscanned file is
+  // silently never generated, so the markup looks right but has no styles.
+  content: ['./*.html', './src/**/*.{js,ts}'],
   theme: {
     extend: {
       // ── Brand colors ───────────────────────────────────────────────────
