@@ -114,40 +114,82 @@
      give the light cards their depth do nothing. Elevation there comes from a
      lifted translucent fill and a brighter edge instead. */
   .card-dark {
-    @apply rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-200 ease-out;
+    @apply rounded-[28px] border border-white/10 bg-white/[0.04] transition-all duration-200 ease-out;
   }
   .card-dark-interactive {
     @apply cursor-pointer hover:border-white/25 hover:bg-white/[0.07] hover:!-translate-y-1;
   }
 
-  /* Keeps the overlaid title legible whatever the screenshot underneath does */
-  .project-scrim {
-    @apply pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/75 via-black/35 to-transparent;
+  /* ── Project cards ──
+     The copy leads and the screenshot follows, bleeding into the card's bottom
+     corners. Reading the card top-to-bottom now means reading what the thing
+     IS before looking at it — the old overlaid title made the screenshot the
+     headline and left the sentence explaining it as a footnote. */
+  /* flex-1 so a card with no "View project" link (the university one) still
+     pushes its screenshot down to the same baseline as its taller neighbour.
+     --tint is set per category on the group wrapper; the wash gives each group
+     its own temperature while the section stays black overall. */
+  .project-head {
+    @apply flex-1 px-6 pb-8 pt-9 text-center sm:px-10 sm:pb-9 sm:pt-11;
+    background-image: radial-gradient(80% 58% at 50% 0%, var(--tint, transparent), transparent 70%);
   }
   .project-title {
-    @apply absolute inset-x-0 top-0 px-6 pt-6 text-center text-2xl font-bold tracking-tight sm:text-3xl;
+    @apply text-[1.75rem] font-bold leading-tight tracking-tight sm:text-[2rem];
   }
   /* Who the project was built with, sat above its name on the collaborations */
   .project-partner {
-    @apply mb-1.5 block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/55 sm:text-xs;
+    @apply mb-2 block text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/45 sm:text-xs;
   }
-  /* One line, set large — this is the only prose on the card */
+  /* The one sentence saying what the project does */
   .project-blurb {
-    @apply text-base leading-snug text-white/85 sm:text-lg;
+    @apply mx-auto mt-3.5 max-w-md text-base leading-relaxed text-white/65 sm:text-lg;
   }
   .project-stack {
     @apply mt-2.5 text-xs text-white/35;
   }
+  /* Apple-style text affordance, replacing the arrow button the old footer row
+     carried — the card no longer has a right-hand slot to hang it in. */
+  .project-link {
+    @apply mt-5 inline-flex items-center gap-1 text-[0.95rem] font-medium text-[#6ba8ff]
+           transition-colors duration-200 group-hover:text-white;
+  }
+  /* Screenshot well: full-bleed to the card's sides and bottom. */
+  .project-shot {
+    @apply relative aspect-[16/9] overflow-hidden;
+  }
+
+  /* ── The compact half of each bento pair ──
+     Eight identical cards read as a spreadsheet. Each category is instead one
+     wide card and one narrow one, and the narrow one re-sets its copy left and
+     smaller rather than just shrinking — a centred column at that width leaves
+     ragged edges on both sides. The taller 3:2 shot fills the narrower well.
+
+     All of it is md-and-up only: below the breakpoint the grid is a single
+     column, both variants are the same width, and an alignment that swaps card
+     to card with nothing to justify it just reads as inconsistency. */
+  .project-card--compact .project-head {
+    @apply md:px-6 md:pb-7 md:pt-8 md:text-left lg:px-8 lg:pb-8 lg:pt-9;
+  }
+  .project-card--compact .project-title {
+    @apply md:text-2xl lg:text-[1.6rem];
+  }
+  .project-card--compact .project-blurb {
+    @apply md:mx-0 md:mt-3 md:text-base;
+  }
+  .project-card--compact .project-shot {
+    @apply md:aspect-[3/2];
+  }
+  @media (min-width: 768px) {
+    .project-card--compact .project-head {
+      background-image: radial-gradient(95% 58% at 18% 0%, var(--tint, transparent), transparent 72%);
+    }
+  }
   .pill-dark {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/50 px-3 py-1
-           text-xs text-white/75 backdrop-blur-sm;
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1
+           text-xs text-white/70;
   }
   .live-dot {
     @apply h-1.5 w-1.5 rounded-full bg-emerald-400;
-  }
-  .arrow-btn {
-    @apply grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-white/70
-           transition-all duration-200 group-hover:border-white group-hover:bg-white group-hover:text-slate-900;
   }
 
   /* small line/duotone icon chip */

@@ -63,6 +63,7 @@ export const translations = {
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
+  'work.view':        { en: 'View project',      de: 'Projekt ansehen' },
 
   'work.cat.ai':   { en: 'Agentic AI &amp; Workflows',       de: 'Agentische KI &amp; Workflows' },
   'work.cat.web':  { en: 'Full-Stack Products',          de: 'Full-Stack-Produkte' },

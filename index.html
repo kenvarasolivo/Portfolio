@@ -254,237 +254,233 @@
             </p>
           </div>
 
-          <!-- ── 1 · AI ── -->
-          <div class="reveal mb-5 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.ai">Agentic AI &amp; Workflows</h3>
-            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
-          </div>
+          <!-- ── 1 · AI ──
+               Each category is a bento pair: one wide "feature" card (7 of 12
+               columns) and one narrow compact one, with the wide side
+               alternating L·R·L·R down the page. --tint colours the wash on
+               both cards' heads and the dot beside the heading. -->
+          <div class="mb-20" style="--tint: rgba(139, 92, 246, 0.20); --dot: #a78bfa">
+            <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
+              <span data-i18n="work.cat.ai">Agentic AI &amp; Workflows</span>
+            </h3>
 
-          <div class="mb-16 grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
-            <!-- StackPilot -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
+            <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-12">
+            <!-- StackPilot — feature -->
+            <article class="reveal card-dark card-dark-interactive group flex flex-col overflow-hidden md:col-span-7">
+              <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">StackPilot</h4>
+                  <p class="project-blurb" data-i18n="work.stackpilot.body">
+                    Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
+                  </p>
+                  <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="project-shot">
                   <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
-                  <h4 class="project-title">StackPilot</h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.stackpilot.body">
-                      Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
-                    </p>
-                    <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
                 </div>
               </a>
             </article>
 
-            <!-- Align -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
+            <!-- Align — compact -->
+            <article class="reveal card-dark card-dark-interactive project-card--compact group flex flex-col overflow-hidden md:col-span-5">
+              <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">Align</h4>
+                  <p class="project-blurb" data-i18n="work.align.body">
+                    Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.
+                  </p>
+                  <p class="project-stack">FastAPI · React · pgvector</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="project-shot">
                   <img src="images/project_align.webp" alt="Align — CV-to-job skill gap analysis and cover letter drafting preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
-                  <h4 class="project-title">Align</h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.align.body">
-                      Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.
-                    </p>
-                    <p class="project-stack">FastAPI · React · pgvector</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
                 </div>
               </a>
             </article>
+            </div>
           </div>
 
-          <!-- ── 2 · FULL-STACK PRODUCTS ── -->
-          <div class="reveal mb-5 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.web">Full-Stack Products</h3>
-            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
-          </div>
+          <!-- ── 2 · FULL-STACK PRODUCTS — feature on the right ── -->
+          <div class="mb-20" style="--tint: rgba(16, 185, 129, 0.18); --dot: #34d399">
+            <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
+              <span data-i18n="work.cat.web">Full-Stack Products</span>
+            </h3>
 
-          <div class="mb-16 grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
-            <!-- Fluen -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
-                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
-                  <h4 class="project-title">Fluen</h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.fluen.body">
-                      A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.
-                    </p>
-                    <p class="project-stack">Next.js · TypeScript · Supabase · Gemini</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                </div>
-              </a>
-            </article>
-
-            <!-- FH Aachen Chatbot — internal university project, so the card is
-                 static: no link, no lift, no arrow. -->
-            <article class="reveal card-dark group overflow-hidden">
-              <div class="relative aspect-[16/11] overflow-hidden">
+            <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-12">
+            <!-- FH Aachen Chatbot — compact. Internal university project, so the
+                 card is static: no link, no lift, no "View project". -->
+            <article class="reveal card-dark project-card--compact group flex flex-col overflow-hidden md:col-span-5">
+              <div class="project-head">
+                <span class="pill-dark mb-4" data-i18n="badge.university">University project</span>
+                <h4 class="project-title">FH Aachen Chatbot</h4>
+                <p class="project-blurb" data-i18n="work.chatbot.body">
+                  Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.
+                </p>
+                <p class="project-stack">Vue.js · Laravel · OpenAI</p>
+              </div>
+              <div class="project-shot">
                 <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
                   class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
-                <div class="project-scrim"></div>
-                <h4 class="project-title">FH Aachen Chatbot</h4>
-                <span class="pill-dark absolute bottom-5 left-5" data-i18n="badge.university">University project</span>
-              </div>
-              <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                <div class="min-w-0">
-                  <p class="project-blurb" data-i18n="work.chatbot.body">
-                    Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.
-                  </p>
-                  <p class="project-stack">Vue.js · Laravel · OpenAI</p>
-                </div>
               </div>
             </article>
+
+            <!-- Fluen — feature -->
+            <article class="reveal card-dark card-dark-interactive group flex flex-col overflow-hidden md:col-span-7">
+              <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">Fluen</h4>
+                  <p class="project-blurb" data-i18n="work.fluen.body">
+                    A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Supabase · Gemini</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="project-shot">
+                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+              </a>
+            </article>
+            </div>
           </div>
 
-          <!-- ── 3 · DATA ── -->
-          <div class="reveal mb-5 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.data">Data Engineering &amp; Analytics</h3>
-            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
-          </div>
+          <!-- ── 3 · DATA — feature on the left ── -->
+          <div class="mb-20" style="--tint: rgba(245, 158, 11, 0.18); --dot: #fbbf24">
+            <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
+              <span data-i18n="work.cat.data">Data Engineering &amp; Analytics</span>
+            </h3>
 
-          <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
-            <!-- Watchflow -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
+            <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-12">
+            <!-- Watchflow — feature -->
+            <article class="reveal card-dark card-dark-interactive group flex flex-col overflow-hidden md:col-span-7">
+              <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">Watchflow</h4>
+                  <p class="project-blurb" data-i18n="work.watchflow.body">
+                    Tracks the stocks you follow and refreshes itself every trading day, on its own.
+                  </p>
+                  <p class="project-stack">Python · PostgreSQL · GitHub Actions · Next.js</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="project-shot">
                   <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
-                  <h4 class="project-title">Watchflow</h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.watchflow.body">
-                      Tracks the stocks you follow and refreshes itself every trading day, on its own.
-                    </p>
-                    <p class="project-stack">Python · PostgreSQL · GitHub Actions · Next.js</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
                 </div>
               </a>
             </article>
 
-            <!-- DataCo -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
+            <!-- DataCo — compact -->
+            <article class="reveal card-dark card-dark-interactive project-card--compact group flex flex-col overflow-hidden md:col-span-5">
+              <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">DataCo</h4>
+                  <p class="project-blurb" data-i18n="work.dataco.body">
+                    180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.
+                  </p>
+                  <p class="project-stack">Python · pandas · React · Recharts</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="project-shot">
                   <img src="images/project_dataco.webp" alt="DataCo supply-chain analytics dashboard preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
-                  <h4 class="project-title">DataCo</h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.dataco.body">
-                      180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.
-                    </p>
-                    <p class="project-stack">Python · pandas · React · Recharts</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
                 </div>
               </a>
             </article>
+            </div>
           </div>
 
-          <!-- ── COLLABORATIONS — built with and for someone else ── -->
-          <div class="reveal mt-20 mb-5 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.cat.collab">Collaborations</h3>
-            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
-          </div>
+          <!-- ── COLLABORATIONS — built with and for someone else.
+               Feature on the right. -->
+          <div class="mb-20" style="--tint: rgba(244, 63, 94, 0.18); --dot: #fb7185">
+            <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
+              <span data-i18n="work.cat.collab">Collaborations</span>
+            </h3>
 
-          <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-2">
-            <!-- Fuji no Hana — VIP Karte -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
-                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
+            <div class="grid gap-4 lg:gap-6 xl:gap-8 md:grid-cols-12">
+            <!-- Fuji no Hana — VIP Karte — compact -->
+            <article class="reveal card-dark card-dark-interactive project-card--compact group flex flex-col overflow-hidden md:col-span-5">
+              <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
                     <span class="project-partner">Kenvara × Fuji no Hana</span>
                     VIP Karte
                   </h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.fujinohana.body">
-                      A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.
-                    </p>
-                    <p class="project-stack">Next.js · TypeScript · Drizzle · Neon Postgres</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <p class="project-blurb" data-i18n="work.fujinohana.body">
+                    A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Drizzle · Neon Postgres</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
+                </div>
+                <div class="project-shot">
+                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
 
-            <!-- AIESEC — Prospecting Pipeline -->
-            <article class="reveal card-dark card-dark-interactive group overflow-hidden">
-              <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="block">
-                <div class="relative aspect-[16/11] overflow-hidden">
-                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                  <div class="project-scrim"></div>
+            <!-- AIESEC — Prospecting Pipeline — feature -->
+            <article class="reveal card-dark card-dark-interactive group flex flex-col overflow-hidden md:col-span-7">
+              <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
                     <span class="project-partner">Kenvara × AIESEC</span>
                     Prospecting Pipeline
                   </h4>
-                  <span class="pill-dark absolute bottom-5 left-5"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                </div>
-                <div class="flex items-end justify-between gap-5 p-6 sm:p-7">
-                  <div class="min-w-0">
-                    <p class="project-blurb" data-i18n="work.igta.body">
-                      Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
-                    </p>
-                    <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
-                  </div>
-                  <span class="arrow-btn" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <p class="project-blurb" data-i18n="work.igta.body">
+                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
+                  </p>
+                  <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
+                </div>
+                <div class="project-shot">
+                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
+            </div>
           </div>
 
           <!-- ── PERSONAL EXPLORATION ── -->
-          <div class="reveal mt-20 mb-5 flex items-center gap-4">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-white/45" data-i18n="work.explorations">Built for fun</h3>
-            <span class="hidden h-px flex-1 bg-white/10 md:block"></span>
-          </div>
+          <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-white/30" aria-hidden="true"></span>
+            <span data-i18n="work.explorations">Built for fun</span>
+          </h3>
 
           <!-- Horizontal scroller. The negative margin matches this wrapper's
                own px-3/px-4 gutter so the row bleeds to the viewport edge
