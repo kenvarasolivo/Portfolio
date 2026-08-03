@@ -58,8 +58,8 @@ export const translations = {
   'work.eyebrow':  { en: '02 — Work',          de: '02 — Projekte' },
   'work.title':    { en: "Things I've built",  de: 'Was ich gebaut habe' },
   'work.subtitle': {
-    en: 'Six projects, grouped by what they are.',
-    de: 'Sechs Projekte, nach Art gruppiert.',
+    en: 'Eight projects, grouped by what they are.',
+    de: 'Acht Projekte, nach Art gruppiert.',
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
@@ -67,6 +67,7 @@ export const translations = {
   'work.cat.ai':   { en: 'Agentic AI &amp; Workflows',       de: 'Agentische KI &amp; Workflows' },
   'work.cat.web':  { en: 'Full-Stack Products',          de: 'Full-Stack-Produkte' },
   'work.cat.data': { en: 'Data Engineering &amp; Analytics', de: 'Data Engineering &amp; Analytics' },
+  'work.cat.collab': { en: 'Collaborations', de: 'Kollaborationen' },
   'work.explorations': { en: 'Built for fun', de: 'Aus Spaß gebaut' },
 
   'work.stackpilot.body': {
@@ -92,6 +93,14 @@ export const translations = {
   'work.dataco.body': {
     en: "180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.",
     de: '180.000 Lieferketten-Bestellungen, beliebig filterbar — um zu sehen, was den Gewinn wirklich treibt.',
+  },
+  'work.fujinohana.body': {
+    en: 'A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.',
+    de: 'Eine Bonuskarte für ein Ramen-Restaurant — Gäste sammeln Punkte an der Theke, und das Team pflegt die Angebote selbst, ganz ohne Code.',
+  },
+  'work.igta.body': {
+    en: 'Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.',
+    de: 'Findet Unternehmen, die rund um Aachen einstellen, ermittelt echte Kontaktdaten und liefert dem Team eine HubSpot-fertige Datei — drei Minuten statt eines Nachmittags.',
   },
   'work.laferrari.body': {
     en: 'A LaFerrari you can spin around in 3D, lit and animated in the browser.',

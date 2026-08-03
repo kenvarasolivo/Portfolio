@@ -127,6 +127,10 @@
   .project-title {
     @apply absolute inset-x-0 top-0 px-6 pt-6 text-center text-2xl font-bold tracking-tight sm:text-3xl;
   }
+  /* Who the project was built with, sat above its name on the collaborations */
+  .project-partner {
+    @apply mb-1.5 block text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/55 sm:text-xs;
+  }
   /* One line, set large — this is the only prose on the card */
   .project-blurb {
     @apply text-base leading-snug text-white/85 sm:text-lg;
