@@ -13,6 +13,12 @@
        one system. */
     --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
     --reveal-dur: 1.25s;
+    /* How far out of focus everything starts. Read against --ease-cinema, not
+       on its own: the expo-out is ~75% done by 250ms, so this clears almost
+       immediately and then settles — it registers as the page pulling focus,
+       not as a slow blur. Raise it for more drama, drop it toward 4px for a
+       hint. The hero name overrides it with its own much heavier rack. */
+    --reveal-blur: 10px;
   }
 
   html {
@@ -441,11 +447,14 @@
     /* Longer travel than a typical fade-up — the distance is what registers
        as weight. translate3d keeps it on the compositor. */
     transform: translate3d(0, 56px, 0);
+    /* Out of focus on the way in, so the section resolves rather than just
+       arriving. .is-visible below clears it back to none. */
+    filter: blur(var(--reveal-blur));
     transition:
       opacity var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
       transform var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
       filter var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms);
-    will-change: opacity, transform;
+    will-change: opacity, transform, filter;
   }
   .reveal.is-visible {
     opacity: 1;

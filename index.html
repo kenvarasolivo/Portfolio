@@ -156,8 +156,10 @@
            3 · TECH STRIP — the stack, straight off the hero, no heading
            ═════════════════════════════════════════════════════════════════ -->
       <section class="border-y border-slate-200 py-10" aria-label="Tools and technologies">
-        <!-- marquee: track is duplicated so the loop is seamless -->
-        <div class="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+        <!-- marquee: track is duplicated so the loop is seamless. .reveal sits
+             on this wrapper, not on the track — the track's transform is the
+             marquee animation and the two would overwrite each other. -->
+        <div class="reveal relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
           <div class="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-6 text-lg font-medium text-slate-400">
             <!-- group 1 -->
             <span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Python</span>
