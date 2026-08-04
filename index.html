@@ -48,10 +48,10 @@
 
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          <li><a href="#about" class="nav-link" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="#specialty" class="nav-link" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="#work" class="nav-link" data-i18n="nav.work">Projects</a></li>
           <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
-          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
         </ul>
 
         <!-- Right cluster (desktop): language switch + CTA -->
@@ -89,10 +89,10 @@
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="#about" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
-          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
             <!-- Language switch (mobile, dark variant) -->
             <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
@@ -153,12 +153,9 @@
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           3 · LOGO / TECH STRIP
+           3 · TECH STRIP — the stack, straight off the hero, no heading
            ═════════════════════════════════════════════════════════════════ -->
-      <section class="border-y border-slate-200 py-12" aria-label="Tools and technologies">
-        <p class="container-x mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-600" data-i18n="tech.label">
-          Tools &amp; technologies I work with
-        </p>
+      <section class="border-y border-slate-200 py-10" aria-label="Tools and technologies">
         <!-- marquee: track is duplicated so the loop is seamless -->
         <div class="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
           <div class="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-6 text-lg font-medium text-slate-400">
@@ -176,59 +173,135 @@
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           4 · INTRO / VALUE STATEMENT
+           4 · MINDSET — one centred statement, then the words behind it
            ═════════════════════════════════════════════════════════════════ -->
-      <section id="about" class="section">
-        <div class="container-x grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
+      <section id="mindset" class="section">
+        <div class="container-x text-center">
+          <p class="reveal eyebrow mb-8 justify-center" data-i18n="mindset.eyebrow">01 — Mindset</p>
+          <!-- Three short lines rather than one long sentence: at this size a
+               wrapping paragraph loses the beat that makes it read as a stance. -->
+          <h2 class="reveal scroll-fill mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
+              data-scroll-fill data-i18n="mindset.statement">
+            Ship it live.<br />Solve something real.<br />Build it to last.
+          </h2>
+          <ul class="reveal mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-2.5 sm:mt-14 sm:gap-3">
+            <li class="mindset-chip" data-i18n="mindset.k1">Quality product</li>
+            <li class="mindset-chip" data-i18n="mindset.k2">Live in days</li>
+            <li class="mindset-chip" data-i18n="mindset.k3">Real problems</li>
+            <li class="mindset-chip" data-i18n="mindset.k4">Built to scale</li>
+            <li class="mindset-chip" data-i18n="mindset.k5">Automated pipelines</li>
+            <li class="mindset-chip" data-i18n="mindset.k6">End to end</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           5 · ABOUT ME — the face, early, before any of the work
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="about-me" class="section">
+        <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <!-- Portrait -->
           <div class="reveal">
-            <p class="eyebrow mb-6" data-i18n="approach.eyebrow">01 — Approach</p>
-            <p class="text-balance text-3xl font-semibold leading-snug sm:text-4xl lg:text-5xl" data-i18n="approach.statement">
-              I get <span class="mark-box">something working</span> in front of people early, then
-              make it <span class="mark">hold up</span>.
-            </p>
-            <p class="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="approach.body">
-              Tests and deployment are set up from the first commit, so the early version is
-              something to build on rather than something to throw away.
-            </p>
+            <!-- Drifts gently against the scroll so the portrait column and the
+                 bio column don't move as one flat plane. -->
+            <div class="relative mx-auto max-w-sm" data-parallax="0.05">
+              <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
+              <img src="images/Kenvara_Solivo_Lwie.webp" alt="Portrait of Kenvara Solivo Lwie"
+                   width="900" height="1200"
+                   class="relative w-full rounded-2xl border border-slate-200 object-cover shadow-lg"
+                   loading="lazy" decoding="async" />
+            </div>
           </div>
 
-          <!-- Capability list: icon + label + badge -->
-          <ul class="reveal space-y-3">
-            <!-- Each item -->
-            <li class="card card-hover flex items-center gap-4 p-4">
-              <span class="icon-chip" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17l6-6-6-6M12 19h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="flex-1 text-lg font-semibold text-slate-900" data-i18n="approach.cap1">A working version first</span>
-              <span class="pill">MVP → Live</span>
+          <!-- Bio: three claims, each one line. Hairline rules instead of cards,
+               so the column stays quiet next to the portrait. -->
+          <div class="reveal">
+            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">02 — About me</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
+            <p class="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.lead">
+              Computer Science at FH Aachen. Indonesian, building in Germany.
+            </p>
+            <ul class="mt-10 max-w-xl">
+              <li class="border-t border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p1.title">Lifelong learner</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p1.body">
+                  New stack, new tools, new models — I keep up on my own time.
+                </p>
+              </li>
+              <li class="border-t border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p2.title">I take ownership</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p2.body">
+                  If I shipped it, I answer for it — including when it breaks.
+                </p>
+              </li>
+              <li class="border-y border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">I don't wait to be asked</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p3.body">
+                  Most of the work below started as my own project, not a brief.
+                </p>
+              </li>
+            </ul>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-accent" data-i18n="nav.cta">Get in touch</a>
+              <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           6 · SPECIALTY — what I am good at, as a list not a card grid
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="specialty" class="section">
+        <div class="container-x">
+          <div class="reveal mb-14 max-w-3xl">
+            <p class="eyebrow mb-4" data-i18n="spec.eyebrow">03 — Specialty</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="spec.title">Things I'm good at</h2>
+          </div>
+
+          <!-- Number, name, and what it actually means. The grid only splits the
+               name from its sub-points at lg; below that they stack, because a
+               heading this size next to a list in half a column just wraps. -->
+          <ul class="border-t border-slate-200">
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">01</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.1.title">
+                Production Agentic AI &amp; Workflow Engines
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.1.a">Retrieval pipelines over your own documents</li>
+                <li data-i18n="spec.1.b">Agents that check their own sources</li>
+                <li data-i18n="spec.1.c">Answers that stream as they're written</li>
+              </ul>
             </li>
-            <li class="card card-hover flex items-center gap-4 p-4">
-              <span class="icon-chip" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a4 4 0 014 4c1.5 0 3 1.5 3 3.5S17.5 13 16 13M12 2a4 4 0 00-4 4c-1.5 0-3 1.5-3 3.5S6.5 13 8 13m4-11v20" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="flex-1 text-lg font-semibold text-slate-900" data-i18n="approach.cap2">Built so it doesn't need redoing</span>
-              <span class="pill">Docker · CI/CD</span>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">02</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.2.title">
+                Modern Decoupled Full-Stack Web Applications
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.2.a">Next.js and React on top, typed end to end</li>
+                <li data-i18n="spec.2.b">FastAPI or Laravel underneath, as its own service</li>
+                <li data-i18n="spec.2.c">Auth, roles, and an admin the client actually uses</li>
+              </ul>
             </li>
-            <li class="card card-hover flex items-center gap-4 p-4">
-              <span class="icon-chip" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
-              </span>
-              <span class="flex-1 text-lg font-semibold text-slate-900" data-i18n="approach.cap3">Frontend and backend</span>
-              <span class="pill">Next.js · FastAPI</span>
-            </li>
-            <li class="card card-hover flex items-center gap-4 p-4">
-              <span class="icon-chip" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="flex-1 text-lg font-semibold text-slate-900" data-i18n="approach.cap4">AI only where it helps</span>
-              <span class="pill">RAG · LLM</span>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">03</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.3.title">
+                Data Engineering Pipelines
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.3.a">Scheduled ETL that runs without me</li>
+                <li data-i18n="spec.3.b">PostgreSQL models built to be queried</li>
+                <li data-i18n="spec.3.c">Dashboards that answer one question well</li>
+              </ul>
             </li>
           </ul>
         </div>
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           5 · PROJECTS — runs on black, full-bleed, two per row
+           7 · PROJECTS — runs on black, full-bleed, two per row
            ═════════════════════════════════════════════════════════════════ -->
       <section id="work" class="relative isolate overflow-hidden bg-black pt-[26vh] pb-[26vh] text-white">
         <!-- White page → black. The wash is the same living gradient as the
@@ -250,8 +323,8 @@
         <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
           <!-- Section header, aligned to the card edge -->
           <div class="reveal mb-12 max-w-3xl">
-            <p class="eyebrow mb-4 text-white/70" data-i18n="work.eyebrow">02 — Work</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="work.title">Things I've built</h2>
+            <p class="eyebrow mb-4 text-white/70" data-i18n="work.eyebrow">04 — Work</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="work.title">Featured projects</h2>
             <p class="mt-5 text-lg text-white/60" data-i18n="work.subtitle">
               Four I’m proudest of. The rest are one click away.
             </p>
@@ -261,8 +334,12 @@
                lives on projects.html - see the link below. Each card carries its
                category's --tint so the colour language survives the split. -->
           <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden" style="--tint: rgba(139, 92, 246, 0.20)">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">StackPilot</h4>
@@ -275,15 +352,15 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
 
-            <article class="reveal card-dark card-dark-interactive project-card project-card--compact group flex flex-col overflow-hidden" style="--tint: rgba(16, 185, 129, 0.18)">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
               <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Fluen</h4>
@@ -296,17 +373,17 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
           </div>
 
           <div class="project-pair">
-            <article class="reveal card-dark card-dark-interactive project-card project-card--compact group flex flex-col overflow-hidden" style="--tint: rgba(245, 158, 11, 0.18)">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(245, 158, 11, 0.18)">
               <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Watchflow</h4>
@@ -319,15 +396,15 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
 
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden" style="--tint: rgba(244, 63, 94, 0.18)">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(244, 63, 94, 0.18)">
               <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
@@ -343,10 +420,6 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
           </div>
@@ -361,41 +434,13 @@
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           6 · TWO-COLUMN COMPARISON
-           ═════════════════════════════════════════════════════════════════ -->
-      <section class="section">
-        <div class="container-x grid gap-6 md:grid-cols-2">
-          <!-- What I've done -->
-          <div class="reveal card card-hover p-8 lg:p-10">
-            <h2 class="mb-7 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl" data-i18n="why.title">What I've done</h2>
-            <ul class="space-y-5">
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="why.1">Seven of the projects above are <span class="font-bold text-slate-900">live</span>. You can open any of them and click around before you decide anything.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="why.2">Watchflow updates itself <span class="font-bold text-slate-900">every trading day</span>. The staff at Fuji no Hana change their own offers without asking me.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="why.3">At AIESEC, finding leads took a whole afternoon. I scoped and built the tool that brings it down to <span class="font-bold text-slate-900">three minutes</span>.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="why.4">On the AI projects I wrote <span class="font-bold text-slate-900">both</span> the retrieval pipeline underneath and the streaming interface on top of it.</span></li>
-            </ul>
-          </div>
-          <!-- How I work -->
-          <div class="reveal card card-hover p-8 lg:p-10">
-            <h2 class="mb-7 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl" data-i18n="get.title">How I work</h2>
-            <ul class="space-y-5">
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="get.1">You get something deployed in the <span class="font-bold text-slate-900">first days</span> — a version you can open and click, not a document describing one.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="get.2">Tests and CI/CD from the start, so shipping a change is <span class="font-bold text-slate-900">one push</span> and not an event that needs planning.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="get.3">Answers <span class="font-bold text-slate-900">stream in</span> instead of making you wait, and the layout works the same on a phone as on a wide screen.</span></li>
-              <li class="flex items-start gap-3"><span class="mt-1 font-bold text-accent">✓</span><span class="text-base font-medium leading-relaxed text-slate-700" data-i18n="get.4">I say where things stand <span class="font-bold text-slate-900">before you ask</span>, in English or German, and problems come up early rather than at the deadline.</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═════════════════════════════════════════════════════════════════
-           7 · SKILLS / INDUSTRIES GRID
+           8 · SKILLS & TOOLS
            ═════════════════════════════════════════════════════════════════ -->
       <section id="skills" class="section">
         <div class="container-x">
           <div class="reveal mb-12">
-            <p class="eyebrow mb-4" data-i18n="skills.eyebrow">03 — Stack</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="skills.title">Skills &amp; tooling</h2>
+            <p class="eyebrow mb-4" data-i18n="skills.eyebrow">05 — Stack</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="skills.title">Skills &amp; tools</h2>
           </div>
 
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -443,44 +488,6 @@
       </section>
 
       <!-- ═════════════════════════════════════════════════════════════════
-           8 · ABOUT ME
-           ═════════════════════════════════════════════════════════════════ -->
-      <section id="about-me" class="section">
-        <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <!-- Portrait -->
-          <div class="reveal">
-            <!-- Drifts gently against the scroll so the portrait column and the
-                 bio column don't move as one flat plane. -->
-            <div class="relative mx-auto max-w-sm" data-parallax="0.05">
-              <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
-              <img src="images/Kenvara_Solivo_Lwie.webp" alt="Portrait of Kenvara Solivo Lwie"
-                   width="900" height="1200"
-                   class="relative w-full rounded-2xl border border-slate-200 object-cover shadow-lg"
-                   loading="lazy" decoding="async" />
-            </div>
-          </div>
-
-          <!-- Bio -->
-          <div class="reveal">
-            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">04 — About me</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
-            <p class="mt-6 max-w-xl font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.p1">
-              I'm a Computer Science student at FH Aachen, from Indonesia and living in Germany.
-              I work on AI features: the retrieval pipeline underneath and the interface on top.
-            </p>
-            <p class="mt-4 max-w-xl font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.p2">
-              I pick up new tools quickly and settle into a team fast. Right now I'm looking for a
-              working student role or internship as an AI software engineer.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#contact" class="btn btn-accent" data-i18n="nav.cta">Get in touch</a>
-              <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═════════════════════════════════════════════════════════════════
            9 · CTA BAND
            ═════════════════════════════════════════════════════════════════ -->
       <section id="contact" class="relative isolate overflow-hidden bg-ink-950 text-white">
@@ -497,7 +504,7 @@
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
           <p class="reveal eyebrow mb-6 justify-center text-white/85" data-i18n="contact.eyebrow">Contact</p>
           <h2 class="reveal text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="contact.title">
-            Get in <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">touch</span>
+            Let's <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">talk</span>
           </h2>
           <p class="reveal mx-auto mt-5 max-w-lg font-medium text-blue-50" data-i18n="contact.body">
             I'm looking for a working student role or internship as an AI software engineer.

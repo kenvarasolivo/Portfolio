@@ -128,17 +128,23 @@
   }
 
   /* ── Project cards ──
-     The copy leads and the screenshot follows, bleeding into the card's bottom
-     corners. Reading the card top-to-bottom now means reading what the thing
-     IS before looking at it — the old overlaid title made the screenshot the
-     headline and left the sentence explaining it as a footnote. */
-  /* flex-1 so a card with no "View project" link (the university one) still
-     pushes its screenshot down to the same baseline as its taller neighbour.
-     --tint is set per category on the group wrapper; the wash gives each group
-     its own temperature while the section stays black overall. */
+     The screenshot is the card: a single rounded well with the copy set bare
+     underneath it, on the section's own black. There is no box drawn around
+     the pair of them — the thumbnail carries the frame, and the caption reads
+     as a caption rather than as the bottom half of a panel. */
+  /* --tint is set per project (landing) or per category (projects page); here
+     it is a bloom under the well, so each card keeps its temperature without a
+     coloured rectangle sitting behind the text. */
+  .project-shot {
+    @apply relative aspect-[16/9] overflow-hidden rounded-[28px] border border-white/10
+           bg-white/[0.04] transition-all duration-200 ease-out;
+    box-shadow: 0 26px 70px -34px var(--tint, transparent);
+  }
+  /* Caption block. Left-aligned: with no box to centre inside, centred copy
+     under a full-width thumbnail leaves ragged edges on both sides. The small
+     side padding keeps the text off the well's rounded corner. */
   .project-head {
-    @apply flex-1 px-6 pb-8 pt-9 text-center sm:px-10 sm:pb-9 sm:pt-11;
-    background-image: radial-gradient(80% 58% at 50% 0%, var(--tint, transparent), transparent 70%);
+    @apply px-1 pt-5 text-left sm:pt-6;
   }
   .project-title {
     @apply text-[1.75rem] font-bold leading-tight tracking-tight sm:text-[2rem];
@@ -149,7 +155,7 @@
   }
   /* The one sentence saying what the project does */
   .project-blurb {
-    @apply mx-auto mt-3.5 max-w-md text-base font-medium leading-relaxed text-white/85 sm:text-lg;
+    @apply mt-2 max-w-2xl text-base font-medium leading-relaxed text-white/70;
   }
   .project-stack {
     @apply mt-2.5 text-xs font-medium text-white/50;
@@ -160,17 +166,25 @@
     @apply mt-5 inline-flex items-center gap-1 text-[0.95rem] font-medium text-[#6ba8ff]
            transition-colors duration-200 group-hover:text-white;
   }
-  /* Screenshot well: full-bleed to the card's sides and bottom. */
-  .project-shot {
-    @apply relative aspect-[16/9] overflow-hidden;
+  /* Only the cards that go somewhere get the affordance. The university card
+     is static, so it keeps the layout and skips the lift and the edge. */
+  .project-card--link {
+    @apply cursor-pointer;
+  }
+  .project-card--link:hover {
+    translate: 0 -4px;
+  }
+  .project-card--link:hover .project-shot,
+  .project-card--link:focus-within .project-shot {
+    @apply border-white/25;
   }
 
   /* ── Bento pair ──
      A flex row at md+ rather than a grid, because flex-grow is animatable and
-     `grid-column: span N` is not. The two cards split the row 7:5, and hovering
-     (or tabbing into) either one promotes it to the 7 while its partner drops
-     to the 5 — so the size difference reads as "what you're looking at" rather
-     than as a permanent ranking of the two projects.
+     `grid-column: span N` is not. The two cards rest at an even split, and
+     hovering (or tabbing into) either one opens it to 7:5 while its partner
+     drops to the 5 — so the size difference reads as "what you're looking at"
+     rather than as a permanent ranking of the two projects.
 
      flex-basis is 0 so the split is an exact 7:5 of the space left after the
      gap; percentage bases would overflow the row by the gap width and get
@@ -182,12 +196,9 @@
     @apply md:min-w-0;
     flex: 5 1 0%;
   }
-  .project-pair > .project-card--feature {
-    flex-grow: 7;
-  }
   /* The swap is a large layout movement, so it is opt-in on motion preference;
-     under `reduce` the pair just keeps its resting 7:5. It also needs :has() —
-     without that the resting layout stands too, which is the design anyway. */
+     under `reduce` the pair just stays even. It also needs :has() — without
+     that the even resting layout stands too, which is the design anyway. */
   @media (prefers-reduced-motion: no-preference) {
     .project-pair:has(> .project-card:hover) > .project-card,
     .project-pair:has(> .project-card:focus-within) > .project-card {
@@ -253,29 +264,6 @@
                 filter var(--reveal-dur) var(--ease-cinema);
   }
 
-  /* ── The compact half of each bento pair ──
-     Eight identical cards read as a spreadsheet. Each category is instead one
-     wide card and one narrow one, and the narrow one re-sets its copy left and
-     smaller rather than just shrinking — a centred column at that width leaves
-     ragged edges on both sides. The taller 3:2 shot fills the narrower well.
-
-     All of it is md-and-up only: below the breakpoint the grid is a single
-     column, both variants are the same width, and an alignment that swaps card
-     to card with nothing to justify it just reads as inconsistency. */
-  .project-card--compact .project-head {
-    @apply md:px-6 md:pb-7 md:pt-8 md:text-left lg:px-8 lg:pb-8 lg:pt-9;
-  }
-  .project-card--compact .project-title {
-    @apply md:text-2xl lg:text-[1.6rem];
-  }
-  .project-card--compact .project-blurb {
-    @apply md:mx-0 md:mt-3 md:text-base;
-  }
-  @media (min-width: 768px) {
-    .project-card--compact .project-head {
-      background-image: radial-gradient(95% 58% at 18% 0%, var(--tint, transparent), transparent 72%);
-    }
-  }
   .pill-dark {
     @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1
            text-xs text-white/70;
@@ -293,6 +281,41 @@
   .pill {
     @apply inline-flex items-center rounded-full border border-slate-200 bg-slate-50
            px-3 py-1 text-xs text-slate-500;
+  }
+
+  /* ── Scroll-linked text fill ──
+     The line paints itself dark as it crosses the viewport. One gradient
+     clipped to the glyphs rather than a span per word, so it survives the
+     language switch rewriting the element's innerHTML.
+
+     --fill is the position of the leading edge, written by main.js. It runs
+     from -22% to 100% so that at the start the whole gradient sits above the
+     text (all grey) and at the end the soft band has cleared the bottom (all
+     dark). The 22% offset is the width of that soft band — a hard stop would
+     slice through a line of type mid-glyph.
+
+     Defaults to fully dark: with no JS, or under reduced motion where the
+     handler never binds, the statement simply reads as normal type. */
+  .scroll-fill {
+    --fill: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      #0f172a 0%,
+      #0f172a var(--fill),
+      #94a3b8 calc(var(--fill) + 22%),
+      #94a3b8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* The six words under the mindset statement. Heavier than .pill on purpose —
+     they are the claim itself in shorthand, not metadata hanging off a card. */
+  .mindset-chip {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-white
+           px-4 py-2 text-sm font-semibold text-slate-700 sm:px-5 sm:text-base;
   }
 
   /* ── Nav links: white over the hero, dark once scrolled onto the page ── */
@@ -454,11 +477,13 @@
      so the whole card settles into place rather than sliding in flat — the
      thumbnail and the copy always arrive together. */
   .reveal.card,
-  .reveal.card-dark {
+  .reveal.card-dark,
+  .reveal.project-card {
     transform: translate3d(0, 56px, 0) scale(0.97);
   }
   .reveal.card.is-visible,
-  .reveal.card-dark.is-visible {
+  .reveal.card-dark.is-visible,
+  .reveal.project-card.is-visible {
     transform: translate3d(0, 0, 0) scale(1);
   }
 

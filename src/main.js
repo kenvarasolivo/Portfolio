@@ -45,6 +45,15 @@ const darkSection = document.querySelector('#work');
 // the viewport. The wash bands are 24vh, so 0.12 is their midpoint.
 const DARK_INSET = 0.09;
 
+// Statement that paints itself dark as it crosses the screen. Left null under
+// reduced motion so the CSS default (fully dark) stands.
+const fillEl = reduceMotion ? null : document.querySelector('[data-scroll-fill]');
+// Where in the viewport the fill starts and finishes, as fractions of its
+// height measured from the top. It completes above centre on purpose — a line
+// that only lands once it's leaving reads as lagging behind the scroll.
+const FILL_START = 0.85;
+const FILL_END = 0.35;
+
 // Elements that drift against the scroll. data-parallax holds the strength:
 // 0 = pinned to the page, 1 = pinned to the viewport.
 const parallaxItems = reduceMotion
@@ -75,6 +84,8 @@ let scrollRange = 0;
 let darkTop = 0;
 let darkBottom = 0;
 let navHeight = 64;
+let fillTop = 0;
+let fillHeight = 0;
 const measure = () => {
   scrollRange = document.documentElement.scrollHeight - window.innerHeight;
   if (navBar) navHeight = navBar.offsetHeight;
@@ -83,6 +94,12 @@ const measure = () => {
     const rect = darkSection.getBoundingClientRect();
     darkTop = rect.top + window.scrollY;
     darkBottom = darkTop + rect.height;
+  }
+
+  if (fillEl) {
+    const rect = fillEl.getBoundingClientRect();
+    fillTop = rect.top + window.scrollY;
+    fillHeight = rect.height;
   }
 
   parallaxItems.forEach((item) => {
@@ -128,6 +145,19 @@ const onScroll = () => {
     const travel = Math.min(y / window.innerHeight, 1);
     heroContent.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
     heroContent.style.opacity = String(Math.max(1 - travel * 1.35, 0));
+  }
+
+  // The statement's own top, tracked from FILL_START down to where its bottom
+  // reaches FILL_END — so the fill is driven by the whole block passing the
+  // band, not by a single point on it.
+  if (fillEl) {
+    const vh = window.innerHeight;
+    const top = fillTop - y;
+    const from = vh * FILL_START;
+    const to = vh * FILL_END - fillHeight;
+    const p = from === to ? 1 : Math.min(Math.max((from - top) / (from - to), 0), 1);
+    // -22% → 100%: see the .scroll-fill comment for why it starts off-screen.
+    fillEl.style.setProperty('--fill', `${(p * 122 - 22).toFixed(1)}%`);
   }
 
   parallaxItems.forEach((item) => {

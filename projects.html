@@ -44,10 +44,10 @@
 
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          <li><a href="index.html#about" class="nav-link" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="index.html#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="index.html#specialty" class="nav-link" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="projects.html" class="nav-link" data-i18n="nav.work">Projects</a></li>
           <li><a href="index.html#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
-          <li><a href="index.html#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
         </ul>
 
         <!-- Right cluster (desktop): language switch + CTA -->
@@ -85,10 +85,10 @@
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="index.html#about" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="index.html#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="index.html#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="projects.html" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="index.html#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
-          <li><a href="index.html#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
             <!-- Language switch (mobile, dark variant) -->
             <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
@@ -140,8 +140,12 @@
 
             <div class="project-pair">
             <!-- StackPilot — feature -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">StackPilot</h4>
@@ -154,16 +158,16 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
 
             <!-- Align — compact -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--compact group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_align.webp" alt="Align — CV-to-job skill gap analysis and cover letter drafting preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Align</h4>
@@ -175,10 +179,6 @@
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
-                </div>
-                <div class="project-shot">
-                  <img src="images/project_align.webp" alt="Align — CV-to-job skill gap analysis and cover letter drafting preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
@@ -195,7 +195,11 @@
             <div class="project-pair">
             <!-- FH Aachen Chatbot — compact. Internal university project, so the
                  card is static: no link, no lift, no "View project". -->
-            <article class="reveal card-dark project-card project-card--compact group flex flex-col overflow-hidden">
+            <article class="reveal project-card group flex flex-col">
+              <div class="project-shot">
+                <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
+                  class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
+              </div>
               <div class="project-head">
                 <span class="pill-dark mb-4" data-i18n="badge.university">University project</span>
                 <h4 class="project-title">FH Aachen Chatbot</h4>
@@ -204,15 +208,15 @@
                 </p>
                 <p class="project-stack">Vue.js · Laravel · OpenAI</p>
               </div>
-              <div class="project-shot">
-                <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
-                  class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
-              </div>
             </article>
 
             <!-- Fluen — feature -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Fluen</h4>
@@ -224,10 +228,6 @@
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
-                </div>
-                <div class="project-shot">
-                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
@@ -243,8 +243,12 @@
 
             <div class="project-pair">
             <!-- Watchflow — feature -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Watchflow</h4>
@@ -257,16 +261,16 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
 
             <!-- DataCo — compact -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--compact group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_dataco.webp" alt="DataCo supply-chain analytics dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">DataCo</h4>
@@ -278,10 +282,6 @@
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
-                </div>
-                <div class="project-shot">
-                  <img src="images/project_dataco.webp" alt="DataCo supply-chain analytics dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
@@ -298,8 +298,12 @@
 
             <div class="project-pair">
             <!-- Fuji no Hana — VIP Karte — compact -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--compact group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
@@ -315,16 +319,16 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                 </div>
-                <div class="project-shot">
-                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
               </a>
             </article>
 
             <!-- AIESEC — Prospecting Pipeline — feature -->
-            <article class="reveal card-dark card-dark-interactive project-card project-card--feature group flex flex-col overflow-hidden">
+            <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
@@ -339,10 +343,6 @@
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
-                </div>
-                <div class="project-shot">
-                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
               </a>
             </article>
