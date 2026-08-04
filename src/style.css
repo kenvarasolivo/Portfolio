@@ -13,12 +13,16 @@
        one system. */
     --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
     --reveal-dur: 1.25s;
-    /* How far out of focus everything starts. Read against --ease-cinema, not
-       on its own: the expo-out is ~75% done by 250ms, so this clears almost
-       immediately and then settles — it registers as the page pulling focus,
-       not as a slow blur. Raise it for more drama, drop it toward 4px for a
-       hint. The hero name overrides it with its own much heavier rack. */
+    /* How far out of focus everything starts. The hero name overrides it with
+       its own much heavier rack. */
     --reveal-blur: 10px;
+    /* The blur runs on its own clock, a little longer than the rise and on a
+       less front-loaded curve. Sharing --ease-cinema made it useless: an
+       expo-out is ~75% done by 250ms, so focus snapped in before the element
+       had finished moving. Keep the head start small — much past this the
+       rack stops reading as focus and starts reading as lag. */
+    --reveal-blur-dur: 0.95s;
+    --ease-blur: cubic-bezier(0.18, 0.6, 0.3, 1);
   }
 
   html {
@@ -267,7 +271,7 @@
                 background-color 200ms ease-out,
                 opacity var(--reveal-dur) var(--ease-cinema),
                 transform var(--reveal-dur) var(--ease-cinema),
-                filter var(--reveal-dur) var(--ease-cinema);
+                filter var(--reveal-blur-dur) var(--ease-blur);
   }
 
   .pill-dark {
@@ -453,7 +457,7 @@
     transition:
       opacity var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
       transform var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms),
-      filter var(--reveal-dur) var(--ease-cinema) var(--rv-delay, 0ms);
+      filter var(--reveal-blur-dur) var(--ease-blur) var(--rv-delay, 0ms);
     will-change: opacity, transform, filter;
   }
   .reveal.is-visible {

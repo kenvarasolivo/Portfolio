@@ -190,9 +190,11 @@ export const translations = {
 
   // ── Contact ──
   'contact.eyebrow': { en: 'Contact', de: 'Kontakt' },
+  // The band runs on white now, so the highlight is .mark — the old white-to-blue
+  // gradient fill was built to sit on the dark band and would vanish here.
   'contact.title': {
-    en: "Let's <span class=\"bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent\">talk</span>",
-    de: 'Reden <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">wir</span>',
+    en: "Let's <span class=\"mark\">talk</span>",
+    de: 'Reden <span class="mark">wir</span>',
   },
   'contact.body': {
     en: "I'm looking for a working student role or internship as an AI software engineer. Email or LinkedIn, whichever is easier.",

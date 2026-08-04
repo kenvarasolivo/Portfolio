@@ -102,11 +102,7 @@
     </header>
 
     <main>
-      <section id="work" class="relative isolate overflow-hidden bg-black pt-32 pb-[26vh] text-white sm:pt-40">
-                <!-- …and black → white again on the way out. -->
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[24vh] overflow-hidden" aria-hidden="true">
-          <div class="wave-wash bg-[linear-gradient(to_bottom,#000000_0%,#000000_16%,#1a1a1a_24%,#3a3a3a_34%,#666666_45%,#9c9c9c_56%,#d4d4d4_65%,#f2f2f2_72%,#ffffff_78%,#ffffff_100%)]"></div>
-        </div>
+      <section id="work" data-dark-end class="relative isolate overflow-hidden bg-black pt-32 pb-24 text-white sm:pt-40 sm:pb-32">
 
         <!-- Wider than .container-x's 1200px so the showcase still reads as the
              full-bleed section, but capped: with padding alone the cards grew
@@ -442,33 +438,23 @@
         </div>
       </section>
 
-      <section id="contact" class="relative isolate overflow-hidden bg-ink-950 text-white">
-        <!-- Mirror of the hero wash: blends out of the white page at the top and
-             deepens into the same navy that opens the footer, so there's no hard
-             white-to-colour seam. -->
-        <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <!-- Static U-wash anchored at the bottom-centre: dark pools low and
-               curves up into a thin white cap at the top (white kept small so the
-               eyebrow text stays readable on blue). Mirror of the footer below. -->
-          <div class="absolute inset-0 bg-[radial-gradient(125%_100%_at_50%_100%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
-        </div>
-
+      <section id="contact" class="bg-white">
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
-          <p class="reveal eyebrow mb-6 justify-center text-white/85" data-i18n="contact.eyebrow">Contact</p>
-          <h2 class="reveal text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="contact.title">
-            Get in <span class="bg-gradient-to-b from-white to-[#7fb0ff] bg-clip-text text-transparent">touch</span>
+          <p class="reveal eyebrow mb-6 justify-center" data-i18n="contact.eyebrow">Contact</p>
+          <h2 class="reveal mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl" data-i18n="contact.title">
+            Let's <span class="mark">talk</span>
           </h2>
-          <p class="reveal mx-auto mt-5 max-w-lg font-medium text-blue-50" data-i18n="contact.body">
+          <p class="reveal mx-auto mt-5 max-w-lg font-medium text-slate-700" data-i18n="contact.body">
             I'm looking for a working student role or internship as an AI software engineer.
             Email or LinkedIn, whichever is easier.
           </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-light">
+            <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-accent">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
               kenvara.solivo@gmail.com
             </a>
-            <a href="https://linkedin.com/in/kenvara-solivo-lwie-89a835234" target="_blank" rel="noopener" class="btn btn-ghost-light">LinkedIn</a>
-            <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost-light">GitHub</a>
+            <a href="https://linkedin.com/in/kenvara-solivo-lwie-89a835234" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+            <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
           </div>
         </div>
       </section>
@@ -478,12 +464,8 @@
       <!-- Gradient backdrop: deep navy fading up into electric blue, with a
            soft bloom rising behind the wordmark so the bottom edge glows. -->
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <!-- Static U-wash, exact mirror of the contact band: dark dome at the top
-             curves down the sides into a white base at the bottom, so the white
-             'Kenvara' wordmark fades into it (deliberate ghost fade-out). -->
         <div class="absolute inset-0 bg-[radial-gradient(125%_120%_at_50%_0%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
       </div>
-
       <!-- Top row: arrow links + copyright -->
       <div class="container-x flex flex-col gap-6 pt-20 pb-10 sm:flex-row sm:items-center sm:justify-between">
         <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" aria-label="Footer">

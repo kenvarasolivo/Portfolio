@@ -38,12 +38,12 @@ const nav = document.querySelector('[data-nav]');
 const navBar = nav?.querySelector('nav'); // the bar itself, not the mobile panel
 const progressBar = document.querySelector('[data-scroll-progress]');
 const heroContent = document.querySelector('[data-hero]');
-// The projects section runs on black, where the solid-white scrolled nav reads
-// as a mistake. Its bounds drive a third nav state.
+// The page runs on black from the projects section through to [data-dark-end]
+// — skills on the landing page, projects itself on the all-work page — where
+// the solid-white scrolled nav reads as a mistake. Both edges are hard cuts,
+// so the nav flips on them directly rather than easing across a wash.
 const darkSection = document.querySelector('#work');
-// How far into the section's transition wash the nav flips, as a fraction of
-// the viewport. The wash bands are 24vh, so 0.12 is their midpoint.
-const DARK_INSET = 0.09;
+const darkEndSection = document.querySelector('[data-dark-end]') || darkSection;
 
 // Statement that paints itself dark as it crosses the screen. Left null under
 // reduced motion so the CSS default (fully dark) stands.
@@ -91,9 +91,9 @@ const measure = () => {
   if (navBar) navHeight = navBar.offsetHeight;
 
   if (darkSection) {
-    const rect = darkSection.getBoundingClientRect();
-    darkTop = rect.top + window.scrollY;
-    darkBottom = darkTop + rect.height;
+    darkTop = darkSection.getBoundingClientRect().top + window.scrollY;
+    const endRect = darkEndSection.getBoundingClientRect();
+    darkBottom = endRect.bottom + window.scrollY;
   }
 
   if (fillEl) {
@@ -116,22 +116,13 @@ const onScroll = () => {
 
   nav?.classList.toggle('is-scrolled', y > 24);
 
-  // Switch at the midpoint of the h-[24vh] transition bands rather than after
-  // they've fully cleared: the bar is bg-black/70, so it darkens whatever sits
-  // behind it, and white text stays above 8:1 contrast even over the pale end
-  // of the wash. Waiting for solid black just made the change feel late.
-  // Raise DARK_INSET toward 0.24 to switch later, lower it to switch earlier.
+  // Both edges are measured against the BOTTOM of the bar, so the flip lands
+  // the instant the cut passes under it — one consistent trigger line going in
+  // and coming out. On the all-projects page darkTop is ~0, so the nav opens
+  // dark rather than flashing its white scrolled state over a black page.
   if (nav && darkSection) {
-    const fade = window.innerHeight * DARK_INSET;
-    // The inset delays the switch to the middle of the wash band above the
-    // section. On the all-projects page there is no band — the page opens
-    // straight onto black — so entering has to take effect at 0, or the nav
-    // flashes its white scrolled state over a black page for ~60px.
-    const enter = darkTop < 1 ? 0 : fade;
-    nav.classList.toggle(
-      'is-dark',
-      y >= darkTop + enter && y <= darkBottom - fade - navHeight
-    );
+    const barBottom = y + navHeight;
+    nav.classList.toggle('is-dark', barBottom >= darkTop && barBottom <= darkBottom);
   }
 
   if (progressBar) {
@@ -273,11 +264,14 @@ if ('IntersectionObserver' in window && revealEls.length) {
           }
 
           el.classList.add('is-visible');
-          // Release the compositor layer once this element has landed. Guard on
-          // e.target: transitionend bubbles, and these cards contain children
-          // with their own transform transitions.
+          // Release the compositor layer once this element has landed. Keyed to
+          // filter, not transform: the blur runs on --reveal-blur-dur, roughly
+          // twice the rise, so settling on transform would drop will-change
+          // while the rack focus was still mid-flight. Guard on e.target too —
+          // transitionend bubbles, and these cards contain children with their
+          // own transitions.
           const settle = (e) => {
-            if (e.target !== el || e.propertyName !== 'transform') return;
+            if (e.target !== el || e.propertyName !== 'filter') return;
             el.classList.add('is-settled');
             el.removeEventListener('transitionend', settle);
           };
