@@ -47,6 +47,8 @@ export const translations = {
   'mindset.k4': { en: 'Built to scale',      de: 'Skalierbar gebaut' },
   'mindset.k5': { en: 'Automated pipelines', de: 'Automatisierte Pipelines' },
   'mindset.k6': { en: 'End to end',          de: 'Ende zu Ende' },
+  'mindset.k7': { en: 'MVP first',           de: 'MVP zuerst' },
+  'mindset.k8': { en: 'Built around users',  de: 'Nutzerorientiert gebaut' },
 
   // ── Specialty ──
   'spec.eyebrow': { en: '03 — Specialty',         de: '03 — Schwerpunkte' },
