@@ -140,6 +140,14 @@ export const translations = {
     en: 'Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.',
     de: 'Findet Unternehmen, die rund um Aachen einstellen, ermittelt echte Kontaktdaten und liefert dem Team eine HubSpot-fertige Datei — drei Minuten statt eines Nachmittags.',
   },
+  'work.elsewhere.body': {
+    en: "An atlas of the world's great cities, ranked and told through their own photography.",
+    de: 'Ein Atlas der großen Städte der Welt — gerankt und durch ihre eigene Fotografie erzählt.',
+  },
+  'work.cinescope.body': {
+    en: "What's trending in film and games right now, pulled live and charted.",
+    de: 'Was gerade bei Filmen und Spielen im Trend liegt — live geladen und visualisiert.',
+  },
   'work.laferrari.body': {
     en: 'A LaFerrari you can spin around in 3D, lit and animated in the browser.',
     de: 'Ein LaFerrari, den du in 3D drehen kannst — beleuchtet und animiert im Browser.',
@@ -147,14 +155,6 @@ export const translations = {
   'work.kanagawa.body': {
     en: "Hokusai's wave told as a scroll — the video scrubs as you move down the page.",
     de: 'Hokusais Welle als Scroll erzählt — das Video läuft mit, während du die Seite hinunterscrollst.',
-  },
-  'work.cinescope.body': {
-    en: "What's trending in film and games right now, pulled live and charted.",
-    de: 'Was gerade bei Filmen und Spielen im Trend liegt — live geladen und visualisiert.',
-  },
-  'work.destination.body': {
-    en: 'Move a few sliders and it ranks 23 destinations against your travel style.',
-    de: 'Ein paar Regler bewegen und es bewertet 23 Reiseziele nach deinem Reisestil.',
   },
 
   // ── Skills ──

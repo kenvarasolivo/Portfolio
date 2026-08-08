@@ -28,7 +28,7 @@ const MAX_WIDTH = {
   'project_cinescope.png': 800,
   'project_laferrari.png': 800,
   'project_kanagawa.png': 800,
-  'project_destination_intelligence.png': 800,
+  'project_elsewhere.png': 800,
   _default: 1600,
 };
 
