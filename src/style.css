@@ -223,6 +223,90 @@
     }
   }
 
+  /* ── Project carousel ──
+     For a category that outgrew the bento pair. The seesaw only works with two
+     cards, so a third row-mate would just squeeze all three; here the cards keep
+     a readable width and the row scrolls instead, driven by the wheel, a drag,
+     or the arrow buttons beside the heading.
+
+     44% from lg leaves ~9% of the third card showing past the second, which is
+     what tells you the row goes on — two cards at an exact half would look like
+     the whole set.
+
+     overflow-y-hidden is load-bearing, not cosmetic — see .fun-strip below for
+     the Lenis nested-scroll reason. pt-2 keeps the 4px hover lift from being
+     clipped by that same hidden overflow. */
+  .project-strip {
+    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4
+           lg:gap-6 xl:gap-8;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .project-strip::-webkit-scrollbar {
+    display: none;
+  }
+  .project-strip > .project-card {
+    @apply w-[280px] shrink-0 snap-start sm:w-[400px] lg:w-[44%];
+  }
+  /* Both heights below are pinned so that the hover-expand animates width
+     alone. The shot drops its 16/9 ratio because on a ratio a card that gains
+     150px of width also gains ~85px of height and heaves the row with it; held
+     to a height, the picture just re-crops. */
+  .project-strip .project-shot {
+    @apply aspect-auto h-40 sm:h-56 lg:h-[19rem];
+  }
+  /* The card is pinned from lg, where the expand lives, for the same reason one
+     step further in: the cards that give up width refit their blurb onto an
+     extra line, and under align-items: stretch that would lift the whole row
+     for as long as the pointer was on it. */
+  @media (min-width: 1024px) {
+    .project-strip > .project-card {
+      @apply h-[36rem];
+    }
+  }
+
+  /* ── Hover-expand inside the scroller ──
+     The bento pair's seesaw, driven by width rather than flex-grow: grow only
+     shares out positive free space, and an overflowing scroller has none, so
+     nothing would move.
+
+     The widths sum to the same 132% opened as at rest, and that constant total
+     is what makes the seesaw safe inside a scroller — the row never gets
+     longer, so the arrows' end-of-row state stays true and the last card can
+     still open while you are scrolled hard against the end. It also keeps the
+     pointer inside the card it opened: the hovered card grows into the space
+     its neighbours give up on both sides, so its edges only ever travel
+     outward from wherever the pointer already is.
+
+     The 38% is tied to there being three cards. A fourth would rest at 176%
+     and open to 170%, so the row would tighten by 6% on hover instead of
+     holding still — worth retuning, but it degrades quietly rather than
+     breaking.
+
+     Same :has() specificity trick as the bento pair above — see that comment
+     for why the promote has to repeat the :has() prefix. */
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+    .project-strip:has(> .project-card:hover) > .project-card,
+    .project-strip:has(> .project-card:focus-within) > .project-card {
+      width: 38%;
+    }
+    .project-strip:has(> .project-card:hover) > .project-card:hover,
+    .project-strip:has(> .project-card:focus-within) > .project-card:focus-within {
+      width: 56%;
+    }
+  }
+  /* Hidden on touch, where the row is already swipeable and the arrows would
+     only take up room the cards can use. */
+  .carousel-nav {
+    @apply hidden shrink-0 items-center gap-2 [@media(hover:hover)]:flex;
+  }
+  .carousel-btn {
+    @apply grid h-10 w-10 place-items-center rounded-full border border-white/15
+           bg-white/[0.04] text-white transition-all duration-200
+           hover:border-white/35 hover:bg-white/10
+           disabled:pointer-events-none disabled:opacity-25;
+  }
+
   /* ── Built-for-fun filmstrip ──
      The bento pair's idea with a different mechanic: four equal cards rather
      than a two-card seesaw, so hovering one opens it and the other three each
@@ -256,16 +340,23 @@
     }
   }
 
-  /* ── The one transition both resizing rows share ──
+  /* ── The one transition every card row shares ──
      Must be a descendant selector, not `.fun-card` alone: `.reveal` also sets
      `transition` and, at equal specificity, the later definition wins — which
      silently dropped flex-grow from the property list and made the width snap.
 
      opacity/transform/filter keep .reveal's own duration and easing so the
-     entrance is untouched; only flex-grow and the hover states are added. */
+     entrance is untouched; only the size and hover states are added.
+
+     The two rows size themselves differently — the pair and the filmstrip on
+     flex-grow, .project-strip on width — and each ignores the property it
+     doesn't use, which costs nothing and keeps this one rule authoritative for
+     every card row's timing. */
   .project-pair > .project-card,
+  .project-strip > .project-card,
   .fun-strip > .fun-card {
     transition: flex-grow 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                width 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
                 translate 200ms ease-out,
                 border-color 200ms ease-out,
                 background-color 200ms ease-out,

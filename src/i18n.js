@@ -95,8 +95,8 @@ export const translations = {
   'projects.eyebrow': { en: 'All work',            de: 'Alle Projekte' },
   'projects.title':   { en: 'Everything I’ve built', de: 'Alles, was ich gebaut habe' },
   'projects.subtitle': {
-    en: 'Eight projects grouped by what they are, plus the ones built purely for fun.',
-    de: 'Acht Projekte, nach Art gruppiert — dazu die, die rein aus Spaß entstanden sind.',
+    en: 'Nine projects grouped by what they are, plus the ones built purely for fun.',
+    de: 'Neun Projekte, nach Art gruppiert — dazu die, die rein aus Spaß entstanden sind.',
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
@@ -115,6 +115,10 @@ export const translations = {
   'work.align.body': {
     en: 'Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.',
     de: 'Gleicht Lebenslauf und Stellenanzeige ab, zeigt die echten Skill-Lücken und entwirft ein Anschreiben, das nur behauptet, was der Lebenslauf hergibt.',
+  },
+  'work.showup.body': {
+    en: 'Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.',
+    de: 'Findet lokale Clubs, die sich jede Woche zur selben Zeit am selben Ort treffen — zweimal auftauchen, und du gehörst dazu.',
   },
   'work.fluen.body': {
     en: 'A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.',

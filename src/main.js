@@ -343,3 +343,43 @@ document.querySelectorAll('[data-lang-switch] .lang-opt').forEach((btn) =>
 );
 
 applyLanguage(getInitialLang());
+
+/* ───────────────────────────────────────────────────────────────────────
+   7. Carousel arrows
+   The row already scrolls on its own — wheel, trackpad, drag, touch. These add
+   the visible affordance that says so, and give keyboard users something to
+   tab to: a bare overflow container isn't focusable in Chrome.
+   ─────────────────────────────────────────────────────────────────────── */
+document.querySelectorAll('[data-carousel]').forEach((root) => {
+  const track = root.querySelector('[data-carousel-track]');
+  const prev = root.querySelector('[data-carousel-prev]');
+  const next = root.querySelector('[data-carousel-next]');
+  if (!track || !prev || !next) return;
+
+  // One card plus one gap, measured rather than hardcoded: the card width is a
+  // percentage from lg up, so the only thing that knows it is the layout.
+  const step = () => {
+    const card = track.firstElementChild;
+    if (!card) return track.clientWidth;
+    return card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+  };
+
+  // An arrow with nowhere to go is disabled rather than silently inert, so the
+  // ends of the row are visible instead of something you find by clicking. The
+  // 1px slack absorbs fractional layout widths, which otherwise leave scrollLeft
+  // a hair under the maximum and the last arrow live at the end of the row.
+  const update = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft >= max - 1;
+  };
+
+  const go = (direction) =>
+    track.scrollBy({ left: direction * step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+});
