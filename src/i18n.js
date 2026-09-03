@@ -95,8 +95,8 @@ export const translations = {
   'projects.eyebrow': { en: 'All work',            de: 'Alle Projekte' },
   'projects.title':   { en: 'Everything I’ve built', de: 'Alles, was ich gebaut habe' },
   'projects.subtitle': {
-    en: 'Nine projects grouped by what they are, plus the ones built purely for fun.',
-    de: 'Neun Projekte, nach Art gruppiert — dazu die, die rein aus Spaß entstanden sind.',
+    en: 'Ten projects grouped by what they are, plus the ones built purely for fun.',
+    de: 'Zehn Projekte, nach Art gruppiert — dazu die, die rein aus Spaß entstanden sind.',
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
@@ -115,6 +115,10 @@ export const translations = {
   'work.align.body': {
     en: 'Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.',
     de: 'Gleicht Lebenslauf und Stellenanzeige ab, zeigt die echten Skill-Lücken und entwirft ein Anschreiben, das nur behauptet, was der Lebenslauf hergibt.',
+  },
+  'work.chattrolley.body': {
+    en: "A multilingual AI shopping assistant that recommends verified products and sends customers to the store's existing checkout.",
+    de: 'Ein mehrsprachiger KI-Einkaufsassistent, der verifizierte Produkte empfiehlt und Kunden zum bestehenden Checkout des Shops weiterleitet.',
   },
   'work.showup.body': {
     en: 'Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.',
