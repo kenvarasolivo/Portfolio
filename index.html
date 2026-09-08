@@ -324,10 +324,54 @@
             </p>
           </div>
 
-          <!-- Four featured projects, one per category. The full set, grouped,
-               lives on projects.html - see the link below. Each card carries its
+          <!-- Four featured projects, in portfolio priority order. The full set,
+               grouped, lives on projects.html - see the link below. Each card carries its
                category's --tint so the colour language survives the split. -->
           <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
+              <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_showup.webp" alt="Showup — hyperlocal recurring clubs discovery preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">Showup</h4>
+                  <p class="project-blurb" data-i18n="work.showup.body">
+                    Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
+              <a href="https://chattrolley.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_chattrolley.webp" alt="Chattrolley — multilingual AI shopping assistant preview"
+                    class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h4 class="project-title">Chattrolley</h4>
+                  <p class="project-blurb" data-i18n="work.chattrolley.body">
+                    A multilingual AI shopping assistant that recommends verified products and sends customers to the store's existing checkout.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
+                  <span class="project-link">
+                    <span data-i18n="work.view">View project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="project-pair">
             <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -349,66 +393,22 @@
               </a>
             </article>
 
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
-              <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
-                <div class="project-shot">
-                  <img src="images/project_showup.webp" alt="Showup — hyperlocal recurring clubs discovery preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
-                <div class="project-head">
-                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h4 class="project-title">Showup</h4>
-                  <p class="project-blurb" data-i18n="work.showup.body">
-                    Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.
-                  </p>
-                  <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
-                  <span class="project-link">
-                    <span data-i18n="work.view">View project</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="project-pair">
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(245, 158, 11, 0.18)">
-              <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
-                <div class="project-shot">
-                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
-                <div class="project-head">
-                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h4 class="project-title">Watchflow</h4>
-                  <p class="project-blurb" data-i18n="work.watchflow.body">
-                    Tracks the stocks you follow and refreshes itself every trading day, on its own.
-                  </p>
-                  <p class="project-stack">Python · PostgreSQL · GitHub Actions · Next.js</p>
-                  <span class="project-link">
-                    <span data-i18n="work.view">View project</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                </div>
-              </a>
-            </article>
-
             <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(244, 63, 94, 0.18)">
-              <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
+              <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
+                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">
-                    <span class="project-partner">Kenvara × Fuji no Hana</span>
-                    VIP Karte
+                    <span class="project-partner">Kenvara × AIESEC</span>
+                    Prospecting Pipeline
                   </h4>
-                  <p class="project-blurb" data-i18n="work.fujinohana.body">
-                    A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.
+                  <p class="project-blurb" data-i18n="work.igta.body">
+                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
                   </p>
-                  <p class="project-stack">Next.js · TypeScript · Drizzle · Neon Postgres</p>
+                  <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
