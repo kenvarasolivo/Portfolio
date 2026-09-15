@@ -1,0 +1,17 @@
+Generate a new polished high-fidelity portfolio desktop hero mockup, 1536x1024 landscape. Use the three recent images as references: the USER ATTACHMENT is COMPOSITION reference only (left copy, overlapping browser screens right, GitHub button); the Showup white screenshot and Chattrolley blue screenshot are REAL PROJECT VISUAL REFERENCES to incorporate inside the browser windows. Do not copy the user's reference text or its invented user counts. This is a fresh v2 proposal, not an edit of the earlier generated hero.
+
+Art direction: clean near-black #05070d, white and cobalt #2563eb. Crisp restrained typography like Inter. Quiet black behind text, controlled rich blue glow at bottom and behind screens, smoothly transitioning into white selected-project section. No teal, green ambient light, grid, handwriting, arrows pointing to screens, particles, tech logos, stats, badges or ornamental clutter. Generous breathing space. Achieve the refined feel of an excellent frontend engineer portfolio. Full-bleed website, no outer desktop frame.
+
+Header at 80px high: left full name "Kenvara Solivo Lwie"; right navigation "Projects" "About" then "EN / DE", then a small outlined "Get in touch" button. Thin discreet border under header.
+
+Main hero: left column roughly 45%, right 55%. Left has small eyebrow "SOFTWARE ENGINEER · AACHEN, DE". Large readable bold headline in 3 deliberate lines:
+"I build web apps"
+"and AI-powered"
+"features."
+First line white; remaining lines white with only "AI-powered" pale blue. No slogan or abstract metaphor.
+Supporting copy in comfortable gray-white 20px, no more than 4 lines: "I'm Ken, a Computer Science student at FH Aachen. I design interfaces, build the backend, and connect AI to the app."
+Below, two aligned buttons: solid white with dark text "View my work ↗"; dark outlined button with GitHub mark and "GitHub".
+
+Right: two beautiful substantial overlapping browser windows with fine edges, realistic soft shadows, minimal perspective tilt, both contained wholly within right column and not overlapping copy. Rear window placed higher contains the actual Showup screenshot's white concentric-ring landing with black SHOWUP wordmark and green buttons; preserve its identity, avoid inventing an unrelated social dashboard. Foreground window lower/right contains the actual Chattrolley screenshot's blue landing and visible white shopping/chat preview. Use smart crops of reference screens to keep their identities legible. Each window has a slim browser-style title bar, one named "Show Up" and one named "Chattrolley". Realistic screen content, no fictitious traction or ratings. Make the foreground white chat/product preview visible enough to read as software. Screens are portfolio project previews, not generic floating decorations.
+
+Hero ends at approximately 850px, followed immediately by a white section beginning with small uppercase "SELECTED PROJECTS", headline "What I've been building", right aligned "All projects ↗". Show only the opening of that section. No specialty list in hero. Strict text fidelity, polished spacing and alignment, mature simple composition.

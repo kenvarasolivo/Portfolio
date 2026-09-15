@@ -10,7 +10,8 @@ The personal portfolio of Kenvara Solivo Lwie — a CS student and full-stack & 
 
 *   **Responsive Design:** Fully optimized for mobile, tablet, and desktop views.
 *   **Bilingual (EN / DE):** In-page language switch powered by a lightweight `data-i18n` system — no reload, no framework.
-*   **Animated, accessible UI:** Scroll-reveal sections, gradient washes, and a marquee tech strip, with a skip link, ARIA labels, and `prefers-reduced-motion` support.
+*   **Project-led homepage:** A web and applied-AI hero with linked project previews, followed by selected work and concise project decisions.
+*   **Responsive interactions:** Scroll reveals, keyboard navigation, a mobile menu, and reduced-motion support.
 *   **Fast & SEO-friendly:** Vite-built static output, optimized images (`sharp`), lazy-loaded assets, and Open Graph + meta tags for rich link previews.
 
 ---
@@ -94,4 +95,4 @@ required. The workflow can also be run on demand from the Actions tab
 
 ---
 
-<p align="center"><i>Open to an AI Software Engineer working student role or internship and collaboration — let's build something.</i></p>
+<p align="center"><i>Web interfaces, full-stack products, and applied AI.</i></p>

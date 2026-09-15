@@ -384,41 +384,6 @@
            px-3 py-1 text-xs text-slate-500;
   }
 
-  /* ── Scroll-linked text fill ──
-     The line paints itself dark as it crosses the viewport. One gradient
-     clipped to the glyphs rather than a span per word, so it survives the
-     language switch rewriting the element's innerHTML.
-
-     --fill is the position of the leading edge, written by main.js. It runs
-     from -22% to 100% so that at the start the whole gradient sits above the
-     text (all grey) and at the end the soft band has cleared the bottom (all
-     dark). The 22% offset is the width of that soft band — a hard stop would
-     slice through a line of type mid-glyph.
-
-     Defaults to fully dark: with no JS, or under reduced motion where the
-     handler never binds, the statement simply reads as normal type. */
-  .scroll-fill {
-    --fill: 100%;
-    background-image: linear-gradient(
-      to bottom,
-      #0f172a 0%,
-      #0f172a var(--fill),
-      #94a3b8 calc(var(--fill) + 22%),
-      #94a3b8 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* The six words under the mindset statement. Heavier than .pill on purpose —
-     they are the claim itself in shorthand, not metadata hanging off a card. */
-  .mindset-chip {
-    @apply inline-flex items-center rounded-full border border-slate-200 bg-white
-           px-4 py-2 text-sm font-semibold text-slate-700 sm:px-5 sm:text-base;
-  }
-
   /* ── Nav links: white over the hero, dark once scrolled onto the page ── */
   .nav-link {
     @apply inline-block text-sm text-white/75 transition-all duration-200 hover:text-white active:scale-90;
@@ -537,7 +502,7 @@
      `--rv-delay` is the element's place in its stagger batch. JS sets it when
      a group enters together; a few elements (the hero sequence) set it inline
      to choreograph a fixed order. */
-  .reveal {
+  :where(.js) .reveal {
     opacity: 0;
     /* Longer travel than a typical fade-up — the distance is what registers
        as weight. translate3d keeps it on the compositor. */
@@ -562,21 +527,6 @@
     will-change: auto;
   }
 
-  /* Rack-focus variant: resolves out of a heavy defocus instead of sliding.
-     Used for the hero name, where it doubles as the "emerging from the fog"
-     idea the headline's blurred ::before halo already sets up. */
-  .reveal[data-reveal='fog'] {
-    filter: blur(26px);
-    transform: translate3d(0, 20px, 0) scale(1.035);
-    transition-duration: 1.9s;
-  }
-  /* Both longhands must be restated here: the base `.reveal.is-visible` rule is
-     less specific than the `[data-reveal='fog']` selector and would lose. */
-  .reveal[data-reveal='fog'].is-visible {
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: none;
-  }
-
   /* Cards reveal as one object. They carry a slight scale on top of the rise,
      so the whole card settles into place rather than sliding in flat — the
      thumbnail and the copy always arrive together. */
@@ -595,55 +545,6 @@
     text-wrap: balance;
   }
 
-  /* Hero headline: soft, glowing, slightly out-of-focus letters that look like
-     they're emerging from the blue fog (Sui-style). The ::before is a heavily
-     blurred copy that supplies the surrounding halo. */
-  .hero-headline {
-    position: relative;
-    color: #eef4ff;
-    /* Fluid size: grows with the viewport so the full name always fits on a
-       single line. The /10 roughly matches the name's width in ems, and the
-       2.5rem accounts for the container's horizontal padding (px-5). */
-    font-size: clamp(1.75rem, calc((100vw - 2.5rem) / 10), 8rem);
-    text-shadow:
-      0 0 14px rgba(191, 219, 254, 0.25),
-      0 0 36px rgba(96, 165, 250, 0.18);
-  }
-  .hero-headline::before {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    color: #cfe0ff;
-    filter: blur(10px);
-    opacity: 0.3;
-    animation: hero-fog 7s ease-in-out infinite;
-  }
-  @keyframes hero-fog {
-    0%, 100% { opacity: 0.22; }
-    50% { opacity: 0.38; }
-  }
-
-  /* Living gradient wash: the blue colour bands physically slide up and down so
-     the whole background reads as a slow wave. The element is taller than its
-     frame and the gradient keeps SOLID anchors at the top and bottom — so the
-     dark top edge and the light bottom edge never move (the page seams stay
-     locked) while everything in between breathes. Pure transform = GPU-smooth. */
-  .wave-wash {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 125%;
-    will-change: transform;
-    animation: wave-wash 8s ease-in-out infinite alternate;
-  }
-  /* -(travel / (100 + travel) * 100)% */
-  @keyframes wave-wash {
-    from { transform: translateY(0); }
-    to   { transform: translateY(-13.79%); }
-  }
-
 }
 
 /* Respect reduced-motion preferences */
@@ -659,15 +560,10 @@
   }
   /* Scroll-linked transforms are written straight to style.transform by JS,
      so they need an !important reset here. JS also skips them entirely. */
-  [data-hero],
   [data-parallax] {
     transform: none !important;
   }
-  .animate-marquee,
-  .wave-wash {
-    animation: none !important;
-  }
-  .hero-headline::before {
+  .animate-marquee {
     animation: none !important;
   }
 }
