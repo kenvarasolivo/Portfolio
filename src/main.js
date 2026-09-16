@@ -48,7 +48,7 @@ const heroContent = document.querySelector('[data-hero]');
 // reduced motion so the CSS default (fully dark) stands.
 const fillEl = reduceMotion ? null : document.querySelector('[data-scroll-fill]');
 // Where in the viewport the fill starts and finishes, as fractions of its
-// height measured from the top. It completes above centre on purpose — a line
+// height measured from the top. It completes above centre on purpose - a line
 // that only lands once it's leaving reads as lagging behind the scroll.
 const FILL_START = 0.85;
 const FILL_END = 0.35;
@@ -126,7 +126,7 @@ const onScroll = () => {
     progressBar.style.transform = `scaleX(${progress})`;
   }
 
-  // Hero drifts up slower than the page and dissolves — the page slides out
+  // Hero drifts up slower than the page and dissolves - the page slides out
   // from under it rather than the hero simply leaving.
   if (heroContent && !reduceMotion) {
     const travel = Math.min(y / window.innerHeight, 1);
@@ -135,7 +135,7 @@ const onScroll = () => {
   }
 
   // The statement's own top, tracked from FILL_START down to where its bottom
-  // reaches FILL_END — so the fill is driven by the whole block passing the
+  // reaches FILL_END - so the fill is driven by the whole block passing the
   // band, not by a single point on it.
   if (fillEl) {
     const vh = window.innerHeight;
@@ -183,7 +183,7 @@ const setMenu = (open) => {
   mobileMenu.classList.toggle('hidden', !open);
   menuBtn.setAttribute('aria-expanded', String(open));
   document.body.classList.toggle('overflow-hidden', open);
-  // `overflow-hidden` alone won't stop Lenis — it drives scroll itself.
+  // `overflow-hidden` alone won't stop Lenis - it drives scroll itself.
   if (open) lenis?.stop();
   else lenis?.start();
 };
@@ -232,7 +232,7 @@ if (lenis) {
    5. Scroll-reveal via IntersectionObserver
    Anything crossing 82% of the viewport height reveals. Elements that cross
    together are treated as one batch and staggered in reading order, so grids
-   and card rows cascade instead of appearing all at once — that cascade is
+   and card rows cascade instead of appearing all at once - that cascade is
    most of what separates a considered reveal from a plain fade-in.
    ─────────────────────────────────────────────────────────────────────── */
 const revealEls = document.querySelectorAll('.reveal');
@@ -263,7 +263,7 @@ if ('IntersectionObserver' in window && revealEls.length) {
           // Release the compositor layer once this element has landed. Keyed to
           // filter, not transform: the blur runs on --reveal-blur-dur, roughly
           // twice the rise, so settling on transform would drop will-change
-          // while the rack focus was still mid-flight. Guard on e.target too —
+          // while the rack focus was still mid-flight. Guard on e.target too -
           // transitionend bubbles, and these cards contain children with their
           // own transitions.
           const settle = (e) => {
@@ -318,7 +318,7 @@ const applyLanguage = (lang) => {
   try {
     localStorage.setItem(STORAGE_KEY, lang);
   } catch {
-    /* localStorage may be unavailable (private mode) — ignore */
+    /* localStorage may be unavailable (private mode) - ignore */
   }
 };
 
@@ -344,7 +344,7 @@ applyLanguage(getInitialLang());
    The press state is deliberately short and shallow so a click still feels
    like a button, rather than a dramatic animation. */
 if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  document.querySelectorAll('.featured-work .project-card--link').forEach((card) => {
+  document.querySelectorAll('.project-card--link, .projects-page .fun-card, .profile-card').forEach((card) => {
     const resetTilt = () => {
       card.style.removeProperty('--tilt-x');
       card.style.removeProperty('--tilt-y');
@@ -367,7 +367,7 @@ if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').mat
 
 /* ───────────────────────────────────────────────────────────────────────
    7. Carousel arrows
-   The row already scrolls on its own — wheel, trackpad, drag, touch. These add
+   The row already scrolls on its own - wheel, trackpad, drag, touch. These add
    the visible affordance that says so, and give keyboard users something to
    tab to: a bare overflow container isn't focusable in Chrome.
    ─────────────────────────────────────────────────────────────────────── */

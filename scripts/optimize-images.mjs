@@ -5,14 +5,14 @@
 // a .png with the same filename and the next build picks it up.
 //
 // The .png originals stay in public/images as the editable source of truth.
-// They'd normally ship too — Vite copies public/ verbatim — so the Vite config
+// They'd normally ship too - Vite copies public/ verbatim - so the Vite config
 // strips *.png out of dist/images at the end of the build. Only WebP is served.
 //
 // Every image is re-encoded on every run, deliberately. This used to skip any
 // image whose .webp was newer than its .png, which broke on CI: actions/checkout
 // stamps every file with the checkout time, so a freshly swapped screenshot
 // looked no newer than the stale .webp committed beside it and the old image
-// shipped. Re-encoding all 13 takes ~2s — far cheaper than shipping the wrong
+// shipped. Re-encoding all 13 takes ~2s - far cheaper than shipping the wrong
 // picture. Don't reintroduce an mtime check.
 import sharp from 'sharp';
 import { readdir, stat } from 'node:fs/promises';
@@ -34,7 +34,7 @@ const MAX_WIDTH = {
 
 const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
 
-// Read the directory rather than keep a hand-written list — the old hardcoded
+// Read the directory rather than keep a hand-written list - the old hardcoded
 // one had drifted out of sync with what was actually on disk.
 const sources = (await readdir(IMAGES_DIR)).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort();
 
@@ -70,6 +70,6 @@ for (const file of sources) {
 }
 
 console.log(
-  `images: ${converted} converted — ` +
+  `images: ${converted} converted - ` +
     `${kb(totalBefore)} of source serves as ${kb(totalAfter)}`,
 );

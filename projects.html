@@ -6,15 +6,15 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <title>Projects — Kenvara Solivo Lwie</title>
+    <title>Projects | Kenvara Solivo Lwie</title>
     <meta
       name="description"
-      content="Every project by Kenvara Solivo Lwie — agentic AI, full-stack products, data engineering and client collaborations, built with Next.js, FastAPI and Python."
+      content="Selected full-stack products, Applied AI work, data projects, and collaborations by Kenvara Solivo Lwie."
     />
-    <meta property="og:title" content="Projects — Kenvara Solivo Lwie" />
+    <meta property="og:title" content="Projects | Kenvara Solivo Lwie" />
     <meta
       property="og:description"
-      content="Agentic AI, full-stack products, data engineering and client collaborations — every project, grouped by what it is."
+      content="Selected full-stack products, Applied AI work, data projects, and collaborations by Kenvara Solivo Lwie."
     />
     <meta property="og:type" content="website" />
 
@@ -26,7 +26,7 @@
     />
   </head>
 
-  <body>
+  <body class="projects-page">
     <!-- Skip link for keyboard / screen-reader users -->
     <a
       href="#work"
@@ -35,9 +35,9 @@
       >Skip to content</a
     >
 
-    <header class="site-nav fixed inset-x-0 top-0 z-50" data-nav>
+    <header class="site-nav is-light fixed inset-x-0 top-0 z-50" data-nav>
       <nav class="container-x flex h-16 items-center justify-between" aria-label="Primary">
-        <!-- Logo / name — clean wordmark -->
+        <!-- Logo / name - clean wordmark -->
         <a href="index.html" class="nav-logo">
           Kenvara Solivo Lwie
         </a>
@@ -45,7 +45,7 @@
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           <li><a href="index.html#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
-          <li><a href="index.html#specialty" class="nav-link" data-i18n="nav.specialty">Specialty</a></li>
+          <li><a href="index.html#specialty" class="nav-link" data-i18n="nav.specialty">Approach</a></li>
           <li><a href="projects.html" class="nav-link" data-i18n="nav.work">Projects</a></li>
           <li><a href="index.html#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
         </ul>
@@ -86,7 +86,7 @@
       >
         <ul class="container-x flex flex-col gap-1 py-4">
           <li><a href="index.html#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
-          <li><a href="index.html#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Specialty</a></li>
+          <li><a href="index.html#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Approach</a></li>
           <li><a href="projects.html" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="index.html#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
@@ -102,7 +102,7 @@
     </header>
 
     <main>
-      <section id="work" data-dark-end class="relative isolate overflow-hidden bg-black pt-32 pb-24 text-white sm:pt-40 sm:pb-32">
+      <section id="work" class="projects-showcase relative isolate overflow-hidden bg-slate-100 pt-32 pb-24 sm:pt-40 sm:pb-32">
 
         <!-- Wider than .container-x's 1200px so the showcase still reads as the
              full-bleed section, but capped: with padding alone the cards grew
@@ -145,14 +145,14 @@
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_stackpilot.webp" alt="StackPilot — agentic documentation tutor preview"
+                  <img src="images/project_stackpilot.webp" alt="StackPilot - agentic documentation tutor preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">StackPilot</h4>
                   <p class="project-blurb" data-i18n="work.stackpilot.body">
-                    Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
+                    Turns any documentation into a guided lesson - an AI agent researches it, writes it, and checks its own sources.
                   </p>
                   <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
                   <span class="project-link">
@@ -167,7 +167,7 @@
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_align.webp" alt="Align — CV-to-job skill gap analysis and cover letter drafting preview"
+                  <img src="images/project_align.webp" alt="Align - CV-to-job skill gap analysis and cover letter drafting preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
@@ -189,14 +189,14 @@
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://chattrolley.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_chattrolley.webp" alt="Chattrolley — multilingual AI shopping assistant preview"
+                  <img src="images/project_chattrolley.webp" alt="Chattrolley - multilingual AI shopping assistant preview"
                     class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Chattrolley</h4>
                   <p class="project-blurb" data-i18n="work.chattrolley.body">
-                    A multilingual AI shopping assistant that recommends verified products and sends customers to the store's existing checkout.
+                    An AI sales assistant that recommends products, checks inventory, and directs customers to checkout.
                   </p>
                   <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
                   <span class="project-link">
@@ -209,7 +209,7 @@
             </div>
           </div>
 
-          <!-- ── 2 · FULL-STACK PRODUCTS — a carousel, not a bento pair.
+          <!-- ── 2 · FULL-STACK PRODUCTS - a carousel, not a bento pair.
                Three cards squeezed into one row left each too narrow to read, so
                this category scrolls instead: wheel, drag, or the arrows next to
                the heading. See .project-strip in style.css. -->
@@ -230,18 +230,18 @@
             </div>
 
             <div class="project-strip" data-carousel-track>
-            <!-- Showup — the newest of the three, so it leads the row. -->
+            <!-- Showup - the newest of the three, so it leads the row. -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_showup.webp" alt="Showup — hyperlocal recurring clubs discovery preview"
+                  <img src="images/project_showup.webp" alt="Showup - hyperlocal recurring clubs discovery preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Showup</h4>
                   <p class="project-blurb" data-i18n="work.showup.body">
-                    Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.
+                    A social app for discovering plans and meeting people offline.
                   </p>
                   <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
                   <span class="project-link">
@@ -252,11 +252,11 @@
               </a>
             </article>
 
-            <!-- FH Aachen Chatbot — compact. Internal university project, so the
+            <!-- FH Aachen Chatbot - compact. Internal university project, so the
                  card is static: no link, no lift, no "View project". -->
             <article class="reveal project-card group flex flex-col">
               <div class="project-shot">
-                <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
+                <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot - AI chat interface preview"
                   class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
               </div>
               <div class="project-head">
@@ -269,11 +269,11 @@
               </div>
             </article>
 
-            <!-- Fluen — feature -->
+            <!-- Fluen - feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_fluen.webp" alt="Fluen — AI language learning platform preview"
+                  <img src="images/project_fluen.webp" alt="Fluen - AI language learning platform preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
@@ -293,7 +293,7 @@
             </div>
           </div>
 
-          <!-- ── 3 · DATA — feature on the left ── -->
+          <!-- ── 3 · DATA - feature on the left ── -->
           <div class="mb-20" style="--tint: rgba(245, 158, 11, 0.18); --dot: #fbbf24">
             <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
               <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
@@ -301,11 +301,11 @@
             </h3>
 
             <div class="project-pair">
-            <!-- Watchflow — feature -->
+            <!-- Watchflow - feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_watchflow.webp" alt="Watchflow — stock watchlist and ETL pipeline dashboard preview"
+                  <img src="images/project_watchflow.webp" alt="Watchflow - stock watchlist and ETL pipeline dashboard preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
@@ -323,7 +323,7 @@
               </a>
             </article>
 
-            <!-- DataCo — compact -->
+            <!-- DataCo - compact -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -347,7 +347,7 @@
             </div>
           </div>
 
-          <!-- ── COLLABORATIONS — built with and for someone else.
+          <!-- ── COLLABORATIONS - built with and for someone else.
                Feature on the right. -->
           <div class="mb-20" style="--tint: rgba(244, 63, 94, 0.18); --dot: #fb7185">
             <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -356,11 +356,11 @@
             </h3>
 
             <div class="project-pair">
-            <!-- Fuji no Hana — VIP Karte — compact -->
+            <!-- Fuji no Hana - VIP Karte - compact -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte — digital loyalty card preview"
+                  <img src="images/project_fujinohana.webp" alt="Fuji no Hana VIP Karte - digital loyalty card preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
@@ -370,7 +370,7 @@
                     VIP Karte
                   </h4>
                   <p class="project-blurb" data-i18n="work.fujinohana.body">
-                    A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.
+                    A loyalty card for a ramen restaurant - guests collect points at the counter, and the staff run the offers themselves without touching the code.
                   </p>
                   <p class="project-stack">Next.js · TypeScript · Drizzle · Neon Postgres</p>
                   <span class="project-link">
@@ -381,11 +381,11 @@
               </a>
             </article>
 
-            <!-- AIESEC — Prospecting Pipeline — feature -->
+            <!-- AIESEC - Prospecting Pipeline - feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline — HubSpot lead generation dashboard preview"
+                  <img src="images/project_igta.webp" alt="AIESEC iGTA Prospecting Pipeline - HubSpot lead generation dashboard preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
@@ -395,7 +395,7 @@
                     Prospecting Pipeline
                   </h4>
                   <p class="project-blurb" data-i18n="work.igta.body">
-                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
+                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file - three minutes instead of an afternoon.
                   </p>
                   <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
                   <span class="project-link">
@@ -417,7 +417,7 @@
           <!-- Horizontal scroller. The negative margin matches this wrapper's
                own px-3/px-4 gutter so the row bleeds to the viewport edge
                without ever making the page itself scroll sideways. -->
-          <!-- Below xl only — from xl the four cards fit the row, the scroller
+          <!-- Below xl only - from xl the four cards fit the row, the scroller
                is off, and hovering one opens it into an accordion (.fun-strip
                in style.css). Everything below applies to the scrolling state. -->
           <!-- overflow-y-hidden is load-bearing, not cosmetic: with only
@@ -427,7 +427,7 @@
                scrollable element and hands it the wheel, freezing the page for
                a beat as you scroll out of this section. pt-2 keeps the 4px
                hover lift from being clipped by the same hidden overflow.
-               The scrollbar itself is hidden (Firefox / IE / WebKit) — the row
+               The scrollbar itself is hidden (Firefox / IE / WebKit) - the row
                still scrolls by wheel, trackpad, drag and keyboard. -->
           <div class="fun-strip [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <!-- Elsewhere -->
@@ -491,7 +491,7 @@
                 <div class="flex flex-1 flex-col gap-2 p-5">
                   <h4 class="text-lg font-bold tracking-tight">Kanagawa Wave</h4>
                   <p class="text-sm leading-snug text-white/55" data-i18n="work.kanagawa.body">
-                    Hokusai's wave told as a scroll — the video scrubs as you move down the page.
+                    Hokusai's wave told as a scroll - the video scrubs as you move down the page.
                   </p>
                   <p class="project-stack mt-auto">GSAP · ScrollTrigger</p>
                 </div>
@@ -508,7 +508,7 @@
             Let's <span class="mark">talk</span>
           </h2>
           <p class="reveal mx-auto mt-5 max-w-lg font-medium text-slate-700" data-i18n="contact.body">
-            I'm looking for a working student role or internship as an AI software engineer.
+            I'm looking for a working student role or internship in software engineering, full-stack development, or Applied AI.
             Email or LinkedIn, whichever is easier.
           </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">

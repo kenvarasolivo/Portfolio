@@ -2,7 +2,7 @@
   "name": "kenvara-portfolio",
   "private": true,
   "version": "1.0.0",
-  "description": "Personal portfolio — Kenvara Solivo Lwie. Vite + Tailwind CSS, vanilla JS.",
+  "description": "Personal portfolio - Kenvara Solivo Lwie. Vite + Tailwind CSS, vanilla JS.",
   "type": "module",
   "scripts": {
     "predev": "npm run optimize-images",

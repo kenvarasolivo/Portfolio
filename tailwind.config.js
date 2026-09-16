@@ -7,7 +7,7 @@ export default {
     extend: {
       // ── Brand colors ───────────────────────────────────────────────────
       colors: {
-        // Deep navy/near-black — used ONLY for the dark hero backdrop
+        // Deep navy/near-black - used ONLY for the dark hero backdrop
         ink: {
           DEFAULT: '#0A0A0A',
           950: '#05070D',
@@ -41,15 +41,15 @@ export default {
         xl: '0.875rem',
       },
       boxShadow: {
-        // Resting card shadow on the white page — layered for a raised, 3D feel
+        // Resting card shadow on the white page - layered for a raised, 3D feel
         // that's clearly visible against white by default (no hover needed).
-        // NOTE: keyed as `card-rest` (not `card`) — `card` is also a color, and
+        // NOTE: keyed as `card-rest` (not `card`) - `card` is also a color, and
         // `shadow-card` would collide, emitting a white shadow-color that wipes
         // the shadow out against the white page.
         'card-rest': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 1px rgba(15, 23, 42, 0.05), 0 3px 6px -1px rgba(15, 23, 42, 0.10), 0 10px 18px -4px rgba(15, 23, 42, 0.14), 0 22px 36px -12px rgba(15, 23, 42, 0.18), 0 40px 64px -24px rgba(15, 23, 42, 0.20)',
-        // Hover state — deeper lift with an accent-tinted ring for a stronger 3D pop
+        // Hover state - deeper lift with an accent-tinted ring for a stronger 3D pop
         'card-hover': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(37, 99, 235, 0.30), 0 6px 12px -2px rgba(15, 23, 42, 0.12), 0 18px 32px -8px rgba(15, 23, 42, 0.18), 0 36px 56px -16px rgba(37, 99, 235, 0.22), 0 56px 88px -28px rgba(15, 23, 42, 0.28)',
-        // Neutral lift — for static (non-clickable) panels. Deliberately just one
+        // Neutral lift - for static (non-clickable) panels. Deliberately just one
         // step above `card-rest`: enough to register as a lift, not as a pop.
         'card-lift': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 3px rgba(15, 23, 42, 0.06), 0 6px 12px -2px rgba(15, 23, 42, 0.10), 0 16px 28px -8px rgba(15, 23, 42, 0.14), 0 30px 48px -16px rgba(15, 23, 42, 0.18), 0 52px 78px -28px rgba(15, 23, 42, 0.22)',
         // Soft blue glow for hovered cards

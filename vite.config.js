@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The .png screenshots in public/images are the editable source: you replace
 // one and `npm run build` re-encodes it to .webp (see scripts/optimize-images).
 // But public/ is copied verbatim, so the originals would ship alongside the
-// WebP — ~11 MB of dead weight nobody downloads. Drop them from the output.
+// WebP - ~11 MB of dead weight nobody downloads. Drop them from the output.
 const stripSourcePngs = () => ({
   name: 'strip-source-pngs',
   apply: 'build',

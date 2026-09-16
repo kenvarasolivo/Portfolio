@@ -19,14 +19,14 @@
     /* The blur runs on its own clock, a little longer than the rise and on a
        less front-loaded curve. Sharing --ease-cinema made it useless: an
        expo-out is ~75% done by 250ms, so focus snapped in before the element
-       had finished moving. Keep the head start small — much past this the
+       had finished moving. Keep the head start small - much past this the
        rack stops reading as focus and starts reading as lag. */
     --reveal-blur-dur: 0.95s;
     --ease-blur: cubic-bezier(0.18, 0.6, 0.3, 1);
   }
 
   html {
-    /* No `scroll-behavior: smooth` — Lenis owns scrolling and native smooth
+    /* No `scroll-behavior: smooth` - Lenis owns scrolling and native smooth
        fights it. Reduced-motion users fall back to instant jumps (below). */
     /* offset anchored sections so the sticky nav doesn't cover headings */
     scroll-padding-top: 6rem;
@@ -83,7 +83,7 @@
            transition-all duration-200 focus-visible:ring-2
            active:scale-95;
   }
-  /* Solid dark button — for the white page (nav CTA, contact band) */
+  /* Solid dark button - for the white page (nav CTA, contact band) */
   .btn-primary {
     @apply bg-slate-900 text-white hover:bg-accent hover:text-white;
   }
@@ -94,24 +94,24 @@
   .btn-ghost {
     @apply border border-slate-300 text-slate-700 hover:border-accent hover:text-accent;
   }
-  /* White pill button — sits on the dark hero */
+  /* White pill button - sits on the dark hero */
   .btn-light {
     @apply bg-white text-slate-900 hover:bg-accent hover:text-white hover:shadow-glow-sm;
   }
-  /* Outlined light button — sits on the dark hero */
+  /* Outlined light button - sits on the dark hero */
   .btn-ghost-light {
     @apply border border-white/25 text-white hover:border-white/60 hover:bg-white/10;
   }
 
   /* ── Cards ── */
   .card {
-    /* 200ms: with the small hover lift below, 120ms read as twitchy — the
+    /* 200ms: with the small hover lift below, 120ms read as twitchy - the
        slightly longer settle makes the movement feel intentional. */
     @apply rounded-xl border border-slate-200 bg-card shadow-card-rest
            transition-all duration-200 ease-out;
   }
 
-  /* Static / informational cards (NOT clickable) — keeps the layered 3D depth
+  /* Static / informational cards (NOT clickable) - keeps the layered 3D depth
      and gives a small neutral lift on hover, but NO blue accent ring/tint and
      no pointer cursor, so it reads as "content", not "press me".
      `!` overrides `.reveal.is-visible`'s translateY(0). */
@@ -140,7 +140,7 @@
   /* ── Project cards ──
      The screenshot is the card: a single rounded well with the copy set bare
      underneath it, on the section's own black. There is no box drawn around
-     the pair of them — the thumbnail carries the frame, and the caption reads
+     the pair of them - the thumbnail carries the frame, and the caption reads
      as a caption rather than as the bottom half of a panel. */
   /* --tint is set per project (landing) or per category (projects page); here
      it is a bloom under the well, so each card keeps its temperature without a
@@ -171,7 +171,7 @@
     @apply mt-2.5 text-xs font-medium text-white/50;
   }
   /* Apple-style text affordance, replacing the arrow button the old footer row
-     carried — the card no longer has a right-hand slot to hang it in. */
+     carried - the card no longer has a right-hand slot to hang it in. */
   .project-link {
     @apply mt-5 inline-flex items-center gap-1 text-[0.95rem] font-medium text-[#6ba8ff]
            transition-colors duration-200 group-hover:text-white;
@@ -193,7 +193,7 @@
      A flex row at md+ rather than a grid, because flex-grow is animatable and
      `grid-column: span N` is not. The two cards rest at an even split, and
      hovering (or tabbing into) either one opens it to 7:5 while its partner
-     drops to the 5 — so the size difference reads as "what you're looking at"
+     drops to the 5 - so the size difference reads as "what you're looking at"
      rather than as a permanent ranking of the two projects.
 
      flex-basis is 0 so the split is an exact 7:5 of the space left after the
@@ -207,7 +207,7 @@
     flex: 5 1 0%;
   }
   /* The swap is a large layout movement, so it is opt-in on motion preference;
-     under `reduce` the pair just stays even. It also needs :has() — without
+     under `reduce` the pair just stays even. It also needs :has() - without
      that the even resting layout stands too, which is the design anyway. */
   @media (prefers-reduced-motion: no-preference) {
     .project-pair:has(> .project-card:hover) > .project-card,
@@ -215,7 +215,7 @@
       flex-grow: 5;
     }
     /* The :has() demote above scores 0,4,0, so the promote has to carry the
-       same :has() prefix to outrank it — a bare `> .project-card:hover` is
+       same :has() prefix to outrank it - a bare `> .project-card:hover` is
        0,3,0 and loses, which silently leaves both cards at an even split. */
     .project-pair:has(> .project-card:hover) > .project-card:hover,
     .project-pair:has(> .project-card:focus-within) > .project-card:focus-within {
@@ -230,10 +230,10 @@
      or the arrow buttons beside the heading.
 
      44% from lg leaves ~9% of the third card showing past the second, which is
-     what tells you the row goes on — two cards at an exact half would look like
+     what tells you the row goes on - two cards at an exact half would look like
      the whole set.
 
-     overflow-y-hidden is load-bearing, not cosmetic — see .fun-strip below for
+     overflow-y-hidden is load-bearing, not cosmetic - see .fun-strip below for
      the Lenis nested-scroll reason. pt-2 keeps the 4px hover lift from being
      clipped by that same hidden overflow. */
   .project-strip {
@@ -271,7 +271,7 @@
      nothing would move.
 
      The widths sum to the same 132% opened as at rest, and that constant total
-     is what makes the seesaw safe inside a scroller — the row never gets
+     is what makes the seesaw safe inside a scroller - the row never gets
      longer, so the arrows' end-of-row state stays true and the last card can
      still open while you are scrolled hard against the end. It also keeps the
      pointer inside the card it opened: the hovered card grows into the space
@@ -280,10 +280,10 @@
 
      The 38% is tied to there being three cards. A fourth would rest at 176%
      and open to 170%, so the row would tighten by 6% on hover instead of
-     holding still — worth retuning, but it degrades quietly rather than
+     holding still - worth retuning, but it degrades quietly rather than
      breaking.
 
-     Same :has() specificity trick as the bento pair above — see that comment
+     Same :has() specificity trick as the bento pair above - see that comment
      for why the promote has to repeat the :has() prefix. */
   @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
     .project-strip:has(> .project-card:hover) > .project-card,
@@ -311,7 +311,7 @@
      The bento pair's idea with a different mechanic: four equal cards rather
      than a two-card seesaw, so hovering one opens it and the other three each
      give up a slice instead of one partner trading places with it. A plain
-     :hover does the whole thing — with every card at flex-grow 1, raising one
+     :hover does the whole thing - with every card at flex-grow 1, raising one
      to 2.4 shrinks the rest by itself, so there is no :has() and no demote rule
      to out-specify.
 
@@ -342,14 +342,14 @@
 
   /* ── The one transition every card row shares ──
      Must be a descendant selector, not `.fun-card` alone: `.reveal` also sets
-     `transition` and, at equal specificity, the later definition wins — which
+     `transition` and, at equal specificity, the later definition wins - which
      silently dropped flex-grow from the property list and made the width snap.
 
      opacity/transform/filter keep .reveal's own duration and easing so the
      entrance is untouched; only the size and hover states are added.
 
-     The two rows size themselves differently — the pair and the filmstrip on
-     flex-grow, .project-strip on width — and each ignores the property it
+     The two rows size themselves differently - the pair and the filmstrip on
+     flex-grow, .project-strip on width - and each ignores the property it
      doesn't use, which costs nothing and keeps this one rule authoritative for
      every card row's timing. */
   .project-pair > .project-card,
@@ -392,7 +392,7 @@
      --fill is the position of the leading edge, written by main.js. It runs
      from -22% to 100% so that at the start the whole gradient sits above the
      text (all grey) and at the end the soft band has cleared the bottom (all
-     dark). The 22% offset is the width of that soft band — a hard stop would
+     dark). The 22% offset is the width of that soft band - a hard stop would
      slice through a line of type mid-glyph.
 
      Defaults to fully dark: with no JS, or under reduced motion where the
@@ -412,7 +412,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* The six words under the mindset statement. Heavier than .pill on purpose —
+  /* The six words under the mindset statement. Heavier than .pill on purpose -
      they are the claim itself in shorthand, not metadata hanging off a card. */
   .mindset-chip {
     @apply inline-flex items-center rounded-full border border-slate-200 bg-white
@@ -491,7 +491,7 @@
   .site-nav.is-scrolled .lang-opt.is-active {
     @apply bg-accent text-white;
   }
-  /* Dark variant — used inside the light mobile menu panel */
+  /* Dark variant - used inside the light mobile menu panel */
   .lang-switch--dark {
     @apply border-slate-300;
   }
@@ -504,7 +504,7 @@
 
   /* ── Nav over the black projects section ──
      `is-dark` rides along with `is-scrolled`, and both selectors weigh the
-     same, so every rule here MUST stay below its `.is-scrolled` counterpart —
+     same, so every rule here MUST stay below its `.is-scrolled` counterpart -
      source order is the only thing making it win. */
   .site-nav.is-dark {
     @apply border-white/10 bg-black/70 backdrop-blur-md;
@@ -555,6 +555,201 @@
   .site-nav.is-light .lang-opt.is-active {
     @apply bg-accent text-white;
   }
+
+  /* ── All-projects page ──
+     The landing page uses the image as a loose preview with its caption below.
+     On the archive, each project is a complete object: name at the top, image
+     in its own inset well, and the explanation anchored at the lower edge.
+     That makes the long project list easier to scan while keeping the same
+     restrained card language as the home page. */
+  .projects-page .projects-showcase {
+    @apply text-slate-900;
+  }
+  .projects-page .projects-showcase .text-white {
+    @apply text-slate-900;
+  }
+  .projects-page .projects-showcase .text-white\/70 {
+    @apply text-slate-600;
+  }
+  .projects-page .projects-showcase .text-white\/60 {
+    @apply text-slate-600;
+  }
+  .projects-page .projects-showcase .text-white\/30 {
+    @apply bg-slate-300;
+  }
+  .projects-page .projects-showcase .carousel-btn {
+    @apply border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50;
+  }
+
+  .projects-page .project-card,
+  .projects-page .fun-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 0;
+    overflow: visible;
+    padding: 1.125rem;
+    border: 1px solid rgb(226 232 240);
+    border-radius: 1.5rem;
+    background: white;
+    color: rgb(15 23 42);
+    box-shadow: 0 18px 44px -30px rgb(15 23 42 / 0.35);
+  }
+  /* Let the card own the grid without changing the link's hit area: every
+     visible part of a linked project remains inside its anchor. */
+  .projects-page .project-card > a,
+  .projects-page .fun-card > a,
+  .projects-page .fun-card > a > div,
+  .projects-page .project-card .project-head {
+    display: contents;
+  }
+  .projects-page .project-card .pill-dark {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    margin: 0;
+    border-color: rgb(226 232 240);
+    background: rgb(248 250 252);
+    color: rgb(71 85 105);
+  }
+  .projects-page .project-card .live-dot {
+    background: rgb(21 128 61);
+  }
+  .projects-page .project-card .project-title,
+  .projects-page .fun-card h4 {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    padding-right: 5.25rem;
+    color: rgb(15 23 42);
+  }
+  .projects-page .project-card .project-title {
+    font-size: 1.5rem;
+  }
+  .projects-page .project-card .project-partner {
+    color: rgb(100 116 139);
+  }
+  .projects-page .project-card .project-shot,
+  .projects-page .fun-card .fun-shot {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 1rem;
+    border: 1px solid rgb(226 232 240);
+    border-radius: 1rem;
+    background: rgb(241 245 249);
+    box-shadow: none;
+  }
+  .projects-page .project-card .project-blurb,
+  .projects-page .fun-card p:not(.project-stack) {
+    grid-row: 3;
+    grid-column: 1;
+    max-width: none;
+    margin-top: 1.125rem;
+    color: rgb(71 85 105);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+  .projects-page .project-card .project-stack,
+  .projects-page .fun-card .project-stack {
+    grid-row: 4;
+    grid-column: 1;
+    margin-top: 0.875rem;
+    color: rgb(100 116 139);
+  }
+  .projects-page .project-card .project-link {
+    grid-row: 5;
+    grid-column: 1;
+    margin-top: 1rem;
+    color: rgb(29 78 216);
+  }
+  .projects-page .project-card--link:hover,
+  .projects-page .fun-card:hover {
+    border-color: rgb(148 163 184);
+    background: white;
+  }
+  .projects-page .project-card--link:hover .project-shot,
+  .projects-page .project-card--link:focus-within .project-shot {
+    border-color: rgb(148 163 184);
+  }
+  .projects-page .project-card--link:hover .project-link {
+    color: rgb(15 23 42);
+  }
+  /* Archive cards retain the compact content height. The shared carousels
+     still expand sideways on hover; this only removes the old fixed height
+     that left a blank panel between the image and description. */
+  .projects-page .project-strip > .project-card,
+  .projects-page .fun-strip > .fun-card {
+    height: auto;
+  }
+  body.projects-page .project-card--link.is-visible,
+  body.projects-page .fun-card.is-visible {
+    transform: perspective(1100px) translate3d(0, 0, 0)
+      rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transform-style: preserve-3d;
+  }
+  body.projects-page .project-card--link.is-pressed,
+  body.projects-page .fun-card.is-pressed {
+    transform: perspective(1100px) translate3d(0, 0, 0)
+      rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(0.985);
+    transition-duration: 90ms;
+  }
+  /* A visible CSS hover state is intentional here. Cards live in horizontal
+     tracks, where relying only on pointer-derived custom properties made the
+     movement imperceptible and allowed the track to clip its lift. */
+  .projects-page .project-strip,
+  .projects-page .fun-strip {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  body.projects-page .project-card--link.is-visible:hover,
+  body.projects-page .project-card--link.is-visible:focus-within,
+  body.projects-page .fun-card.is-visible:hover,
+  body.projects-page .fun-card.is-visible:focus-within {
+    transform: perspective(1100px) translate3d(0, -8px, 0) rotateX(2deg) rotateY(-2deg) scale(1.01);
+    border-color: rgb(148 163 184);
+    box-shadow: 0 30px 56px -30px rgb(15 23 42 / 0.42);
+  }
+  /* The archive uses the same single-card interaction as the home page.
+     Keep the project rows stable instead of opening one card and shrinking its
+     neighbours on hover. */
+  .projects-page .project-pair > .project-card {
+    flex: 1 1 0%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .projects-page .project-pair:has(> .project-card:hover) > .project-card,
+    .projects-page .project-pair:has(> .project-card:focus-within) > .project-card,
+    .projects-page .project-pair:has(> .project-card:hover) > .project-card:hover,
+    .projects-page .project-pair:has(> .project-card:focus-within) > .project-card:focus-within {
+      flex-grow: 1;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+    .projects-page .project-strip:has(> .project-card:hover) > .project-card,
+    .projects-page .project-strip:has(> .project-card:focus-within) > .project-card,
+    .projects-page .project-strip:has(> .project-card:hover) > .project-card:hover,
+    .projects-page .project-strip:has(> .project-card:focus-within) > .project-card:focus-within {
+      width: 44%;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1280px) {
+    .projects-page .fun-strip > .fun-card:hover,
+    .projects-page .fun-strip > .fun-card:focus-within {
+      flex-grow: 1;
+    }
+  }
+
+  .projects-page .fun-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .projects-page .fun-card .fun-shot {
+    overflow: hidden;
+  }
 }
 
 /* ───────────────────────────────────────────────────────────────────────
@@ -567,7 +762,7 @@
      to choreograph a fixed order. */
   .reveal {
     opacity: 0;
-    /* Longer travel than a typical fade-up — the distance is what registers
+    /* Longer travel than a typical fade-up - the distance is what registers
        as weight. translate3d keeps it on the compositor. */
     transform: translate3d(0, 56px, 0);
     /* Out of focus on the way in, so the section resolves rather than just
@@ -606,7 +801,7 @@
   }
 
   /* Cards reveal as one object. They carry a slight scale on top of the rise,
-     so the whole card settles into place rather than sliding in flat — the
+     so the whole card settles into place rather than sliding in flat - the
      thumbnail and the copy always arrive together. */
   .reveal.card,
   .reveal.card-dark,
@@ -654,7 +849,7 @@
 
   /* Living gradient wash: the blue colour bands physically slide up and down so
      the whole background reads as a slow wave. The element is taller than its
-     frame and the gradient keeps SOLID anchors at the top and bottom — so the
+     frame and the gradient keeps SOLID anchors at the top and bottom - so the
      dark top edge and the light bottom edge never move (the page seams stay
      locked) while everything in between breathes. Pure transform = GPU-smooth. */
   .wave-wash {

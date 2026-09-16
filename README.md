@@ -1,15 +1,15 @@
-# Kenvara Solivo Lwie — Portfolio
+# Kenvara Solivo Lwie - Portfolio
 
 ![Portfolio screenshot](docs/screenshot.png)
 
-The personal portfolio of Kenvara Solivo Lwie — a CS student and full-stack & AI software engineer. A fast, single-page site built to showcase selected work, skills, and a way to get in touch.
+The personal portfolio of Kenvara Solivo Lwie - a CS student and full-stack & AI software engineer. A fast, single-page site built to showcase selected work, skills, and a way to get in touch.
 
 ---
 
 ## 🚀 Features
 
 *   **Responsive Design:** Fully optimized for mobile, tablet, and desktop views.
-*   **Bilingual (EN / DE):** In-page language switch powered by a lightweight `data-i18n` system — no reload, no framework.
+*   **Bilingual (EN / DE):** In-page language switch powered by a lightweight `data-i18n` system - no reload, no framework.
 *   **Project-led homepage:** A web and applied-AI hero with linked project previews, followed by selected work and concise project decisions.
 *   **Responsive interactions:** Scroll reveals, keyboard navigation, a mobile menu, and reduced-motion support.
 *   **Fast & SEO-friendly:** Vite-built static output, optimized images (`sharp`), lazy-loaded assets, and Open Graph + meta tags for rich link previews.
@@ -89,7 +89,7 @@ npm -v
 
 Deployment is fully automated via GitHub Actions. Every push to `main` triggers
 the [`deploy.yml`](.github/workflows/deploy.yml) workflow, which builds the site
-with Vite and publishes the `dist/` output to **GitHub Pages** — no manual steps
+with Vite and publishes the `dist/` output to **GitHub Pages** - no manual steps
 required. The workflow can also be run on demand from the Actions tab
 (`workflow_dispatch`).
 
