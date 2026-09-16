@@ -27,26 +27,40 @@
   </head>
 
   <body>
+    <!-- Skip link for keyboard / screen-reader users -->
     <a
       href="#work"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       data-i18n="skip"
-      >Skip to content</a>
+      >Skip to content</a
+    >
 
     <header class="site-nav fixed inset-x-0 top-0 z-50" data-nav>
-      <nav class="container-x nav-inner flex items-center justify-between" aria-label="Primary">
-        <a href="index.html" class="nav-logo">Kenvara Solivo Lwie</a>
-        <ul class="desktop-nav-links hidden items-center gap-8 md:flex">
+      <nav class="container-x flex h-16 items-center justify-between" aria-label="Primary">
+        <!-- Logo / name — clean wordmark -->
+        <a href="index.html" class="nav-logo">
+          Kenvara Solivo Lwie
+        </a>
+
+        <!-- Center links (desktop) -->
+        <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          <li><a href="index.html#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="index.html#specialty" class="nav-link" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="projects.html" class="nav-link" data-i18n="nav.work">Projects</a></li>
-          <li><a href="index.html#about-me" class="nav-link" data-i18n="nav.aboutMe">About</a></li>
+          <li><a href="index.html#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
         </ul>
+
+        <!-- Right cluster (desktop): language switch + CTA -->
         <div class="hidden items-center gap-3 md:flex">
+          <!-- Language switch -->
           <div class="lang-switch" role="group" aria-label="Language" data-lang-switch>
             <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
             <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
           </div>
-          <a href="#contact" class="btn nav-contact h-10 px-5 py-0 inline-flex" data-i18n="nav.cta">Get in touch</a>
+          <a href="#contact" class="btn btn-accent h-10 px-5 py-0 inline-flex" data-i18n="nav.cta">Get in touch</a>
         </div>
+
+        <!-- Hamburger (mobile) -->
         <button
           type="button"
           class="nav-burger grid h-10 w-10 place-items-center rounded-lg border border-white/30 text-white md:hidden"
@@ -60,18 +74,23 @@
           </svg>
         </button>
       </nav>
+
+      <!-- Reading-progress rail, revealed once the nav goes solid -->
       <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+      <!-- Mobile menu panel -->
       <div
         id="mobile-menu"
         class="hidden border-t border-slate-200 bg-white/95 backdrop-blur-md md:hidden"
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="index.html#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About</a></li>
+          <li><a href="index.html#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li><a href="index.html#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="projects.html" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="index.html#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
+            <!-- Language switch (mobile, dark variant) -->
             <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
               <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
               <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
@@ -83,17 +102,28 @@
     </header>
 
     <main>
-      <section id="work" data-dark-section class="relative isolate overflow-hidden bg-black pt-32 pb-24 text-white sm:pt-40 sm:pb-32">
+      <section id="work" data-dark-end class="relative isolate overflow-hidden bg-black pt-32 pb-24 text-white sm:pt-40 sm:pb-32">
+
+        <!-- Wider than .container-x's 1200px so the showcase still reads as the
+             full-bleed section, but capped: with padding alone the cards grew
+             with the viewport and ran ~1730px across on a 1920 screen. -->
         <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
+          <!-- Page header -->
           <div class="reveal mb-14 max-w-3xl">
+            <!-- flex, not inline-flex: .eyebrow below is itself inline-flex, so
+                 two inline boxes would share one line instead of stacking. -->
             <a href="index.html" class="mb-6 flex w-fit items-center gap-1.5 text-sm font-medium text-white/60 transition-colors duration-200 hover:text-white">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span data-i18n="projects.back">Back to home</span>
             </a>
             <p class="eyebrow mb-4 text-white/70" data-i18n="projects.eyebrow">All work</p>
-            <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="projects.title">Everything I’ve built</h1>
-            <p class="mt-5 text-lg text-white/60" data-i18n="projects.subtitle">Web products, AI tools, collaborations, and a few experiments.</p>
+            <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-6xl" data-i18n="projects.title">Everything I&#39;ve built</h1>
+            <p class="mt-5 text-lg text-white/60" data-i18n="projects.subtitle">
+              Ten projects grouped by what they are, plus the ones built purely for fun.
+            </p>
           </div>
+
+          <!-- ── 1 · AI ── -->
           <div class="mb-20" style="--tint: rgba(139, 92, 246, 0.20); --dot: #a78bfa" data-carousel>
             <div class="mb-7 flex items-center justify-between gap-6">
               <h3 class="reveal flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -111,6 +141,7 @@
             </div>
 
             <div class="project-strip" data-carousel-track>
+            <!-- StackPilot -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://stackpilot-mu.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -120,7 +151,9 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">StackPilot</h4>
-                  <p class="project-blurb" data-i18n="work.stackpilot.body">Turn documentation into guided lessons. Sources and citation checks sit alongside the answer so you can inspect them as you read.</p>
+                  <p class="project-blurb" data-i18n="work.stackpilot.body">
+                    Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
+                  </p>
                   <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -129,6 +162,8 @@
                 </div>
               </a>
             </article>
+
+            <!-- Align -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://align-engine.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -138,7 +173,9 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Align</h4>
-                  <p class="project-blurb" data-i18n="work.align.body">Compare a CV with a job description and draft an application. Results show supporting evidence and skill gaps; every draft stays editable.</p>
+                  <p class="project-blurb" data-i18n="work.align.body">
+                    Reads a CV against a job description, shows where the real skill gaps are, and drafts a cover letter that only claims what the CV backs up.
+                  </p>
                   <p class="project-stack">FastAPI · React · pgvector</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -147,6 +184,8 @@
                 </div>
               </a>
             </article>
+
+            <!-- Chattrolley -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://chattrolley.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -156,8 +195,10 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Chattrolley</h4>
-                  <p class="project-blurb" data-i18n="work.chattrolley.body">An AI shopping assistant built with a team of four. Product recommendations are checked against the store's catalog before they reach the customer.</p>
-                  <p class="project-stack">Next.js · TypeScript · Gemini</p>
+                  <p class="project-blurb" data-i18n="work.chattrolley.body">
+                    A multilingual AI shopping assistant that recommends verified products and sends customers to the store's existing checkout.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -167,6 +208,11 @@
             </article>
             </div>
           </div>
+
+          <!-- ── 2 · FULL-STACK PRODUCTS — a carousel, not a bento pair.
+               Three cards squeezed into one row left each too narrow to read, so
+               this category scrolls instead: wheel, drag, or the arrows next to
+               the heading. See .project-strip in style.css. -->
           <div class="mb-20" style="--tint: rgba(16, 185, 129, 0.18); --dot: #34d399" data-carousel>
             <div class="mb-7 flex items-center justify-between gap-6">
               <h3 class="reveal flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -184,16 +230,19 @@
             </div>
 
             <div class="project-strip" data-carousel-track>
+            <!-- Showup — the newest of the three, so it leads the row. -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_showup.webp" alt="Show Up — local groups and activities"
+                  <img src="images/project_showup.webp" alt="Showup — hyperlocal recurring clubs discovery preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Showup</h4>
-                  <p class="project-blurb" data-i18n="work.showup.body">Find local groups and casual plans. Browse without an account; sign in when you want to join.</p>
+                  <p class="project-blurb" data-i18n="work.showup.body">
+                    Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.
+                  </p>
                   <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -202,6 +251,9 @@
                 </div>
               </a>
             </article>
+
+            <!-- FH Aachen Chatbot — compact. Internal university project, so the
+                 card is static: no link, no lift, no "View project". -->
             <article class="reveal project-card group flex flex-col">
               <div class="project-shot">
                 <img src="images/project_chatbot.webp" alt="FH Aachen Chatbot — AI chat interface preview"
@@ -210,10 +262,14 @@
               <div class="project-head">
                 <span class="pill-dark mb-4" data-i18n="badge.university">University project</span>
                 <h4 class="project-title">FH Aachen Chatbot</h4>
-                <p class="project-blurb" data-i18n="work.chatbot.body">Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.</p>
+                <p class="project-blurb" data-i18n="work.chatbot.body">
+                  Rebuilt a university chatbot's frontend with a 10-person team, so answers stream in as they're written instead of landing all at once.
+                </p>
                 <p class="project-stack">Vue.js · Laravel · OpenAI</p>
               </div>
             </article>
+
+            <!-- Fluen — feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fluen-languages.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -223,7 +279,9 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Fluen</h4>
-                  <p class="project-blurb" data-i18n="work.fluen.body">Vocabulary, reading, and AI conversation in one app. Onboarding adapts the learning material to your language, level, and goals.</p>
+                  <p class="project-blurb" data-i18n="work.fluen.body">
+                    A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.
+                  </p>
                   <p class="project-stack">Next.js · TypeScript · Supabase · Gemini</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -234,6 +292,8 @@
             </article>
             </div>
           </div>
+
+          <!-- ── 3 · DATA — feature on the left ── -->
           <div class="mb-20" style="--tint: rgba(245, 158, 11, 0.18); --dot: #fbbf24">
             <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
               <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
@@ -241,6 +301,7 @@
             </h3>
 
             <div class="project-pair">
+            <!-- Watchflow — feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://watchflow-eta.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -250,7 +311,9 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">Watchflow</h4>
-                  <p class="project-blurb" data-i18n="work.watchflow.body">A stock watchlist with daily price updates. Prices are loaded on a schedule, so opening the dashboard does not trigger a fresh data request.</p>
+                  <p class="project-blurb" data-i18n="work.watchflow.body">
+                    Tracks the stocks you follow and refreshes itself every trading day, on its own.
+                  </p>
                   <p class="project-stack">Python · PostgreSQL · GitHub Actions · Next.js</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -259,6 +322,8 @@
                 </div>
               </a>
             </article>
+
+            <!-- DataCo — compact -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://dataco-analysis.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -268,7 +333,9 @@
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
                   <h4 class="project-title">DataCo</h4>
-                  <p class="project-blurb" data-i18n="work.dataco.body">Explore sales and delivery patterns in supply-chain data. Shared filters keep every chart on the same date range, market, and segment.</p>
+                  <p class="project-blurb" data-i18n="work.dataco.body">
+                    180,000 supply-chain orders you can slice any way you like, to see what's actually driving profit.
+                  </p>
                   <p class="project-stack">Python · pandas · React · Recharts</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -279,6 +346,9 @@
             </article>
             </div>
           </div>
+
+          <!-- ── COLLABORATIONS — built with and for someone else.
+               Feature on the right. -->
           <div class="mb-20" style="--tint: rgba(244, 63, 94, 0.18); --dot: #fb7185">
             <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
               <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--dot)]" aria-hidden="true"></span>
@@ -286,6 +356,7 @@
             </h3>
 
             <div class="project-pair">
+            <!-- Fuji no Hana — VIP Karte — compact -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://fujinohana-bonuskarte.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -298,7 +369,9 @@
                     <span class="project-partner">Kenvara × Fuji no Hana</span>
                     VIP Karte
                   </h4>
-                  <p class="project-blurb" data-i18n="work.fujinohana.body">A digital loyalty card for a ramen restaurant. Staff manage offers and redeem points at the counter; guests keep their card on their phone.</p>
+                  <p class="project-blurb" data-i18n="work.fujinohana.body">
+                    A loyalty card for a ramen restaurant — guests collect points at the counter, and the staff run the offers themselves without touching the code.
+                  </p>
                   <p class="project-stack">Next.js · TypeScript · Drizzle · Neon Postgres</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -307,6 +380,8 @@
                 </div>
               </a>
             </article>
+
+            <!-- AIESEC — Prospecting Pipeline — feature -->
             <article class="reveal project-card project-card--link group flex flex-col">
               <a href="https://igta-prospecting-pipeline.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -319,7 +394,9 @@
                     <span class="project-partner">Kenvara × AIESEC</span>
                     Prospecting Pipeline
                   </h4>
-                  <p class="project-blurb" data-i18n="work.igta.body">Find companies around Aachen and prepare a HubSpot import. Missing contact details are flagged for review instead of filled with guesses.</p>
+                  <p class="project-blurb" data-i18n="work.igta.body">
+                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
+                  </p>
                   <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -330,11 +407,30 @@
             </article>
             </div>
           </div>
+
+          <!-- ── PERSONAL EXPLORATION ── -->
           <h3 class="reveal mb-7 flex items-center gap-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
             <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-white/30" aria-hidden="true"></span>
             <span data-i18n="work.explorations">Built for fun</span>
           </h3>
+
+          <!-- Horizontal scroller. The negative margin matches this wrapper's
+               own px-3/px-4 gutter so the row bleeds to the viewport edge
+               without ever making the page itself scroll sideways. -->
+          <!-- Below xl only — from xl the four cards fit the row, the scroller
+               is off, and hovering one opens it into an accordion (.fun-strip
+               in style.css). Everything below applies to the scrolling state. -->
+          <!-- overflow-y-hidden is load-bearing, not cosmetic: with only
+               overflow-x-auto, CSS computes overflow-y to `auto`, and a
+               horizontal scrollbar then makes scrollHeight exceed clientHeight
+               by ~10px. Lenis's nested-scroll check sees a vertically
+               scrollable element and hands it the wheel, freezing the page for
+               a beat as you scroll out of this section. pt-2 keeps the 4px
+               hover lift from being clipped by the same hidden overflow.
+               The scrollbar itself is hidden (Firefox / IE / WebKit) — the row
+               still scrolls by wheel, trackpad, drag and keyboard. -->
           <div class="fun-strip [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <!-- Elsewhere -->
             <article class="reveal card-dark card-dark-interactive fun-card group flex flex-col overflow-hidden">
               <a href="https://elsewhere-drab.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="fun-shot">
@@ -343,11 +439,15 @@
                 </div>
                 <div class="flex flex-1 flex-col gap-2 p-5">
                   <h4 class="text-lg font-bold tracking-tight">Elsewhere</h4>
-                  <p class="text-sm leading-snug text-white/55" data-i18n="work.elsewhere.body">A visual atlas of cities. Browse by city or country; both paths lead to the same detailed city profile.</p>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.elsewhere.body">
+                    An atlas of the world's great cities, ranked and told through their own photography.
+                  </p>
                   <p class="project-stack mt-auto">Next.js · TypeScript · Framer Motion</p>
                 </div>
               </a>
             </article>
+
+            <!-- CineScope -->
             <article class="reveal card-dark card-dark-interactive fun-card group flex flex-col overflow-hidden">
               <a href="https://cinescope-mocha.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="fun-shot">
@@ -356,11 +456,15 @@
                 </div>
                 <div class="flex flex-1 flex-col gap-2 p-5">
                   <h4 class="text-lg font-bold tracking-tight">CineScope</h4>
-                  <p class="text-sm leading-snug text-white/55" data-i18n="work.cinescope.body">Explore film and game trends. Ratings from different sources are normalized before they appear in comparisons.</p>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.cinescope.body">
+                    What's trending in film and games right now, pulled live and charted.
+                  </p>
                   <p class="project-stack mt-auto">Chart.js · TMDB · RAWG</p>
                 </div>
               </a>
             </article>
+
+            <!-- LaFerrari -->
             <article class="reveal card-dark card-dark-interactive fun-card group flex flex-col overflow-hidden">
               <a href="https://la-ferrari-phi.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="fun-shot">
@@ -369,11 +473,15 @@
                 </div>
                 <div class="flex flex-1 flex-col gap-2 p-5">
                   <h4 class="text-lg font-bold tracking-tight">LaFerrari</h4>
-                  <p class="text-sm leading-snug text-white/55" data-i18n="work.laferrari.body">An interactive 3D showroom concept. Change the paint and lighting, or scroll through the camera views.</p>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.laferrari.body">
+                    A LaFerrari you can spin around in 3D, lit and animated in the browser.
+                  </p>
                   <p class="project-stack mt-auto">Three.js · WebGL</p>
                 </div>
               </a>
             </article>
+
+            <!-- Kanagawa Wave -->
             <article class="reveal card-dark card-dark-interactive fun-card group flex flex-col overflow-hidden">
               <a href="https://kanagawa-wave.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="fun-shot">
@@ -382,7 +490,9 @@
                 </div>
                 <div class="flex flex-1 flex-col gap-2 p-5">
                   <h4 class="text-lg font-bold tracking-tight">Kanagawa Wave</h4>
-                  <p class="text-sm leading-snug text-white/55" data-i18n="work.kanagawa.body">A scroll-based study of Hokusai’s wave. Video playback follows your scroll position.</p>
+                  <p class="text-sm leading-snug text-white/55" data-i18n="work.kanagawa.body">
+                    Hokusai's wave told as a scroll — the video scrubs as you move down the page.
+                  </p>
                   <p class="project-stack mt-auto">GSAP · ScrollTrigger</p>
                 </div>
               </a>
@@ -394,8 +504,13 @@
       <section id="contact" class="bg-white">
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
           <p class="reveal eyebrow mb-6 justify-center" data-i18n="contact.eyebrow">Contact</p>
-          <h2 class="reveal mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl" data-i18n="contact.title">Let's <span class="mark">talk</span></h2>
-          <p class="reveal mx-auto mt-5 max-w-lg font-medium text-slate-700" data-i18n="contact.body">Interested in working together? Reach me by email or on LinkedIn.</p>
+          <h2 class="reveal mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl" data-i18n="contact.title">
+            Let's <span class="mark">talk</span>
+          </h2>
+          <p class="reveal mx-auto mt-5 max-w-lg font-medium text-slate-700" data-i18n="contact.body">
+            I'm looking for a working student role or internship as an AI software engineer.
+            Email or LinkedIn, whichever is easier.
+          </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
             <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-accent">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -409,9 +524,12 @@
     </main>
 
     <footer class="relative isolate overflow-hidden bg-ink-950 text-white">
+      <!-- Gradient backdrop: deep navy fading up into electric blue, with a
+           soft bloom rising behind the wordmark so the bottom edge glows. -->
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div class="absolute inset-0 bg-[radial-gradient(125%_120%_at_50%_0%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
       </div>
+      <!-- Top row: arrow links + copyright -->
       <div class="container-x flex flex-col gap-6 pt-20 pb-10 sm:flex-row sm:items-center sm:justify-between">
         <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" aria-label="Footer">
           <a href="index.html#about-me" class="footer-link" data-i18n="footer.about">About</a>
@@ -419,8 +537,12 @@
           <a href="projects.html" class="footer-link" data-i18n="nav.work">Projects</a>
           <a href="index.html#skills" class="footer-link" data-i18n="nav.skills">Skills</a>
         </nav>
-        <p class="text-xs text-white/55" data-i18n="footer.rights">© <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.</p>
+        <p class="text-xs text-white/55" data-i18n="footer.rights">
+          © <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.
+        </p>
       </div>
+
+      <!-- Oversized full-bleed wordmark -->
       <div class="select-none px-3 pb-10 pt-4 text-center sm:pb-14" aria-hidden="true">
         <span class="block font-bold leading-[0.85] tracking-tightest text-white text-[clamp(3rem,21vw,18rem)]">
           Kenvara

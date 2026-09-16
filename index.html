@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Browser tab "K" logo -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <title>Kenvara Solivo Lwie — Software Engineer</title>
+    <title>Kenvara Solivo Lwie — Full-Stack & AI Software Engineer</title>
     <meta
       name="description"
-      content="Kenvara Solivo Lwie, software engineer in Aachen. Web interfaces, full-stack applications, and applied AI. Explore my projects and get in touch."
+      content="Kenvara Solivo Lwie — full-stack developer in Aachen, Germany. I build web apps with AI features using Next.js, React, FastAPI and Python. Nine projects live."
     />
-    <meta property="og:title" content="Kenvara Solivo Lwie — Software Engineer" />
+    <meta property="og:title" content="Kenvara Solivo Lwie — Full-Stack & AI Software Engineer" />
     <meta
       property="og:description"
-      content="Web interfaces, full-stack applications, and applied AI. Projects by Kenvara Solivo Lwie, a Computer Science student at FH Aachen."
+      content="Full-stack developer in Aachen, Germany. I build web apps with AI features — nine of them live and clickable."
     />
     <meta property="og:type" content="website" />
 
@@ -25,27 +27,44 @@
     />
   </head>
 
-  <body class="portfolio-home">
+  <body>
+    <!-- Skip link for keyboard / screen-reader users -->
     <a
       href="#hero"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       data-i18n="skip"
-      >Skip to content</a>
+      >Skip to content</a
+    >
 
+    <!-- ═══════════════════════════════════════════════════════════════════
+         1 · STICKY NAV
+         ═══════════════════════════════════════════════════════════════════ -->
     <header class="site-nav fixed inset-x-0 top-0 z-50" data-nav>
-      <nav class="container-x nav-inner flex items-center justify-between" aria-label="Primary">
-        <a href="#hero" class="nav-logo">Kenvara Solivo Lwie</a>
-        <ul class="desktop-nav-links hidden items-center gap-8 md:flex">
+      <nav class="container-x flex h-16 items-center justify-between" aria-label="Primary">
+        <!-- Logo / name — clean wordmark -->
+        <a href="#hero" class="nav-logo">
+          Kenvara Solivo Lwie
+        </a>
+
+        <!-- Center links (desktop) -->
+        <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
+          <li><a href="#specialty" class="nav-link" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="#work" class="nav-link" data-i18n="nav.work">Projects</a></li>
-          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
         </ul>
+
+        <!-- Right cluster (desktop): language switch + CTA -->
         <div class="hidden items-center gap-3 md:flex">
+          <!-- Language switch -->
           <div class="lang-switch" role="group" aria-label="Language" data-lang-switch>
             <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
             <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
           </div>
-          <a href="#contact" class="btn nav-contact h-10 px-5 py-0 inline-flex" data-i18n="nav.cta">Get in touch</a>
+          <a href="#contact" class="btn btn-accent h-10 px-5 py-0 inline-flex" data-i18n="nav.cta">Get in touch</a>
         </div>
+
+        <!-- Hamburger (mobile) -->
         <button
           type="button"
           class="nav-burger grid h-10 w-10 place-items-center rounded-lg border border-white/30 text-white md:hidden"
@@ -59,18 +78,23 @@
           </svg>
         </button>
       </nav>
+
+      <!-- Reading-progress rail, revealed once the nav goes solid -->
       <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+      <!-- Mobile menu panel -->
       <div
         id="mobile-menu"
         class="hidden border-t border-slate-200 bg-white/95 backdrop-blur-md md:hidden"
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About</a></li>
+          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li><a href="#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Specialty</a></li>
           <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
           <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
+            <!-- Language switch (mobile, dark variant) -->
             <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
               <button type="button" class="lang-opt" data-lang="en" aria-label="English">EN</button>
               <button type="button" class="lang-opt" data-lang="de" aria-label="Deutsch">DE</button>
@@ -81,7 +105,10 @@
       </div>
     </header>
 
-    <main>
+    <main class="home-main">
+      <!-- ═════════════════════════════════════════════════════════════════
+           2 · HERO
+           ═════════════════════════════════════════════════════════════════ -->
       <section id="hero" class="portfolio-hero" data-dark-section>
         <div class="hero-layout">
           <div class="hero-copy">
@@ -91,7 +118,7 @@
             <div class="hero-actions">
               <a href="#work" class="btn btn-light"><span data-i18n="hero.cta1">View my work</span><span aria-hidden="true">↗</span></a>
               <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-light">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.29-1.25-1.63-1.25-1.63-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.4-1.22.71-1.5-2.49-.28-5.1-1.25-5.1-5.54 0-1.22.43-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.22c.95 0 1.9.13 2.79.38 2.14-1.45 3.07-1.15 3.07-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.07c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.29-1.25-1.63-1.25-1.63-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.4-1.22.71-1.5-2.49-.28-5.1-1.25-5.1-5.54 0-1.22.43-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.22c.95 0 1.9.13 2.79.38 2.14-1.45 3.07-1.15 3.07-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.07c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 6.22Z"/></svg>
                 GitHub
               </a>
             </div>
@@ -109,24 +136,194 @@
         </div>
       </section>
 
-      <section id="work" class="section featured-work">
-        <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
-          <div class="work-heading">
-            <div><p class="eyebrow mb-4" data-i18n="work.eyebrow">01 — Selected projects</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="work.title">What I've been building</h2></div>
-            <a href="projects.html" class="all-projects-link"><span data-i18n="work.seeAll">All projects</span><span aria-hidden="true">↗</span></a>
+      <!-- ═════════════════════════════════════════════════════════════════
+           3 · TECH STRIP — the stack, straight off the hero, no heading
+           ═════════════════════════════════════════════════════════════════ -->
+      <section class="border-y border-slate-200 py-10" aria-label="Tools and technologies">
+        <!-- marquee: track is duplicated so the loop is seamless. .reveal sits
+             on this wrapper, not on the track — the track's transform is the
+             marquee animation and the two would overwrite each other. -->
+        <div class="reveal relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+          <div class="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-6 text-lg font-medium text-slate-400">
+            <!-- group 1 -->
+            <span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Python</span>
+            <span>Supabase</span><span>PostgreSQL</span><span>Tailwind CSS</span><span>Docker</span>
+            <span>Vue.js</span><span>Laravel</span><span>Gemini API</span>
+            <!-- group 2 (duplicate for seamless loop) -->
+            <span aria-hidden="true">Next.js</span><span aria-hidden="true">React</span><span aria-hidden="true">TypeScript</span>
+            <span aria-hidden="true">FastAPI</span><span aria-hidden="true">Python</span><span aria-hidden="true">Supabase</span>
+            <span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Tailwind CSS</span><span aria-hidden="true">Docker</span>
+            <span aria-hidden="true">Vue.js</span><span aria-hidden="true">Laravel</span><span aria-hidden="true">Gemini API</span>
           </div>
-          <div class="project-pair featured-row">
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           4 · MINDSET — one centred statement, then the words behind it
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="mindset" class="section">
+        <div class="container-x text-center">
+          <p class="reveal eyebrow mb-8 justify-center" data-i18n="mindset.eyebrow">01 — Mindset</p>
+          <!-- Three short lines rather than one long sentence: at this size a
+               wrapping paragraph loses the beat that makes it read as a stance. -->
+          <h2 class="reveal scroll-fill mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
+              data-scroll-fill data-i18n="mindset.statement">
+            Ship it live.<br />Solve something real.<br />Build it to last.
+          </h2>
+          <ul class="reveal mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-2.5 sm:mt-14 sm:gap-3">
+            <li class="mindset-chip" data-i18n="mindset.k1">Quality product</li>
+            <li class="mindset-chip" data-i18n="mindset.k2">Live in days</li>
+            <li class="mindset-chip" data-i18n="mindset.k3">Real problems</li>
+            <li class="mindset-chip" data-i18n="mindset.k4">Built to scale</li>
+            <li class="mindset-chip" data-i18n="mindset.k5">Automated pipelines</li>
+            <li class="mindset-chip" data-i18n="mindset.k6">End to end</li>
+            <li class="mindset-chip" data-i18n="mindset.k7">MVP first</li>
+            <li class="mindset-chip" data-i18n="mindset.k8">Built around users</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           5 · ABOUT ME — the face, early, before any of the work
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="about-me" class="section home-about">
+        <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <!-- Portrait -->
+          <div class="reveal">
+            <!-- Drifts gently against the scroll so the portrait column and the
+                 bio column don't move as one flat plane. -->
+            <div class="relative mx-auto max-w-sm" data-parallax="0.05">
+              <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
+              <img src="images/Kenvara_Solivo_Lwie.webp" alt="Portrait of Kenvara Solivo Lwie"
+                   width="900" height="1200"
+                   class="relative w-full rounded-2xl border border-slate-200 object-cover shadow-lg"
+                   loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+          <!-- Bio: three claims, each one line. Hairline rules instead of cards,
+               so the column stays quiet next to the portrait. -->
+          <div class="reveal">
+            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">02 — About me</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
+            <p class="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.lead">
+              Computer Science at FH Aachen. Indonesian, building in Germany.
+            </p>
+            <ul class="mt-10 max-w-xl">
+              <li class="border-t border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p1.title">Lifelong learner</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p1.body">
+                  New stack, new tools, new models — I keep up on my own time.
+                </p>
+              </li>
+              <li class="border-t border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p2.title">I take ownership</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p2.body">
+                  If I shipped it, I answer for it — including when it breaks.
+                </p>
+              </li>
+              <li class="border-y border-slate-200 py-5">
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">I don't wait to be asked</h3>
+                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p3.body">
+                  Most of the work below started as my own project, not a brief.
+                </p>
+              </li>
+            </ul>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-accent" data-i18n="nav.cta">Get in touch</a>
+              <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           6 · SPECIALTY — what I am good at, as a list not a card grid
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="specialty" class="section home-specialty" data-dark-section>
+        <div class="container-x">
+          <div class="reveal mb-14 max-w-3xl">
+            <p class="eyebrow mb-4" data-i18n="spec.eyebrow">03 — Specialty</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="spec.title">Things I'm good at</h2>
+          </div>
+
+          <!-- Number, name, and what it actually means. The grid only splits the
+               name from its sub-points at lg; below that they stack, because a
+               heading this size next to a list in half a column just wraps. -->
+          <ul class="border-t border-slate-200">
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">01</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.1.title">
+                Production Agentic AI &amp; Workflow Engines
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.1.a">Retrieval pipelines over your own documents</li>
+                <li data-i18n="spec.1.b">Agents that check their own sources</li>
+                <li data-i18n="spec.1.c">Answers that stream as they're written</li>
+              </ul>
+            </li>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">02</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.2.title">
+                Modern Decoupled Full-Stack Web Applications
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.2.a">Next.js and React on top, typed end to end</li>
+                <li data-i18n="spec.2.b">FastAPI or Laravel underneath, as its own service</li>
+                <li data-i18n="spec.2.c">Auth, roles, and an admin the client actually uses</li>
+              </ul>
+            </li>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">03</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.3.title">
+                Data Engineering Pipelines
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.3.a">Scheduled ETL that runs without me</li>
+                <li data-i18n="spec.3.b">PostgreSQL models built to be queried</li>
+                <li data-i18n="spec.3.c">Dashboards that answer one question well</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           7 · PROJECTS — runs on black, full-bleed, two per row
+           ═════════════════════════════════════════════════════════════════ -->
+      <!-- The white page ends here, on a hard edge. Black then runs unbroken
+           through skills and the contact band into the footer — one surface,
+           no gradient washes, no seams inside it. -->
+      <section id="work" class="featured-work relative isolate overflow-hidden py-24 sm:py-32 lg:py-40">
+        <!-- Wider than .container-x's 1200px so the showcase still reads as the
+             full-bleed section, but capped: with padding alone the cards grew
+             with the viewport and ran ~1730px across on a 1920 screen. -->
+        <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
+          <!-- Section header, aligned to the card edge -->
+          <div class="reveal mb-12 max-w-3xl">
+            <p class="eyebrow mb-4 text-slate-500" data-i18n="work.eyebrow">04 — Work</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl" data-i18n="work.title">Featured projects</h2>
+            <p class="mt-5 text-lg text-slate-600" data-i18n="work.subtitle">
+              Four I’m proudest of. The rest are one click away.
+            </p>
+          </div>
+
+          <!-- Four featured projects, in portfolio priority order. The full set,
+               grouped, lives on projects.html - see the link below. Each card carries its
+               category's --tint so the colour language survives the split. -->
+          <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
             <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
               <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
                 <div class="project-shot">
-                  <img src="images/project_showup.webp" alt="Show Up — local groups and activities"
+                  <img src="images/project_showup.webp" alt="Showup — hyperlocal recurring clubs discovery preview"
                     class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h3 class="project-title">Showup</h3>
-                  <p class="project-blurb" data-i18n="work.showup.body">Find local groups and casual plans. Browse without an account; sign in when you want to join.</p>
+                  <h4 class="project-title">Showup</h4>
+                  <p class="project-blurb" data-i18n="work.showup.body">
+                    Finds the local clubs that meet at the same time and place every week — so showing up twice already makes you a regular.
+                  </p>
                   <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -144,9 +341,11 @@
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h3 class="project-title">Chattrolley</h3>
-                  <p class="project-blurb" data-i18n="work.chattrolley.body">An AI shopping assistant built with a team of four. Product recommendations are checked against the store's catalog before they reach the customer.</p>
-                  <p class="project-stack">Next.js · TypeScript · Gemini</p>
+                  <h4 class="project-title">Chattrolley</h4>
+                  <p class="project-blurb" data-i18n="work.chattrolley.body">
+                    A multilingual AI shopping assistant that recommends verified products and sends customers to the store's existing checkout.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -165,8 +364,10 @@
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h3 class="project-title">StackPilot</h3>
-                  <p class="project-blurb" data-i18n="work.stackpilot.body">Turn documentation into guided lessons. Sources and citation checks sit alongside the answer so you can inspect them as you read.</p>
+                  <h4 class="project-title">StackPilot</h4>
+                  <p class="project-blurb" data-i18n="work.stackpilot.body">
+                    Turns any documentation into a guided lesson — an AI agent researches it, writes it, and checks its own sources.
+                  </p>
                   <p class="project-stack">Next.js · FastAPI · Gemini · pgvector</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -184,11 +385,13 @@
                 </div>
                 <div class="project-head">
                   <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h3 class="project-title">
+                  <h4 class="project-title">
                     <span class="project-partner">Kenvara × AIESEC</span>
                     Prospecting Pipeline
-                  </h3>
-                  <p class="project-blurb" data-i18n="work.igta.body">Find companies around Aachen and prepare a HubSpot import. Missing contact details are flagged for review instead of filled with guesses.</p>
+                  </h4>
+                  <p class="project-blurb" data-i18n="work.igta.body">
+                    Finds companies hiring around Aachen, digs out their real contact details, and hands the team a HubSpot-ready file — three minutes instead of an afternoon.
+                  </p>
                   <p class="project-stack">Python · GitHub Actions · Vercel · HubSpot API</p>
                   <span class="project-link">
                     <span data-i18n="work.view">View project</span>
@@ -199,93 +402,27 @@
             </article>
           </div>
 
-
-        </div>
-      </section>
-
-      <section id="specialty" class="section">
-        <div class="container-x">
-          <div class="reveal mb-14 max-w-3xl">
-            <p class="eyebrow mb-4" data-i18n="spec.eyebrow">02 — Focus</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="spec.title">What I work on</h2>
-          </div>
-          <ul class="border-t border-slate-200">
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">01</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.1.title">Web interfaces</h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.1.a">Responsive layouts and navigation</li>
-                <li data-i18n="spec.1.b">Onboarding, forms, and feedback</li>
-                <li data-i18n="spec.1.c">Reusable components and consistent styling</li>
-              </ul>
-            </li>
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">02</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.2.title">Full-stack products</h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.2.a">Frontend, APIs, and database integration</li>
-                <li data-i18n="spec.2.b">Accounts, roles, and admin tools</li>
-                <li data-i18n="spec.2.c">Deployment and ongoing improvements</li>
-              </ul>
-            </li>
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">03</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.3.title">Applied AI</h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.3.a">Chat and streaming responses</li>
-                <li data-i18n="spec.3.b">Retrieval from documents and app data</li>
-                <li data-i18n="spec.3.c">Structured outputs and tool calling</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="about-me" class="section" data-dark-section>
-        <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div class="reveal">
-            <div class="relative mx-auto max-w-sm" data-parallax="0.05">
-              <div class="pointer-events-none absolute -inset-4 rounded-2xl bg-accent/15 blur-2xl" aria-hidden="true"></div>
-              <img src="images/Kenvara_Solivo_Lwie.webp" alt="Portrait of Kenvara Solivo Lwie"
-                   width="900" height="1200"
-                   class="relative w-full rounded-2xl border border-slate-200 object-cover shadow-lg"
-                   loading="lazy" decoding="async" />
-            </div>
-          </div>
-          <div class="reveal">
-            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">03 — About</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Ken</h2>
-            <p class="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.lead">From Indonesia, studying Computer Science at FH Aachen, and building web apps in Germany.</p>
-            <ul class="mt-10 max-w-xl">
-              <li class="border-t border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p1.title">The interface comes first</h3>
-                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p1.body">I spend most of my time on websites: how they look, how they respond, and how people move through them.</p>
-              </li>
-              <li class="border-t border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p2.title">Beyond the frontend</h3>
-                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p2.body">I also build the APIs, database connections, and AI features behind the interface.</p>
-              </li>
-              <li class="border-y border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">Learning through projects</h3>
-                <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p3.body">My projects range from local meetups and language learning to tools for shopping and studying.</p>
-              </li>
-            </ul>
-            <div class="mt-9 flex flex-wrap gap-3">
-              <a href="#contact" class="btn btn-accent" data-i18n="nav.cta">Get in touch</a>
-              <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-            </div>
+          <div class="reveal mt-14 flex justify-center">
+            <a href="projects.html" class="btn btn-accent">
+              <span data-i18n="work.seeAll">See all my projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="skills" data-dark-section class="section bg-black text-white">
+      <!-- ═════════════════════════════════════════════════════════════════
+           8 · SKILLS & TOOLS
+           ═════════════════════════════════════════════════════════════════ -->
+      <section id="skills" class="section bg-black text-white home-skills" data-dark-section>
         <div class="container-x">
           <div class="reveal mb-12">
-            <p class="eyebrow mb-4 text-white/70" data-i18n="skills.eyebrow">04 — Stack</p>
+            <p class="eyebrow mb-4 text-white/70" data-i18n="skills.eyebrow">05 — Stack</p>
             <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="skills.title">Skills &amp; tools</h2>
           </div>
 
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Frontend -->
             <div class="reveal card-dark p-7">
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3" stroke-linecap="round"/></svg>
@@ -298,6 +435,7 @@
                 <li data-i18n="skills.frontend.4">Responsive, accessible UI</li>
               </ul>
             </div>
+            <!-- Backend -->
             <div class="reveal card-dark p-7">
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
@@ -310,6 +448,7 @@
                 <li>Gemini &amp; OpenAI APIs</li>
               </ul>
             </div>
+            <!-- Tooling -->
             <div class="reveal card-dark p-7">
               <div class="icon-chip mb-5" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l-1.5-1.5a4 4 0 00-5.5 5.5L3 15v6h6l4-4a4 4 0 005.5-5.5L17 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -326,11 +465,24 @@
         </div>
       </section>
 
+      <!-- ═════════════════════════════════════════════════════════════════
+           9 · CTA BAND
+           ═════════════════════════════════════════════════════════════════ -->
+      <!-- The black run ends at the skills section above; this comes back onto
+           the white page, and the footer below picks the blue up again. -->
       <section id="contact" class="bg-white">
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
           <p class="reveal eyebrow mb-6 justify-center" data-i18n="contact.eyebrow">Contact</p>
-          <h2 class="reveal mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl" data-i18n="contact.title">Let's <span class="mark">talk</span></h2>
-          <p class="reveal mx-auto mt-7 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="contact.body">Interested in working together? Reach me by email or on LinkedIn.</p>
+          <!-- Same scale as the mindset statement: this is the other line on
+               the page that is a statement rather than a section label, and at
+               section-heading size it read as an aside. -->
+          <h2 class="reveal mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl" data-i18n="contact.title">
+            Let's <span class="mark">talk</span>
+          </h2>
+          <p class="reveal mx-auto mt-7 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="contact.body">
+            I'm looking for a working student role or internship as an AI software engineer.
+            Email or LinkedIn, whichever is easier.
+          </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
             <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-accent">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -342,10 +494,21 @@
         </div>
       </section>
     </main>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         10 · FOOTER
+         ═════════════════════════════════════════════════════════════════ -->
     <footer class="relative isolate overflow-hidden bg-ink-950 text-white">
+      <!-- Gradient backdrop: deep navy fading up into electric blue, with a
+           soft bloom rising behind the wordmark so the bottom edge glows. -->
       <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <!-- Static U-wash: dark dome at the top curves down the sides into a
+             white base at the bottom, so the white 'Kenvara' wordmark fades
+             into it (deliberate ghost fade-out). -->
         <div class="absolute inset-0 bg-[radial-gradient(125%_120%_at_50%_0%,#05070d_0%,#05070d_22%,#0a1733_38%,#15306e_50%,#1e4ed8_62%,#3b82f6_74%,#7fb0ff_86%,#cfe0ff_94%,#ffffff_99%,#ffffff_100%)]"></div>
       </div>
+
+      <!-- Top row: arrow links + copyright -->
       <div class="container-x flex flex-col gap-6 pt-20 pb-10 sm:flex-row sm:items-center sm:justify-between">
         <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" aria-label="Footer">
           <a href="#about-me" class="footer-link" data-i18n="footer.about">About</a>
@@ -353,8 +516,12 @@
           <a href="#work" class="footer-link" data-i18n="nav.work">Projects</a>
           <a href="#skills" class="footer-link" data-i18n="nav.skills">Skills</a>
         </nav>
-        <p class="text-xs text-white/55" data-i18n="footer.rights">© <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.</p>
+        <p class="text-xs text-white/55" data-i18n="footer.rights">
+          © <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.
+        </p>
       </div>
+
+      <!-- Oversized full-bleed wordmark -->
       <div class="select-none px-3 pb-10 pt-4 text-center sm:pb-14" aria-hidden="true">
         <span class="block font-bold leading-[0.85] tracking-tightest text-white text-[clamp(3rem,21vw,18rem)]">
           Kenvara

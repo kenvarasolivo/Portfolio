@@ -4,8 +4,11 @@ import './style.css';
 import './portfolio.css';
 import { translations } from './i18n.js';
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Enable the enhanced navigation styles. Without this marker, the CSS keeps
+// the no-JavaScript fallback header permanently dark.
 document.documentElement.classList.add('js');
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ───────────────────────────────────────────────────────────────────────
    1. Smooth ("heavy") scrolling
@@ -39,9 +42,16 @@ if (lenis) {
 const nav = document.querySelector('[data-nav]');
 const navBar = nav?.querySelector('nav'); // the bar itself, not the mobile panel
 const progressBar = document.querySelector('[data-scroll-progress]');
-// Each dark surface owns its range; the homepage now alternates light and dark.
-const darkSections = [...document.querySelectorAll('[data-dark-section]')];
-let darkRanges = [];
+const heroContent = document.querySelector('[data-hero]');
+
+// Statement that paints itself dark as it crosses the screen. Left null under
+// reduced motion so the CSS default (fully dark) stands.
+const fillEl = reduceMotion ? null : document.querySelector('[data-scroll-fill]');
+// Where in the viewport the fill starts and finishes, as fractions of its
+// height measured from the top. It completes above centre on purpose — a line
+// that only lands once it's leaving reads as lagging behind the scroll.
+const FILL_START = 0.85;
+const FILL_END = 0.35;
 
 // Elements that drift against the scroll. data-parallax holds the strength:
 // 0 = pinned to the page, 1 = pinned to the viewport.
@@ -71,14 +81,17 @@ if (parallaxItems.length) {
 // changes size, so the scroll handler itself never touches layout.
 let scrollRange = 0;
 let navHeight = 64;
+let fillTop = 0;
+let fillHeight = 0;
 const measure = () => {
   scrollRange = document.documentElement.scrollHeight - window.innerHeight;
   if (navBar) navHeight = navBar.offsetHeight;
 
-  darkRanges = darkSections.map((section) => {
-    const rect = section.getBoundingClientRect();
-    return { top: rect.top + window.scrollY, bottom: rect.bottom + window.scrollY };
-  });
+  if (fillEl) {
+    const rect = fillEl.getBoundingClientRect();
+    fillTop = rect.top + window.scrollY;
+    fillHeight = rect.height;
+  }
 
   parallaxItems.forEach((item) => {
     // Clear the drift first: a transformed rect would fold the previous frame's
@@ -94,18 +107,44 @@ const onScroll = () => {
 
   nav?.classList.toggle('is-scrolled', y > 24);
 
-  // Both edges are measured against the BOTTOM of the bar, so the flip lands
-  // the instant the cut passes under it — one consistent trigger line going in
-  // and coming out. On the all-projects page darkTop is ~0, so the nav opens
-  // dark rather than flashing its white scrolled state over a black page.
+  // Inspect the surface immediately below the sticky bar rather than relying
+  // on document positions. This stays correct when sections are visually
+  // reordered and at the exact moment a section crosses under the header.
   if (nav) {
-    const barBottom = y + navHeight;
-    nav.classList.toggle('is-dark', darkRanges.some(({ top, bottom }) => barBottom >= top && barBottom <= bottom));
+    // Probe below the entire header (including its progress rail). Sampling at
+    // the exact bottom edge can still hit the fixed header in some browsers,
+    // which incorrectly leaves the previous dark state in place.
+    const probeY = Math.min(navHeight + 24, window.innerHeight - 1);
+    const surface = document.elementFromPoint(window.innerWidth / 2, probeY);
+    const isDarkSurface = Boolean(surface?.closest('[data-dark-section]'));
+    nav.classList.toggle('is-dark', isDarkSurface);
+    nav.classList.toggle('is-light', !isDarkSurface);
   }
 
   if (progressBar) {
     const progress = scrollRange > 0 ? Math.min(y / scrollRange, 1) : 0;
     progressBar.style.transform = `scaleX(${progress})`;
+  }
+
+  // Hero drifts up slower than the page and dissolves — the page slides out
+  // from under it rather than the hero simply leaving.
+  if (heroContent && !reduceMotion) {
+    const travel = Math.min(y / window.innerHeight, 1);
+    heroContent.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
+    heroContent.style.opacity = String(Math.max(1 - travel * 1.35, 0));
+  }
+
+  // The statement's own top, tracked from FILL_START down to where its bottom
+  // reaches FILL_END — so the fill is driven by the whole block passing the
+  // band, not by a single point on it.
+  if (fillEl) {
+    const vh = window.innerHeight;
+    const top = fillTop - y;
+    const from = vh * FILL_START;
+    const to = vh * FILL_END - fillHeight;
+    const p = from === to ? 1 : Math.min(Math.max((from - top) / (from - to), 0), 1);
+    // -22% → 100%: see the .scroll-fill comment for why it starts off-screen.
+    fillEl.style.setProperty('--fill', `${(p * 122 - 22).toFixed(1)}%`);
   }
 
   parallaxItems.forEach((item) => {
@@ -159,16 +198,6 @@ mobileMenu?.querySelectorAll('a').forEach((link) =>
   link.addEventListener('click', () => setMenu(false))
 );
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && menuBtn?.getAttribute('aria-expanded') === 'true') {
-    setMenu(false);
-    menuBtn.focus();
-  }
-});
-window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
-  if (event.matches) setMenu(false);
-});
-
 /* ───────────────────────────────────────────────────────────────────────
    4. In-page links: a long, weighted glide instead of a jump
    Delegated so it also covers the skip link and the footer nav. Lenis reads
@@ -184,8 +213,6 @@ if (lenis) {
     if (!target) return;
 
     event.preventDefault();
-    // Language and viewport changes can precede Lenis's debounced resize.
-    lenis.resize();
     lenis.scrollTo(target, {
       duration: 1.6,
       easing: (t) => 1 - Math.pow(1 - t, 4), // quart-out: arrives, then settles
@@ -312,6 +339,31 @@ document.querySelectorAll('[data-lang-switch] .lang-opt').forEach((btn) =>
 );
 
 applyLanguage(getInitialLang());
+
+/* Featured project cards tilt toward the pointer on precise-pointer devices.
+   The press state is deliberately short and shallow so a click still feels
+   like a button, rather than a dramatic animation. */
+if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.featured-work .project-card--link').forEach((card) => {
+    const resetTilt = () => {
+      card.style.removeProperty('--tilt-x');
+      card.style.removeProperty('--tilt-y');
+      card.classList.remove('is-pressed');
+    };
+
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${(x * 6).toFixed(2)}deg`);
+    });
+    card.addEventListener('pointerleave', resetTilt);
+    card.addEventListener('pointerdown', () => card.classList.add('is-pressed'));
+    card.addEventListener('pointerup', () => card.classList.remove('is-pressed'));
+    card.addEventListener('pointercancel', resetTilt);
+  });
+}
 
 /* ───────────────────────────────────────────────────────────────────────
    7. Carousel arrows

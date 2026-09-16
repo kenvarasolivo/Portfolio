@@ -113,6 +113,40 @@
 .featured-work .project-card:hover .project-link { color: #0f172a; }
 .featured-work .pill-dark { background: #f8fafc; border-color: #e2e8f0; color: #475569; margin-bottom: 12px; }
 .featured-work .live-dot { background: #15803d; }
+.featured-work .project-card--link { perspective: 1100px; }
+.featured-work .project-card--link > a {
+  transform: translateZ(0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 180ms cubic-bezier(.2,.7,.3,1);
+  will-change: transform;
+}
+.featured-work .project-card--link .project-shot { transform: translateZ(16px); }
+.featured-work .project-card--link .project-head { transform: translateZ(7px); }
+.featured-work .project-card--link.is-pressed > a {
+  transform: translateZ(-12px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(.985);
+  transition-duration: 90ms;
+}
+.home-main { display: flex; flex-direction: column; }
+.home-main > #hero { order: 1; }
+.home-main > [aria-label="Tools and technologies"] { order: 2; }
+.home-main > #mindset { order: 3; }
+.home-main > #work { order: 4; }
+.home-main > #specialty { order: 5; }
+.home-main > #skills { order: 6; }
+.home-main > #about-me { order: 7; }
+.home-main > #contact { order: 8; }
+.home-main > #specialty {
+  background: #05070d;
+  border-block: 1px solid #1e293b;
+  color: #f8fafc;
+}
+.home-main > #specialty .eyebrow { color: #b6c8e3; }
+.home-main > #specialty h2,
+.home-main > #specialty h3 { color: #f8fafc; }
+.home-main > #specialty .border-t,
+.home-main > #specialty .border-b { border-color: #ffffff26; }
+.home-main > #specialty .text-slate-400 { color: #94a3b8; }
+.home-main > #specialty .text-slate-600 { color: #cbd5e1; }
 .portfolio-home #specialty { border-top: 1px solid #e2e8f0; background: #f8fafc; }
 .portfolio-home #about-me { background: #05070d; color: #f8fafc; border-top: 1px solid #1e293b; }
 .portfolio-home #about-me .eyebrow { color: #b6c8e3; }
@@ -168,4 +202,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .browser-preview, .browser-preview:hover, .browser-preview:focus-visible { transform: none; transition: none; }
+  .featured-work .project-card--link > a,
+  .featured-work .project-card--link.is-pressed > a { transform: none; transition: none; }
 }
