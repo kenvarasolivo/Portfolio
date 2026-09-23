@@ -325,19 +325,17 @@
      just re-crops. */
   .fun-strip {
     @apply flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pt-2 pb-4
-           lg:gap-6 xl:snap-none xl:overflow-visible;
+           lg:gap-6 xl:snap-x xl:overflow-x-auto;
   }
-  .fun-card {
-    @apply w-[280px] shrink-0 snap-start sm:w-[360px] xl:h-[23rem] xl:w-auto xl:min-w-0 xl:flex-1;
-  }
+  .fun-card { @apply w-[280px] shrink-0 snap-start sm:w-[360px] xl:h-[23rem]; }
   .fun-shot {
     @apply relative aspect-[16/10] overflow-hidden xl:aspect-auto xl:h-48;
   }
-  @media (prefers-reduced-motion: no-preference) and (min-width: 1280px) {
-    .fun-strip > .fun-card:hover,
-    .fun-strip > .fun-card:focus-within {
-      flex-grow: 2.4;
-    }
+  @media (min-width: 1024px) {
+    .fun-card { flex: 0 0 calc((100% - 3 * 1.5rem) / 3.5); }
+  }
+  @media (min-width: 1280px) {
+    .fun-card { flex-basis: calc((100% - 3 * 2rem) / 3.5); }
   }
 
   /* ── The one transition every card row shares ──
@@ -589,11 +587,11 @@
     gap: 0;
     overflow: visible;
     padding: 1.125rem;
-    border: 1px solid rgb(226 232 240);
+    border: 1px solid rgb(220 227 236);
     border-radius: 1.5rem;
-    background: white;
+    background: rgb(248 250 252);
     color: rgb(15 23 42);
-    box-shadow: 0 18px 44px -30px rgb(15 23 42 / 0.35);
+    box-shadow: 0 14px 32px -27px rgb(15 23 42 / 0.38);
   }
   /* Let the card own the grid without changing the link's hit area: every
      visible part of a linked project remains inside its anchor. */
@@ -608,8 +606,8 @@
     grid-column: 1;
     justify-self: end;
     margin: 0;
-    border-color: rgb(226 232 240);
-    background: rgb(248 250 252);
+    border-color: rgb(220 227 236);
+    background: rgb(255 255 255);
     color: rgb(71 85 105);
   }
   .projects-page .project-card .live-dot {
@@ -637,7 +635,7 @@
     height: auto;
     aspect-ratio: 16 / 9;
     margin-top: 1rem;
-    border: 1px solid rgb(226 232 240);
+    border: 1px solid rgb(220 227 236);
     border-radius: 1rem;
     background: rgb(241 245 249);
     box-shadow: none;
@@ -668,12 +666,12 @@
   }
   .projects-page .project-card--link:hover,
   .projects-page .fun-card:hover {
-    border-color: rgb(148 163 184);
-    background: white;
+    border-color: rgb(188 199 213);
+    background: rgb(248 250 252);
   }
   .projects-page .project-card--link:hover .project-shot,
   .projects-page .project-card--link:focus-within .project-shot {
-    border-color: rgb(148 163 184);
+    border-color: rgb(188 199 213);
   }
   .projects-page .project-card--link:hover .project-link {
     color: rgb(15 23 42);
@@ -710,7 +708,7 @@
   body.projects-page .fun-card.is-visible:hover,
   body.projects-page .fun-card.is-visible:focus-within {
     transform: perspective(1100px) translate3d(0, -8px, 0) rotateX(2deg) rotateY(-2deg) scale(1.01);
-    border-color: rgb(148 163 184);
+    border-color: rgb(100 116 139);
     box-shadow: 0 30px 56px -30px rgb(15 23 42 / 0.42);
   }
   /* The archive uses the same single-card interaction as the home page.
@@ -735,13 +733,6 @@
       width: 44%;
     }
   }
-  @media (prefers-reduced-motion: no-preference) and (min-width: 1280px) {
-    .projects-page .fun-strip > .fun-card:hover,
-    .projects-page .fun-strip > .fun-card:focus-within {
-      flex-grow: 1;
-    }
-  }
-
   .projects-page .fun-card h4 {
     font-size: 1.25rem;
     font-weight: 700;

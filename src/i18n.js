@@ -104,6 +104,7 @@ export const translations = {
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
+  'badge.development': { en: 'In development', de: 'In Entwicklung' },
   'work.view':        { en: 'View project',      de: 'Projekt ansehen' },
 
   'work.cat.ai':   { en: 'Agentic AI &amp; Workflows',       de: 'Agentische KI &amp; Workflows' },
@@ -127,6 +128,20 @@ export const translations = {
   'work.showup.body': {
     en: 'A social app for discovering plans and meeting people offline.',
     de: 'Eine Social App, um Pläne zu entdecken und Menschen offline zu treffen.',
+  },
+  'work.questime.body': {
+    en: 'Turns everyday growth into an adventure with daily quests, six life paths, and collectible companions.',
+    de: 'Macht persönliche Entwicklung mit täglichen Quests, sechs Lebensbereichen und sammelbaren Begleitern zum Abenteuer.',
+  },
+  'work.questime.type': { en: 'Next big project', de: 'Nächstes großes Projekt' },
+  'work.robustabgabe.body': {
+    en: 'Uses agentic AI to automate assignment review, assess student submissions against rubrics, and draft feedback.',
+    de: 'Nutzt agentische KI, um Abgaben automatisch anhand von Bewertungskriterien zu prüfen und Feedback zu entwerfen.',
+  },
+  'work.robustabgabe.type': { en: 'FH Aachen · Practice project', de: 'FH Aachen · Praxisprojekt' },
+  'work.wearframe.body': {
+    en: 'A personal exploration in making it easier to build outfits from clothes you already own.',
+    de: 'Eine persönliche Exploration, die dabei hilft, Outfits aus der eigenen Garderobe zusammenzustellen.',
   },
   'work.fluen.body': {
     en: 'A language app that builds your flashcards, your reading, and a chat coach that corrects you as you go.',
