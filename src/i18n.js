@@ -21,19 +21,19 @@ export const translations = {
 
   // ── Hero ──
   'hero.eyebrow': {
-    en: 'Software Engineer / Full-Stack Engineer',
-    de: 'Softwareentwickler / Full-Stack-Entwickler',
+    en: 'Software Engineer · Aachen, Germany',
+    de: 'Softwareentwickler · Aachen, Deutschland',
   },
   'hero.title': {
-    en: 'Building ideas into reality with modern web and AI.',
-    de: 'Ideen mit modernen Webtechnologien und KI in die Realität umsetzen.',
+    en: 'I build complete products, from first idea to shipped software.',
+    de: 'Ich entwickle komplette Produkte – von der ersten Idee bis zur fertigen Software.',
   },
   'hero.tagline': {
-    en: "I'm Ken, a final-year Computer Science student at FH Aachen. I take products from the user experience and frontend through backend systems, deployment, and practical AI features.",
-    de: 'Ich bin Ken, Informatikstudent im letzten Jahr an der FH Aachen. Ich entwickle Produkte von der User Experience und dem Frontend über Backend-Systeme und Deployment bis zu praxisnahen KI-Features.',
+    en: "I'm Ken, a final-year Computer Science student at FH Aachen. I design the experience, build the frontend and backend, and apply AI where it makes the product more useful.",
+    de: 'Ich bin Ken, Informatikstudent im letzten Jahr an der FH Aachen. Ich gestalte die Nutzererfahrung, entwickle Frontend und Backend und setze KI dort ein, wo sie das Produkt nützlicher macht.',
   },
-  'hero.cta1': { en: 'View my work', de: 'Meine Projekte' },
-  'hero.cta2': { en: 'Contact me',   de: 'Kontakt aufnehmen' },
+  'hero.cta1': { en: 'Explore selected work', de: 'Projekte entdecken' },
+  'hero.cta2': { en: 'Get in touch', de: 'Kontakt aufnehmen' },
 
   // ── Mindset ──
   // Three short lines, not one sentence - the German has to keep the same
@@ -55,7 +55,7 @@ export const translations = {
   'mindset.k8': { en: 'Built around users',  de: 'Nutzerorientiert gebaut' },
 
   // ── Approach ──
-  'spec.eyebrow': { en: '03. Approach',         de: '03. Arbeitsweise' },
+  'spec.eyebrow': { en: '02. Approach',         de: '02. Arbeitsweise' },
   'spec.title':   { en: 'How I build products',  de: 'Wie ich Produkte entwickle' },
 
   'spec.1.title': {
@@ -85,22 +85,23 @@ export const translations = {
   // ── Work ──
   // Blurbs say what a project DOES, in one sentence. The technical detail
   // lives on each project's own site - repeating it here just buried it.
-  'work.eyebrow':  { en: '04. Work',          de: '04. Projekte' },
+  'work.eyebrow':  { en: '01. Selected work', de: '01. Ausgewählte Projekte' },
   'work.title':    { en: 'Featured projects',  de: 'Ausgewählte Projekte' },
   // Home shows four featured projects; projects.html shows the full set.
   'work.subtitle': {
-    en: 'Four I’m proudest of. The rest are one click away.',
-    de: 'Vier, auf die ich am stolzesten bin. Der Rest ist einen Klick entfernt.',
+    en: 'Products that show how I turn an idea into a useful, working experience.',
+    de: 'Produkte, die zeigen, wie ich aus einer Idee eine nützliche, funktionierende Anwendung mache.',
   },
   'work.seeAll': { en: 'See all my projects', de: 'Alle Projekte ansehen' },
+  'work.case': { en: 'Read case study', de: 'Projekt im Detail' },
 
   // ── All-projects page ──
   'projects.back':    { en: 'Back to home',        de: 'Zurück zur Startseite' },
   'projects.eyebrow': { en: 'All work',            de: 'Alle Projekte' },
-  'projects.title':   { en: 'Everything I’ve built', de: 'Alles, was ich gebaut habe' },
+  'projects.title':   { en: 'More work and experiments', de: 'Weitere Projekte und Experimente' },
   'projects.subtitle': {
-    en: 'Ten projects grouped by what they are, plus the ones built purely for fun.',
-    de: 'Zehn Projekte, nach Art gruppiert - dazu die, die rein aus Spaß entstanden sind.',
+    en: "A wider look at the products, collaborations, and visual experiments I've built.",
+    de: 'Ein breiterer Einblick in meine Produkte, Teamprojekte und visuellen Experimente.',
   },
   'badge.live':       { en: 'Live',              de: 'Live' },
   'badge.university': { en: 'University project', de: 'Universitätsprojekt' },
@@ -122,18 +123,18 @@ export const translations = {
     de: 'Gleicht Lebenslauf und Stellenanzeige ab, zeigt die echten Skill-Lücken und entwirft ein Anschreiben, das nur behauptet, was der Lebenslauf hergibt.',
   },
   'work.chattrolley.body': {
-    en: 'An AI sales assistant that recommends products, checks inventory, and directs customers to checkout.',
-    de: 'Ein KI-Verkaufsassistent, der Produkte empfiehlt, Verfügbarkeit prüft und Kunden zum Checkout führt.',
+    en: 'A conversational storefront built with a four-person team. The assistant connects product discovery, inventory, and checkout.',
+    de: 'Ein Conversational Storefront, entwickelt im Viererteam. Der Assistent verbindet Produktsuche, Verfügbarkeit und Checkout.',
   },
   'work.showup.body': {
-    en: 'A social app for discovering plans and meeting people offline.',
-    de: 'Eine Social App, um Pläne zu entdecken und Menschen offline zu treffen.',
+    en: 'A social app for discovering plans and meeting people offline. I independently shaped the product, designed the experience, and built it end to end.',
+    de: 'Eine Social App, um Pläne zu entdecken und Menschen offline zu treffen. Ich habe Produkt, Nutzererfahrung und Umsetzung eigenständig verantwortet.',
   },
   'work.questime.body': {
-    en: 'Turns everyday growth into an adventure with daily quests, six life paths, and collectible companions.',
-    de: 'Macht persönliche Entwicklung mit täglichen Quests, sechs Lebensbereichen und sammelbaren Begleitern zum Abenteuer.',
+    en: "I'm actively building a playful way to turn everyday growth into an adventure, with daily quests, six life paths, and collectible companions.",
+    de: 'Ich entwickle aktiv einen spielerischen Weg, alltägliche Fortschritte zum Abenteuer zu machen – mit täglichen Quests, sechs Lebensbereichen und sammelbaren Begleitern.',
   },
-  'work.questime.type': { en: 'Next big project', de: 'Nächstes großes Projekt' },
+  'work.questime.type': { en: 'Current focus · Newest project', de: 'Aktueller Fokus · Neuestes Projekt' },
   'work.robustabgabe.body': {
     en: 'Uses agentic AI to automate assignment review, assess student submissions against rubrics, and draft feedback.',
     de: 'Nutzt agentische KI, um Abgaben automatisch anhand von Bewertungskriterien zu prüfen und Feedback zu entwerfen.',
@@ -185,7 +186,7 @@ export const translations = {
   },
 
   // ── Skills ──
-  'skills.eyebrow': { en: '05. Tools',        de: '05. Tools' },
+  'skills.eyebrow': { en: '04. Tools',        de: '04. Tools' },
   'skills.title':   { en: 'Tools I use to ship', de: 'Tools, mit denen ich ausliefere' },
   'skills.frontend.title': { en: 'Frontend',        de: 'Frontend' },
   'skills.frontend.4':     { en: 'Responsive, accessible UI', de: 'Responsive, barrierefreie UI' },
@@ -195,26 +196,26 @@ export const translations = {
   'skills.tooling.3':      { en: 'Vercel · CI/CD pipelines', de: 'Vercel · CI/CD-Pipelines' },
 
   // ── About me ──
-  'aboutMe.eyebrow': { en: '02. About me',   de: '02. Über mich' },
+  'aboutMe.eyebrow': { en: '03. About me',   de: '03. Über mich' },
   'aboutMe.title':   { en: "Hi, I'm Kenvara", de: 'Hallo, ich bin Kenvara' },
   'aboutMe.lead': {
-    en: 'Computer Science at FH Aachen. Indonesian, building in Germany.',
-    de: 'Informatik an der FH Aachen. Indonesier, baue in Deutschland.',
+    en: 'I study Computer Science at FH Aachen and build products across frontend, backend, and applied AI. I care about clear interfaces and the decisions that make software useful.',
+    de: 'Ich studiere Informatik an der FH Aachen und entwickle Produkte über Frontend, Backend und angewandte KI hinweg. Mir sind klare Interfaces und durchdachte Produktentscheidungen wichtig.',
   },
-  'aboutMe.p1.title': { en: 'Lifelong learner', de: 'Lebenslang neugierig' },
+  'aboutMe.p1.title': { en: 'Product thinking', de: 'Produktdenken' },
   'aboutMe.p1.body': {
-    en: 'New stack, new tools, new models - I keep up on my own time.',
-    de: 'Neuer Stack, neue Tools, neue Modelle - ich bleibe in meiner Freizeit dran.',
+    en: 'I start by deciding what problem to solve, what belongs in the MVP, and how the experience should work.',
+    de: 'Ich beginne mit der Frage, welches Problem wir lösen, was ins MVP gehört und wie die Nutzererfahrung funktionieren soll.',
   },
-  'aboutMe.p2.title': { en: 'I take ownership', de: 'Ich übernehme Verantwortung' },
+  'aboutMe.p2.title': { en: 'Engineering breadth', de: 'Breite in der Entwicklung' },
   'aboutMe.p2.body': {
-    en: 'If I shipped it, I answer for it - including when it breaks.',
-    de: 'Was ich ausliefere, verantworte ich - auch dann, wenn es bricht.',
+    en: 'I connect responsive interfaces to APIs, data, authentication, deployment, and practical AI features.',
+    de: 'Ich verbinde responsive Interfaces mit APIs, Daten, Authentifizierung, Deployment und praxisnahen KI-Funktionen.',
   },
-  'aboutMe.p3.title': { en: "I'm passionate and creative", de: 'Ich bin leidenschaftlich und kreativ' },
+  'aboutMe.p3.title': { en: 'From idea to iteration', de: 'Von der Idee zur Weiterentwicklung' },
   'aboutMe.p3.body': {
-    en: 'I bring curiosity and creativity to every project I build.',
-    de: 'Ich bringe Neugier und Kreativität in jedes Projekt ein, das ich entwickle.',
+    en: 'Show Up and Questime are my current focus: one helps people meet offline, the other makes everyday progress more playful.',
+    de: 'Show Up und Questime stehen aktuell im Mittelpunkt: Das eine bringt Menschen offline zusammen, das andere macht Fortschritte im Alltag spielerischer.',
   },
 
   // ── Contact ──
@@ -226,8 +227,8 @@ export const translations = {
     de: 'Reden <span class="mark">wir</span>',
   },
   'contact.body': {
-    en: "I'm looking for a working student role or internship in software engineering, full-stack development, or Applied AI. Email or LinkedIn, whichever is easier.",
-    de: 'Ich suche eine Werkstudentenstelle oder ein Praktikum in Softwareentwicklung, Full-Stack-Entwicklung oder angewandter KI. Per E-Mail oder LinkedIn, wie es dir lieber ist.',
+    en: "I'm open to software engineering, full-stack, frontend, and Applied AI opportunities. If my work fits your team, I'd be glad to talk. Email or LinkedIn, whichever is easier.",
+    de: 'Ich bin offen für Aufgaben in Softwareentwicklung, Full-Stack, Frontend und angewandter KI. Wenn meine Arbeit zu eurem Team passt, freue ich mich über ein Gespräch – per E-Mail oder LinkedIn.',
   },
 
   // ── Footer ──
@@ -237,4 +238,76 @@ export const translations = {
     en: '© <span data-year>2026</span> Kenvara Solivo Lwie. All rights reserved.',
     de: '© <span data-year>2026</span> Kenvara Solivo Lwie. Alle Rechte vorbehalten.',
   },
+
+  // Case studies
+  'case.contact': { en: 'Contact', de: 'Kontakt' },
+  'case.back': { en: '← Back to selected work', de: '← Zurück zu den Projekten' },
+  'case.live': { en: 'Explore live product', de: 'Live-Produkt ansehen' },
+  'case.story': { en: 'Read the story', de: 'Projekt ansehen' },
+  'case.role': { en: 'Role', de: 'Rolle' },
+  'case.scope': { en: 'Scope', de: 'Umfang' },
+  'case.stack': { en: 'Built with', de: 'Technologien' },
+  'case.context': { en: '01 / Context', de: '01 / Kontext' },
+  'case.decisions': { en: '02 / Product decisions', de: '02 / Produktentscheidungen' },
+  'case.result': { en: '03 / What shipped', de: '03 / Ergebnis' },
+  'case.next': { en: 'Next case study', de: 'Nächstes Projekt' },
+  'case.all': { en: 'Selected work', de: 'Ausgewählte Projekte' },
+
+  'show.kicker': { en: 'Independent product · Full-stack engineering', de: 'Eigenständiges Produkt · Full-Stack-Entwicklung' },
+  'show.lede': { en: 'Making it easier to discover plans and meet people offline.', de: 'Pläne entdecken und Menschen offline kennenlernen – einfacher gemacht.' },
+  'show.summary': { en: 'I took Show Up from product concept through UX, branding, frontend, backend, deployment, and iteration.', de: 'Ich habe Show Up von der Produktidee über UX, Branding, Frontend und Backend bis zum Deployment und zur Weiterentwicklung umgesetzt.' },
+  'show.role': { en: 'Independent creator and engineer', de: 'Eigenständig konzipiert und entwickelt' },
+  'show.scope': { en: 'Product · UX · Frontend · Backend · Deployment', de: 'Produkt · UX · Frontend · Backend · Deployment' },
+  'show.context.title': { en: 'From online discovery to showing up in person.', de: 'Von der Online-Entdeckung zum Treffen vor Ort.' },
+  'show.context.body': { en: 'Show Up is a social app built around a simple idea: help people find plans worth joining and meet others offline. I shaped the concept and the experience, then built and deployed the working product myself.', de: 'Show Up basiert auf einer einfachen Idee: Menschen sollen passende Pläne finden und sich offline treffen können. Ich habe Konzept und Nutzererfahrung gestaltet und das funktionierende Produkt eigenständig entwickelt und veröffentlicht.' },
+  'show.decisions.title': { en: 'An MVP focused on the next real-world step.', de: 'Ein MVP mit Fokus auf den nächsten Schritt im echten Leben.' },
+  'show.d1.title': { en: 'Start with plans', de: 'Pläne in den Mittelpunkt' },
+  'show.d1.body': { en: 'Make discovering something to do the center of the experience, so the product has a clear purpose from the first screen.', de: 'Die Suche nach Aktivitäten steht im Mittelpunkt, damit der Zweck des Produkts vom ersten Bildschirm an klar ist.' },
+  'show.d2.title': { en: 'Keep the experience approachable', de: 'Einfach zugänglich gestalten' },
+  'show.d2.body': { en: 'Use clear language, considered visual design, and responsive flows to reduce friction between interest and action.', de: 'Klare Sprache, durchdachtes Design und responsive Abläufe verringern die Hürde zwischen Interesse und Teilnahme.' },
+  'show.d3.title': { en: 'Own the whole journey', de: 'Den ganzen Weg verantworten' },
+  'show.d3.body': { en: 'Connect product decisions to implementation, deployment, and iteration instead of treating the interface as a standalone mockup.', de: 'Produktentscheidungen mit Implementierung, Deployment und Weiterentwicklung verbinden – über einen reinen Prototyp hinaus.' },
+  'show.result.title': { en: 'A live product, built end to end.', de: 'Ein Live-Produkt, vollständig umgesetzt.' },
+  'show.result.body': { en: 'Show Up is the clearest example of how I work: define the product, design the experience, build the system, put it online, and keep improving it.', de: 'Show Up zeigt meine Arbeitsweise: Produkt definieren, Nutzererfahrung gestalten, System entwickeln, veröffentlichen und weiter verbessern.' },
+  'show.next.body': { en: 'A playful take on everyday growth, built around quests and companions.', de: 'Ein spielerischer Ansatz für persönliche Entwicklung mit Quests und Begleitern.' },
+
+  'quest.kicker': { en: 'Current focus · My newest project', de: 'Aktueller Fokus · Mein neuestes Projekt' },
+  'quest.lede': { en: 'A more playful way to make progress in everyday life.', de: 'Ein spielerischerer Weg zu Fortschritten im Alltag.' },
+  'quest.summary': { en: "Questime turns personal growth into an adventure with daily quests, six life paths, and collectible companions. It's one of the products I'm actively working on most.", de: 'Questime macht persönliche Entwicklung mit täglichen Quests, sechs Lebensbereichen und sammelbaren Begleitern zum Abenteuer. Es ist eines der Produkte, an denen ich derzeit am meisten arbeite.' },
+  'quest.fact1.label': { en: 'Status', de: 'Status' },
+  'quest.fact1.value': { en: 'Live and actively evolving', de: 'Live und in aktiver Weiterentwicklung' },
+  'quest.fact2.label': { en: 'Core experience', de: 'Kern des Erlebnisses' },
+  'quest.fact2.value': { en: 'Daily quests · Six life paths · Companions', de: 'Tägliche Quests · Sechs Lebensbereiche · Begleiter' },
+  'quest.fact3.label': { en: 'Focus', de: 'Fokus' },
+  'quest.fact3.value': { en: 'Making everyday growth engaging', de: 'Persönliche Entwicklung motivierender gestalten' },
+  'quest.context.title': { en: 'Small actions should feel like progress.', de: 'Kleine Schritte sollen sich wie Fortschritt anfühlen.' },
+  'quest.context.body': { en: 'Questime brings game-like structure to everyday goals. Instead of presenting growth as a plain checklist, it gives people quests to complete, paths to explore, and companions to collect along the way.', de: 'Questime bringt spielerische Struktur in alltägliche Ziele. Statt persönlicher Entwicklung als einfacher Checkliste gibt es Quests, Wege zum Erkunden und Begleiter zum Sammeln.' },
+  'quest.decisions.title': { en: 'A simple loop with room to explore.', de: 'Ein einfacher Ablauf mit Raum zum Entdecken.' },
+  'quest.d1.title': { en: 'Make it daily', de: 'Täglich dranbleiben' },
+  'quest.d1.body': { en: 'Daily quests give the experience a concrete next action and make progress easier to return to.', de: 'Tägliche Quests geben eine konkrete nächste Aufgabe und machen es leichter, zum eigenen Fortschritt zurückzukehren.' },
+  'quest.d2.title': { en: 'Give growth direction', de: 'Entwicklung eine Richtung geben' },
+  'quest.d2.body': { en: 'Six life paths let people explore different areas of growth within one coherent product.', de: 'Sechs Lebensbereiche ermöglichen es, unterschiedliche Seiten der persönlichen Entwicklung in einem Produkt zu erkunden.' },
+  'quest.d3.title': { en: 'Make it memorable', de: 'In Erinnerung bleiben' },
+  'quest.d3.body': { en: 'Collectible companions bring personality and a sense of discovery to the journey.', de: 'Sammelbare Begleiter geben dem Weg Persönlichkeit und ein Gefühl von Entdeckung.' },
+  'quest.result.title': { en: 'A live product I keep building.', de: 'Ein Live-Produkt, an dem ich weiterarbeite.' },
+  'quest.result.body': { en: "Questime is live, and I'm continuing to work on how its quests, paths, and companions come together as one experience. It's my newest and most playful project.", de: 'Questime ist live. Ich arbeite weiter daran, wie Quests, Lebensbereiche und Begleiter zu einem stimmigen Erlebnis werden. Es ist mein neuestes und spielerischstes Projekt.' },
+  'quest.next.body': { en: 'An AI commerce product built with a four-person team.', de: 'Ein KI-Produkt für E-Commerce, entwickelt im Viererteam.' },
+
+  'chat.kicker': { en: 'Team of four · Applied AI commerce', de: 'Viererteam · Angewandte KI im E-Commerce' },
+  'chat.lede': { en: 'A conversational storefront that helps shoppers get from questions to checkout.', de: 'Ein Conversational Storefront, der Kunden von Fragen bis zum Checkout begleitet.' },
+  'chat.summary': { en: 'Built with a four-person team, Chattrolley connects an AI sales assistant to store data so it can recommend products, check inventory, display relevant items, and direct customers to checkout.', de: 'Chattrolley entstand im Viererteam. Ein KI-Verkaufsassistent nutzt Shop-Daten, empfiehlt Produkte, prüft Verfügbarkeit, zeigt passende Artikel und führt zum Checkout.' },
+  'chat.role': { en: 'Four-person product team', de: 'Produktteam mit vier Personen' },
+  'chat.scope': { en: 'AI assistant · Store data · Product discovery', de: 'KI-Assistent · Shop-Daten · Produktsuche' },
+  'chat.context.title': { en: 'Product discovery is a conversation.', de: 'Produktsuche ist ein Gespräch.' },
+  'chat.context.body': { en: "Shoppers often need help narrowing choices before they are ready to buy. Chattrolley explores how a conversational interface can make that journey clearer while staying connected to a real store's catalog and availability.", de: 'Kunden brauchen oft Hilfe beim Eingrenzen ihrer Auswahl. Chattrolley zeigt, wie ein Dialog diesen Weg erleichtern kann und dabei mit Katalog und Verfügbarkeit eines Shops verbunden bleibt.' },
+  'chat.decisions.title': { en: 'AI grounded in the shopping flow.', de: 'KI eingebettet in den Einkauf.' },
+  'chat.d1.title': { en: 'Use store data', de: 'Shop-Daten nutzen' },
+  'chat.d1.body': { en: 'Recommendations should relate to products the store actually carries, with availability checked as part of the conversation.', de: 'Empfehlungen beziehen sich auf Produkte im Shop; die Verfügbarkeit wird im Gespräch berücksichtigt.' },
+  'chat.d2.title': { en: 'Show the product', de: 'Produkte sichtbar machen' },
+  'chat.d2.body': { en: 'Bring product details into the interface so shoppers can inspect options as the assistant explains them.', de: 'Produktdetails erscheinen direkt im Interface, sodass Kunden Optionen während des Gesprächs ansehen können.' },
+  'chat.d3.title': { en: 'Keep checkout connected', de: 'Checkout anschließen' },
+  'chat.d3.body': { en: 'The conversation is useful when it helps customers make a decision and gives them a clear route to purchase.', de: 'Das Gespräch hilft bei der Entscheidung und bietet einen klaren Weg zum Kauf.' },
+  'chat.result.title': { en: 'A working AI commerce experience.', de: 'Ein funktionierendes KI-Einkaufserlebnis.' },
+  'chat.result.body': { en: 'Chattrolley brings recommendations, inventory checks, product display, and checkout direction into one storefront experience. It remains an early-stage team project.', de: 'Chattrolley verbindet Empfehlungen, Verfügbarkeitsprüfung, Produktanzeige und Weg zum Checkout in einer Storefront. Das Teamprojekt befindet sich noch in einer frühen Phase.' },
+  'chat.next.body': { en: 'An independently built social product, from idea to deployment.', de: 'Ein eigenständig entwickeltes Social-Produkt, von der Idee bis zum Deployment.' },
 };

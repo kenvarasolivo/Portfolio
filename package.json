@@ -10,6 +10,7 @@
     "prebuild": "npm run optimize-images",
     "build": "vite build",
     "preview": "vite preview",
+    "check:content": "node scripts/check-pages.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "devDependencies": {

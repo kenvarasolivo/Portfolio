@@ -48,10 +48,9 @@
 
         <!-- Center links (desktop) -->
         <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
-          <li><a href="#specialty" class="nav-link" data-i18n="nav.specialty">Approach</a></li>
           <li><a href="#work" class="nav-link" data-i18n="nav.work">Projects</a></li>
-          <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#specialty" class="nav-link" data-i18n="nav.specialty">Approach</a></li>
+          <li><a href="#about-me" class="nav-link" data-i18n="nav.aboutMe">About me</a></li>
         </ul>
 
         <!-- Right cluster (desktop): language switch + CTA -->
@@ -89,10 +88,9 @@
         data-mobile-menu
       >
         <ul class="container-x flex flex-col gap-1 py-4">
-          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
-          <li><a href="#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Approach</a></li>
           <li><a href="#work" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.work">Projects</a></li>
-          <li><a href="#skills" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#specialty" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.specialty">Approach</a></li>
+          <li><a href="#about-me" class="block rounded-lg px-3 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900" data-i18n="nav.aboutMe">About me</a></li>
           <li class="flex items-center justify-between gap-3 px-3 pt-3">
             <!-- Language switch (mobile, dark variant) -->
             <div class="lang-switch lang-switch--dark" role="group" aria-label="Language" data-lang-switch>
@@ -106,29 +104,23 @@
     </header>
 
     <main class="home-main">
-      <!-- ═════════════════════════════════════════════════════════════════
-           2 · HERO
-           ═════════════════════════════════════════════════════════════════ -->
       <section id="hero" class="portfolio-hero" data-dark-section>
         <div class="hero-layout">
           <div class="hero-copy">
-            <p class="hero-eyebrow" data-i18n="hero.eyebrow">Software Engineer / Full-Stack Engineer</p>
-            <h1 class="hero-title" data-i18n="hero.title">Building ideas into reality with modern web and AI.</h1>
-            <p class="hero-description" data-i18n="hero.tagline">I'm Ken, a final-year Computer Science student at FH Aachen. I take products from the user experience and frontend through backend systems, deployment, and practical AI features.</p>
+            <p class="hero-eyebrow" data-i18n="hero.eyebrow">Software Engineer · Aachen, Germany</p>
+            <h1 class="hero-title" data-i18n="hero.title">I build complete products, from first idea to shipped software.</h1>
+            <p class="hero-description" data-i18n="hero.tagline">I'm Ken, a final-year Computer Science student at FH Aachen. I design the experience, build the frontend and backend, and apply AI where it makes the product more useful.</p>
             <div class="hero-actions">
-              <a href="#work" class="btn btn-light"><span data-i18n="hero.cta1">View my work</span><span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/kenvarasolivo" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-light">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0Z"/></svg>
-                GitHub
-              </a>
+              <a href="#work" class="btn btn-light"><span data-i18n="hero.cta1">Explore selected work</span><span aria-hidden="true">↗</span></a>
+              <a href="#contact" class="btn btn-ghost-light" data-i18n="hero.cta2">Get in touch</a>
             </div>
           </div>
           <div class="hero-projects">
-            <a class="browser-preview preview-showup" href="https://showup-web.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <a class="browser-preview preview-showup" href="show-up.html">
               <div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Show Up</span><span class="browser-arrow" aria-hidden="true">↗</span></div>
               <img src="images/project_showup.webp" alt="" width="1600" height="782" fetchpriority="high" decoding="async" />
             </a>
-            <a class="browser-preview preview-chattrolley" href="https://www.questime.app/" target="_blank" rel="noopener noreferrer">
+            <a class="browser-preview preview-secondary" href="questime.html">
               <div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Questime</span><span class="browser-arrow" aria-hidden="true">↗</span></div>
               <img src="images/project_questime.webp" alt="" width="1600" height="787" decoding="async" />
             </a>
@@ -136,56 +128,143 @@
         </div>
       </section>
 
-      <!-- ═════════════════════════════════════════════════════════════════
-           3 · TECH STRIP - the stack, straight off the hero, no heading
-           ═════════════════════════════════════════════════════════════════ -->
-      <section class="border-y border-slate-200 py-10" aria-label="Tools and technologies">
-        <!-- marquee: track is duplicated so the loop is seamless. .reveal sits
-             on this wrapper, not on the track - the track's transform is the
-             marquee animation and the two would overwrite each other. -->
-        <div class="reveal relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-          <div class="flex w-max animate-marquee items-center gap-12 whitespace-nowrap px-6 text-lg font-medium text-slate-400">
-            <!-- group 1 -->
-            <span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Python</span>
-            <span>Supabase</span><span>PostgreSQL</span><span>Tailwind CSS</span><span>Docker</span>
-            <span>Vue.js</span><span>Laravel</span><span>Gemini API</span>
-            <!-- group 2 (duplicate for seamless loop) -->
-            <span aria-hidden="true">Next.js</span><span aria-hidden="true">React</span><span aria-hidden="true">TypeScript</span>
-            <span aria-hidden="true">FastAPI</span><span aria-hidden="true">Python</span><span aria-hidden="true">Supabase</span>
-            <span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Tailwind CSS</span><span aria-hidden="true">Docker</span>
-            <span aria-hidden="true">Vue.js</span><span aria-hidden="true">Laravel</span><span aria-hidden="true">Gemini API</span>
+      <section id="work" class="featured-work relative isolate overflow-hidden py-24 sm:py-32 lg:py-40">
+        <!-- Wider than .container-x's 1200px so the showcase still reads as the
+             full-bleed section, but capped: with padding alone the cards grew
+             with the viewport and ran ~1730px across on a 1920 screen. -->
+        <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
+          <!-- Section header, aligned to the card edge -->
+          <div class="reveal mb-12 max-w-3xl">
+            <p class="eyebrow mb-4 text-slate-500" data-i18n="work.eyebrow">01. Selected work</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl" data-i18n="work.title">Featured projects</h2>
+            <p class="mt-5 text-lg text-slate-600" data-i18n="work.subtitle">
+              Products that show how I turn an idea into a useful, working experience.
+            </p>
+          </div>
+
+          <!-- Four featured projects, in portfolio priority order. The full set,
+               grouped, lives on projects.html - see the link below. Each card carries its
+               category's --tint so the colour language survives the split. -->
+          <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
+              <a href="show-up.html" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_showup.webp" alt="Show Up social app preview"
+                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h3 class="project-title">Show Up</h3>
+                  <p class="project-blurb" data-i18n="work.showup.body">
+                    A social app for discovering plans and meeting people offline. I independently shaped the product, designed the experience, and built it end to end.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
+                  <span class="project-link">
+                    <span data-i18n="work.case">Read case study</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(59, 130, 246, 0.18)">
+              <a href="questime.html" class="flex flex-1 flex-col">
+                <div class="project-shot"><img src="images/project_questime.webp" alt="Questime daily quests and companion app" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" /></div>
+                <div class="project-head"><span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span><h3 class="project-title">Questime</h3>
+                  <p class="project-blurb" data-i18n="work.questime.body">I'm actively building a playful way to turn everyday growth into an adventure, with daily quests, six life paths, and collectible companions.</p>
+                  <p class="project-stack" data-i18n="work.questime.type">Current focus · Newest project</p><span class="project-link"><span data-i18n="work.case">Read case study</span></span>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="project-pair">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
+              <a href="chattrolley.html" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_chattrolley.webp" alt="Chattrolley - multilingual AI shopping assistant preview"
+                    class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h3 class="project-title">Chattrolley</h3>
+                  <p class="project-blurb" data-i18n="work.chattrolley.body">
+                    A conversational storefront built with a four-person team. The assistant connects product discovery, inventory, and checkout.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
+                  <span class="project-link">
+                    <span data-i18n="work.case">Read case study</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="reveal project-card group flex flex-col" style="--tint: rgba(244, 63, 94, 0.18)">
+              <div class="project-shot"><img src="images/project_robustabgabe.webp" alt="Robustabgabe submission review platform" class="h-full w-full object-cover object-top" loading="lazy" decoding="async" /></div>
+              <div class="project-head">
+                <span class="pill-dark mb-4" data-i18n="badge.development">In development</span>
+                <h3 class="project-title">Robustabgabe</h3>
+                <p class="project-blurb" data-i18n="work.robustabgabe.body">Uses agentic AI to automate assignment review, assess student submissions against rubrics, and draft feedback.</p>
+                <p class="project-stack" data-i18n="work.robustabgabe.type">FH Aachen practice project</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="reveal mt-14 flex justify-center">
+            <a href="projects.html" class="btn btn-accent">
+              <span data-i18n="work.seeAll">See all my projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- ═════════════════════════════════════════════════════════════════
-           4 · MINDSET - one centred statement, then the words behind it
-           ═════════════════════════════════════════════════════════════════ -->
-      <section id="mindset" class="section">
-        <div class="container-x text-center">
-          <p class="reveal eyebrow mb-8 justify-center" data-i18n="mindset.eyebrow">01. Mindset</p>
-          <!-- Three short lines rather than one long sentence: at this size a
-               wrapping paragraph loses the beat that makes it read as a stance. -->
-          <h2 class="reveal scroll-fill mx-auto max-w-4xl text-balance text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
-              data-scroll-fill data-i18n="mindset.statement">
-            Ship it live.<br />Solve something real.<br />Build it to last.
-          </h2>
-          <ul class="reveal mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-2.5 sm:mt-14 sm:gap-3">
-            <li class="mindset-chip" data-i18n="mindset.k1">Quality product</li>
-            <li class="mindset-chip" data-i18n="mindset.k2">Live in days</li>
-            <li class="mindset-chip" data-i18n="mindset.k3">Real problems</li>
-            <li class="mindset-chip" data-i18n="mindset.k4">Built to scale</li>
-            <li class="mindset-chip" data-i18n="mindset.k5">Automated pipelines</li>
-            <li class="mindset-chip" data-i18n="mindset.k6">End to end</li>
-            <li class="mindset-chip" data-i18n="mindset.k7">MVP first</li>
-            <li class="mindset-chip" data-i18n="mindset.k8">Built around users</li>
+      <section id="specialty" class="section home-specialty" data-dark-section>
+        <div class="container-x">
+          <div class="reveal mb-14 max-w-3xl">
+            <p class="eyebrow mb-4" data-i18n="spec.eyebrow">02. Approach</p>
+            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="spec.title">How I build products</h2>
+          </div>
+
+          <!-- Number, name, and what it actually means. The grid only splits the
+               name from its sub-points at lg; below that they stack, because a
+               heading this size next to a list in half a column just wraps. -->
+          <ul class="border-t border-slate-200">
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">01</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.1.title">
+                Product-minded engineering
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.1.a">Turn ambiguous problems into focused product decisions</li>
+                <li data-i18n="spec.1.b">Design clear user flows, onboarding, and feedback</li>
+              </ul>
+            </li>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">02</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.2.title">
+                Applied AI
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.2.a">Use AI to solve a real user need, not as decoration</li>
+                <li data-i18n="spec.2.b">Build retrieval, structured outputs, and useful tool flows</li>
+              </ul>
+            </li>
+            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
+              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">03</span>
+              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.3.title">
+                End-to-end delivery
+              </h3>
+              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
+                <li data-i18n="spec.3.a">Connect frontend, APIs, databases, and authentication</li>
+                <li data-i18n="spec.3.b">Ship, deploy, and own the details that make a product work</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </section>
 
-      <!-- ═════════════════════════════════════════════════════════════════
-           5 · ABOUT ME - the face, early, before any of the work
-           ═════════════════════════════════════════════════════════════════ -->
       <section id="about-me" class="section home-about">
         <div class="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <!-- Portrait -->
@@ -206,28 +285,28 @@
           <!-- Bio: three claims, each one line. Hairline rules instead of cards,
                so the column stays quiet next to the portrait. -->
           <div class="reveal">
-            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">02. About me</p>
+            <p class="eyebrow mb-4" data-i18n="aboutMe.eyebrow">03. About me</p>
             <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="aboutMe.title">Hi, I'm Kenvara</h2>
             <p class="mt-6 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="aboutMe.lead">
-              Computer Science at FH Aachen. Indonesian, building in Germany.
+              I study Computer Science at FH Aachen and build products across frontend, backend, and applied AI. I care about clear interfaces and the decisions that make software useful.
             </p>
             <ul class="mt-10 max-w-xl">
               <li class="border-t border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p1.title">Lifelong learner</h3>
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p1.title">Product thinking</h3>
                 <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p1.body">
-                  New stack, new tools, new models - I keep up on my own time.
+                  I start by deciding what problem to solve, what belongs in the MVP, and how the experience should work.
                 </p>
               </li>
               <li class="border-t border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p2.title">I take ownership</h3>
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p2.title">Engineering breadth</h3>
                 <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p2.body">
-                  If I shipped it, I answer for it - including when it breaks.
+                  I connect responsive interfaces to APIs, data, authentication, deployment, and practical AI features.
                 </p>
               </li>
               <li class="border-y border-slate-200 py-5">
-                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">I don't wait to be asked</h3>
+                <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">From idea to iteration</h3>
                 <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p3.body">
-                  Most of the work below started as my own project, not a brief.
+                  Show Up and Questime are my current focus: one helps people meet offline, the other makes everyday progress more playful.
                 </p>
               </li>
             </ul>
@@ -239,162 +318,10 @@
         </div>
       </section>
 
-      <!-- ═════════════════════════════════════════════════════════════════
-           6 · SPECIALTY - what I am good at, as a list not a card grid
-           ═════════════════════════════════════════════════════════════════ -->
-      <section id="specialty" class="section home-specialty" data-dark-section>
-        <div class="container-x">
-          <div class="reveal mb-14 max-w-3xl">
-            <p class="eyebrow mb-4" data-i18n="spec.eyebrow">03. Approach</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="spec.title">How I build products</h2>
-          </div>
-
-          <!-- Number, name, and what it actually means. The grid only splits the
-               name from its sub-points at lg; below that they stack, because a
-               heading this size next to a list in half a column just wraps. -->
-          <ul class="border-t border-slate-200">
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">01</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.1.title">
-                Product-minded engineering
-              </h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.1.a">Turn ambiguous problems into focused product decisions</li>
-                <li data-i18n="spec.1.b">Design clear user flows, onboarding, and feedback</li>
-                <li data-i18n="spec.1.c">Build accessible, responsive interfaces that feel considered</li>
-              </ul>
-            </li>
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">02</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.2.title">
-                Applied AI
-              </h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.2.a">Use AI to solve a real user need, not as decoration</li>
-                <li data-i18n="spec.2.b">Build retrieval, structured outputs, and useful tool flows</li>
-                <li data-i18n="spec.2.c">Keep AI interactions clear, grounded, and integrated into the product</li>
-              </ul>
-            </li>
-            <li class="reveal grid gap-3 border-b border-slate-200 py-9 sm:grid-cols-[3rem_1fr] sm:gap-x-6 lg:grid-cols-[4rem_1.15fr_1fr] lg:gap-x-10 lg:py-12">
-              <span class="text-sm font-semibold tabular-nums text-slate-400 sm:pt-2">03</span>
-              <h3 class="text-balance text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl" data-i18n="spec.3.title">
-                End-to-end delivery
-              </h3>
-              <ul class="space-y-2 font-medium text-slate-600 sm:col-start-2 lg:col-start-3 lg:pt-2">
-                <li data-i18n="spec.3.a">Connect frontend, APIs, databases, and authentication</li>
-                <li data-i18n="spec.3.b">Ship, deploy, and own the details that make a product work</li>
-                <li data-i18n="spec.3.c">Test quickly, learn from use, and iterate deliberately</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ═════════════════════════════════════════════════════════════════
-           7 · PROJECTS - runs on black, full-bleed, two per row
-           ═════════════════════════════════════════════════════════════════ -->
-      <!-- The white page ends here, on a hard edge. Black then runs unbroken
-           through skills and the contact band into the footer - one surface,
-           no gradient washes, no seams inside it. -->
-      <section id="work" class="featured-work relative isolate overflow-hidden py-24 sm:py-32 lg:py-40">
-        <!-- Wider than .container-x's 1200px so the showcase still reads as the
-             full-bleed section, but capped: with padding alone the cards grew
-             with the viewport and ran ~1730px across on a 1920 screen. -->
-        <div class="mx-auto w-full max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
-          <!-- Section header, aligned to the card edge -->
-          <div class="reveal mb-12 max-w-3xl">
-            <p class="eyebrow mb-4 text-slate-500" data-i18n="work.eyebrow">04. Work</p>
-            <h2 class="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl" data-i18n="work.title">Featured projects</h2>
-            <p class="mt-5 text-lg text-slate-600" data-i18n="work.subtitle">
-              Four I’m proudest of. The rest are one click away.
-            </p>
-          </div>
-
-          <!-- Four featured projects, in portfolio priority order. The full set,
-               grouped, lives on projects.html - see the link below. Each card carries its
-               category's --tint so the colour language survives the split. -->
-          <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
-              <a href="https://showup-web.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
-                <div class="project-shot">
-                  <img src="images/project_showup.webp" alt="Showup - hyperlocal recurring clubs discovery preview"
-                    class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
-                <div class="project-head">
-                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h4 class="project-title">Showup</h4>
-                  <p class="project-blurb" data-i18n="work.showup.body">
-                    A social app for discovering plans and meeting people offline.
-                  </p>
-                  <p class="project-stack">Next.js · TypeScript · Neon Postgres · MapLibre</p>
-                  <span class="project-link">
-                    <span data-i18n="work.view">View project</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                </div>
-              </a>
-            </article>
-
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
-              <a href="https://chattrolley.vercel.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
-                <div class="project-shot">
-                  <img src="images/project_chattrolley.webp" alt="Chattrolley - multilingual AI shopping assistant preview"
-                    class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
-                <div class="project-head">
-                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h4 class="project-title">Chattrolley</h4>
-                  <p class="project-blurb" data-i18n="work.chattrolley.body">
-                    An AI sales assistant that recommends products, checks inventory, and directs customers to checkout.
-                  </p>
-                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
-                  <span class="project-link">
-                    <span data-i18n="work.view">View project</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="project-pair">
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(59, 130, 246, 0.18)">
-              <a href="https://www.questime.app/" target="_blank" rel="noopener" class="flex flex-1 flex-col">
-                <div class="project-shot"><img src="images/project_questime.webp" alt="Questime daily quests and companion app" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" /></div>
-                <div class="project-head"><span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span><h4 class="project-title">Questime</h4>
-                  <p class="project-blurb" data-i18n="work.questime.body">Turns everyday growth into an adventure with daily quests, six life paths, and collectible companions.</p>
-                  <p class="project-stack" data-i18n="work.questime.type">Next big project</p><span class="project-link"><span data-i18n="work.view">View project</span></span>
-                </div>
-              </a>
-            </article>
-
-            <article class="reveal project-card group flex flex-col" style="--tint: rgba(244, 63, 94, 0.18)">
-              <div class="project-shot"><img src="images/project_robustabgabe.webp" alt="Robustabgabe submission review platform" class="h-full w-full object-cover object-top" loading="lazy" decoding="async" /></div>
-              <div class="project-head">
-                <span class="pill-dark mb-4" data-i18n="badge.development">In development</span>
-                <h4 class="project-title">Robustabgabe</h4>
-                <p class="project-blurb" data-i18n="work.robustabgabe.body">Uses agentic AI to automate assignment review, assess student submissions against rubrics, and draft feedback.</p>
-                <p class="project-stack" data-i18n="work.robustabgabe.type">FH Aachen practice project</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="reveal mt-14 flex justify-center">
-            <a href="projects.html" class="btn btn-accent">
-              <span data-i18n="work.seeAll">See all my projects</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═════════════════════════════════════════════════════════════════
-           8 · SKILLS & TOOLS
-           ═════════════════════════════════════════════════════════════════ -->
       <section id="skills" class="section bg-black text-white home-skills" data-dark-section>
         <div class="container-x">
           <div class="reveal mb-12">
-            <p class="eyebrow mb-4 text-white/70" data-i18n="skills.eyebrow">05. Tools</p>
+            <p class="eyebrow mb-4 text-white/70" data-i18n="skills.eyebrow">04. Tools</p>
             <h2 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="skills.title">Tools I use to ship</h2>
           </div>
 
@@ -442,11 +369,6 @@
         </div>
       </section>
 
-      <!-- ═════════════════════════════════════════════════════════════════
-           9 · CTA BAND
-           ═════════════════════════════════════════════════════════════════ -->
-      <!-- The black run ends at the skills section above; this comes back onto
-           the white page, and the footer below picks the blue up again. -->
       <section id="contact" class="bg-white">
         <div class="container-x py-28 text-center sm:py-32 lg:py-40">
           <p class="reveal eyebrow mb-6 justify-center" data-i18n="contact.eyebrow">Contact</p>
@@ -457,8 +379,7 @@
             Let's <span class="mark">talk</span>
           </h2>
           <p class="reveal mx-auto mt-7 max-w-xl text-lg font-medium leading-relaxed text-slate-700" data-i18n="contact.body">
-            I'm looking for a working student role or internship in software engineering, full-stack development, or Applied AI.
-            Email or LinkedIn, whichever is easier.
+            I'm open to software engineering, full-stack, frontend, and Applied AI opportunities. If my work fits your team, I'd be glad to talk. Email or LinkedIn, whichever is easier.
           </p>
           <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
             <a href="mailto:kenvara.solivo@gmail.com" class="btn btn-accent">

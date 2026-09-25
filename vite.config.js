@@ -42,6 +42,9 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         projects: path.resolve(__dirname, 'projects.html'),
+        showUp: path.resolve(__dirname, 'show-up.html'),
+        questime: path.resolve(__dirname, 'questime.html'),
+        chattrolley: path.resolve(__dirname, 'chattrolley.html'),
       },
     },
   },

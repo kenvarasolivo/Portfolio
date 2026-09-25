@@ -2,7 +2,7 @@
 
 ![Portfolio screenshot](docs/screenshot.png)
 
-The personal portfolio of Kenvara Solivo Lwie - a CS student and full-stack & AI software engineer. A fast, single-page site built to showcase selected work, skills, and a way to get in touch.
+The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and software engineer building full-stack products with Applied AI. The homepage leads with Show Up and Questime, followed by Chattrolley, and each has a focused case study.
 
 ---
 
@@ -10,8 +10,8 @@ The personal portfolio of Kenvara Solivo Lwie - a CS student and full-stack & AI
 
 *   **Responsive Design:** Fully optimized for mobile, tablet, and desktop views.
 *   **Bilingual (EN / DE):** In-page language switch powered by a lightweight `data-i18n` system - no reload, no framework.
-*   **Project-led homepage:** A web and applied-AI hero with linked project previews, followed by selected work and concise project decisions.
-*   **Responsive interactions:** Scroll reveals, keyboard navigation, a mobile menu, and reduced-motion support.
+*   **Project-led homepage:** Selected work follows the hero, with clear paths to contact and three focused case studies.
+*   **Responsive interactions:** Keyboard navigation, a mobile menu, restrained scroll reveals, and reduced-motion support.
 *   **Fast & SEO-friendly:** Vite-built static output, optimized images (`sharp`), lazy-loaded assets, and Open Graph + meta tags for rich link previews.
 
 ---
@@ -60,6 +60,7 @@ npm -v
 | ------------------------- | ------------------------------------------------------ |
 | `npm run dev`             | Start the Vite dev server with hot-reload.             |
 | `npm run build`           | Build the production site into `dist/`.                |
+| `npm run check:content`   | Check translation keys and local links on all five pages. |
 | `npm run preview`         | Preview the production build locally.                  |
 | `npm run optimize-images` | Optimize images in place via `scripts/optimize-images.mjs`. |
 
@@ -69,9 +70,14 @@ npm -v
 
 ```
 .
-├── index.html              # Single-page markup (nav, hero, work, skills, contact)
+├── index.html              # Project-led homepage
+├── projects.html           # Full project archive
+├── show-up.html            # Show Up case study
+├── questime.html           # Questime case study
+├── chattrolley.html        # Chattrolley case study
 ├── src/
-│   ├── main.js             # Interactions: nav, scroll reveal, language switch
+│   ├── main.js             # Homepage/archive interactions and language switch
+│   ├── case-study.js       # Case-study language switch
 │   ├── i18n.js             # EN / DE translation strings
 │   └── style.css           # Tailwind layers + custom styles
 ├── scripts/
