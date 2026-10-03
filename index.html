@@ -120,9 +120,9 @@
               <div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Show Up</span><span class="browser-arrow" aria-hidden="true">↗</span></div>
               <img src="images/project_showup.webp" alt="" width="1600" height="782" fetchpriority="high" decoding="async" />
             </a>
-            <a class="browser-preview preview-secondary" href="questime.html">
-              <div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Questime</span><span class="browser-arrow" aria-hidden="true">↗</span></div>
-              <img src="images/project_questime.webp" alt="" width="1600" height="787" decoding="async" />
+            <a class="browser-preview preview-secondary" href="chattrolley.html">
+              <div class="browser-bar"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Chattrolley</span><span class="browser-arrow" aria-hidden="true">↗</span></div>
+              <img src="images/project_chattrolley.webp" alt="" width="1600" height="787" decoding="async" />
             </a>
           </div>
         </div>
@@ -146,6 +146,27 @@
                grouped, lives on projects.html - see the link below. Each card carries its
                category's --tint so the colour language survives the split. -->
           <div class="project-pair mb-4 lg:mb-6 xl:mb-8">
+            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
+              <a href="chattrolley.html" class="flex flex-1 flex-col">
+                <div class="project-shot">
+                  <img src="images/project_chattrolley.webp" alt="Chattrolley - multilingual AI shopping assistant preview"
+                    class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+                </div>
+                <div class="project-head">
+                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
+                  <h3 class="project-title">Chattrolley</h3>
+                  <p class="project-blurb" data-i18n="work.chattrolley.body">
+                    A conversational storefront built with a four-person team. The assistant connects product discovery, inventory, and checkout.
+                  </p>
+                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
+                  <span class="project-link">
+                    <span data-i18n="work.case">Read case study</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+
             <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(16, 185, 129, 0.18)">
               <a href="show-up.html" class="flex flex-1 flex-col">
                 <div class="project-shot">
@@ -166,36 +187,15 @@
                 </div>
               </a>
             </article>
+          </div>
 
+          <div class="project-pair">
             <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(59, 130, 246, 0.18)">
               <a href="questime.html" class="flex flex-1 flex-col">
                 <div class="project-shot"><img src="images/project_questime.webp" alt="Questime daily quests and companion app" class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" /></div>
                 <div class="project-head"><span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span><h3 class="project-title">Questime</h3>
                   <p class="project-blurb" data-i18n="work.questime.body">I'm actively building a playful way to turn everyday growth into an adventure, with daily quests, six life paths, and collectible companions.</p>
                   <p class="project-stack" data-i18n="work.questime.type">Current focus · Newest project</p><span class="project-link"><span data-i18n="work.case">Read case study</span></span>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="project-pair">
-            <article class="reveal project-card project-card--link group flex flex-col" style="--tint: rgba(139, 92, 246, 0.20)">
-              <a href="chattrolley.html" class="flex flex-1 flex-col">
-                <div class="project-shot">
-                  <img src="images/project_chattrolley.webp" alt="Chattrolley - multilingual AI shopping assistant preview"
-                    class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async" />
-                </div>
-                <div class="project-head">
-                  <span class="pill-dark mb-4"><span class="live-dot"></span><span data-i18n="badge.live">Live</span></span>
-                  <h3 class="project-title">Chattrolley</h3>
-                  <p class="project-blurb" data-i18n="work.chattrolley.body">
-                    A conversational storefront built with a four-person team. The assistant connects product discovery, inventory, and checkout.
-                  </p>
-                  <p class="project-stack">Next.js · TypeScript · Gemini · Drizzle</p>
-                  <span class="project-link">
-                    <span data-i18n="work.case">Read case study</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
                 </div>
               </a>
             </article>
@@ -306,7 +306,7 @@
               <li class="border-y border-slate-200 py-5">
                 <h3 class="text-xl font-bold tracking-tight text-slate-900" data-i18n="aboutMe.p3.title">From idea to iteration</h3>
                 <p class="mt-1.5 font-medium leading-relaxed text-slate-600" data-i18n="aboutMe.p3.body">
-                  Show Up and Questime are my current focus: one helps people meet offline, the other makes everyday progress more playful.
+                  Chattrolley and Show Up showcase my work in AI commerce and full-stack product development.
                 </p>
               </li>
             </ul>

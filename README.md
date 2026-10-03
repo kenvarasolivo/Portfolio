@@ -2,7 +2,7 @@
 
 ![Portfolio screenshot](docs/screenshot.png)
 
-The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and software engineer building full-stack products with Applied AI. The homepage leads with Show Up and Questime, followed by Chattrolley, and each has a focused case study.
+The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and software engineer building full-stack products with Applied AI. The homepage leads with Chattrolley and Show Up, followed by Questime, and each has a focused case study.
 
 ---
 

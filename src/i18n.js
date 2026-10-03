@@ -214,8 +214,8 @@ export const translations = {
   },
   'aboutMe.p3.title': { en: 'From idea to iteration', de: 'Von der Idee zur Weiterentwicklung' },
   'aboutMe.p3.body': {
-    en: 'Show Up and Questime are my current focus: one helps people meet offline, the other makes everyday progress more playful.',
-    de: 'Show Up und Questime stehen aktuell im Mittelpunkt: Das eine bringt Menschen offline zusammen, das andere macht Fortschritte im Alltag spielerischer.',
+    en: 'Chattrolley and Show Up showcase my work in AI commerce and full-stack product development.',
+    de: 'Chattrolley und Show Up zeigen meine Arbeit mit KI im E-Commerce und in der Full-Stack-Produktentwicklung.',
   },
 
   // ── Contact ──
