@@ -112,6 +112,10 @@ export const translations = {
   'work.cat.web':  { en: 'Full-Stack Products',          de: 'Full-Stack-Produkte' },
   'work.cat.data': { en: 'Data Engineering &amp; Analytics', de: 'Data Engineering &amp; Analytics' },
   'work.cat.collab': { en: 'Collaborations', de: 'Kollaborationen' },
+  'work.vocmel.body': {
+    en: 'A bilingual storefront for heritage footwear and goods, with a browsable catalog, product details, and buying guidance.',
+    de: 'Eine zweisprachige Website für Heritage-Schuhe und Accessoires mit einem durchsuchbaren Katalog, Produktdetails und Kaufberatung.',
+  },
   'work.explorations': { en: 'Built for fun', de: 'Aus Spaß gebaut' },
 
   'work.stackpilot.body': {

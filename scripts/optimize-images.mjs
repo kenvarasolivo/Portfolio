@@ -12,7 +12,7 @@
 // image whose .webp was newer than its .png, which broke on CI: actions/checkout
 // stamps every file with the checkout time, so a freshly swapped screenshot
 // looked no newer than the stale .webp committed beside it and the old image
-// shipped. Re-encoding all 13 takes ~2s - far cheaper than shipping the wrong
+// shipped. Re-encoding takes a few seconds - far cheaper than shipping the wrong
 // picture. Don't reintroduce an mtime check.
 import sharp from 'sharp';
 import { readdir, stat } from 'node:fs/promises';
@@ -24,11 +24,11 @@ const IMAGES_DIR = path.resolve('public/images');
 // The two-up project grid renders cards up to ~800px wide; the exploration
 // carousel cards are 360px; the portrait column caps at 384px.
 const MAX_WIDTH = {
-  'Kenvara_Solivo_Lwie.png': 900,
-  'project_cinescope.png': 800,
-  'project_laferrari.png': 800,
-  'project_kanagawa.png': 800,
-  'project_elsewhere.png': 800,
+  'formalken.png': 900,
+  'project/cinescope.png': 800,
+  'project/laferrari.png': 800,
+  'project/kanagawa.png': 800,
+  'project/elsewhere.png': 800,
   _default: 1600,
 };
 
@@ -36,7 +36,21 @@ const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
 
 // Read the directory rather than keep a hand-written list - the old hardcoded
 // one had drifted out of sync with what was actually on disk.
-const sources = (await readdir(IMAGES_DIR)).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort();
+async function findSources(dir, prefix = '') {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const sources = [];
+  for (const entry of entries) {
+    const relative = prefix + entry.name;
+    if (entry.isDirectory()) {
+      sources.push(...await findSources(path.join(dir, entry.name), `${relative}/`));
+    } else if (entry.isFile() && /\.(png|jpe?g)$/i.test(entry.name)) {
+      sources.push(relative);
+    }
+  }
+  return sources;
+}
+
+const sources = (await findSources(IMAGES_DIR)).sort();
 
 let converted = 0;
 let totalBefore = 0;

@@ -8,16 +8,28 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The .png screenshots in public/images are the editable source: you replace
 // one and `npm run build` re-encodes it to .webp (see scripts/optimize-images).
 // But public/ is copied verbatim, so the originals would ship alongside the
-// WebP - ~11 MB of dead weight nobody downloads. Drop them from the output.
+// WebP. Drop them from the output, including project subfolders.
 const stripSourcePngs = () => ({
   name: 'strip-source-pngs',
   apply: 'build',
   async closeBundle() {
     const dir = path.resolve('dist/images');
-    const files = await readdir(dir).catch(() => []);
-    const pngs = files.filter((f) => /\.(png|jpe?g)$/i.test(f));
-    await Promise.all(pngs.map((f) => unlink(path.join(dir, f))));
-    if (pngs.length) console.log(`  stripped ${pngs.length} source images from dist/images`);
+    async function stripSources(folder) {
+      const entries = await readdir(folder, { withFileTypes: true });
+      let count = 0;
+      for (const entry of entries) {
+        const file = path.join(folder, entry.name);
+        if (entry.isDirectory()) {
+          count += await stripSources(file);
+        } else if (entry.isFile() && /\.(png|jpe?g)$/i.test(entry.name)) {
+          await unlink(file);
+          count += 1;
+        }
+      }
+      return count;
+    }
+    const count = await stripSources(dir);
+    if (count) console.log(`  stripped ${count} source images from dist/images`);
   },
 });
 
