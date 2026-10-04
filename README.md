@@ -2,7 +2,7 @@
 
 ![Portfolio screenshot](docs/screenshot.png)
 
-The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and software engineer building full-stack products with Applied AI. The homepage leads with Chattrolley and Show Up, followed by Questime, and each has a focused case study.
+The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and software engineer building full-stack products with Applied AI. Main, Archive, and About me share an editorial design in warm white, black, and dark blue. The homepage leads with Show Up and Chattrolley, followed by Questime and Robustabgabe.
 
 ---
 
@@ -11,7 +11,7 @@ The personal portfolio of Kenvara Solivo Lwie, a Computer Science student and so
 *   **Responsive Design:** Fully optimized for mobile, tablet, and desktop views.
 *   **Bilingual (EN / DE):** In-page language switch powered by a lightweight `data-i18n` system - no reload, no framework.
 *   **Project-led homepage:** Selected work follows the hero, with clear paths to contact and three focused case studies.
-*   **Responsive interactions:** Keyboard navigation, a mobile menu, restrained scroll reveals, and reduced-motion support.
+*   **Responsive interactions:** Keyboard navigation, project category filters, always-visible mobile navigation, and reduced-motion support.
 *   **Fast & SEO-friendly:** Vite-built static output, optimized images (`sharp`), lazy-loaded assets, and Open Graph + meta tags for rich link previews.
 
 ---
@@ -60,7 +60,7 @@ npm -v
 | ------------------------- | ------------------------------------------------------ |
 | `npm run dev`             | Start the Vite dev server with hot-reload.             |
 | `npm run build`           | Build the production site into `dist/`.                |
-| `npm run check:content`   | Check translation keys and local links on all five pages. |
+| `npm run check:content`   | Check translation keys, local links, and anchors on all six pages. |
 | `npm run preview`         | Preview the production build locally.                  |
 | `npm run optimize-images` | Optimize images in place via `scripts/optimize-images.mjs`. |
 

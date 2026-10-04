@@ -1,10 +1,11 @@
 import './case-study.css';
+import './editorial.css';
 import { translations } from './i18n.js';
 
 const supported = ['en', 'de'];
 let saved;
 try { saved = localStorage.getItem('lang'); } catch { /* Storage can be unavailable. */ }
-const initial = supported.includes(saved) ? saved : (navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en');
+const initial = supported.includes(saved) ? saved : 'en';
 
 function applyLanguage(lang) {
   if (!supported.includes(lang)) return;

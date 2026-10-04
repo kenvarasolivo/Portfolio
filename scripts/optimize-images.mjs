@@ -63,12 +63,14 @@ for (const file of sources) {
 
   const srcStat = await stat(src);
 
-  const img = sharp(src);
+  // Honor camera/phone EXIF orientation before removing image metadata.
+  const img = sharp(src).rotate();
   const meta = await img.metadata();
+  const sourceWidth = meta.autoOrient?.width ?? meta.width;
   const maxW = MAX_WIDTH[file] ?? MAX_WIDTH._default;
 
   await img
-    .resize({ width: Math.min(meta.width, maxW), withoutEnlargement: true })
+    .resize({ width: Math.min(sourceWidth, maxW), withoutEnlargement: true })
     .webp({ quality: 78, effort: 6 })
     .toFile(out);
 
@@ -77,8 +79,8 @@ for (const file of sources) {
   totalBefore += srcStat.size;
   totalAfter += after;
   console.log(
-    `  ${file} (${meta.width}px, ${kb(srcStat.size)}) -> ${outName} ` +
-      `(${Math.min(meta.width, maxW)}px, ${kb(after)})  ` +
+    `  ${file} (${sourceWidth}px, ${kb(srcStat.size)}) -> ${outName} ` +
+      `(${Math.min(sourceWidth, maxW)}px, ${kb(after)})  ` +
       `${(100 - (after / srcStat.size) * 100).toFixed(0)}% smaller`,
   );
 }
