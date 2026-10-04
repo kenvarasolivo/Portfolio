@@ -37,7 +37,6 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 180ms ease, visibility 180ms;
 }
 .is-loading body > :not(.page-loader) {
   visibility: hidden;
@@ -47,6 +46,18 @@ body {
   visibility: visible;
   pointer-events: auto;
   transition: none;
+}
+.is-page-entering .page-loader,
+.is-page-leaving .page-loader {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+  will-change: transform;
+}
+.is-page-entering .page-loader-line,
+.is-page-leaving .page-loader-line {
+  visibility: hidden;
 }
 .page-loader-line {
   width: 42px;
@@ -972,11 +983,16 @@ a {
   }
   .hero-portrait {
     order: -1;
+    align-self: start;
+    width: 100%;
     min-height: 0;
-    aspect-ratio: 4/5;
-    max-height: 600px;
   }
   .hero-portrait img {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    max-height: 600px;
     object-position: 50% 46%;
   }
   .hero-baseline {
@@ -1205,49 +1221,21 @@ a {
   }
 }
 
-/* Native navigation keeps normal links, history, and new-tab behavior. */
+/* The curtain spans both documents; content follows with a quieter rise. */
 @media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
+  .is-page-leaving main {
+    animation: page-out 420ms var(--ease-out) both;
   }
-  main {
-    view-transition-name: page-content;
-  }
-  .editorial-nav {
-    view-transition-name: site-navigation;
-  }
-  .is-loading main,
-  .is-loading .editorial-nav {
-    view-transition-name: none;
-  }
-  ::view-transition-group(*) {
-    animation-duration: 320ms;
-    animation-timing-function: var(--ease-out);
-  }
-  ::view-transition-group(page-content) {
-    animation: none;
-  }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-  }
-  ::view-transition-old(page-content) {
-    animation: page-out 140ms ease-out both;
-  }
-  ::view-transition-new(page-content) {
-    animation: page-in 320ms var(--ease-out) both;
-  }
-  ::view-transition-old(site-navigation),
-  ::view-transition-new(site-navigation) {
-    animation-duration: 180ms;
+  .is-page-entering main {
+    animation: page-in 720ms var(--ease-out) both;
   }
 }
 @keyframes page-out {
-  to { opacity: 0; }
+  to { transform: translateY(-32px); }
 }
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(48px); }
+  to { transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,13 +2,6 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const animations = new Set();
 
-// Browsers may skip a native transition during rapid navigation or restoration.
-for (const eventName of ['pageswap', 'pagereveal']) {
-  window.addEventListener(eventName, (event) => {
-    event.viewTransition?.ready.catch(() => {});
-  });
-}
-
 if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
   const observer = new IntersectionObserver((entries) => {
     let stagger = 0;
