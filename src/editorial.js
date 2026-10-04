@@ -1,5 +1,5 @@
-import "./editorial.css";
 import { translations } from "./i18n.js";
+import "./motion.js";
 
 let saved;
 try {

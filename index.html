@@ -15,14 +15,20 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/editorial.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/page-ready.js"></script>
   </head>
   <body class="editorial-page">
+    <div class="page-loader" role="status" aria-label="Loading page">
+      <span aria-hidden="true">kenvarasolivo</span>
+      <span class="page-loader-line" aria-hidden="true"></span>
+    </div>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
     <header class="editorial-nav">
       <nav class="shell nav-inner" aria-label="Primary">
@@ -56,11 +62,9 @@
               Software Engineer · Aachen, Germany
             </p>
             <h1>
-              Kenvara <span class="hero-surname">Solivo Lwie</span
-              ><span class="hero-name-note" data-i18n="edit.call"
-                >[ Call me Ken ]</span
-              >
+              Kenvara <span class="hero-surname">Solivo Lwie</span>
             </h1>
+            <p class="hero-name-note" data-i18n="edit.call">[ Call me Ken ]</p>
             <h2 data-i18n="edit.position">
               Building complete<br />digital products.
             </h2>
@@ -81,10 +85,6 @@
               fetchpriority="high"
               decoding="async"
             />
-            <figcaption>
-              <span data-i18n="edit.perspective">A little perspective.</span
-              ><span>01 / Ken</span>
-            </figcaption>
           </figure>
         </div>
         <div class="hero-baseline">
@@ -231,9 +231,6 @@
               width="900"
               height="1200"
             />
-            <figcaption data-i18n="edit.formal">
-              Kenvara Solivo. Usually just Ken.
-            </figcaption>
           </figure>
           <div class="personal-copy">
             <h2 data-i18n="edit.personal.title">

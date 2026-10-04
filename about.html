@@ -15,14 +15,20 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/editorial.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/page-ready.js"></script>
   </head>
   <body class="editorial-page">
+    <div class="page-loader" role="status" aria-label="Loading page">
+      <span aria-hidden="true">kenvarasolivo</span>
+      <span class="page-loader-line" aria-hidden="true"></span>
+    </div>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
     <header class="editorial-nav">
       <nav class="shell nav-inner" aria-label="Primary">
@@ -72,9 +78,6 @@
             fetchpriority="high"
             decoding="async"
           />
-          <figcaption data-i18n="edit.paris">
-            Away from the keyboard. Paris.
-          </figcaption>
         </figure>
       </section>
       <section id="about-me" class="shell story-section">
