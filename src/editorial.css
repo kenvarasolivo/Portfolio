@@ -145,13 +145,19 @@ a {
   gap: 24px;
 }
 .wordmark {
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: -0.055em;
   white-space: nowrap;
 }
 .wordmark-dot {
-  color: var(--blue);
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 3px;
+  border-radius: 50%;
+  background: var(--blue);
+  vertical-align: baseline;
 }
 .nav-pages {
   display: flex;
@@ -159,7 +165,8 @@ a {
   align-items: center;
 }
 .nav-pages a {
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--muted);
   position: relative;
   padding-block: 10px;
@@ -196,9 +203,12 @@ a {
 }
 .language button {
   border: 0;
+  min-width: 28px;
+  min-height: 44px;
   padding: 4px 0;
   background: none;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--muted);
 }
 .language button.is-active {
@@ -209,8 +219,8 @@ a {
 .nav-contact {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   font-size: 19px;
   transition: color 200ms ease, background 200ms ease, border-color 200ms ease;
@@ -916,20 +926,22 @@ a {
 }
 @media (max-width: 650px) {
   html {
-    scroll-padding-top: 95px;
+    scroll-padding-top: 120px;
   }
   .shell {
     width: calc(100% - 36px);
   }
   .nav-inner {
-    height: 77px;
+    height: auto;
+    min-height: 104px;
+    padding-block: 8px;
     gap: 10px;
     flex-wrap: wrap;
     align-content: center;
-    row-gap: 10px;
+    row-gap: 0;
   }
   .wordmark {
-    font-size: 15px;
+    font-size: 18px;
   }
   .nav-pages {
     order: 3;
@@ -938,16 +950,19 @@ a {
     gap: 30px;
   }
   .nav-pages a {
-    font-size: 11px;
-    padding-block: 0 4px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+    padding-block: 8px;
   }
   .nav-end {
-    gap: 14px;
+    gap: 8px;
   }
   .nav-contact {
-    width: 24px;
-    height: 24px;
-    font-size: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 19px;
   }
   .hero {
     padding-top: 30px;
@@ -991,8 +1006,8 @@ a {
     position: static;
     width: 100%;
     height: auto;
-    aspect-ratio: 4/5;
-    max-height: 600px;
+    aspect-ratio: 4/3;
+    max-height: 320px;
     object-position: 50% 46%;
   }
   .hero-baseline {
